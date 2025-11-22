@@ -36,3 +36,7 @@ jobs:
 
       - name: Build and run tests
         run: ./gradlew build test
+      
+      - name: Build system-programming labs
+        working-directory: system-programming
+        run: make
