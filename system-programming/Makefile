@@ -13,12 +13,16 @@ LAB3_BIN = build/lab3
 LAB4_SRC = lab4/lab4_yaroshchuk_pi_22_1.cpp
 LAB4_BIN = build/lab4
 
-all: lab1 lab2 lab3 lab4
+LAB5_SRC = lab5/lab5_yaroshchuk_pi_22_1.cpp
+LAB5_BIN = build/lab5
+
+all: clean lab1 lab2 lab3 lab4 lab5
 
 lab1: $(LAB1_BIN)
 lab2: $(LAB2_BIN)
 lab3: $(LAB3_BIN)
 lab4: $(LAB4_BIN)
+lab5: $(LAB5_BIN)
 
 $(LAB1_BIN): $(LAB1_SRC) | build_dir
 	$(CXX) $(CXXFLAGS) -o $(LAB1_BIN) $(LAB1_SRC)
@@ -31,6 +35,9 @@ $(LAB3_BIN): $(LAB3_SRC) | build_dir
 
 $(LAB4_BIN): $(LAB4_SRC) | build_dir
 	$(CXX) $(CXXFLAGS) -o $(LAB4_BIN) $(LAB4_SRC)
+
+$(LAB5_BIN): $(LAB5_SRC) | build_dir
+	$(CXX) $(CXXFLAGS) -o $(LAB5_BIN) $(LAB5_SRC)
 
 build_dir:
 	mkdir -p build
