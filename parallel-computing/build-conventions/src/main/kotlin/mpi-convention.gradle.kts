@@ -54,9 +54,6 @@ val compileMpi by tasks.registering(Exec::class) {
     )
 }
 
-println("MPI lib path = ${mpiLibPath.get()}")
-
-
 val mpiProcesses: Provider<Int> = project.providers.gradleProperty("mpiProcesses")
     .map { it.toInt() }
     .orElse(4) // default if not specified
