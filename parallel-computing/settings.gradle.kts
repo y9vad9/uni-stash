@@ -1,3 +1,17 @@
 rootProject.name = "uni-stash-parallel-computing"
 
-include(":lab1")
+includeBuild(
+    "build-conventions"
+)
+
+include(
+    ":lab1",
+    ":lab2",
+)
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
