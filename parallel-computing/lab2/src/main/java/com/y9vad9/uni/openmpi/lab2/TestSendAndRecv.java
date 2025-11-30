@@ -1,4 +1,4 @@
-package com.y9vad9.uni.openmpi.lab3;
+package com.y9vad9.uni.openmpi.lab2;
 
 import mpi.MPI;
 import mpi.MPIException;
