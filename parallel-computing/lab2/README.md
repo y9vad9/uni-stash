@@ -1,58 +1,44 @@
-# Лабораторна робота №2 – Hello World Parallel (MPI)
+# Лабораторна робота №2
 
-## Короткий опис
+Цей модуль містить приклади для третьої лабораторної роботи з **паралельних та розподілених обчислень**. Мета роботи –
+продемонструвати роботу **MPI Send/Recv та iSend/iRecv** для обміну повідомленнями між процесами.
 
-Мета роботи – ознайомитися з використанням **MPI для Java**. Клас `HelloWorldParallel` запускається на кількох
-процесорах, і кожен процес виводить свій номер та повідомлення "Hello World".
+https://github.com/user-attachments/assets/38a038be-1217-4954-9d35-dbe20ad039f3
 
-https://github.com/user-attachments/assets/ad88122a-4b22-4d70-b4ec-3ae6d536c20e
+## Опис
 
-## Завдання
+У модулі реалізовані два класи:
 
-Запустити клас з репозиторію:
-[HelloWorldParallel.java](https://bitbucket.org/mathpar/dap01/src/master/src/main/java/com/mathpar/NAUKMA/examples/HelloWorldParallel.java)
+* `TestSendAndRecv` – синхронний обмін повідомленнями між процесами за допомогою `send` та `recv`.
+* `TestISendAndIRecv` – асинхронний обмін повідомленнями за допомогою `iSend` та `recv`.
 
-## Налаштування процесів
+Кожен процес формує або отримує повідомлення у вигляді масиву цілих чисел. Процес з рангом 0 збирає дані від усіх інших
+процесів.
 
-За завданням визначено **4 процеси**:
+Вивід демонструє, які дані були відправлені та отримані кожним процесом.
+
+## Запуск
+
+Для запуску класу використовується Gradle:
+
+```bash
+gradle lab3:runMpiTestSendAndRecv
+gradle lab3:runMpiTestISendAndIRecv
+```
+
+## Налаштування MPI
+
+У `local.properties` слід вказати шляхи до OpenMPI:
+
+```properties
+mpi.bin=/шлях/до/openmpi/bin
+mpi.lib=/шлях/до/openmpi/lib
+```
+
+Кількість процесів задано через `build.gradle.kts`:
 
 ```kotlin
 mpi {
-    processes = 4
-}
-```
-
-* `mpi` доступна через **Gradle Convention Plugin**, який був написаний спеціально для цього проекту – [mpi-convention.gradle.kts](../build-conventions/src/main/kotlin/mpi-convention.gradle.kts).
-
-## Як запустити
-
-Виконати команду у модулі `lab1`:
-
-```bash
-gradle lab1:runMpi
-```
-
-Це запустить програму на **4 процесах**, кожен з яких виведе свій номер.
-
-## Код прикладу
-
-```java
-package com.y9vad9.uni.openmpi.lab2;
-
-import mpi.MPI;
-import mpi.MPIException;
-
-public class HelloWorldParallel {
-    static void main(String[] args) throws MPIException {
-        // Ініціалізація паралельної частини
-        MPI.Init(args);
-
-        // Визначення номера процесора
-        int myRank = MPI.COMM_WORLD.getRank();
-        System.out.println("Proc num " + myRank + " Hello World");
-
-        // Завершення паралельної частини
-        MPI.Finalize();
-    }
+    processes = 8
 }
 ```
