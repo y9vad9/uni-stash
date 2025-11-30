@@ -1,4 +1,4 @@
-# Лабораторна робота №1 – Hello World Parallel (MPI)
+# Лабораторна робота №2 – Hello World Parallel (MPI)
 
 ## Короткий опис
 
@@ -37,7 +37,7 @@ gradle lab1:runMpi
 ## Код прикладу
 
 ```java
-package com.y9vad9.uni.openmpi.lab1;
+package com.y9vad9.uni.openmpi.lab2;
 
 import mpi.MPI;
 import mpi.MPIException;
