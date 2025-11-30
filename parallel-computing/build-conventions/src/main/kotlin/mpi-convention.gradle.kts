@@ -21,56 +21,97 @@ java {
     }
 }
 
+application {
+    mainClass.set("")
+}
 
 abstract class MpiExtension(project: Project) {
     val processes: Property<Int> = project.objects.property(Int::class.java)
         .convention(4)
+    val mainClasses: ListProperty<String> = project.objects.listProperty()
 }
 
 val mpiExtension = project.extensions.create<MpiExtension>("mpi")
 
-val mpiJavaCompiler = providers.environmentVariable("MPI_BIN")
-    .orElse(provider { localProps.getProperty("mpi.bin") + "/mpijavac" })
+afterEvaluate {
+    val mpiJavaCompiler = providers.environmentVariable("MPI_BIN")
+        .orElse(provider { localProps.getProperty("mpi.bin") + "/mpijavac" })
 
-val mpiRun = providers.environmentVariable("MPI_BIN")
-    .orElse(provider { localProps.getProperty("mpi.bin") + "/mpirun" })
+    val mpiRun = providers.environmentVariable("MPI_BIN")
+        .orElse(provider { localProps.getProperty("mpi.bin") + "/mpirun" })
 
-val mpiLibPath = providers.environmentVariable("MPI_LIB")
-    .orElse(provider { localProps.getProperty("mpi.lib") })
+    val mpiLibPath = providers.environmentVariable("MPI_LIB")
+        .orElse(provider { localProps.getProperty("mpi.lib") })
 
-val buildDirMpi = "${layout.buildDirectory.get().asFile.absolutePath}/classes-mpi"
+    val buildDirectory = layout.buildDirectory.get()
+    val buildDirMpi = "${buildDirectory.asFile.absolutePath}/classes-mpi"
+    val mpiJar = rootProject.file("libs/mpi.jar")
 
-val compileMpi by tasks.registering(Exec::class) {
-    val srcFiles = sourceSets.main.get().allJava.files.map { it.absolutePath }
+    val classes = mpiExtension.mainClasses.get().ifEmpty {
+        listOf(application.mainClass.get()).filter { it.isNotBlank() }
+    }
 
-    inputs.files(sourceSets.main.get().allJava)
-    outputs.dir(buildDirMpi)
+    if (classes.size == 1) {
+        val compileMpi by tasks.registering(Exec::class) {
+            val srcFiles = sourceSets.main.get().allJava.files.map { it.absolutePath }
 
-    commandLine(
-        mpiJavaCompiler.get(),
-        "-d", buildDirMpi,
-        "-classpath", sourceSets.main.get().compileClasspath.asPath,
-        *srcFiles.toTypedArray()
-    )
-}
+            inputs.files(sourceSets.main.get().allJava)
+            outputs.dir(buildDirMpi)
 
-val mpiProcesses: Provider<Int> = project.providers.gradleProperty("mpiProcesses")
-    .map { it.toInt() }
-    .orElse(4) // default if not specified
+            commandLine(
+                mpiJavaCompiler.get(),
+                "-d", buildDirMpi,
+                "-classpath", sourceSets.main.get().compileClasspath.asPath + ":" + mpiJar.absolutePath,
+                *srcFiles.toTypedArray()
+            )
+        }
 
-val runMpi by tasks.registering(Exec::class) {
-    dependsOn(compileMpi)
+        tasks.register<Exec>("runMpi") {
+            dependsOn(compileMpi)
+            environment("DYLD_LIBRARY_PATH", mpiLibPath.get())
 
-    environment("DYLD_LIBRARY_PATH", mpiLibPath.get())
+            commandLine(
+                mpiRun.get(),
+                "-np", "${mpiExtension.processes.get()}",
+                "${javaToolchains.launcherFor(java.toolchain).get().executablePath}",
+                "-cp", "$buildDirMpi:${mpiJar.absolutePath}",
+                "-Djava.library.path=${mpiLibPath.get()}",
+                "--enable-native-access=ALL-UNNAMED",
+                classes.first()
+            )
+        }
+    } else {
+        classes.forEach { cls ->
+            val name = cls.substringAfterLast('.')
 
-    val mainCls = application.mainClass.get()
-    commandLine(
-        mpiRun.get(),
-        "-np", "${mpiExtension.processes.get()}",
-        "${javaToolchains.launcherFor(java.toolchain).get().executablePath}",
-        "-cp", "$buildDirMpi:${sourceSets.main.get().runtimeClasspath.asPath}",
-        "-Djava.library.path=${mpiLibPath.get()}",
-        "--enable-native-access=ALL-UNNAMED",
-        mainCls
-    )
+            val compileMpi = tasks.register("compileMpi$name", Exec::class) {
+                val srcFiles = sourceSets.main.get().allJava.files.map { it.absolutePath }
+
+                inputs.files(sourceSets.main.get().allJava)
+                outputs.dir(buildDirMpi)
+
+                commandLine(
+                    mpiJavaCompiler.get(),
+                    "-d", buildDirMpi,
+                    "-classpath", sourceSets.main.get().compileClasspath.asPath + ":" + mpiJar.absolutePath,
+                    *srcFiles.toTypedArray()
+                )
+            }
+
+            tasks.register<Exec>("runMpi$name") {
+                dependsOn(compileMpi)
+                environment("DYLD_LIBRARY_PATH", mpiLibPath.get())
+
+                commandLine(
+                    mpiRun.get(),
+                    "-np", "${mpiExtension.processes.get()}",
+                    "${javaToolchains.launcherFor(java.toolchain).get().executablePath}",
+                    "-cp", "$buildDirMpi:${mpiJar.absolutePath}",
+                    "-Djava.library.path=${mpiLibPath.get()}",
+                    "--enable-native-access=ALL-UNNAMED",
+                    cls
+                )
+            }
+        }
+    }
 }
