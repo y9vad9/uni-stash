@@ -4,10 +4,7 @@ plugins {
 
 group = "com.y9vad9.uni.openmpi.lab1"
 
-application {
-    mainClass.set("com.y9vad9.uni.openmpi.lab1.HelloWorldParallel")
-}
-
-mpi {
+mpi.runnables.create("HelloWorldParallel") {
     processes = 4
+    mainClass = "com.y9vad9.uni.openmpi.lab1.HelloWorldParallel"
 }

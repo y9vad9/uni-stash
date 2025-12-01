@@ -37,7 +37,7 @@ gradle lab1:runMpi
 ## Код прикладу
 
 ```java
-package com.y9vad9.uni.openmpi.lab2;
+package com.y9vad9.uni.openmpi.lab1;
 
 import mpi.MPI;
 import mpi.MPIException;
