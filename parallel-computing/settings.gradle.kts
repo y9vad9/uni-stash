@@ -7,7 +7,8 @@ includeBuild(
 include(
     ":lab1",
     ":lab2",
-    ":lab3"
+    ":lab3",
+    ":lab4",
 )
 
 dependencyResolutionManagement {
