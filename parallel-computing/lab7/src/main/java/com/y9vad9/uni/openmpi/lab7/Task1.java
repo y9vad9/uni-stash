@@ -14,7 +14,7 @@ import java.util.Arrays;
  * Протестуйте програму на 4, 8, 12 процесорах.
  */
 public class Task1 {
-    public static void main(String[] args) throws MPIException, InterruptedException {
+    public static void main(String[] args) throws MPIException {
         MPI.Init(args);
         int rank = MPI.COMM_WORLD.getRank();
         int size = MPI.COMM_WORLD.getSize();
