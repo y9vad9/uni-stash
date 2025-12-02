@@ -53,7 +53,7 @@ gradle lab6:runMpiTestScan
 
 https://github.com/user-attachments/assets/38517b72-5546-49b7-8450-c96230aea965
 
-## Контрольні завдання (оригінальні формулювання)
+## Контрольні завдання
 
 ### 1
 
