@@ -1,0 +1,31 @@
+package com.y9vad9.uni.openmpi.lab6;
+
+import mpi.MPI;
+import mpi.MPIException;
+
+import java.util.Arrays;
+
+public class TestReduceScatter {
+    public static void main(String[] args) throws MPIException {
+        MPI.Init(args);
+
+        int myrank = MPI.COMM_WORLD.getRank();
+        int n = 10;
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++)
+            a[i] = myrank * 10 + i;
+
+        System.out.println("myrank = " + myrank + ":a = " + Arrays.toString(a));
+
+        int[] q = new int[n];
+
+        MPI.COMM_WORLD.reduceScatter(a, q,
+            new int[]{1, 2, 3, 4}, MPI.INT, MPI.SUM);
+
+        if (myrank == 0)
+            System.out.println("myrank = " + myrank + ":q = " + Arrays.toString(q));
+
+        MPI.Finalize();
+    }
+}
