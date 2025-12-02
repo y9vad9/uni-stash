@@ -17,7 +17,7 @@ gradle lab7:runMpiTask1Np12
 
 > Примітка: якщо вказана кількість ядер недоступна, таска не буде існувати.
 
----
+https://github.com/user-attachments/assets/962d67e8-e5b9-414a-aa32-d73e89ffe259
 
 ### 2
 
@@ -33,3 +33,5 @@ gradle lab7:runMpiTask2Np12
 ```
 
 > Примітка: якщо вказана кількість ядер недоступна, таска не буде існувати.
+
+https://github.com/user-attachments/assets/21e41687-7895-4e7f-ac7b-00406a20651f
