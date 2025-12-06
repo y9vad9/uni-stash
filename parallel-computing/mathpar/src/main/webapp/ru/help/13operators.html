@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/13operators.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Список операторов</h1><p></p><p><b> Правило образования наименований математических объектов</b>
+</p><p>Заглавные и строчные буквы всюду различаются. Пользователь может давать любые имена для математических объектов. Однако эти имена не должны совпадать с операторами и константами, которые определены в системе. Кроме того, имена объектов, умножение которых  не коммутативно,  например,  векторов и матриц,  должны начинаться с заглавных латинских букв, а все остальные имена объектов должны начинаться со строчных букв. Это дает возможность сразу после ввода автоматически получать упрощенное выражение.
+</p><p>Приведем список основных операторов системы Mathpar.   </p><p>clean &mdash;   удаление всех введенных имен объектов.  Если в операторе перечислены имена объектов,  то удаляются только объекты с этими именами. 
+</p><p><b> Инфиксные арифметические операторы</b></p><p><b> +</b> &mdash;    сложение;</p><p><b> -</b> &mdash;   вычитание;</p><p><b> /</b> &mdash;   деление;</p><p><b> *</b> &mdash;   умножение (можно использовать пробел вместо знака умножения);</p><p>times &mdash;  некоммутативное умножение. 
+</p><p>
+</p><p><b> Постфиксные арифметические операторы</b></p><p>
+<b> !</b> &mdash;   факториал;</p><p>{ ${x} \widehat{ }{{ }}$} &mdash;   возведение в степень;
+</p><p><b> Инфиксные операторы сравнения.</b></p><p>
+$\mathbf{\backslash le}$ &mdash;   меньше или равно;</p><p><b> &gt;</b> &mdash;   больше;</p><p> $\mathbf{\backslash ge}$ &mdash;  больше или равно;</p><p><b> ==</b> &mdash;    равно;</p><p>$\mathbf{\backslash ne}$ &mdash;  неравно. 
+</p><p><b> Инфиксные логические операторы</b></p><p>
+ $\mathbf{ \backslash lor}$  &mdash;  дизъюнкция;</p><p> $\mathbf{ \backslash  \&amp;}$ &mdash;  конъюнкция;</p><p> $\mathbf{ \backslash neg}$  &mdash;  отрицание. </p><p>
+<b> Основные префиксные операторы</b></p><p> d &mdash;  символ дифференцирования при записи дифференциального уравнения;</p><p> D &mdash;  производная функции: D(f) и D(f, x) &mdash;  первая производная по $x$; $\mathbf D (f, y\widehat{ }{}3)$ &mdash;  третья производная по $y$ и т. д.;</p><p> expand &mdash;  преобразование выражения в сумму с раскрытием всех скобок в выражении;</p><p> fullExpand &mdash;  преобразование в сумму выражения, которое содержит логарифмические, показательные и тригонометрические функции;</p><p> extendedGCD &mdash;  расширенный алгоритм вычисления наибольшего общего делителя (НОД) полиномов.  В результате получается вектор,  содержащий НОД и дополнительные множители аргументов;</p><p> GCD &mdash;  вычисление НОД полиномов;</p><p> factor &mdash;  представление выражения в виде произведения;</p><p> fullFactor &mdash;  представление выражения,  содержащего логарифмические и показательные функции,  в виде произведения;</p><p> initCond &mdash;  задание начальных условий для системы линейных дифференциальных уравнений;</p><p> LCM &mdash;  вычисление наименьшего общего кратного (НОК) полиномов;</p><p> lim &mdash;  предел выражения;</p><p> print &mdash;  печать выражений. Аргументами выступают имена выражений, разделенные запятыми. Каждое выражение будет печататься на новой строке;</p><p> printS &mdash;  печать выражений в одну строчку, для перехода на следующую строчку нужно использовать &lt;&lt;$\backslash$n&gt;&gt;;</p><p> plot &mdash;  построение графика функции, которая задана явно;
+ 
+  plot3D &mdash;  построение графика функции двух переменных, которая задана явно;</p><p> paramPlot &mdash;  построение графика функции, которая задана  параметрически; </p><p>tablePlot &mdash;  построение графика функции,  заданной таблицей аргументов и значений;</p><p> prod &mdash;  произведение (символ $\prod$);</p><p> randomPolynom &mdash;  генерация случайного полинома;</p><p> randomMatrix &mdash;  генерация случайной матрицы;</p><p> randomNumber &mdash;  генерация случайного числа;</p><p> sequence &mdash;  задание последовательности;</p><p> showPlots &mdash;  построение в одной системе координат графиков функций, которые должны быть определены раньше;</p><p> solveLDE &mdash;  решение систем линейных дифференциальных уравнений;</p><p> systLAE &mdash;  задание систем линейных алгебраических уравнений;</p><p> systLDE &mdash;  задание систем линейных дифференциальных уравнений;</p><p> sum &mdash;   сумма (символ $\sum$);</p><p> time &mdash;  определение процессорного времени в миллисекундах;</p><p> value &mdash;  вычисление значение выражения при подстановке заданных выражений или чисел вместо переменных кольца.</p><p> 
+ 
+ <b> Операторы процедуры,  ветвления и цикла</b></p><p> procedure &mdash;  оператор объявления процедуры; 
+ 
+if ( ) {  } else {  } &mdash;  оператор ветвления; </p><p>while (  ) {  } &mdash;  оператор цикла с предусловием; </p><p>for ( ;  ;  ) {  } &mdash;  оператор цикла с счетчиком.  
+</p><p><b> Матрицы, их элементы и матричные операторы</b></p><p>[ ,   ]  &mdash;  задание вектора (строки);</p><p>[[ ,  ], [ ,  ]] &mdash;  задание матрицы;</p><p>
+A_{i,j} &mdash;  (i,j)-элемент матрицы A;  </p><p>A_{i,?} &mdash;   строка i матрицы A; </p><p>A_{?,j} &mdash;  столбец j  матрицы A; </p><p>$\backslash$O_{n,m} &mdash;  нулевая матрица размера $n \times m$ ; </p><p>$\backslash$I_{n,m} &mdash;   $n \times m$ матрица  с единицами на главной диагонали; </p><p>+, -, * &mdash;  сложение,  вычитание,  умножение; </p><p>charPolynom &mdash;   характеристический полином;
+ 
+kernel &mdash;  ядро оператора (нуль-пространство);</p><p>transpose или  $\mathbf{A \widehat{ } {T}}$ &mdash;  транспонированная матрица;
+ 
+conjugate или  $\mathbf{A\widehat{ }{\backslash ast}}$ &mdash;  сопряженная матрица;</p><p>toEchelonForm &mdash;    эшелонная (ступенчатая) форма; </p><p>det &mdash;    определитель;
+ 
+inverse  или  $\mathbf{A\widehat{ }{-1}}$ &mdash;  обратная матрица;</p><p>adjoint  или  $\mathbf{A\widehat{ }{\backslash star}}$ &mdash;  присоединенная матрица;
+ 
+genInverse или $\mathbf{A\widehat{ }{+}}$ &mdash;  обобщенная обратная матрица Мурра-Пенроуза;
+ 
+closure  или $\mathbf{A\widehat{ }{\backslash times}}$ &mdash;  замыкание,  т.е. сумма $I+A+A^2+A^3+&hellip;$. Для классических алгебр это эквивалентно $(I-A)^{-1}$; </p><p>LDU  &mdash;  LDU-представление матрицы. Результат &mdash;  вектор из трёх матриц $[L,D,U]$. Здесь $L$ &mdash;  нижняя треугольная матрица, $U$ &mdash;  верхняя треугольная матрица, 
+$D$ &mdash;  матрица перестановок, умноженная на обратную к диагональной матрицу.</p><p>BruhatDecomposition  &mdash;  разложение Брюа матрицы. Результат &mdash;  вектор из трёх матриц $[V,D,U]$. Здесь  $V$ и $U$ &mdash;  верхние треугольные матрицы, 
+$D$ &mdash;  матрица перестановок, умноженная на матрицу, которая является обратной к диагональной матрице.
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

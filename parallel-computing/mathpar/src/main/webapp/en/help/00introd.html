@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/00introd.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Introduction</h1><p>
+ 
+This guide for language ``Mathpar'' will help you  to solve mathematical problems.
+You could use Mathpar at school and at home, at university and at work. </p><p>You can use it when you wish to do a simple numerical and algebraic operations or to plot functions. </p><p>It will help you to solve problems of different branches of mathematical analysis, algebra, geometry, problems in physics, chemistry, and more.
+ 
+If you are a professional mathematician, you can get rid of the routine calculations and manipulate very large mathematical objects, using supercomputers.   
+ 
+You can operate with functions and functional matrices, to obtain the exact numerical and analytical
+solutions and solutions in which the numerical coefficients have a required  accuracy.</p><p>For the first acquaintance with Mathpar and study of simple functional symbolic-numerical operations it is sufficient to study  the first three chapters. 
+The rules of data entry and running the calculations is described in the second chapter. Designations are given for elementary functions such as logarithm, sine, cosine, etc., and constants &mdash;  $ \pi $, $ e $, $ i $. There are described how to specify a vector and matrix, an arithmetic operations with vectors, the generator of random numbers,   random polynomials and  random  matrices, how to solve an algebraic equation. You can see an example and the results  for each command.</p><p>The third chapter is devoted to the construction of graphs of functions. The system allows you to plot functions defined explicitly, parametrically or points. Moreover, you can build multiple graphs in one coordinate system. This chapter provides commands for plotting and examples of commands.</p><p>The fourth chapter describes how to set the mathematical environment, i.e. a space
+of mathematical objects. At any point the user can change the environment, setting a new algebraic space. Moving from some environment to the current environment, as a rule, should be performed explicitly. In some cases, such a transformation to the current environment is automatic.</p><p>The fifth chapter describes the commands to specify the mathematical functions of one or more variables, their compositions, the calculations of the function at a point, substitution of the function, calculate the limit of a function at a point, symbolic integration compositions of elementary functions.   For each example the results of calculations are given.</p><p>The sixth chapter is devoted to the series. The commands for adding, subtracting, multiplying of series and for the expansion of a function in a Taylor series with a certain number of members are given. We consider some examples.</p><p>The seventh chapter describes the commands for the solution of ordinary differential equations and systems, as well as systems of differential equations with partial derivatives.</p><p>The eighth chapter is devoted to polynomial computations. We consider the evaluation of polynomial at the point, the summation of the polynomial, computation of Gröbner bases of polynomial ideals over the rational numbers. For each command an example is given.</p><p>The ninth chapter describes the calculation of matrix functions. We can find the transposed matrix, the determinant of a matrix, the adjoint and inverse matrix, echelon form of matrix, the kernel, the characteristic polynomial of the matrix, and others.</p><p>The tenth chapter is devoted to the functions of probability theory and mathematical statistics. We can find here how to specify a discrete random variable, the command to calculate the expectation of a discrete random variable, variance, standard deviation, sum and product of two discrete random variables, the coefficient covariance of discrete random variables, the correlation coefficient, the construction of the polygon distribution and the distribution function of a discrete random variable. This chapter describes the commands to specify sampling and computing functions for them: the sample mean, sample variance, factor covariance and correlation coefficient for two samples.</p><p>You can create your procedures and functions. The eleventh chapter describes Mathpar as a procedural programming language with statements, procedures and functions. Examples of written procedures using branching statements and loops statements are given.</p><p>In the twelfth chapter describes the commands that control the computation on a supercomputer.
+In order to solve computational problems that require a lot of computation time or large amounts of memory space you can use special functions, which provide the user with the resources of supercomputer.
+You can compute a Gröbner basis, adjoint matrix, echelon form of the matrix, inverse matrix, determinant, the kernel of a linear operator, the characteristic polynomial, etc.</p><p>In the thirteenth chapter lists the major operators is given.
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

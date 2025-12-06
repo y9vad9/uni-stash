@@ -1,0 +1,699 @@
+\chapter{Matrix functions}
+\section{Calculation of the transposed matrix}
+
+To compute the transpose of the matrix $ A $ must run 
+  \comm{transpose}{(A)} or $ \mathbf {A \widehat {\ }\ \{T \} } $.
+
+\underline{Example. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 2], [4, 5]];
+B=A^{T}; 
+\print(B);
+\end{verbatim}
+%begindelete
+ 
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=A^{T}; $\\
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}1 &4 \\ 2 &5 \end{array}\right)$.} 
+%enddelete
+
+\section{The calculation of adjoint and inverse matrices} 
+\subsection{The calculation of inverse matrix} 
+
+To calculate the inverse matrix for the matrix A, to execute  
+ \comm{inverse}{(A)} or $\mathbf{A\widehat{\ } \{(-1)\}}$. 
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\inverse(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=inverse(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc}(-5)/11 &4/11\\ 4/11 & (-1)/11 \end{array}\right);$}
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x+y, x], [y, \cos(x)]];
+B=\inverse(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y];$\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& x\\ y& cos(x)\\  \end{array}\right);$\\
+\hspace*{4mm} $B=inverse(A); $\\
+\hspace*{4mm} $print(B);$
+}{
+$B =\left(\begin{array}{cc}\frac{\cos(x)}{y\cos(x)+x\cos(x)+(-yx)} &\frac{-x}{y\cos(x)+x\cos(x)+(-yx)}\\ \frac{-y}{(y\cos(x)+x\cos(x)+(-yx)} & y+\frac{x}{(y \cos(x)+x \cos(x)+(-yx)} \end{array}\right).$} 
+%enddelete
+
+\subsection{Calculation of adjoint matrix} 
+To calculate the adjoint matrix for a given matrix $A$  execute 
+\comm{adjoint}{(A)} or
+  $\mathbf{A\widehat{\ }\{\backslash star\}}$. 
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\adjoint(A);  
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=adjoint(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc}5 & -4 \\ -4 &1\end{array}\right) ;$ }
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\adjoint(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=adjoint(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}cos(x) & -sin(x) \\ -sin(y) &cos(y)\end{array}\right)$.}  
+%enddelete
+
+\section{Calculation of the matrix determinant}
+To calculate the determinant of $A$, you must run \comm{det}{(A)}.
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 4\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=det(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B = -11;$} 
+
+%enddelete
+\begin{verbatim}
+SPACE=R[x]; 
+A=[[3, 4], [3, 1]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=R[x];  $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}3& 4\\ 3& 1\end{array}\right); $\\
+\hspace*{4mm} $B=det(A); $\\ 
+\hspace*{4mm} $print(B);$}{
+$B = -9;$}  
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x^2, y], [4, x+y]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y];$\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc}x^2& y\\ 4& x+y\end{array}\right);$\\
+\hspace*{4mm} $B=det(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B = yx^{2}-4y+x^{3};$}
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x+y, \sin(x)], [y, \cos(x)]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y];$\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& sin(x)\\ y& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=det(A);$\\ 
+\hspace*{4mm} $print(B);$}{$B = y\cdot cos(x)+x\cdot cos(x)-y\cdot  sin(x)$.}
+%enddelete
+
+\section{Calculation of the conjugate matrix}
+To calculate the conjugate  matrix, you must run 
+ \comm{conjugate}{(A)} or $\mathbf {A\widehat{\ } \{ \backslash ast\}}$. 
+
+\underline{Example. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=C[x];
+A=[[1+\i, 2-\i], [-3, -2\i]];
+B=A^{\ast};
+\print(B);
+\end{verbatim}
+%begindelete
+ 
+\ex{$SPACE=C[x];$\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1+i& 2-i\\-3& -2i\end{array}\right);$\\
+\hspace*{4mm} $B=A^{\ast};$\\
+\hspace*{4mm} $print(B);$}
+{$
+B = \left(\begin{array}{cc}
+1-1. 0i& -3  \\
+ 2+1. 0i& 2. 0i\\ \end{array}\right). $}
+%enddelete
+
+\section{Calculation of the generalized inverse matrix}
+To compute the generalized inverse  Murr-Penrose matrix must run \\
+\comm{genInverse}{(A)} or $\mathbf{A\widehat{\ } \{+\}}$. 
+
+\underline{Example. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x];
+A=[[1, 4, 5], [2, 4, 5]];
+B=A^{+};
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$\\
+\hspace*{4mm} $A=\left(\begin{array}{ccc}1& 4& 5\\ 2& 4& 5\end{array}\right);$\\
+\hspace*{4mm} $B=A^{+};$\\
+\hspace*{4mm} $print(B);$}
+{$
+B =  \left(\begin{array}{ccc}
+-1& 1& 0\\
+ 8/41&  (-4)/41& 0\\
+ 10/41& (-5)/41& 0\\ \end{array}\right).$}
+%enddelete
+ 
+\section{Computation of the kernel and echelon form}  
+
+\subsection{Computation of the echelon form}  
+To compute the echelon form of the matrix $A$, you should run\\
+\comm{toEchelonForm}{(A)}. 
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\toEchelonForm(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 4\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=toEchelonForm(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}-11 &0 \\ 0 &-11 \end{array}\right);$} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\toEchelonForm(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y]; $\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\ 
+\hspace*{4mm} $B=toEchelonForm(A);$\\ 
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc} cos(y) cos(x)- sin(x) sin(y) &0\\ 0 & cos(y) cos(x)- sin(x) sin(y) \end{array}\right)$.} 
+%enddelete
+ 
+ \subsection{Computation of the kernel} 
+
+To calculate the kernel of matrix $A$, you should run \comm{kernel}{(A)}. 
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 16]];
+B=\kernel(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1& 4\\ 4& 16 \end{array}\right);$\\
+\hspace*{4mm} $B=kernel(A); $\\
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}0 &4\\ 0 &-1 \end{array}\right);$} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x+y, x], [(x+y)x, x^2]];
+B=\kernel(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& x\\ (x+y)x& x^2 \end{array}\right);$\\
+\hspace*{4mm} $B=kernel(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}0 &x\\ 0 &-y-x \end{array}\right)$.} 
+%enddelete
+
+\section{Calculating the characteristic polynomial of matrix}  
+ 
+To calculate the characteristic polynomial of the matrix A with entries in $R[x_1,\ldots,x_m]$, you should give the ring $R[x_1,\ldots,x_m]R[t]$ or $R[t,x_1,\ldots,x_m]$ with some new variable  $t$
+and run  \comm{charPolynom}{(A)}. 
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\charPolynom(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=charPolynom(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B = x^{2}+(-6)x+(-11);$} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]Z[t]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\charPolynom(A); 
+\print(B);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=Z[x, y]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=charPolynom(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B = t^{2}+(-\cos(x)-\cos(y))t+\cos(y)\cos(x)-\sin(x)\sin(y)$.}  
+%enddelete
+
+\section{Calculating LDU-decomposition of the matrix} 
+To calculate the LDU-decomposition of the matrix A, you must run 
+ \comm{LDU}{(A)}. 
+
+ The result is a vector of three matrices $[L,D,U]$. Where $L$ is a lower triangular matrix, $U$~--- upper triangular matrix, 
+$D$~--- permutation matrix, multiplied by the inverse of the diagonal matrix. If the elements of the matrix A are elements of commutative domain R, then 
+elements of  matrices $L$, $D^{-1}$, $U$ are elements of the same domain R.
+
+\underline{Examples. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[0, 1, 0], [4, 5, 1],[1, 1, 1]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{ccc}
+0 & 1&0\\
+ 4& 5&1\\
+ 1&1&1\\ 
+\end{array}\right);$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{ccc}
+ \left(\begin{array}{ccc}
+  4& 0&  0\\
+  0& 4& 0\\
+  -1& 1&  3\\
+\end{array}\right),\ &\ 
+\left(\begin{array}{ccc}
+  0&1/16 &      0\\
+  1/4& 0& 0\\
+  0& 0&   1/12\\
+\end{array}\right),\ &\ 
+\left(\begin{array}{ccc}
+  4& 5&  1\\
+  0& 4& 0\\
+  0& 0& 3\\
+\end{array}\right) 
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{cccc}1 & -4&0&1\\ 4& 5&5&3\\ 1&2&2&2\\ 3&0&0&1\\ \end{array}\right);$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\left(\begin{array}{cccc}1& 0&   0&   0  \\
+ 4& -11& 0&   0 \\
+ 1& -2&  -12& 0  \\
+ 3& -12& 60&  -60\\ 
+\end{array}\right) \\ 
+\null \\ 
+\left(\begin{array}{cccc}1& 0&         0&       0      \\
+ 0& 1/(-11)& 0&       0      \\
+ 0& 0&         1/132& 0      \\
+ 0& 0&         0&       1/720\\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}1& 4&   0&   1  \\
+ 0& -11& 5&   -1 \\
+ 0& 0&   -12& -13\\
+ 0& 0&   0&   -60\\ 
+\end{array}\right)\\
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x,y];$ \\
+\hspace*{4mm} $A=\mtr{\cos(y)}{\sin(x)}{\sin(y)}{\cos(x)}$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\mtr{\cos(y)}{0}{\sin(y)}{\cos(y)\cos(x)+(-\sin(x)\sin(y))}\\
+\null \\
+\mtr{1/\cos(y)}{0}{0}{1/((\cos(y))^2\cos(x)+(-1\cos(y)\sin(x)\sin(y)))}\\
+\null \\
+\mtr{\cos(y)}{\sin(x)}{0}{\cos(y)\cos(x)+(-\sin(x)\sin(y))}\\
+ \end{array}\right].$}
+%enddelete
+
+\section{Calculating Bruhat decomposition of the matrix} 
+To calculate the Bruhat decomposition of the matrix A, you must run 
+ \comm{BruhatDecomposition}{(A)}. 
+
+ The result is a vector of three matrices $[V,D,U]$. Where $V$ and $U$~--- upper triangular matrices, 
+$D$~--- permutation matrix, multiplied by the inverse of the diagonal matrix. If the elements of the matrix $A$ are elements of commutative domain $R$, then 
+elements of  matrices $V$, $D^{-1}$, $U$ are elements of the same domain $R$.
+
+\underline{Examples. }
+
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\BruhatDecomposition(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{cccc}1 & -4&0&1\\ 4& 5&5&3\\ 1&2&2&2\\ 3&0&0&1\\ \end{array}\right);$\\
+\hspace*{4mm} $B=BruhatDecomposition(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\left(\begin{array}{cccc}-24& 0&  12& 1\\
+ 0&   60& 15& 4\\
+ 0&   0&  6&  1\\
+ 0&   0&  0&  3\\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}0&     0&      1/(-144)& 0          \\
+ 0&     0&      0&          1/(-1440)\\
+ 0&     1/18& 0&          0          \\
+ 1/3& 0&      0&          0          \\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}3& 0& 0&   1  \\
+ 0& 6& 6&   5  \\
+ 0& 0& -24& -16\\
+ 0& 0& 0&   60 \\ 
+\end{array}\right) \\ 
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\BruhatDecomposition(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x,y];$ \\
+\hspace*{4mm} $A=\mtr{\cos(y)}{\sin(x)}{\sin(y)}{\cos(x)}$\\
+\hspace*{4mm} $B=BruhatDecomposition(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\mtr{-\cos(y)*\cos(x)+\sin(x)*\sin(y)}{\cos(y)}{0}{\sin(y)}\\
+\null \\
+\mtr{0}{1/(-\cos(y)\sin(y)\cos(x)+\sin(x)(\sin(y))^2)}{1/\sin(y)}{0}\\
+\null \\
+\mtr{\sin(y)}{\cos(x)}{0}{-\cos(y)\cos(x)+\sin(x)\sin(y)}\\
+ \end{array}\right].$
+} 
+%enddelete
+\section{Linear programming}
+Let there be given the objective function $\sum_{j = 1}^n c_j x_j$
+and conditions
+$$\sum_{j = 1}^n a_{ij}x_j\leqslant b_i,\text{ here }i = 1,2,\ldots,m,$$
+$$x_j\geqslant 0,\text{ here }j = 1,2,\ldots,n.$$
+
+We define $m\times n$-matrix $A = (a_{ij})$,
+$ m $-dimensional vector $b = (b_i)$, $n$-dimensional vector $c = (c_j)$ and 
+$n$-dimensional vector $x = (x_j)$.
+
+Then the objective function can be written as
+$c^Tx,$ and and conditions can be written as 
+$$Ax \leqslant b,$$
+$$ x \geqslant 0.$$
+
+For solving linear programming problems, you 
+can use one of the following two commands
+ \comm{SimplexMax}{} or  \comm{SimplexMin}{}. The result is a vector.
+
+Depending on the type of problem you have the following options.
+
+1. To solve the problem
+$$c^Tx \rightarrow max$$
+under conditions
+$$Ax \leqslant b,$$
+$$ x \geqslant 0,$$
+we use the \comm{SimplexMax}{(A, b, c)}.
+
+If the objective function needs to be minimized, , i.e. $$c^Tx \rightarrow min,$$ then we use the  \comm{SimplexMin}{(A, b, c)}.
+
+%begindelete
+\underline{%enddelete
+Example.%begindelete
+}
+%enddelete
+
+We need to maximize the $$3x_1 + x_2 + 2x_3$$
+under the conditions
+$$%begindelete
+  \left\{
+  \begin{array}{c}%enddelete
+   x_1 +  x_2 + 3x_3 \leqslant 30,\ \\
+  2x_1 + 2x_2 + 5x_3 \leqslant 24,\ \\
+  4x_1 +  x_2 + 2x_3 \leqslant 36,\ \\
+   x_1,   x_2,   x_3 \geqslant 0.%begindelete
+  \end{array}
+  \right.%enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A = [[1, 1, 3],[2, 2, 5],[4, 1, 2]];
+  b = [30, 24, 36];
+  c = [ 3,  1,  2];
+  x = \SimplexMax(A, b, c);
+\end{verbatim}
+
+%begindelete
+
+\ex{}
+{[8.0, 4.0, 0.0];}
+%enddelete
+
+2. To solve the problem
+$$c^Tx \rightarrow max$$
+under the conditions
+$$A_1 x\leqslant b_1,$$
+$$A_2 x=         b_2,$$
+$$ x \geqslant 0,$$
+we use the \comm{SimplexMax}{(A_1,A_2, b_1, b_2, c)}.
+
+If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   \comm{SimplexMin}{(A_1,A_2, b_1, b_2, c)}.
+
+%begindelete
+\underline{%enddelete
+Example.%begindelete
+}
+%enddelete
+
+We need to maximize the $$7x_1 + x_3 - 4x_4$$
+
+under the conditions
+$$%begindelete
+  \left\{
+  \begin{array}{c} %enddelete
+   x_1 - x_2 + 2x_3 - x_4 \leqslant  6,\ \\
+  2x_1 + x_2 - x_3 = -1,\ \\
+   x_1,  x_2,   x_3,  x_4 \geqslant  0. %begindelete
+  \end{array}
+  \right. %enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A1 = [[1, -1,  2, -1]];
+  A2 = [[2,  1, -1,  0]];
+  b1 = [ 6];
+  b2 = [-1];
+  c  = [7, 0, 1, -4];
+  x = \SimplexMax(A1, A2, b1, b2, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{[0.8, 0.0, 2.6, 0.0];}
+%enddelete
+
+3. To solve the problem
+$$c^Tx \rightarrow max$$
+under the conditions
+$$A_1 x\leqslant b_1,$$
+$$A_2 x=         b_2,$$
+$$A_3 x\geqslant b_3,$$
+we use the \comm{SimplexMax}{(A_1,A_2, A_3,b_1, b_2, b_3,c)}.
+
+If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   \comm{SimplexMin}{(A_1,A_2, A_3,b_1, b_2, b_3, c)}.
+
+%begindelete
+\underline{%enddelete
+Example.%begindelete
+}
+%enddelete
+
+$$7x_1 + x_3 - 4x_4$$
+We need to maximize the 
+  $$x_1 + x_2$$
+under the conditions
+$$%begindelete
+  \left\{
+  \begin{array}{c} %enddelete
+   4x_1 -  x_2 \leqslant  8,\ \\
+   2x_1 +  x_2 \leqslant 10,\ \\
+  -5x_1 + 2x_2 \geqslant -2,\ \\
+   x_1,    x_2 \geqslant  0.%begindelete
+  \end{array}
+  \right. %enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A1 = [[ 4, -1], [2,  1]];
+  A3 = [[-5,  2]];
+  b1 = [ 8, 10];
+  b3 = [-2];
+  c  = [1, 1];
+  x = \SimplexMax(A1, [[]], A3, b1, [], b3, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{[2.0, 6.0];}
+%enddelete
+
+4. To solve the problem
+$$c^Tx \rightarrow max$$
+in mixed conditions desired by the matrix  $A$ and vector $b$,
+you can use the command \comm{SimplexMax}{(A,signs,b,c)},  
+where an array of integers $ signs $ determines the signs of comparison:
+
+-1 means "less than or equal to",
+
+0 means "equal to", 
+
+1  means "greater than or equal to".
+
+The array $signs$ must contain the same number of elements as the vector $ b $.
+If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   \comm{SimplexMin}{(A,signs,b,c)}.
+
+%begindelete
+\underline{%enddelete
+Example.%begindelete
+}
+%enddelete
+
+We need to minimize the 
+ $$-2x_1-4x_2-2x_3$$
+under the conditions
+
+$$%begindelete
+  \left\{
+  \begin{array}{c}%enddelete
+  -2x_1 +  x_2 +  x_3 \leqslant 4,\ \\
+  - x_1 +  x_2 + 3x_3 \leqslant 6,\ \\
+    x_1 - 3x_2 +  x_3 \leqslant 2,\ \\
+    x_1,   x_2,   x_3 \geqslant 0.%begindelete
+  \end{array}
+  \right.%enddelete
+$$
+In:
+\begin{verbatim}
+  SPACE = R64[];
+  A = [[-2,  1, 1],[-1,  1, 3],[ 1, -3, 1]];   
+  b = [ 4,  6,  2];
+  c = [-2, -4, -2]; 
+  signs = [-1, -1, -1];
+  x = \SimplexMin(A, signs, b, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{ Simplex:\ LP-problem is unbounded!}
+%enddelete
+

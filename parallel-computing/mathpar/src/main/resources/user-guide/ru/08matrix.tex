@@ -1,0 +1,686 @@
+\chapter{Матричные функции}
+\section{Вычисление транспонированной матрицы}
+Для вычисления транспонированной матрицы для матрицы $A$ необходимо выполнить команду 
+ \comm{transpose}{(A)} или $\mathbf{A\widehat{\ } \{T\}}$. 
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 2], [4, 5]];
+B=A^{T}; 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=A^{T}; $\\
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}1 &4 \\ 2 &5 \end{array}\right)$.} 
+%enddelete
+
+\section{Вычисление обратной и присоединенной матрицы }
+\subsection{Вычисление обратной матрицы}
+
+Для вычисления обратной матрицы для матрицы $A$ необходимо выполнить команду  
+ \comm{inverse}{(A)} или $\mathbf{A\widehat{\ } \{(-1)\}}$. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Q[x]; 
+A=[[1, 4], [4, 5]];
+B=\inverse(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+ \ex{$SPACE=Q[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=inverse(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc}(-5)/11 &4/11\\ 4/11 & (-1)/11 \end{array}\right);$}
+
+%enddelete
+\begin{verbatim}
+SPACE=Q[x, y]; 
+A=[[x+y, x], [y, \cos(x)]];
+B=\inverse(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Q[x, y];$\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& x\\ y& cos(x)\\  \end{array}\right);$\\
+\hspace*{4mm} $B=inverse(A); $\\
+\hspace*{4mm} $print(B);$
+}{
+$B =\left(\begin{array}{cc}\frac{\cos(x)}{y\cos(x)+x\cos(x)+(-yx)} &\frac{-x}{y\cos(x)+x\cos(x)+(-yx)}\\ \frac{-y}{(y\cos(x)+x\cos(x)+(-yx)} & y+\frac{x}{(y \cos(x)+x \cos(x)+(-yx)} \end{array}\right).$} 
+%enddelete
+ 
+\subsection{Вычисление присоединенной матрицы}
+Для вычисления присоединенной матрицы для заданной матрицы $A$ необходимо выполнить команду  
+\comm{adjoint}{(A)}
+или  $\mathbf{A\widehat{\ }\{\backslash star\}}$. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\adjoint(A);  
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=adjoint(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc}5 & -4 \\ -4 &1\end{array}\right) ;$ }
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\adjoint(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+ \ex{$SPACE=Z[x, y]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=adjoint(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}cos(x) & -sin(x) \\ -sin(y) &cos(y)\end{array}\right)$.}  
+%enddelete
+
+\section{Вычисление определителя матрицы}
+Для вычисления определителя матрицы A необходимо выполнить команду   \comm{det}{(A)}. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 4\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=det(A); $\\
+\hspace*{4mm} $print(B);$}
+{$B = -11;$} 
+
+%enddelete
+
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x+y, \sin(x)], [y, \cos(x)]];
+B=\det(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+ \ex{$SPACE=Z[x, y];$\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& sin(x)\\ y& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=det(A);$\\ 
+\hspace*{4mm} $print(B);$}{$B = y\cdot cos(x)+x\cdot cos(x)-y\cdot  sin(x)$.}
+%enddelete
+
+\section{Вычисление сопряженной матрицы}
+Для вычисления сопряженной матрицы необходимо выполнить команду  
+ \comm{conjugate}{(A)}  или $\mathbf {A\widehat{\ } \{ \backslash ast\}}$. 
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=C[x];
+A=[[1+\i, 2-\i], [-3, -2\i]];
+B=A^{\ast};
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=C[x];$\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1+i& 2-i\\-3& -2i\end{array}\right);$\\
+\hspace*{4mm} $B=A^{\ast};$\\
+\hspace*{4mm} $print(B);$}
+{$
+B = \left(\begin{array}{cc}
+1-1. 0i& -3  \\
+ 2+1. 0i& 2. 0i\\ \end{array}\right). $}
+%enddelete
+
+\section{Вычисление обобщенной обратной матрицы}
+
+Для вычисления обобщенной обратной матрицы Мурра-Пенроуза необходимо выполнить команду  
+\comm{genInverse}{(A)} или $\mathbf{A\widehat{\ } \{+\}}$. 
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x];
+A=[[1, 4, 5], [2, 4, 5]];
+B=A^{+};
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$\\
+\hspace*{4mm} $A=\left(\begin{array}{ccc}1& 4& 5\\ 2& 4& 5\end{array}\right);$\\
+\hspace*{4mm} $B=A^{+};$\\
+\hspace*{4mm} $print(B);$}
+{$
+B =  \left(\begin{array}{ccc}
+-1& 1& 0\\
+ 8/41&  (-4)/41& 0\\
+ 10/41& (-5)/41& 0\\ \end{array}\right).$}
+%enddelete
+ 
+\section{Вычисление ядра оператора и эшелонной формы}
+
+\subsection{Вычисление эшелонной формы матрицы}
+Для вычисления эшелонной формы матрицы A необходимо выполнить команду  
+ \comm{toEchelonForm}{(A)}. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\toEchelonForm(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 4\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=toEchelonForm(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}-11 &0 \\ 0 &-11 \end{array}\right);$} 
+
+%enddelete 
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\toEchelonForm(A); 
+\print(B);
+\end{verbatim}
+%begindelete 
+
+\ex{$SPACE=Z[x, y]; $\\ 
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\ 
+\hspace*{4mm} $B=toEchelonForm(A);$\\ 
+\hspace*{4mm} $print(B);$}
+{$B =\left(\begin{array}{cc} cos(y) cos(x)- sin(x) sin(y) &0\\ 0 & cos(y) cos(x)- sin(x) sin(y) \end{array}\right)$.} 
+%enddelete
+ 
+ \subsection{Вычисление ядра оператора}
+
+ Для вычисления ядра оператора матрицы A необходимо выполнить команду
+\comm{kernel}{(A)}. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 16]];
+B=\kernel(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1& 4\\ 4& 16 \end{array}\right);$\\
+\hspace*{4mm} $B=kernel(A); $\\
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}0 &4\\ 0 &-1 \end{array}\right);$}
+
+ %enddelete
+\begin{verbatim}
+SPACE=Z[x, y]; 
+A=[[x+y, x], [(x+y)x, x^2]];
+B=\kernel(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}x+y& x\\ (x+y)x& x^2 \end{array}\right);$\\
+\hspace*{4mm} $B=kernel(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B =\left(\begin{array}{cc}0 &x\\ 0 &-y-x \end{array}\right)$.} 
+%enddelete
+
+\section{Вычисление характеристического полинома матрицы}
+
+Для вычисления характеристического полинома матрицы A, элементы которой из $R[x_1,\ldots,x_m]$, необходимо
+задать кольцо полиномов $R[x_1,\ldots,x_m]R[t]$ или $R[t,x_1,\ldots,x_m]$, в котором переменная $t$~--- это
+переменная, по которой строится полином, 
+и выполнить команду \comm{charPolynom}{(A)}.
+Например,если элементы исходной матрицы из кольца Z[x,y],
+то  можно указать Z[x,y]Z[t] или Z[t,x,y].
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\charPolynom(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+%Результат выполнения:\\ 
+\ex{$SPACE=Z[x]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc}1 & 2\\ 4& 5\\ \end{array}\right);$\\
+\hspace*{4mm} $B=charPolynom(A); $\\
+\hspace*{4mm} $print(B);$}
+{
+$B = x^{2}+(-6)x+(-11);$} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x, y]Z[t]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\charPolynom(A); 
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x, y]Z[t]; $\\
+\hspace*{4mm} $A=\left(\begin{array}{cc} cos(y)& sin(x)\\ sin(y)& cos(x)\end{array}\right);$\\
+\hspace*{4mm} $B=adjoint(A);$\\ 
+\hspace*{4mm} $print(B);$}{
+$B = t^{2}+(-\cos(x)-\cos(y))t+\cos(y)\cos(x)-\sin(x)\sin(y)$.}  
+%enddelete
+
+\section{ LDU-разложение} 
+Для вычисления LDU-разложения матрицы $A$, нужно выполнить команду 
+ \comm{LDU}{(A)}. 
+
+Результат~--- это три матриц $[L,D,U]$. Здесь $L$~--- нижняя треугольная матрица, $U$~--- верхняя треугольная матрица, 
+$D$~--- матрица перестановок, умноженная на матрицу, которая является обратной к диагональной матрице. 
+Если элементы матрицы $A$ из коммутативной области $R$, то и элементы матриц $L$, $D^{-1}$, $U$ также принадлежат области $R$.
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[0, 1, 0], [4, 5, 1],[1, 1, 1]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{ccc}
+0 & 1&0\\
+ 4& 5&1\\
+ 1&1&1\\ 
+\end{array}\right);$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{ccc}
+ \left(\begin{array}{ccc}
+  4& 0&  0\\
+  0& 4& 0\\
+  -1& 1&  3\\
+\end{array}\right),\ &\ 
+\left(\begin{array}{ccc}
+  0&1/16 &      0\\
+  1/4& 0& 0\\
+  0& 0&   1/12\\
+\end{array}\right),\ &\ 
+\left(\begin{array}{ccc}
+  4& 5&  1\\
+  0& 4& 0\\
+  0& 0& 3\\
+\end{array}\right) 
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{cccc}1 & -4&0&1\\ 4& 5&5&3\\ 1&2&2&2\\ 3&0&0&1\\ \end{array}\right);$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\left(\begin{array}{cccc}1& 0&   0&   0  \\
+ 4& -11& 0&   0 \\
+ 1& -2&  -12& 0  \\
+ 3& -12& 60&  -60\\ 
+\end{array}\right) \\ 
+\null \\ 
+\left(\begin{array}{cccc}1& 0&         0&       0      \\
+ 0& 1/(-11)& 0&       0      \\
+ 0& 0&         1/132& 0      \\
+ 0& 0&         0&       1/720\\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}1& 4&   0&   1  \\
+ 0& -11& 5&   -1 \\
+ 0& 0&   -12& -13\\
+ 0& 0&   0&   -60\\ 
+\end{array}\right)\\
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\LDU(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x,y];$ \\
+\hspace*{4mm} $A=\mtr{\cos(y)}{\sin(x)}{\sin(y)}{\cos(x)}$\\
+\hspace*{4mm} $B=LDU(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\mtr{\cos(y)}{0}{\sin(y)}{\cos(y)\cos(x)+(-\sin(x)\sin(y))}\\
+\null \\
+\mtr{1/\cos(y)}{0}{0}{1/((\cos(y))^2\cos(x)+(-1\cos(y)\sin(x)\sin(y)))}\\
+\null \\
+\mtr{\cos(y)}{\sin(x)}{0}{\cos(y)\cos(x)+(-\sin(x)\sin(y))}\\
+ \end{array}\right].$}
+%enddelete
+
+\section{Разложение Брюа}
+Для вычисления разложения Брюа матрицы $A$, нужно выполнить команду 
+ \comm{BruhatDecomposition}{(A)}. 
+
+Результат~--- вектор из трёх матриц $[V,D,U]$. Здесь  $V$ и $U$~--- верхние треугольные матрицы, 
+$D$~--- матрица перестановок, умноженная на матрицу, которая является обратной к диагональной матрице. Если элементы матрицы $A$ из коммутативной области $R$, то и элементы матриц $V$, $D^{-1}$, $U$ также принадлежат области $R$.
+
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\BruhatDecomposition(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x];$ \\
+\hspace*{4mm} $A=\left(\begin{array}{cccc}1 & -4&0&1\\ 4& 5&5&3\\ 1&2&2&2\\ 3&0&0&1\\ \end{array}\right);$\\
+\hspace*{4mm} $B=BruhatDecomposition(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\left(\begin{array}{cccc}-24& 0&  12& 1\\
+ 0&   60& 15& 4\\
+ 0&   0&  6&  1\\
+ 0&   0&  0&  3\\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}0&     0&      1/(-144)& 0          \\
+ 0&     0&      0&          1/(-1440)\\
+ 0&     1/18& 0&          0          \\
+ 1/3& 0&      0&          0          \\ 
+\end{array}\right) \\ 
+\null \\
+\left(\begin{array}{cccc}3& 0& 0&   1  \\
+ 0& 6& 6&   5  \\
+ 0& 0& -24& -16\\
+ 0& 0& 0&   60 \\ 
+\end{array}\right) \\ 
+ \end{array}\right].$
+} 
+
+%enddelete
+\begin{verbatim}
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\BruhatDecomposition(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Z[x,y];$ \\
+\hspace*{4mm} $A=\mtr{\cos(y)}{\sin(x)}{\sin(y)}{\cos(x)}$\\
+\hspace*{4mm} $B=BruhatDecomposition(A) $\\
+\hspace*{4mm} $print(B);$}
+{$B = \left[\begin{array}{c}
+\mtr{-\cos(y)*\cos(x)+\sin(x)*\sin(y)}{\cos(y)}{0}{\sin(y)}\\
+\null \\
+\mtr{0}{1/(-\cos(y)\sin(y)\cos(x)+\sin(x)(\sin(y))^2)}{1/\sin(y)}{0}\\
+\null \\
+\mtr{\sin(y)}{\cos(x)}{0}{-\cos(y)\cos(x)+\sin(x)\sin(y)}\\
+ \end{array}\right].$
+} 
+%enddelete
+
+\section{Решение задач линейного программирования}
+Пусть задана целевая функция $\sum_{j = 1}^n c_j x_j$
+и условия
+$$\sum_{j = 1}^n a_{ij}x_j\leqslant b_i,\text{ где }i = 1,2,\ldots,m,$$
+$$x_j\geqslant 0,\text{ где }j = 1,2,\ldots,n.$$
+
+Определим $m\times n$-матрицу $A = (a_{ij})$,
+$m$-мерный вектор $b = (b_i)$, $n$-мерный вектор $c = (c_j)$ и $n$-мерный вектор $x = (x_j)$.
+
+Тогда целевую функцию можно записать в виде 
+$c^Tx,$
+а условия~--- в виде 
+$$Ax \leqslant b,$$
+$$ x \geqslant 0.$$
+
+Для решения задач линейного программирования нужно выполнить команду 
+ \comm{SimplexMax}{} или  \comm{SimplexMin}{}. Результат~--- вектор $x$.
+
+В зависимости от вида задачи возможны следующие варианты вызова команд.
+
+1. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$Ax \leqslant b,$$
+$$ x \geqslant 0,$$
+используем команду \comm{SimplexMax}{(A, b, c)}.
+
+Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду \comm{SimplexMin}{(A, b, c)}.
+
+%begindelete
+\underline{%enddelete
+Пример.%begindelete
+}
+%enddelete
+
+Максимизировать $$3x_1 + x_2 + 2x_3$$
+при условиях
+$$%begindelete
+  \left\{
+  \begin{array}{c}%enddelete
+   x_1 +  x_2 + 3x_3 \leqslant 30,\ \\
+  2x_1 + 2x_2 + 5x_3 \leqslant 24,\ \\
+  4x_1 +  x_2 + 2x_3 \leqslant 36,\ \\
+   x_1,   x_2,   x_3 \geqslant 0.%begindelete
+  \end{array}
+  \right.%enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A = [[1, 1, 3],[2, 2, 5],[4, 1, 2]];
+  b = [30, 24, 36];
+  c = [ 3,  1,  2];
+  x = \SimplexMax(A, b, c);
+\end{verbatim}
+
+%begindelete
+
+\ex{}
+{[8.0, 4.0, 0.0];}
+%enddelete
+
+2. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$A_1 x \leqslant b_1,$$
+$$A_2 x =         b_2,$$
+$$ x \geqslant 0,$$
+используем команду \comm{SimplexMax}{(A_1,A_2, b_1, b_2, c)}.
+
+Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду \comm{SimplexMin}{(A_1,A_2, b_1, b_2, c)}.
+
+%begindelete
+\underline{%enddelete
+Пример.%begindelete
+}
+%enddelete
+
+ Максимизировать $$7x_1 + x_3 - 4x_4$$
+
+при условиях
+$$%begindelete
+  \left\{
+  \begin{array}{c} %enddelete
+   x_1 - x_2 + 2x_3 - x_4 \leqslant  6,\ \\
+  2x_1 + x_2 - x_3 = -1,\ \\
+   x_1,  x_2,   x_3,  x_4 \geqslant  0. %begindelete
+  \end{array}
+  \right. %enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A1 = [[1, -1,  2, -1]];
+  A2 = [[2,  1, -1,  0]];
+  b1 = [ 6];
+  b2 = [-1];
+  c  = [7, 0, 1, -4];
+  x = \SimplexMax(A1, A2, b1, b2, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{[0.8, 0.0, 2.6, 0.0];}
+%enddelete
+
+3. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$A_1 x\leqslant b_1,$$
+$$A_2 x =         b_2,$$
+$$A_3 x\geqslant b_3,$$
+используем команду \comm{SimplexMax}{(A_1,A_2, A_3,b_1, b_2, b_3,c)}.
+
+Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду \comm{SimplexMin}{(A_1,A_2, A_3,b_1, b_2, b_3, c)}.
+
+%begindelete
+\underline{%enddelete
+Пример.%begindelete
+}
+%enddelete
+
+Максимизировать $$x_1 + x_2$$
+
+при условиях
+$$%begindelete
+  \left\{
+  \begin{array}{c} %enddelete
+   4x_1 -  x_2 \leqslant  8,\ \\
+   2x_1 +  x_2 \leqslant 10,\ \\
+  -5x_1 + 2x_2 \geqslant -2,\ \\
+   x_1,    x_2 \geqslant  0.%begindelete
+  \end{array}
+  \right. %enddelete
+$$
+
+\begin{verbatim}
+  SPACE = R64[];
+  A1 = [[ 4, -1], [2,  1]];
+  A3 = [[-5,  2]];
+  b1 = [ 8, 10];
+  b3 = [-2];
+  c  = [1, 1];
+  x = \SimplexMax(A1, [[]], A3, b1, [], b3, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{[2.0, 6.0];}
+%enddelete
+
+4. Для решения   задачи общего вида, как и в предыдущем пункте,
+$$c^Tx \rightarrow max$$ можно обойтись четырьмя параметрами.
+Можно задать матрицу $A$, вектор  $b$, целевую функцию $c$  и
+использовать команду \comm{SimplexMax}{(A,signs,b,c)}, где
+массив целых чисел $signs$ определяет знаки сравнения:
+        -1  обозначает меньше или равно , 0 обозначает равно  и 1  обозначает больше или равно.
+Должно быть в $signs$ столько же чисел, сколько элементов в векторе $b$.
+
+Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду \comm{SimplexMin}{(A,signs,b,c)}.
+
+%begindelete
+\underline{%enddelete
+Пример.%begindelete
+}
+%enddelete
+
+ Минимизировать $$-2x_1-4x_2-2x_3$$
+при условиях
+$$%begindelete
+  \left\{
+  \begin{array}{c}%enddelete
+  -2x_1 +  x_2 +  x_3 \leqslant 4,\ \\
+  - x_1 +  x_2 + 3x_3 \leqslant 6,\ \\
+    x_1 - 3x_2 +  x_3 \leqslant 2,\ \\
+    x_1,   x_2,   x_3 \geqslant 0.%begindelete
+  \end{array}
+  \right.%enddelete
+$$
+In:
+\begin{verbatim}
+  SPACE = R64[];
+  A = [[-2,  1, 1],[-1,  1, 3],[ 1, -3, 1]];   
+  b = [ 4,  6,  2];
+  c = [-2, -4, -2]; 
+  signs = [-1, -1, -1];
+  x = \SimplexMin(A, signs, b, c);
+\end{verbatim}
+%begindelete
+\ex{}
+{ Simplex:\ This problem has no finite solution.}
+%enddelete
+
+
+
+%begindelete
+\section{Контрольные задания}
+В системе Mathpar для матриц $A\in \mathbb{Q}, \ B\in \mathbb{Z}/(17)\mathbb{Z}[x, y] $ $$A =\left(\begin{array}{ccc}3&0 &7\\ 0 &-5&5\\4&17&2\\ \end{array}\right), \ 
+B =\left(\begin{array}{ccc}0 &x&y+1\\ x^2&0 &-y-x \\ x^2+y&-x &-3yx\\ \end{array}\right)$$ вычислите 
+\begin{itemize}
+ \item транспонированную матрицу, 
+ \item определитель, 
+ \item обратную матрицу, 
+ \item присоединенную матрицу, 
+ \item характеристический полином, 
+ \item разложение Брюа, 
+ \item LDU разложение, 
+ \item ядро оператора и эшелонную форму. 
+ \end{itemize}
+%enddelete

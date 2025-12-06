@@ -1,0 +1,1712 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/02plot.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Construction of 2D and 3D plots</h1><p>
+</p><h2 id="0">3.1 Plotting functions</h2><p>
+Mathpar table allows you to build graphics ($tablePlot$), graphs of functions, which are explicitly defined ($plot$) or parametric ($paramPlot$).
+You can build several different graphs in one coordinate system ($showPlots$).</p><p>Setting charting given command set2D().
+If the command set2D() has no parameters, the boundaries for the graphs are calculated automatically, and for explicit functions selected interval
+$[0,1]$ along the horizontal axis. The names of the coordinate axes will be $X$ and $Y$, respectively. Title in the schedule will be absent.</p><p>If the command set2D() user not asked, it is automatically set set2D() with no arguments at the beginning of the session
+the user.</p><p>There are 7 basic options of this command with the following parameters:
+1) set2D() 
+2) set2D(x0, x1); 
+3) set2D(x0, x1, 'title'); 
+4) set2D(x0, x1, y0, y1); 
+5) set2D(x0, x1, y0, y1, 'title'); 
+6) set2D(x0, x1, 'title', 'nameOX', 'nameOY'); 
+7) set2D(x0, x1, y0, y1, 'title', 'nameOX', 'nameOY'). </p><p>Numbers $x0$ and $x1$ $(x0&lt;x1)$ sets the interval along the axis of $OX$. Numbers $y0$ and $y1$ $(x0&lt;x1)$ sets the interval along the axis of $OY$.
+If these parameters are not specified, are calculated automatically. $nameOX$ &mdash;  signature on the axis $OX$, $nameOY$ &mdash;  signature on the axis $OY$, 
+$title$ &mdash;  header graphics.</p><p>In addition, permitted to ask one or two keys that should be the last in the list of options: $BW$ and $ES$.
+$BW$ refers to the construction of Cheraw and white graphics. $ES$ indicates equality zoom scale  $x$ axis ranges from $y$.
+A total of $7*4=28$ different ways to set the parameters environment.</p><p>Character line which is depicted in the graph of each of the functions
+$(plot, tablePlot, paramPlot)$ can be different: the solid line, dotted line, and the line that ends with an arrow.
+To do this, these options are: '$dash$' (dotted line), '$arrow$' (arrows) and a combination of '$dashAndArrow$', which should be at the end of 
+the parameter list of these functions.</p><p>For example, plot( x^2+1, 'dash').</p><p>If several separate graphs have names such as
+P=plot(x^2); Q=tablePlot([[1,2], [3,4]]); in this case they may be represented along with the command showPlots([P, Q]).</p><p>The resulting plot can be downloaded from the site.
+To do this, click on the button $\small \fbox{Download}$, which is located below the graph. The file is on schedule to be downloaded to your computer.</p><p>
+</p><h3>Plots of explicit functions</h3><p> 
+To obtain the plot of an explicit function $f=f(x)$ the command 
+plot(f).
+Other options commands:  
+1) plot(f, [x0, x1]), where $[x0, x1]$ &mdash;  interval along the axis of $OX$; 
+2) plot(f, [x0, x1], 'options'), where $[x0, x1]$ &mdash;  interval along the axis of $OX$, 'options' &mdash;  takes the following values: 
+1)'dash' &mdash;  schedule will be a dashed line;\ 
+2)'arrow' &mdash;   the last point on the graph is drawn with an arrow; 
+3)'dashAndArrow' &mdash;  schedule will be a dashed line and the last point of the graph is drawn with an arrow. 
+3) plot(f, 'options'). 
+You can plot functions with parametric variables. The parametric variables are assigned when you set a environment (see ex.3). </p><p>
+
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, -10, 10);
+f = x^2 + \tg(x^2 - 1); 
+p = \plot(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, -10, 10);
+f = \sin(x); 
+p = \plot([f, \tg(x)]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, 0, 2);
+f = \unitBox(x,3); 
+p = \plot(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, a, b, c];
+\set2D(0, 2\pi, 0, 2);
+\plot(a\sin(bx) + c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+
+<div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, -10, 10,'a','b','title');
+f = x^2; 
+p = \plot(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+
+<div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, -10, 10);
+f = x; 
+p = \plot(f,'dash');
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+
+<div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z]; 
+f = x; 
+p = \plot(f,[-5,5],'arrow');
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+
+<div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z]; 
+\set2D(-10, 10, -10, 10);
+\plot([x,-x],'arrow');
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+ 
+</p><h3>Plots of parametric functions</h3><p>  
+To obtain the plot of parametric function {$f=x(t)$, $g=y(t)$} the command 
+paramPlot([f, g], [t0, t1]) is used, where $[t0, t1]$ is an interval of variation of $t$.
+Another version of the command:  paramPlot([f, g], [t0, t1], 'options'), where $[t0, t1]$ &mdash;  the range of values for the parameter change, 
+'options' &mdash;   the following values: 
+1)'dash' &mdash;  schedule will be a dashed line;\ 
+2)'arrow' &mdash;   the last point on the graph is drawn with an arrow; 
+3)'dashAndArrow' &mdash;  schedule will be a dashed line and the last point of the graph is drawn with an arrow. </p><p>
+
+<div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = \sin(x); 
+k = \cos(x); 
+f = \paramPlot([g, k], [0, 2\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+<div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = x\sin(x);
+k = x\cos(x);
+f = \paramPlot([g, k], [0, 5\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+<div id="section_10" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="10" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = 2\cos(x)+\cos(2x); 
+k = 2\sin(x)-\sin(2x);
+f = \paramPlot([g, k], [0, 2\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+<div id="section_11" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="11" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = 2\sin(x)^3; 
+k = 2\cos(x)^3;
+f = \paramPlot([g, k], [0, 2\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p>
+
+<div id="section_12" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="12" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = (1+\cos(x))\cos(x); 
+k = (1+\cos(x))\sin(x);
+f = \paramPlot([g, k], [0, 2\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p>
+
+<div id="section_13" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="13" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = \sin(x)(\exp(\cos(x))-2\cos(4x)+\sin(x/12)^5);
+k = \cos(x)(\exp(\cos(x))-2\cos(4x)+\sin(x/12)^5);
+f = \paramPlot([g, k], [0, 12\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+<div id="section_14" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="14" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y, z];
+\set2D('','','','','x(t)','y(t)','paramPlot');
+g = \sin(x)(\exp(\cos(x))-2\cos(4x)+\sin(x/12)^5);
+k = \cos(x)(\exp(\cos(x))-2\cos(4x)+\sin(x/12)^5);
+f = \paramPlot([g, k], [0, 12\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+<div id="section_15" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="15" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+g = \sin(x); 
+k = \cos(x); 
+f = \paramPlot([g, k], [0, 2\pi],'dashAndArrow');
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><h3>Plot of table function</h3><p> 
+To plot a function, which is defined by the table of points you have to execute the command: 
+tablePlot([[x_{1,&hellip;, x_{n}],[y_{11},&hellip;,a_{1n}],&hellip;,[y_{k1},&hellip;,a_{kn}]])}. 
+Another version of the command:
+tablePlot([[x_{1,&hellip;, x_{n}],[y_{11},&hellip;,a_{1n}],&hellip;,[y_{k1},&hellip;,a_{kn}]], 'options')}
+,where 'options' &mdash;  the following values: 
+1)'dash' &mdash;  schedule will be a dashed line;\ 
+2)'arrow' &mdash;   the last point on the graph is drawn with an arrow; 
+3)'dashAndArrow' &mdash;  schedule will be a dashed line and the last point of the graph is drawn with an arrow.</p><p></p><p> <div id="section_16" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="16" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = R64[x, y, z];
+ \tablePlot(
+   [
+     [0, 1, 2, 3, 4, 5],
+     [0, 1, 4, 9, 16, 25],
+     [0, -1, -2, -3, -4, -5],
+     [0, 4, 8, 12, 16, 20]
+   ]);
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p> 
+ <div id="section_17" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="17" />
+    <textarea class="form-control" name="task" rows="13">
+ SPACE=R64[x]; 
+\set2D(-1,5,-10,10);
+"We have a table function"
+A = [[0, 1, 2, 3, 4, 5], [3, 0, 4, 10, 5, 10]];
+t = \table (A);
+"We approximate this function by a polynomial of degree 4:" 
+p = \approximation(t, 4);
+"Building the graph of the polynomial:" P = \plot (p, [1,5]);
+"Plot a table function:" T = \tablePlot (t);
+"We construct both graphs in one coordinate system:" 
+\showPlots ([P, T]);
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p></p><p> <div id="section_18" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="18" />
+    <textarea class="form-control" name="task" rows="7">
+SPACE = R64[x, y, z];
+\set2D(-10, 10, -10, 10, '','', 'Header of Graphics');
+ \tablePlot(
+   [[-3, -6, -6, -3, 3, 6, 6, 3, -3],
+    [6, 3, -3, -6, -6, -3, 3, 6, 6]]);
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p> <div id="section_19" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="19" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y, z];
+ \tablePlot(
+   [[-3, -6, -6, -3, 3, 6, 6, 3, -3],
+    [6, 3, -3, -6, -6, -3, 3, 6, 6]],'arrow');
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p> <div id="section_20" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="20" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y, z];
+ \tablePlot(
+   [[-3, -6, -6, -3, 3, 6, 6, 3, -3],
+    [6, 3, -3, -6, -6, -3, 3, 6, 6]], 'dash');
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p> <div id="section_21" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="21" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y, z];
+ \tablePlot(
+   [[-3, -6, -6, -3, 3, 6, 6, 3, -3],
+    [6, 3, -3, -6, -6, -3, 3, 6, 6]], 'dashAndArrow');
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><h3>Functions that are defined on the points table of values</h3><p>
+Plotting functions on the points given by the tabulated values use the command: 
+pointsPlot([[x_{1,&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]], [s_{1},&hellip;,s_{n}], [kv_{1},&hellip;,kv_{n}], [kg_{1},&hellip;,kg_{n}])}, 
+where $s_{n}$ &mdash;  signature points, $kv_{n}$ &mdash;  rate of rotation about the point (ranges from 0 to 7, and signifies a shift in the ($kv_{n}$ * 45) degrees), 
+$kg_{n}$ &mdash;  shift factor along the axis $OX$ (if it is negative then the displacement is to the left).
+The reduced variants of this command:
+pointsPlot([[x_{1,&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]], [s_{1},&hellip;,s_{n}])}
+or
+pointsPlot([[x_{1,&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]], [s_{1},&hellip;,s_{n}], [kv_{1},&hellip;,kv_{n}])}
+or
+pointsPlot([[x_{1,&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]], [s_{1},&hellip;,s_{n}], [kv_{1},&hellip;,kv_{n}], [kg_{1},&hellip;,kg_{n}])}
+ </p><p>
+<div id="section_22" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="22" />
+    <textarea class="form-control" name="task" rows="5">
+\set2D(-10, 10, -10, 10);
+\pointsPlot(
+   [[0, 1, 2],
+     [0, 1, 4]],['a','b','c']);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_23" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="23" />
+    <textarea class="form-control" name="task" rows="4">
+\pointsPlot(
+   [[0, 1, 2],
+     [0, 1, 4]],['a','b','c'],[0,2,4]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_24" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="24" />
+    <textarea class="form-control" name="task" rows="4">
+\pointsPlot(
+   [[0, 1, 2],
+     [0, 1, 4]],['a','b','c'],[0,2,4],[0,-5,5]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_25" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="25" />
+    <textarea class="form-control" name="task" rows="4">
+\pointsPlot(
+   [[0, 1, 2],
+     [0, 1, 4]]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_26" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="26" />
+    <textarea class="form-control" name="task" rows="8">
+SPACE = R64[x, y, z];
+f1=\tablePlot([[1, 1], [1, 5]]);
+f2=\tablePlot([[1, 5], [1, 1]]);
+f3=\tablePlot([[5, 5], [1, 5]]);
+f4=\tablePlot([[1, 5], [5, 5]]);
+f5=\pointsPlot([[1, 1, 5, 5],[1, 5, 5, 1]],['A','B','C','D'],[6,0,0,2]);
+\showPlots([f1, f2, f3, f4, f5]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_27" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="27" />
+    <textarea class="form-control" name="task" rows="8">
+SPACE = R64[x, y, z];
+f1=\tablePlot([[1, 1], [1, 5]]);
+f2=\tablePlot([[1, 5], [1, 1]]);
+f3=\tablePlot([[5, 5], [1, 5]]);
+f4=\tablePlot([[1, 5], [5, 5]]);
+f5=\pointsPlot([[1, 1, 5, 5],[1, 5, 5, 1]],['A','B','C','D'],[6,0,0,2]);
+\showPlots([f1, f2, f3, f4, f5], 'noAxes');
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><h3>Construction of various plots of functions in one coordinate system</h3><p>
+To construct the plots of functions defined in different ways, you must first build a plot of each function and then execute the command  
+showPlots([f_1, f_2, &hellip;, f_n]).</p><p>Another version of the command:
+showPlots([f1, f2, f3, f4], 'noAxes'), where 'noAxes' &mdash;  parameter indicating image graphics without axes.
+or
+showPlots([f1, f2, f3, f4], 'lattice'), where 'lattice' &mdash;  parameter indicating the image graph with the lattice.</p><p></p><p><div id="section_28" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="28" />
+    <textarea class="form-control" name="task" rows="8">
+SPACE = R64[x, y, z];
+\set2D(-20, 20, -20, 20);
+f1 = \plot(\tg(x));
+f2 = \tablePlot([[0, 1, 4, 9, 16, 25], [0, 1, 2, 3, 4, 5]]);
+f3 = \paramPlot([\sin(x), \cos(x)], [-10, 10]);
+f4=\tablePlot([[0, 1, 4, 9, 16, 25], [0, -1, -2, -3, -4, -5]]);
+\showPlots([f1, f2, f3, f4]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+ <div id="section_29" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="29" />
+    <textarea class="form-control" name="task" rows="7">
+p1=\tablePlot([[-1, -3, 3, 3, -3, -3],[4, 3, 3, -3 , -3, 3]]);
+p2=\tablePlot([[5, 5, 3, 3, 5, -1],[4, -2, -3, 3, 4, 4]]);
+p3=\tablePlot([[-3, -1, -1],[-3, -2, 4]], 'dash');
+p4=\tablePlot([[-1, 5],[-2, -2]], 'dash');
+\showPlots([p1,p2,p3,p4], 'noAxes');
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p> <div id="section_30" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="30" />
+    <textarea class="form-control" name="task" rows="9">
+p1=\tablePlot([[-1, -3, 3, 3, -3, -3],[4, 3, 3, -3, -3, 3]]);
+p1p=\pointsPlot([[-1, -3, 3, 3, -3],[4, 3, 3, -3 , -3]],['F','B','C','D','A'],[0,0,0,4,4]);
+p2=\tablePlot([[5, 5, 3, 3, 5, -1],[4, -2, -3, 3, 4, 4]]);
+p3=\tablePlot([[-3, -1, -1],[-3, -2, 4]],'dash');
+p4=\tablePlot([[-1, 5],[-2, -2]],'dash');
+p2p=\pointsPlot([[5, 5, -1 ],[4, -2, -2]],['G','H','E'],[0,4,4]);
+\showPlots([p1,p2,p3,p4,p1p,p2p], 'noAxes');
+ </textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><h3>Construction of graphs</h3><p>
+To construct the graph, use the command
+plotGraph([[a_{11,&hellip;,a_{1n}],&hellip;,[a_{n1},&hellip;,a_{nn}]], [[x_{1},&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]])}, 
+where $[[a_{11},&hellip;,a_{1n}],&hellip;,[a_{n1},&hellip;,a_{nn}]]$  &mdash;  adjacency matrix, $[[x_{1},&hellip;, x_{n}],[y_{1},&hellip;,y_{n}]]$  &mdash;  matrix of coordinates.</p><p></p><p>
+<div id="section_31" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="31" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z];
+\plotGraph([[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],
+[1,1,1,0,0,1],[0,0,1,0,1,0]],[[3,2,4,1,3,5],[3,2,2,1,1,1]]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+In addition, you can run only with the first parameter
+plotGraph([[a_{11,&hellip;,a_{1n}],&hellip;,[a_{n1},&hellip;,a_{nn}]])}, 
+where $[[a_{11},&hellip;,a_{1n}],&hellip;,[a_{n1},&hellip;,a_{nn}]]$  &mdash;  adjacency matrix.</p><p></p><p>
+<div id="section_32" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="32" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z];
+\plotGraph([[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],
+[1,1,1,0,0,1],[0,0,1,0,1,0]]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+You need to run a single numeric parameter
+plotGraph(N), 
+where $N$  &mdash;  the number of vertices in a graph.</p><p></p><p>
+<div id="section_33" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="33" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x, y, z];
+\plotGraph(6);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">3.2 Plots 3D of explicit functions</h2><p> 
+You can build 3D graphs of the functions that are defined explicitly. 
+ 
+To obtain the plot 3D of an explicit function $f=f(x,y)$ the command 
+plot3d(f, [x0, x1, y0, y1]), 
+ is used, where $[x0, x1]$ is an interval on the axis $OX$, $[y0, y1]$ is an interval on the axis $OY$.</p><p>The obtained plot can be rotated and to increase or decrease.</p><p>Moving the mouse holding down the left &lt;&lt;mouse&gt;&gt; button causes the rotation of the coordinate system of schedule.
+After stopping the movement of the &lt;&lt;mouse&gt;&gt; graphics are redrawn in the new rotated coordinate system.
+ 
+Moving the mouse holding down the left mouse button while pressing $<i> Shift</i>$ button leads 
+to a change in image scale. After stopping the movement of the &lt;&lt;mouse&gt;&gt; graphics are redrawn in the new scale.</p><p></p><p><div id="section_34" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="34" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z];
+f = x^2 / 20 + y^2 / 20;
+\plot3d(f, [-20, 20, -20, 20]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_35" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="35" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x, y, z];
+\plot3d([x / 20 + y^2 / 20, x^2 / 20 + y / 20], [-20, 20, -20, 20]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_36" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="36" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, a, b];
+f = ax^2 / 20 + by^2 / 20;
+\plot3d(f, [-20, 20, -20, 20]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Sphere </p><p><div id="section_37" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="37" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u)\cos(v)],[\sin(u)\cos(v)],[\sin(v)]], [-\pi, \pi, -\pi/2, \pi/2]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Thor </p><p><div id="section_38" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="38" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u)(\cos(v)+3)],[\sin(u)(\cos(v)+3)],[\sin(v)]], [-\pi, \pi, -\pi, \pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Spiral</p><p><div id="section_39" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="39" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u)(\cos(v)+3)],[\sin(u)(\cos(v)+3)],[\sin(v)+u]], [-2\pi, 2\pi, -\pi, \pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Logarithmic spiral </p><p><div id="section_40" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="40" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[u\cos(u)(\cos(v)+1)],[u\sin(u)(\cos(v)+1)],[u\sin(v)]], [0, 3\pi, -\pi, \pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>"Seashell" </p><p><div id="section_41" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="41" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[u\cos(u)(\cos(v)+1)],[u\sin(u)(\cos(v)+1)],[u\sin(v)-(((u+3)/8)\pi)^2-20]], [0, 8\pi, -\pi, \pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Shamrock </p><p><div id="section_42" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="42" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u)\cos(v)+3\cos(u)(1.5+\sin(1.5u/2))],[\sin(u)\cos(v)+3\sin(u)(1.5+\sin(1.5u/2))],[\sin(v)+2\cos(1.5u)]], [-2\pi, 2\pi, -\pi, \pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Dini surface </p><p><div id="section_43" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="43" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u)\sin(v)],[\sin(u)\sin(v)],[\cos(v)+\lg(\tg(v/2))+0.2u-4]], [0, 4\pi, 0.0001, 2]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Tape Mobius</p><p><div id="section_44" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="44" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[(1+v/2\cos(u/2))\cos(u)],[(1+v/2\cos(u/2))\sin(u)],[v/2\sin(u/2)]], [0, 2\pi, -1, 1]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Cube</p><p><div id="section_45" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="45" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[u,v,5,u,v,-5],[v,5,u,v,-5,u],[5,u,v,-5,u,v]], [-5, 5, -5, 5]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Cylinder</p><p><div id="section_46" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="46" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[5\cos(u)],[5\sin(u)],[v]], [-5, 5, -5, 5]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Cone </p><p><div id="section_47" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="47" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u) * (5 * (1 - v/6))],[\sin(u) * (5 * (1 - v/6))],[v]], [-6, 6, 0, 6]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Truncated cone </p><p><div id="section_48" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="48" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u) * (5 * (1 - v/6) + 1 * v/6)],[\sin(u) * (5 * (1 - v/6) + 1 * v/6) ],[v]], [-5, 5, -5, 5]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Hourglass</p><p><div id="section_49" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="49" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=R64[u,v];
+\paramPlot3d([[\cos(u) * (5 * (0.5 - v/6) + 0.01*v/6)],[\sin(u) * (5 * (0.5 - v/6) + 0.01*v/6)],[v]], [0, 2\pi, 0, 2\pi]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p></p><p></p><h2 id="2">3.3 Ploting of 3D graphs of functions that are defined implicitly</h2><p> 
+You can build 3D graphs of the functions that are defined implicitly. 
+ 
+To construct the graph of an implicit function $ f(x,y,z)=0$ use the command </p><p> implicitPlot3d(f, x0, x1, y0, y1,z0, z1), </p><p>where the numbers $xMin, xMax, yMin, yMax, zMin, zMax$  set the box in the space, 
+which is represented by an implicit function. </p><p>You can specify only one function, like this</p><p> implicitPlot3d(f)</p><p>in this case it is assumed that there will be shows the function $ f $ in the cube 
+$ 20\times 20 \times 20$,
+ which is placed on a center origin.</p><p>You can rotate the coordinate system by moving the mouse pointer while holding down the left button.
+You can move the coordinate system by moving the mouse pointer while holding down the right button.</p><p>It is possible, optionally, to specify the coordinates of the light source, the color of the surface and the grid size. The default grid of 50 points on each edge of the box.</p><p>The color format $RGB$ (red, green, blue) is given a number</p><p>$R * 256 * 256+ G *256 + B$,</p><p> where each letter denotes a non-negative integer not exceeding 255.
+For example, $ 255 * 256 * 256 $  &mdash;  red, and $ 255 * 256 * 256 + 255 * $ 256  &mdash;  yellow (red + green).</p><p>Allowed, in addition, the following sets of arguments:</p><p>$(F, xMin, xMax, yMin, yMax, zMin, zMax, gridSize)$,</p><p>$(F, xMin, xMax, yMin, yMax, zMin, zMax, lightX, lightY, lightZ, gridSize)$,</p><p>$(F, xMin, xMax, yMin, yMax, zMin, zMax, lightX, lightY, lightZ, color, gridSize)$.</p><p></p><p>
+<div id="section_50" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="50" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x, y, z];
+ 
+f = -x^2+2y^2+3z^2-25;
+\implicitPlot3d( f, -10, 10, -10, 10, -10, 10);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+Hyperboloid</p><p></p><p><div id="section_51" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="51" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x, y, z ];
+\implicitPlot3d( x^2+ y^2+ z^2-25 , -7, 7, -7, 7, -7, 7,10, 10, 10, 255*256*256, 100);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Red sphere.</p><p></p><p>
+<div id="section_52" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="52" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z]; 
+f =  \sin(xyz/100) ;
+\implicitPlot3d( f , -9,9,-9,9,-9,9, 10,10, 4, 255*256*256+255*256, 50);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Yellow surface with a central symmetry.</p><p>
+<div id="section_53" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="53" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x, y, z]; 
+f = ((x+2)^2+ (y-2)^2 -1)((x-2)^2+ (y+2)^2 -1)((x+2)^2+ (y+2)^2 -1) ((x-2)^2+ (y-2)^2 -1)(x^2+ y^2 -1); 
+\implicitPlot3d( f, -10, 10, -10, 10, -10, 10 );
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>Organ pipes.
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

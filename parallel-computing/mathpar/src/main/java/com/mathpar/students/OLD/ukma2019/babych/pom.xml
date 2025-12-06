@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.fido.tro</groupId>
+    <artifactId>lineq</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <properties>
+        <jcuda.version>10.0.0</jcuda.version>
+    </properties>
+    <dependencies>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcuda</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcublas</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcufft</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcusparse</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcusolver</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcurand</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jnvgraph</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcudnn</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.jcuda</groupId>
+    <artifactId>jcublas</artifactId>
+    <version>${jcuda.version}</version>
+</dependency>
+    </dependencies>
+</project>

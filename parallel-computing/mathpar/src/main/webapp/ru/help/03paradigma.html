@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/03paradigma.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Выбор окружения для математических объектов</h1><p></p><p></p><h2 id="0">4.1 Окружение</h2><p>
+  Прежде чем будет задан любой математический объект,  число,  функция или символ,  должно быть ясно определено &lt;&lt;окружение&gt;&gt; &mdash;  пространство,  
+в котором будут определяться объекты.  
+В этой главе описываются способы задания окружения.  Перемещение из некоторого окружения в текущее,  как правило,  должно выполнятся явно,  с помощью функции <b> toNewRing</b>.  В некоторых случаях такое преобразование к текущему окружению происходит автоматически.  </p><p>Для выбора окружения задается <i> алгебраическое пространство переменных</i>.  Оно
+определяется именами переменных и числовыми пространствами,  в которых эти
+переменные принимают значения.  Порядок переменных в списке переменных задает линейный порядок на этих переменных.  Слева направо располагаются переменные,  упорядоченные по старшинству от младших к старшим. </p><p>По умолчанию определено пространство  $\mathbb{R}64[x,y,z,t]$ четырех переменных,   самая младшая &mdash;  $x$,  самая старшая &mdash;  $t$. </p><p>В любой момент пользователь может сменить окружение,  задав новое алгебраическое пространство переменных с помощью команды установки &lt;&lt;SPACE=&gt;&gt;.  Например,  для задач вычислительной математики может быть достаточно пространства типа $\mathbb{R}64[x]$ или  $\mathbb{Q}[x]$.  Команда установки: &lt;&lt;SPACE=R64[x];&gt;&gt; или &lt;&lt;SPACE=Q[x];&gt;&gt;, соответственно. </p><p>Если имя переменной начинается с символа $\backslash$ и заглавной буквы (верхний регистр), 
+то такая переменная обозначает элемент алгебры, у которой <i> операция умножения некоммутативная</i>,  для всех остальных переменных <i> операция умножения коммутативная</i>. </p><p></p><p></p><p></p><h2 id="1">4.2 Числовые множества</h2><p>
+Определены следующие числовые множества:</p><p>Z  &mdash;  множество целых чисел ${\mathbb Z}$, </p><p>Zp  &mdash;  конечное поле из p=MOD элементов  ${\mathbb Z}/p{\mathbb Z}$,  MOD &mdash;  постоянная,  </p><p>Zp32  &mdash;  конечное поле из p=MOD32 элементов ${\mathbb Z}/p{\mathbb Z}$, MOD32 меньше $2^{31}$, </p><p>Z64  &mdash;  кольцо целых чисел $z$ таких,  что $-2^{63} \leqslant z &lt; 2^{63}$,  </p><p>Q  &mdash;  множество рациональных чисел, 
+ 
+R  &mdash;  множество чисел с плавающей точкой для хранения приближенных действительных чисел с произвольной мантиссой,  </p><p>R64  &mdash;  множество чисел с плавающей точкой для хранения приближенных действительных чисел с двойной точностью (со стандартной 52-разрядной мантиссой и отдельным 11-разрядным полем для хранения порядка),  
+ 
+R128  &mdash;  стандартные 64-битные числа с плавающей точкой для хранения приближенных действительных чисел со стандартной 52-разрядной мантиссой и отдельным 64-разрядным полем для хранения порядка,  </p><p>C  &mdash;  комплексный класс,  образованный из  класса R,  </p><p>C64  &mdash;  комплексный класс,  образованный из  класса  R64,  </p><p>C128  &mdash;  комплексный класс,  образованный из  класса  R128, </p><p>CZ  &mdash;  комплексный класс,  образованный из  класса  Z,  </p><p>CZp  &mdash;  комплексный класс,  образованный из  класса  Zp,  </p><p>CZp32  &mdash;  комплексный класс,  образованный из  класса  Zp32,  </p><p>CZ64  &mdash;  комплексный класс,  образованный из  класса  Z64,  </p><p>CQ  &mdash;  комплексный класс,  образованный из  класса  Q.  </p><p>Примеры простых полиномиальных колец: </p><p>SPACE = Z [x,  y,  z]; </p><p>SPACE = R64 [u,  v];  </p><p>SPACE = C [x]. </p><p></p><h2 id="2">4.3 Определение нескольких числовых множеств</h2><p></p><p>
+Разрешается устанавливать
+алгебраические пространства из нескольких числовых множеств,  например,  пространство &lt;&lt;C[z]R[x, y]Z[n, m]&gt;&gt; позволяет
+работать с пятью именами переменных,  определенных в множествах $\mathbb{C}$, $\mathbb{R}$ и $\mathbb{Z}$,  соответственно. 
+Первое множество считается основным и к нему будут приводится,  при необходимости, 
+все остальные переменные.  В данном случае это $\mathbb{C}$. </p><p>
+Его можно рассматривать как кольцо полиномов пяти переменных над $\mathbb{C}$,  при этом оно обладает дополнительными
+свойствами.  Если полином не содержит переменной $z$,  то это полином с коэффициентами из $\mathbb{R}$.  Если
+полином не содержит переменных $z$, $x$, $y$,  то это полином с коэффициентами из $\mathbb{Z}$. </p><p>
+Примеры: </p><p>SPACE=Z[x, y]Z[u]; </p><p>SPACE=R64[u, v]Z[a, b]; </p><p>SPACE=C[x]R[y, z]; </p><p> </p><p> Кольцо &lt;&lt;Z[x, y, z]Z[u, v, w]&gt;&gt;,  в котором шесть переменных разделены
+на две группы,  можно использовать для задач в которых строятся полиномы,  у которых коэффициенты
+являются полиномами или функциями других переменных. 
+Например,  характеристический полином для матрицы над кольцом $\mathbb{Z}[x, y, z]$ будет получен как полином
+с неизвестной $u$,  коэффициенты которого лежат в кольце $\mathbb{Z}[x, y, z]$. </p><p>
+% </p><h2 id="3">4.4 Групповые алгебры</h2><p></p><p> 
+%Групповую алгебру обозначает символ $G$.  После него стоит список образующих,  а перед ним &mdash; 
+%% пространство, в котором действует группа. Образующие группы некоммутативны.</p><p>%Примеры свободных групповых алгебр: </p><p>%SPACE=Z[x, y]G[U, V]; (образующие U, V),  </p><p>%SPACE=R64[u, v]G[A, B]; (образующие A, B), </p><p>%SPACE=C[]G[X, Y, Z, T]; (образующие X, Y, Z, T). </p><p></p><p>%Каждый элемент алгебры является суммой термов с коэффициентами,  которые являются функциями. 
+%Например,  &lt;&lt;R64[x, y]G[X, Y, Z]&gt;&gt; &mdash;  это свободная групповая алгебра с тремя некоммутативными
+ %образующими X, Y, Z над функциями
+%в  $\mathbb{R}64[x, y] $.  Тогда,  например,   
+% $A=(t^2+1)X + \sin(t)Y + 3X^2y^3 +(t^2+1)XY^3X^2Y^{-2}x^2$ &mdash;  элемент такой алгебры. </p><p></p><p> 
+ </p><h2 id="4">4.5 Идемпотентные алгебры.  Тропическая математика. </h2><p>
+ 
+ Кроме классических числовых алгебр с операциями &lt;&lt;+,~-,~*&gt;&gt; и операцией &lt;&lt;/&gt;&gt; для полей,  будут доступны 
+ пользователю и идемпотентные алгебры.  Для числового множества $\mathbb{R}64$,  можно будет использовать алгебры $R64MaxPlus$,  $R64MinPlus$,  $R64MaxMin$,  $R64MinMax$,  $R64MaxMult$,  $R64MinMult$.  Для числового множества $\mathbb{R}$,  можно будет использовать алгебры $RMaxPlus$,  $RMinPlus$,  $RMaxMin$,  $R64MinMax$,  $RMaxMult$,  $RMinMult$.  Для числового множества $\mathbb{Z}$,  можно будет использовать алгебры $ZMaxPlus$,  $ZMinPlus$, $ZMaxMin$,  $ZMinMax$,  $ZMaxMult$,  $ZMinMult$.  </p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=ZMaxPlus[x, y];
+a=2; b=9; c=a+b; d=a*b; \print(c, d)
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="5">4.6 Константы</h2><p>
+Можно установить или заменить следующие постоянные. </p><p><b> FLOATPOS</b>  &mdash;  число десятичных знаков после запятой,  которые выводятся на печать. 
+По умолчанию принимается значение 2. </p><p><b> MachineEpsilonR</b>  &mdash;  машинное эпсилон для чисел типа  R. По умолчанию принимается значение $10^{-29}$. 
+Число, модуль которого меньше $10^{-29}$, считаестя машинным нулем.  
+Для установки нового значения $10^{-30}$ нужно ввести команду &lt;&lt;MachineEpsilonR64=30&gt;&gt;.
+ </p><p>MachineEpsilonR64  &mdash;  машинное эпсилон для чисел типа  R64. По умолчанию принимается значение $2^{-36}$. 
+Число, модуль которого меньше $2^{-36}$, считается машинным нулем. 
+Отметим, что числа R64  имеет 52 разряда в мантиссе,
+Для установки нового значения $2^{-48}$ нужно ввести команду &lt;&lt;MachineEpsilonR64=48&gt;&gt;.</p><p>Постоянная MachineEpsilonR (и MachineEpsilonR64) используется при факторизации полиномов
+с коеффициентами типа R (или R64). Каждый коэффициент такого полинома будет 
+предварительно делиться на число $MachineEpsilonR$ (или $MachineEpsilonR64$) и округляется до целого значения. </p><p>
+<b> ACCURACY</b> определяет число точных десятичных позиций после запятой для чисел типа $R$ и $C$ в 
+операциях умножения и деления. По умолчанию ACCURACY имеет значение $MachineEpsilonR * 10^{-5}$.  
+Если n&lt;m, то команда &lt;&lt;MachineEpsilonR=n/m&gt;&gt; установит одновременно MachineEpsilonR=$10^{-n}$ 
+и ACCURACY=$10^{-m}$.</p><p></p><p><b> MOD32</b>  &mdash;  модуль для простого поля,  не превосходящий $2^{31}$ (по умолчанию принимается значение 268435399). Простое число MOD32  &mdash;  характеристика конечного поля.
+Константа MOD32 используется в том случае, когда вычисления происходят в конечном поле 
+Zp32 и она должна быть меньше числа $2^{31}$. </p><p><b> MOD</b>  &mdash;  модуль типа Z для простого поля (по умолчанию принимается значение 268435399).  Простое число MOD &mdash;  это характеристика конечного поля, но в отличие от MOD32 у него нет ограничения на абсолютное значение. Константа MOD используется в том случае, когда вычисления происходят в конечном поле 
+Zp.</p><p><b> RADIAN</b> может принимать значения 1 или 0. Если  RADIAN = 1, то углы измеряются в радианах, иначе  &mdash;  в градусах. По умолчанию RADIAN=1.</p><p><b> STEPBYSTEP</b>  может принимать значения 1 или 0. Если  STEPBYSTEP = 1, то будут выводиться промежуточные результаты вычислений. По умолчанию STEPBYSTEP = 0.</p><p><b> EXPAND</b>  может принимать значения 1 или 0. Если EXPAND = 1, то во входном выражении будут раскрываться все скобки. По умолчанию EXPAND = 1.</p><p><b> SUBSTITUTION</b>  может принимать значения 1 или 0. Если SUBSTITUTION = 1, то во входном выражении будут подставляться вместо имен выражений их значения, если они были определены раньше. По умолчанию SUBSTITUTION = 1.</p><p>
+</p><p></p><p></p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE=Zp32[x, y]; 
+MOD32=7; 
+f1=37x+42y+55; 
+f2=2f1;  
+\print(f1, f2 );
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

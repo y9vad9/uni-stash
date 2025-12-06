@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/08matrix.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Матричные функции</h1><p>
+</p><h2 id="0">9.1 Вычисление транспонированной матрицы</h2><p>
+Для вычисления транспонированной матрицы для матрицы $A$ необходимо выполнить команду 
+ transpose(A) или $\mathbf{A\widehat{ } {T}}$. </p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 2], [4, 5]];
+B=A^{T}; 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">9.2 Вычисление обратной и присоединенной матрицы </h2><p>
+</p><h3>Вычисление обратной матрицы</h3><p></p><p>Для вычисления обратной матрицы для матрицы $A$ необходимо выполнить команду  
+ inverse(A) или $\mathbf{A\widehat{ } {(-1)}}$. </p><p></p><p>
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x]; 
+A=[[1, 4], [4, 5]];
+B=\inverse(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y]; 
+A=[[x+y, x], [y, \cos(x)]];
+B=\inverse(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+</p><h3>Вычисление присоединенной матрицы</h3><p>
+Для вычисления присоединенной матрицы для заданной матрицы $A$ необходимо выполнить команду  
+adjoint(A)
+или  $\mathbf{A\widehat{ }{\backslash star}}$. </p><p></p><p>
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\adjoint(A);  
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\adjoint(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="2">9.3 Вычисление определителя матрицы</h2><p>
+Для вычисления определителя матрицы A необходимо выполнить команду   det(A). </p><p></p><p>
+<div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x+y, \sin(x)], [y, \cos(x)]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="3">9.4 Вычисление сопряженной матрицы</h2><p>
+Для вычисления сопряженной матрицы необходимо выполнить команду  
+ conjugate(A)  или $\mathbf {A\widehat{ } { \backslash ast}}$. </p><p></p><p>
+<div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=C[x];
+A=[[1+\i, 2-\i], [-3, -2\i]];
+B=A^{\ast};
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="4">9.5 Вычисление обобщенной обратной матрицы</h2><p></p><p>Для вычисления обобщенной обратной матрицы Мурра-Пенроуза необходимо выполнить команду  
+genInverse(A) или $\mathbf{A\widehat{ } {+}}$. </p><p></p><p>
+<div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x];
+A=[[1, 4, 5], [2, 4, 5]];
+B=A^{+};
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+</p><h2 id="5">9.6 Вычисление ядра оператора и эшелонной формы</h2><p></p><p></p><h3>Вычисление эшелонной формы матрицы</h3><p>
+Для вычисления эшелонной формы матрицы A необходимо выполнить команду  
+ toEchelonForm(A). </p><p></p><p>
+<div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\toEchelonForm(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+ 
+<div id="section_10" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="10" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\toEchelonForm(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+ </p><h3>Вычисление ядра оператора</h3><p></p><p> Для вычисления ядра оператора матрицы A необходимо выполнить команду
+kernel(A). </p><p></p><p>
+<div id="section_11" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="11" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 16]];
+B=\kernel(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_12" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="12" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x+y, x], [(x+y)x, x^2]];
+B=\kernel(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="6">9.7 Вычисление характеристического полинома матрицы</h2><p></p><p>Для вычисления характеристического полинома матрицы A, элементы которой из $R[x_1,&hellip;,x_m]$, необходимо
+задать кольцо полиномов $R[x_1,&hellip;,x_m]R[t]$ или $R[t,x_1,&hellip;,x_m]$, в котором переменная $t$ &mdash;  это
+переменная, по которой строится полином, 
+и выполнить команду charPolynom(A).
+Например,если элементы исходной матрицы из кольца Z[x,y],
+то  можно указать Z[x,y]Z[t] или Z[t,x,y].</p><p></p><p>
+<div id="section_13" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="13" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\charPolynom(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_14" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="14" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]Z[t]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\charPolynom(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="7">9.8  LDU-разложение</h2><p> 
+Для вычисления LDU-разложения матрицы $A$, нужно выполнить команду 
+ LDU(A). </p><p>Результат &mdash;  это три матриц $[L,D,U]$. Здесь $L$ &mdash;  нижняя треугольная матрица, $U$ &mdash;  верхняя треугольная матрица, 
+$D$ &mdash;  матрица перестановок, умноженная на матрицу, которая является обратной к диагональной матрице. 
+Если элементы матрицы $A$ из коммутативной области $R$, то и элементы матриц $L$, $D^{-1}$, $U$ также принадлежат области $R$.</p><p></p><p>
+<div id="section_15" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="15" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[0, 1, 0], [4, 5, 1],[1, 1, 1]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_16" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="16" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_17" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="17" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="8">9.9 Разложение Брюа</h2><p>
+Для вычисления разложения Брюа матрицы $A$, нужно выполнить команду 
+ BruhatDecomposition(A). </p><p>Результат &mdash;  вектор из трёх матриц $[V,D,U]$. Здесь  $V$ и $U$ &mdash;  верхние треугольные матрицы, 
+$D$ &mdash;  матрица перестановок, умноженная на матрицу, которая является обратной к диагональной матрице. Если элементы матрицы $A$ из коммутативной области $R$, то и элементы матриц $V$, $D^{-1}$, $U$ также принадлежат области $R$.</p><p>
+</p><p>
+<div id="section_18" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="18" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\BruhatDecomposition(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_19" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="19" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\BruhatDecomposition(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="9">9.10 Решение задач линейного программирования</h2><p>
+Пусть задана целевая функция $\sum_{j = 1}^n c_j x_j$
+и условия
+$$\sum_{j = 1}^n a_{ij}x_j\leqslant b_i,\text{ где }i = 1,2,&hellip;,m,$$
+$$x_j\geqslant 0,\text{ где }j = 1,2,&hellip;,n.$$</p><p>Определим $m\times n$-матрицу $A = (a_{ij})$,
+$m$-мерный вектор $b = (b_i)$, $n$-мерный вектор $c = (c_j)$ и $n$-мерный вектор $x = (x_j)$.</p><p>Тогда целевую функцию можно записать в виде 
+$c^Tx,$
+а условия &mdash;  в виде 
+$$Ax \leqslant b,$$
+$$ x \geqslant 0.$$</p><p>Для решения задач линейного программирования нужно выполнить команду 
+ SimplexMax или  SimplexMin. Результат &mdash;  вектор $x$.</p><p>В зависимости от вида задачи возможны следующие варианты вызова команд.</p><p>1. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$Ax \leqslant b,$$
+$$ x \geqslant 0,$$
+используем команду SimplexMax(A, b, c).</p><p>Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду SimplexMin(A, b, c).</p><p>
+Пример.</p><p>Максимизировать $$3x_1 + x_2 + 2x_3$$
+при условиях
+$$
+   x_1 +  x_2 + 3x_3 \leqslant 30,  
+  2x_1 + 2x_2 + 5x_3 \leqslant 24,  
+  4x_1 +  x_2 + 2x_3 \leqslant 36,  
+   x_1,   x_2,   x_3 \geqslant 0.
+$$</p><p><div id="section_20" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="20" />
+    <textarea class="form-control" name="task" rows="6">
+  SPACE = R64[];
+  A = [[1, 1, 3],[2, 2, 5],[4, 1, 2]];
+  b = [30, 24, 36];
+  c = [ 3,  1,  2];
+  x = \SimplexMax(A, b, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>2. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$A_1 x \leqslant b_1,$$
+$$A_2 x =         b_2,$$
+$$ x \geqslant 0,$$
+используем команду SimplexMax(A_1,A_2, b_1, b_2, c).</p><p>Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду SimplexMin(A_1,A_2, b_1, b_2, c).</p><p>
+Пример.</p><p> Максимизировать $$7x_1 + x_3 - 4x_4$$</p><p>при условиях
+$$
+   x_1 - x_2 + 2x_3 - x_4 \leqslant  6,  
+  2x_1 + x_2 - x_3 = -1,  
+   x_1,  x_2,   x_3,  x_4 \geqslant  0. 
+$$</p><p><div id="section_21" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="21" />
+    <textarea class="form-control" name="task" rows="8">
+  SPACE = R64[];
+  A1 = [[1, -1,  2, -1]];
+  A2 = [[2,  1, -1,  0]];
+  b1 = [ 6];
+  b2 = [-1];
+  c  = [7, 0, 1, -4];
+  x = \SimplexMax(A1, A2, b1, b2, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+3. Для решения задачи
+$$c^Tx \rightarrow max$$
+при условиях
+$$A_1 x\leqslant b_1,$$
+$$A_2 x =         b_2,$$
+$$A_3 x\geqslant b_3,$$
+используем команду SimplexMax(A_1,A_2, A_3,b_1, b_2, b_3,c).</p><p>Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду SimplexMin(A_1,A_2, A_3,b_1, b_2, b_3, c).</p><p>
+Пример.</p><p>Максимизировать $$x_1 + x_2$$</p><p>при условиях
+$$
+   4x_1 -  x_2 \leqslant  8,  
+   2x_1 +  x_2 \leqslant 10,  
+  -5x_1 + 2x_2 \geqslant -2,  
+   x_1,    x_2 \geqslant  0.
+$$</p><p><div id="section_22" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="22" />
+    <textarea class="form-control" name="task" rows="8">
+  SPACE = R64[];
+  A1 = [[ 4, -1], [2,  1]];
+  A3 = [[-5,  2]];
+  b1 = [ 8, 10];
+  b3 = [-2];
+  c  = [1, 1];
+  x = \SimplexMax(A1, [[]], A3, b1, [], b3, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+4. Для решения   задачи общего вида, как и в предыдущем пункте,
+$$c^Tx \rightarrow max$$ можно обойтись четырьмя параметрами.
+Можно задать матрицу $A$, вектор  $b$, целевую функцию $c$  и
+использовать команду SimplexMax(A,signs,b,c), где
+массив целых чисел $signs$ определяет знаки сравнения:
+        -1  обозначает меньше или равно , 0 обозначает равно  и 1  обозначает больше или равно.
+Должно быть в $signs$ столько же чисел, сколько элементов в векторе $b$.</p><p>Если целевую функцию надо минимизировать, т.е. $$c^Tx \rightarrow min,$$ то используем команду SimplexMin(A,signs,b,c).</p><p>
+Пример.</p><p> Минимизировать $$-2x_1-4x_2-2x_3$$
+при условиях
+$$
+  -2x_1 +  x_2 +  x_3 \leqslant 4,  
+  - x_1 +  x_2 + 3x_3 \leqslant 6,  
+    x_1 - 3x_2 +  x_3 \leqslant 2,  
+    x_1,   x_2,   x_3 \geqslant 0.
+$$
+In:
+<div id="section_23" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="23" />
+    <textarea class="form-control" name="task" rows="7">
+  SPACE = R64[];
+  A = [[-2,  1, 1],[-1,  1, 3],[ 1, -3, 1]];   
+  b = [ 4,  6,  2];
+  c = [-2, -4, -2]; 
+  signs = [-1, -1, -1];
+  x = \SimplexMin(A, signs, b, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

@@ -1,0 +1,2152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../js/libs/html5shiv.js"></script>
+      <script src="../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- left sidebar with keyboards etc. -->
+<div id="keyboards" class="keyboards well well-small">
+<div class="loading active"></div>
+<p><span class="label label-default">Своб. память:</span> <span id="memory">&hellip;</span></p>
+<hr id="hr">
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_space_const">Space <span id="space">&hellip;</span></button>
+<!-- Spaces, constants panel -->
+<div id="kbd_space_const" class="kbd collapse">
+    <div class="well well-small">
+        <button
+                class="btn btn-xs" data-inserts="SPACE = Z[];" data-back="2"
+                title="Кольцо целых чисел"
+                >$\mathbb{Z}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = Zp[];" data-back="2"
+                title="Конечное поле Z/pZ. Модуль p задается параметром MOD"
+                >$\mathbb{Z}p$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = Zp32[];" data-back="2"
+                title="Конечное поле 32-битных чисел. Модуль p задается параметром MOD32"
+                >$\mathbb{Z}p32$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = Z64[];" data-back="2"
+                title="Кольцо целых 64-битных чисел"
+                >$\mathbb{Z}64$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = Q[];" data-back="2"
+                title="Поле дробей над целыми числами Z"
+                >$\mathbb{Q}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R[];" data-back="2"
+                title="Поле вещественных чисел"
+                >$\mathbb{R}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64[];" data-back="2"
+                title="Поле вещественных 64-битных чисел"
+                >$\mathbb{R}64$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R128[];" data-back="2"
+                title="Поле вещественных 64-битных чисел с 64-разрядным порядком"
+                >$\mathbb{R}128$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = C[];" data-back="2"
+                title="Комплексные числа над R"
+                >$\mathbb{C}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = C64[];" data-back="2"
+                title="Комплексные числа над R64"
+                >$\mathbb{C}64$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = C128[];" data-back="2"
+                title="Комплексные числа над R128"
+                >$\mathbb{C}128$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = CZ[];" data-back="2"
+                title="Комплексные числа над Z"
+                >$\mathbb{CZ}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = CZp[];" data-back="2"
+                title="Комплексные числа над Zp"
+                >$\mathbb{CZ}p$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = CZp32[];" data-back="2"
+                title="Комплексные числа над Zp32"
+                >$\mathbb{CZ}p32$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = CZ64[];" data-back="2"
+                title="Комплексные числа над Z64"
+                >$\mathbb{CZ}64$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = CQ[];" data-back="2"
+                title="Комплексные числа над Q"
+                >$\mathbb{CQ}$
+        </button>
+    </div>
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_space_const_const">Константы</p>
+
+        <div id="kbd_space_const_const" class="collapse">
+            <button
+                    class="btn btn-xs" data-inserts="FLOATPOS = ;" data-back="1"
+                    title="Число десятичных знаков после запятой, которые выводятся на печать (по умолчанию = 2)"
+                    >FLOATPOS
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="MachineEpsilonR64 = ;" data-back="1"
+                    title="Машинный ноль для вещественных 64-битных чисел: количество десятичных знаков после запятой (по умолчанию = 9)"
+                    >MachineEpsilonR64
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="MachineEpsilonR = ;" data-back="1"
+                    title="Машинный ноль для вещественных чисел: количество двоичных разрядов после запятой (по умолчанию = 29)"
+                    >MachineEpsilonR
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="MachineEpsilonR = / ;" data-back="3"
+                    title="MachineEpsilonR / Точность округления в арифметических операциях: десятичных знаков после запятой (по умолчанию = 29 / 34)"
+                    >MachineEpsilonR/Accuracy
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="MOD = ;" data-back="1"
+                    title="Модуль для простого поля Zp (по умолчанию = 268435399)"
+                    >MOD
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="MOD32 = ;" data-back="1"
+                    title="Модуль для простого поля Zp32 (по умолчанию = 268435399)"
+                    >MOD32
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="RADIAN = ;" data-back="1"
+                    title="Индикатор меры углов:  1 = радианы, 0 =  градусы (по умолчанию = 1)"
+                    >RADIAN
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="STEPBYSTEP = ;" data-back="1"
+                    title="Печать промежуточных результатов вычислений: 1 = включено, 0 = выключено (по умолчанию = 0)"
+                    >STEPBYSTEP
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="EXPAND = ;" data-back="1"
+                    title="Автоматическое раскрытие всех скобок: 1 = включено, 0 = выключено (по умолчанию = 1)"
+                    >EXPAND
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="SUBSTITUTION = ;" data-back="1"
+                    title="Подстановка вместо имен выражений их значения, если они были определены ранее: 1 = включено, 0 = выключено (по умолчанию = 1)"
+                    >SUBSTITUTION
+            </button>
+            <button
+                    class="btn btn-xs" data-inserts="TIMEOUT = ;" data-back="1"
+                    title="Таймаут для задачи в секундах. Целое число в диапазоне [1; 300] (по умолчанию 15 секунд)"
+                    >TIMEOUT
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_symb">Символы</button>
+<!-- Math symbols, greek alphabet panel -->
+<div id="kbd_symb" class="kbd collapse">
+<!-- Symbols of numbers, sets, inequolities -->
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_symb_symb0">Числа, множества, неравенства</p>
+
+    <div id="kbd_symb_symb0" class="collapse">
+        <button
+                class="btn btn-xs" data-inserts="\i"
+                title="Мнимая единица"
+                >$i$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\e"
+                title="Основание натурального логарифма"
+                >$e$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\pi"
+                title="Отношение длины окружности к ее диаметру"
+                >$\pi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\infty"
+                title="Бесконечность"
+                >$\infty$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\emptyset"
+                title="пустое множество"
+                >$\emptyset$
+       </button>
+       <button
+                class="btn btn-xs" data-inserts="\cup"
+                title="объединение множеств"
+                >$\cup$
+        </button> 
+        <button
+                class="btn btn-xs" data-inserts="\setminus"
+                title="вычитание множеств"
+                >$\setminus$
+       </button> 
+       <button
+                class="btn btn-xs" data-inserts="\triangle"
+                title="симметрическая разность множеств"
+                >$\triangle$
+        </button> 
+       <button
+                class="btn btn-xs" data-inserts="'"
+                title="дополнительное множество"
+                >$'$
+        </button> 
+        <button
+                class="btn btn-xs" data-inserts="\cap"
+                title="пересечение множеств"
+                >$\cap$
+       </button>  
+
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\(,\)" date-back="3"
+                title="открытый интервал"
+                >(a,b)
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\[,\]" date-back="3"
+                title="закрытый интервал"
+                >[a,b]
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\(,\]" date-back="3"
+                title="полуоткрытый интервал"
+                >(a,b]
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\[,\)" date-back="3"
+                title="полузакрытый интервал"
+                >[a,b)
+        </button>
+
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\ge" date-back="0"
+                title="больше или равно"
+                >$\ge$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\ne" date-back="0"
+                title="не равно"
+                >$\ne$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="==" date-back="0"
+                title="равно"
+                >=
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\le" date-back="0"
+                title="меньше или равно"
+                >$\le$
+        </button>  
+       </button> 
+                <button
+                class="btn btn-xs" data-inserts="\lor" date-back="0"
+                title="логическое ИЛИ"
+                >$\lor$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\&" date-back="0"
+                title="логическое И"
+                >$\&$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\neg" date-back="0"
+                title="логическое отрицание"
+                >$\neg$
+        </button> 
+       </div>
+     </div>
+  
+<!-- Symbols -->
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_symb_symb">Другие символы</p>
+    <div id="kbd_symb_symb" class="collapse">  
+       <button
+                class="btn btn-xs" data-inserts="\circ"
+                title="кружок"
+                >$\circ$
+       </button>      
+       <button
+                class="btn btn-xs" data-inserts="\partial"
+                title="частная производная"
+                >$\partial$
+           </button>   
+           <button
+                class="btn btn-xs" data-inserts="\nabla"
+                title="Набла"
+                >$\nabla$
+            </button>
+            <button
+                class="btn btn-xs" data-inserts="\hbar"
+                title="h перечеркнутая"
+                >$\hbar$
+            </button>     
+              <button
+                class="btn btn-xs" data-inserts="\to"
+                title="стрелка"
+                >$\to$
+        </button>        
+        <button
+                class="btn btn-xs" data-inserts="\perp"
+                title="перпендикуляр"
+                >$\perp$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\parallel"
+                title="параллельные линии"
+                >$\parallel$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\angle"
+                title="угол"
+                >$\angle$
+        </button>
+      <button
+                class="btn btn-xs" data-inserts="\smile"
+                title="дуга окружности"
+                >$\smile$
+        </button>
+      
+            <button
+                class="btn btn-xs" data-inserts="\equiv"
+                title="эквивалентность"
+                >$\equiv$
+        </button>
+      <button
+                class="btn btn-xs" data-inserts="\square"
+                title="квадрат"
+                >$\square$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\blacksquare"
+                title="черный квадрат"
+                >$\blacksquare$
+        </button>
+      <button
+                class="btn btn-xs" data-inserts="\approx"
+                title="примерно равно"
+                >$\approx$
+        </button>
+      <button
+                class="btn btn-xs" data-inserts="\sim"
+                title="подобно"
+                >$\sim$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\in"
+                title="принадлежит"
+                >$\in$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\notin"
+                title="не принадлежит"
+                >$\notin$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\owns"
+                title="содержит"
+                >$\owns$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\subset"
+                title="подмножество"
+                >$\subset$
+        </button>
+     <button
+                class="btn btn-xs" data-inserts="\subseteq"
+                title="подмножество не строгое"
+                >$\subseteq$
+        </button>
+           <button
+                class="btn btn-xs" data-inserts="\supset"
+                title="включает"
+                >$\supset$
+        </button>
+           <button
+                class="btn btn-xs" data-inserts="\supseteq"
+                title="включает не строго"
+                >$\supseteq$
+        </button>
+           <button
+                class="btn btn-xs" data-inserts="\exists"
+                title="существует"
+                >$\exists$
+        </button>
+           <button
+                class="btn btn-xs" data-inserts="\nexists"
+                title="не существует"
+                >$\nexists$
+        </button>
+           <button
+                class="btn btn-xs" data-inserts="\forall"
+                title="для всех"
+                >$\forall$
+        </button>
+                 <button
+                class="btn btn-xs" data-inserts="\neg"
+                title="логическое отрицаниеn"
+                >$\neg$
+        </button>
+                 <button
+                class="btn btn-xs" data-inserts="\vee"
+                title="логическое OR"
+                >$\vee$
+        </button>
+         <button
+                class="btn btn-xs" data-inserts="\wedge"
+                title="логическое AND"
+                >$\wedge$
+        </button>
+         <button
+                class="btn btn-xs" data-inserts="\oplus"
+                title="плюс в круге"
+                >$\oplus$
+        </button>
+      <button
+                class="btn btn-xs" data-inserts="\otimes"
+                title="умножить в круге"
+                >$\otimes$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\hat"
+                title="шапочка над символом"
+                >$\hat a$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\bar"
+                title="черта над символом"
+                >$\bar a$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\tilde"
+                title="тильда над символом"
+                >$\tilde a$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\vec "
+                title="вектор над символом"
+                >$\vec a$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\dot "
+                title="точка над символом"
+                >$\dot a$
+        </button>
+            <button
+                class="btn btn-xs" data-inserts="\ddot "
+                title="2 точки над символом"
+                >$\ddot a$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\widetilde{}"
+                title="тильда над текстом"
+                >$\widetilde{az}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\widehat{}"
+                title="шапочка над текстом"
+                >$\widehat{az}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\overline{}"
+                title="линия над текстом"
+                >$\overline{az}$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\overrightarrow{}"
+                title="правая стрелка над текстом"
+                >$\overrightarrow{az}$
+        </button>    
+        <button
+                class="btn btn-xs" data-inserts="\underbrace{}"
+                title="скобка под текстом"
+                >$\underbrace{az}$
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\overbrace{}"
+                title="скобка над текстом"
+                >$\overbrace{az}$
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\frac{}{}" date-back="3"
+                title="дробь в два уровня"
+                >$\frac{a}{b}$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\system(,)" date-back="2"
+                title="знак системы И (равенств, неравенств)"
+                >$\{$
+        </button>
+        </button> 
+                <button
+                class="btn btn-xs" data-inserts="\systemOR(,)" date-back="2"
+                title="знак системы ИЛИ (равенств, неравенств)"
+                >$[$
+        </button>
+    </div>
+</div>
+<!-- /Symbols -->
+<!-- Greek lowercase -->
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_symb_greek_lower">Греческие строчные</p>
+
+    <div id="kbd_symb_greek_lower" class="collapse">
+        <button
+                class="btn btn-xs" data-inserts="\alpha"
+                title="альфа"
+                >$\alpha$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\beta"
+                title="бета"
+                >$\beta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\gamma"
+                title="гамма"
+                >$\gamma$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\delta"
+                title="дельта"
+                >$\delta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\epsilon"
+                title="эпсилон"
+                >$\epsilon$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varepsilon"
+                title="varepsilon"
+                >$\varepsilon$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\zeta"
+                title="дзета"
+                >$\zeta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\eta"
+                title="эта"
+                >$\eta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\theta"
+                title="тета"
+                >$\theta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\vartheta"
+                title="вартета"
+                >$\vartheta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\iota"
+                title="йота"
+                >$\iota$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\kappa"
+                title="каппа"
+                >$\kappa$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varkappa"
+                title="варкаппа"
+                >$\varkappa$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\lambda"
+                title="лямбда"
+                >$\lambda$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\mu"
+                title="мю"
+                >$\mu$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\nu"
+                title="ню"
+                >$\nu$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\xi"
+                title="кси"
+                >$\xi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\pi"
+                title="пи"
+                >$\pi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varpi"
+                title="варпи"
+                >$\varpi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\rho"
+                title="ро"
+                >$\rho$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varrho"
+                title="варро"
+                >$\varrho$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\sigma"
+                title="сигма"
+                >$\sigma$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varsigma"
+                title="варсигма"
+                >$\varsigma$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\tau"
+                title="тау"
+                >$\tau$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\upsilon"
+                title="ипсилон"
+                >$\upsilon$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\phi"
+                title="фи"
+                >$\phi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\varphi"
+                title="варфи"
+                >$\varphi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\chi"
+                title="хи"
+                >$\chi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\psi"
+                title="пси"
+                >$\psi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\omega"
+                title="омега"
+                >$\omega$
+        </button>
+    </div>
+</div>
+<!-- /Greek lowercase -->
+<!-- Greek uppercase -->
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_symb_greek_upper">Греческие заглавные</p>
+
+    <div id="kbd_symb_greek_upper" class="collapse">
+        <button
+                class="btn btn-xs" data-inserts="\Gamma"
+                title="Гамма"
+                >$\Gamma$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Delta"
+                title="Дельта"
+                >$\Delta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Theta"
+                title="Тета"
+                >$\Theta$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Lambda"
+                title="Лямбда"
+                >$\Lambda$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Xi"
+                title="Кси"
+                >$\Xi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Pi"
+                title="Пи"
+                >$\Pi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Sigma"
+                title="Сигма"
+                >$\Sigma$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Upsilon"
+                title="Ипсилон"
+                >$\Upsilon$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Phi"
+                title="Фи"
+                >$\Phi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Psi"
+                title="Пси"
+                >$\Psi$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="\Omega"
+                title="Омега"
+                >$\Omega$
+        </button>
+    </div>
+</div>
+<!-- /Greek uppercase -->
+</div>
+
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_num">Числа и полиномы</button>
+<!-- Numbers and fractions panel -->
+<div id="kbd_num" class="kbd collapse">
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_num_num">Числа</p>
+
+    <div id="kbd_num_num" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\max(,)" data-back="2"
+                title="наибольшее из двух чисел"
+                >max(a,b)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\min(,)" data-back="2"
+                title="наименьшее из двух чисел"
+                >min(a,b)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\abs()" data-back="1"
+                title="абсолютная величина числа"
+                >abs()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sign()" data-back="1"
+                title="знак числа "
+                >sign()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\round()" data-back="1"
+                title="число, округленное к ближайшему целому"
+                >round()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="floor()" data-back="1"
+                title="наибольшее целое число, не превосходящее данное"
+                >floor()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\ceil()" data-back="1"
+                title="наименьшее целое число, которое не меньше данного"
+                >ceil()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\isZero()" data-back="1"
+                title="равно ли нулю?"
+                >isZero()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\isOne()" data-back="1"
+                title="равно ли единице?"
+                >isOne()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\isEven()" data-back="1"
+                title="является ли четным?"
+                >isEven()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\isNegative()" data-back="1"
+                title="является ли строго отрицательным?"
+                >isNegative()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\isInfinite()" data-back="1"
+                title="это бесконечность?"
+                >isInfinite()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[x,y];\randomNumber();" data-back="2"
+                title="случайное число, содержащее b двоичных разрядов"
+                >random(bits)
+        </button>
+    </div>
+ </div>
+ <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_num_int">Целые числа</p>
+    <div id="kbd_num_int" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\div(,)" data-back="2"
+                title="целая часть частного a/b""
+                >div(a,b)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\rem(,)" data-back="2"
+                title="остаток от деления a на b"
+                >rem(a,b)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\divRem(,)" data-back="2"
+                title="частное и остаток от деления a на b"
+                >divRem(a,b)
+        </button>        
+        <button class="btn btn-xs"
+                data-inserts="\mod(,)" data-back="2"
+                title="остаток от деления a на m in the range: [0, m-1 ]""
+                >mod(a,m)
+        </button> 
+        <button class="btn btn-xs"
+                data-inserts="\Mod(,)" data-back="2"
+                title="остаток от деления a на m в интервале: [-(m-1)div 2, m div 2]""
+                >Mod(a,m)
+        </button> 
+        <button class="btn btn-xs"
+                data-inserts="\factor()" data-back="1"
+                title="разложение на простые сомножители"
+                >factor(a)
+        </button>        <button class="btn btn-xs"
+                data-inserts="a!" data-back="1"
+                title="Факториал             "
+                >a!
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\GCD(,)" data-back="2"
+                title="НОД  "
+                >GCD(a,b)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\extendedGCD(,)" data-back="2"
+                title="[НОД,A,B] НОД и коэффициенты Безу (A,B): aA+bB=НОД"
+                >extendedGCD(a,b)
+        </button>
+      </div>
+   </div>
+
+   <div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_num_frac">Дроби и рациональные функции</p>
+
+    <div id="kbd_num_frac" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\num()" data-back="1"
+                title="числитель"
+                >num(fr)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\denom()" data-back=1"
+                title="знаменатель"
+                >denom(fr)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\cancel()" data-back=1"
+                title="сократить дробь"
+                >cancel(fr)
+        </button>
+        <button class="btn btn-xs" 
+                data-inserts="\quotientAndRemainder()" data-back="1"
+                title="частное и остаток при делении числителя на знаменатель"
+                >quotientAndRemainder(fr)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\quotient()" data-back="1"
+                title="частное при делении числителя на знаменатель"
+                >quotient(fr)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\remainder()" data-back="1"
+                title="остаток при делении числителя на знаменатель"
+                >remainder(fr)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\quotientAndRemainder(,)" data-back="2"
+                title="частное и остаток при делении числителя на знаменатель"
+                >quotientAndRemainder(fr,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\quotient(,)" data-back="2"
+                title="частное при делении числителя на знаменатель"
+                >quotient(fr,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\remainder(,)" data-back="2"
+                title="остаток при делении числителя на знаменатель"
+                >remainder(fr,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\properForm();" data-back="2"
+                title="сумма целого числа и правильной дроби"
+                >properForm(fr)
+        </button>
+       </button>
+      </div>
+   </div>
+
+   <div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_num_pol">Полиномы</p>
+        <div id="kbd_num_pol" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[x,y];\randomPolynom(2, 2, 100, 5);" data-back="0"
+                title="случайный полином: d_1=старшая стеаень_1,..,d_n=старшая стеаень_n ,density=плотность в процентах, bits= число бит в коеффициентах"
+                >random(d_1,..,d_n,density,bits)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\GCD(,);" data-back="3"
+                title="наибольший общий делитель"
+                >GCD(f,g)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\LCM(,);" data-back="3"
+                title="наименьшее общее кратное"
+                >LCM(f,g)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\leadingCoeff();" data-back="2"
+                title="старший коэффициент полинома, это числ или полином с меньшим числом переменных"
+                >leadingCoeff()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\value(,[]);" data-back="5"
+                title="значение полинома одной переменной f(x) в точке  x=a "
+                >value(f(x),[a])
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\value(,[,]);" data-back="6"
+                title="значение полинома двух переменных f(x,y) в точке (x,y)=(a,b)"
+                >value(f(x,y), [a, b])
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = Q[x];b = \solve(x^2 + 3x - 6 = 0);" data-back="1"
+                title="корни полинома"
+                >rootsOfPolynomial()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64[x];b = \solve(x^3+8);" data-back="1"
+                title="действительные корни полинома"
+                >realRootsOfPolynomial()
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = C64[x];b = \solve(x^3+8);" data-back="1"
+                title="комплексные корни полинома "
+                >complexRootsOfPolynomial()
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="SPACE = R64[x, y]; \solveNAE(x^2 + y^2 - 4, y - x^2);" data-back="1"
+                title="решить систему нелинейных алгебраических уравнений: f=0,g=0,...,h=0"
+                >solveNAE(f,g,...,h)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\degrees();" data-back="2"
+                title="старшие степени по каждой переменной (в порядке убывание номеров переменных)"
+                >\degrees(f)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\degree();" data-back="2"
+                title="степень полинома (по старшей переменной)"
+                >\degree(f)
+        </button>
+        <button class="btn btn-xs"
+               data-inserts="SPACE = Z[x, y, z]; \groebner(x^4y^3 + 2xy^2 + 3x + 1, x^3y^2 + x^2, x^4y + z^2 + xy^4 + 3);" data-back="0"
+               title="базис Гребнера идеала, порожденного полиномами f,..,g"
+               >groebner(f,..,g)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = Q[x, y, z];\reduceByGB(5y^2 + 3x^2 + z^2, [y + x, 5z^2 + 5z]);" data-back="0"
+                title="редукция полинома f по заданному множеству полиномов p,..,q."
+                >reduceByGB(f,[p,..,q])
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\PRS(,)" data-back="2"
+                title="ППО - последовательность полиномиальных остатков при делении полиномов по алгоритму Евклида (без знаков)"
+                >PRS(a,b)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\GCDNumPolCoeffs()" data-back="1"
+                title="НОД числовых коэффициентов полинома"
+                >GCDNumCf(p)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\GCDHPolCoeffs()" data-back="1"
+                title="НОД коэффициентов полинома при старшейтпеременной, т.е. это полином от всех остальных переменных "
+                >GCDHCf(p,z)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\quotientAndRemainder(,,)" data-back="3"
+                title="частное и остаток при делении  a на b , когда старшая переменная x "
+                >quotientAndRemainder(a,b,x)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\quotient(,,)" data-back="3"
+                title="частное и остаток при делении  a на b , когда старшая переменная x"
+                >quotient(a,b,x)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\remainder(,,)" data-back="3"
+                title="частное и остаток при делении  a на b , когда старшая переменная x"
+                >remainder(a,b,x)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="SPACE=Q[x,y]; a=3xy+1; b=4y+x;V=\extendedGCD(a,b); v=\elementOf(V); c= a v_{2}+b v_{3}; \print(c, v_{1},v_{2}, v_{3});" data-back="2"
+                title="[GCD,A,B] GCD и коэффициенты Безу (A,B): aA+bB=GCD  для полиномов над полем. Старшая переменная в полиноме является основной. Все остальные переменные принадлежат полю частных. "
+                >extendedGCD(a,b)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\toVectorDence();" data-back="2"
+                title="вектор, у которого компонентами являются коэффициенты полинома по старшей переменно. Число компонент равно степени полинома плюс один. "
+                >toVectorDence(p)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\toVectorSparce();" data-back="2"
+                title="вектор, у которого 2n компонент. Первые n -- это ненулевые коэффициенты. Последние n -- это их степени."
+                >toVectorSparce(p)
+        </button>
+         <button class="btn btn-xs"
+                data-inserts="\vectorToPolynom();" data-back="2"
+                title="полином одной переменной, у которое коэффициентами являются числа -- компоненты заданного вектора."
+                >vectorToPolynom([])
+        </button>
+    </div>
+ </div>
+<!-- /Numbers and Polynomials -->
+</div>
+<!-- Matrix panel -->
+
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_mat">Матрицы</button>
+ <div id="kbd_mat" class="kbd collapse">
+  <div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_mat_matr">Матричные функции</p>
+
+    <div id="kbd_mat_matr" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="M=[[1,2],[3,1]]; b=[1,1]; \solve(M,b); " data-back="0"
+                title="Решение систем линейных уравнений Ax=b: (A,b) или (extA), где extA -- это расширенная матрица"
+                >solveLAE
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="^{T};" data-back="0"
+                title="Транспонированная матрица"
+                >transpose
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="^{-1};" data-back="0"
+                title="Обратная матрица"
+                >inverse
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\adjoint();" data-back="0"
+                title="Присоединенная матрица"
+                >adjoint
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\det();" data-back="0"
+                title="Определитель"
+                >det
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\detL(n,[p(x,y),x,q(x,y),y]);" data-back="0"
+                title="Определитель Лагутинского порядка n для дифференцирования  p(x,y)dx+q(x,y)dy"
+                >detL
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="^{\ast};" data-back="0"
+                title="Сопряженная матрица"
+                >conjugate
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="^{+};" data-back="0"
+                title="Обобщенная обратная матрица Мурра-Пенроуза"
+                >genInverse
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\toEchelonForm();" data-back="0"
+                title="Эшелонная форма матрицы"
+                >toEchelonForm
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\kernel();" data-back="0"
+                title="Ядро оператора"
+                >kernel
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\charPolynom();" data-back="0"
+                title="Характеристический полином матрицы"
+                >charPolynom
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\LDU();" data-back="0"
+                title="LDU-разложение"
+                >LDU
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\BruhatDecomposition();" data-back="0"
+                title="Разложение Брюа"
+                >BruhatDecomposition
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[x,y];\randomMatrix(2, 2, 100, 5);" data-back="0"
+                title="случайная числовая матрица: n=число строк, m=число столбцов,density=плотность в процентах, bits= число бит в коеффициентах"
+                >random(n,m,density,bits)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[x,y,z];\randomMatrix(2, 2, 100, 1,1,1,50, 5);" data-back="0"
+                title="случайная полиномиальная матрица: n=число строк, m=число столбцов, density=плотность в процентах, (d1,..,dn, den,bits) - тип случайного полинома"
+                >random(n,m,dens,d1,.,dk,dens,bits)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\submatrix(A,1,1,1,1);" data-back="10"
+                title="подматрица мытрицы M содержащая Nr строк (r1-первая строка) и Nc столбцов ( c1-первый столбец),  "
+                >submatrix(M,r1,Nr,c1,Nc)
+        </button>
+    </div>
+  </div>
+  <div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_mat_integ">Матрицы над Z</p>
+    <div id="kbd_mat_integ" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[];  A=[[5,2],[3,2]]; \LDUm(A);" data-back="2"
+                title="треугольное разложение матриц A=L*D*U"
+                >LDUm
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[];\PlduQwk();" data-back="2"
+                title="матрицы перестановок и треугольное разложение матриц A=P*l*d*u*Q, A^{-1}=Q^{T}*w*d*k*P^{T}"
+                >PlduQwk
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[];\LDUWK();" data-back="2"
+                title="треугольное разложение матриц A=L*D*U и A^{-1}=W*D*K"
+                >LDUWK
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Z[]; \WDK();" data-back="2"
+                title="треугольное разложение матрицы обратной матрицы A^{-1}=W*D*K"
+                >WDK
+        </button>
+    </div>
+</div> 
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_mat_lprog">Линейное программирование (Q,R64,R)</p>
+    <div id="kbd_mat_lprog" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Q[];A=[[1,3],[2,1]];b=[3,2];c=[8,6];\SimplexMax(A,b,c);" data-back="0"
+                title="Ищем такой вектор x: Ax<=b, c*x --> max"
+                >SimplexMax
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Q[];A=[[3,4],[2,1]];b=[3,1];c=[-2,-1];\SimplexMin(A,b,c);" data-back="2"
+                title="Ищем такой вектор x: Ax<=b, c*x --> min"
+                >SimplexMin
+        </button>
+    </div>
+</div> 
+
+<!-- /Matrix -->
+</div>
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_functions">Функции</button>
+<!-- Functions panel -->
+<div id="kbd_functions" class="kbd collapse">
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_functions_one_var">Элементарные функции</p>
+
+    <div id="kbd_functions_one_var" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\ln()" data-back="1"
+                title="Натуральный логарифм"
+                >ln
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\lg()" data-back="1"
+                title="Десятичный логарифм"
+                >lg
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sin()" data-back="1"
+                title="Синус"
+                >sin
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\cos()" data-back="1"
+                title="Косинус"
+                >cos
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\tg()" data-back="1"
+                title="Тангенс"
+                >tg
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\ctg()" data-back="1"
+                title="Котангенс"
+                >ctg
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arcsin()" data-back="1"
+                title="Арксинус"
+                >arcsin
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arccos()" data-back="1"
+                title="Арккосинус"
+                >arccos
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arctg()" data-back="1"
+                title="Арктангенс"
+                >arctg
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arcctg()" data-back="1"
+                title="Арккотангенс"
+                >arcctg
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sh()" data-back="1"
+                title="Гиперболический синус"
+                >sh
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\ch()" data-back="1"
+                title="Гиперболический косинус"
+                >ch
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\th()" data-back="1"
+                title="Гиперболический тангенс"
+                >th
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\cth()" data-back="1"
+                title="Гиперболический котангенс"
+                >cth
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arcsh()" data-back="1"
+                title="Гиперболический арксинус"
+                >arcsh
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arcch()" data-back="1"
+                title="Гиперболический арккосинус"
+                >arcch
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arcth()" data-back="1"
+                title="Гиперболический арктангенс"
+                >arcth
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\arccth()" data-back="1"
+                title="Гиперболический арккотангенс"
+                >arccth
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\exp()" data-back="1"
+                title="Экспоненциальная функция"
+                >exp
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sqrt()" data-back="1"
+                title="Квадратный корень"
+                >$\sqrt{}$
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_many">Другие функции</p>
+
+    <div id="kbd_func_many" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\log(a, x);" data-back="0"
+                title="Логарифм с заданным основанием"
+                >$\log_a(x)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\rootOf(a, n);" data-back="0"
+                title="Корень n-ой степени"
+                >$\sqrt[n]{a}$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\int(f) d x;" data-back="0"
+                title="Интеграл"
+                >$\int \! f \ \mathrm{d}x$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\D(f);" data-back="0"
+                title="Производная"
+                >$D(f)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\D(f, x);" data-back="0"
+                title="Производная по переменной х"
+                >$D_{x}(f)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\D(f, x^n);" data-back="0"
+                title="n-ая производная по переменной х"
+                >$D_{x}^{(n)}(f)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\lim_{x \to a}(f);" data-back="0"
+                title="Предел"
+                >$\lim_{x \to a}(f)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\binom(n, k);" data-back="0"
+                title="Биномиальный коэффициент"
+                >$\binom n k $
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\abs()" data-back="1"
+                title="Абсолютная величина"
+                >abs
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sign()" data-back="1"
+                title="Знак числа или полинома"
+                >sign
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="a!" data-back="1"
+                title="Факториал"
+                >a!
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\Gamma()" data-back="1"
+                title="Гамма-функция"
+                >$\Gamma(x)$
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\Beta(x, y);" data-back="0"
+                title="Бета-функция"
+                >&Beta;(x,y)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\BesselJ(n,x);" data-back="0"
+                title="BesselJ(n,x) функция Бесселя J"
+                >BessJ(n,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\BesselY(n,x);" data-back="0"
+                title="BesselY(n,x) функция Бесселя Y"
+                >BessY(n,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\LegendreP(n,x);" data-back="0"
+                title="полином Лежандра: P(n,x)=1/(2n) sum_{k=0}^{n}binom(n,k)^2(x-1)^{n-k}(x+1)^k "
+                >LegP(n,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\LegendreP(n,m,x);" data-back="0"
+                title="присоединенный полином Лежандра: P(n,m,x)=P_n^m(x)=(-1)^m(1-x^2)^{m/2}(d/d x^m)P(n,x)"
+                >LegP(n,m,x)
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sphericalHarmonic(n,m,\theta,\phi);" data-back="0"
+                title="сферическая гармоника: Y(n,m,theta,phi)=[P(n,m,cos(theta))*cos(m*phi),P(n,m,cos(theta))*sin(m*phi)] являтся решением уравнения Лапласа в сферических координатах"
+                >sphHarm
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sphericalHarmonicR(n,m,r,\theta,\phi);" data-back="0"
+                title="Yr(n,m,r,theta,phi)=r^n Y(n,m,theta,phi)"
+                >sphHarmR
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sphericalHarmonicCart(n,m,x,y,z);" data-back="0"
+                title="сферическая гармоника в Декартовых координатах: YCart(n,m,x,y,z)=Y(n,m,theta,phi) for r=sqrt(x^2+y^2+z^2), z=rcos(theta), x=sin(theta)cos(phi), y=sin(theta)sin(phi)"
+                >sphHarmCart
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sphericalHarmonicRCart(n,m,x,y,z);" data-back="0"
+                title="YrCart(n,m,x,y,z)=r^n YCart(n,m,x,y,z)"
+                >sphHarmRCart
+        </button>
+    </div>
+</div>
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_nonlinear">Уравнения, неравенства и их системы</p>
+    <div id="kbd_func_nonlinear" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Q[x]; \solve(x^2+5x+p=0);" data-back="2"
+                title="решить алгебраическое уравнение"
+                >solveEquation
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=Q[x,y];\solve([x+y=6,3x-2y=5]);" data-back="2"
+                title="решить систему линейных алгебраических уравнений"
+                >solveLinSyst
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\solve([a+b+c=6,3c*a-2b-7d=5],[a,b]);" data-back="9"
+                title="решить систему линейных алгебраических уравнений с другими переменными"
+                >solveLSystWithOtherVars
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="A=[[1,2],[4,5]]; b=[3,4];\solve(A,b);" data-back="29"
+                title="решить в матричной форме систему линейных алгебраических уравнений"
+                >solveLSystInMatrixForm
+        </button>   
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[x,y];\solveNAE(x^2+y^2-4,y-x^2);" data-back="1"
+                title="Система нелинейных алгебраических уравнений: (f,g,...,h)"
+                >solveNAE(f,g,...,h)
+        </button>     
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64[x];b = \solveTrig(\sin(x)=0.5);" data-back="0"
+                title="Тригонометрическое уравнение"
+                >solveTrigonometricEquation
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\solve((x+1)^2(x-3)(x+5) > 0);" data-back="0"
+                title="Нелинейное алгебраическое неравенство"
+                >solveInequality
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\solve(x^2+4x-5 > 0, x^2-2x-8 < 0);" data-back="0"
+                title="Система нелинейных алгебраических неравенств"
+                >solveSystemOfInequalities
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[x,y]; f=x^2-7y; \value(f,[1,2]);" data-back="0"
+                title="вычислить значение функции в точке"
+                >value
+        </button>
+    </div>
+</div>
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_diff">Дифференциальные уравнения и их системы</p>
+    <div id="kbd_func_diff" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[t];\newline  g=\systLDE(\d(y, t, 3)+3\d(y, t, 2)+3\d(y, t)+y=1);\newline f=\initCond(\d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0,\d(y, t, 0, 2)=0);\newline h=\solveLDE(g, f); "
+                data-back="0"
+                title="Линейные дифференциальные уравнения"
+                >solveLinDE
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[t];\newline g=\systLDE(\d(x, t)-y+z=0, -x-y+\d(y, t)=0, -x-z+\d(z, t)=0);\newline f= \initCond(\d(x, t, 0, 0)=1, \d(y, t, 0, 0)=2, \d(z, t, 0, 0)=3);\newline h= \solveLDE(g, f);"
+                data-back="0"
+                title="Системы линейных дифференциальных уравнений"
+                >solveSystemOfLinDEs
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_prob">Функции теории вероятностей</p>
+
+    <div id="kbd_func_prob" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[x];DRQ=[[10,20,33,22],[0.1,0.5,0.2, 0.2]];" data-back="0"
+                title="Задание дискретной случайной величины"
+                >discreteRandomQuantity
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\mathExpectation(DRQ);" data-back="0"
+                title="Математическое ожидание дискретной случайной величины"
+                >mathExpectation
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\dispersion(DRQ);" data-back="0"
+                title="Дисперсия  дискретной случайной величины"
+                >dispersion
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\meanSquareDeviation(DRQ);" data-back="0"
+                title="Среднее квадратичное отклонение дискретной случайной величины"
+                >meanSquareDeviation
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\addQU(DRQ1,DRQM2);" data-back="0"
+                title="Сумма двух дискретных случайных величин DRQ1 и DRQ2"
+                >addQU
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\multiplyQU(DRQ1, DRQ2);" data-back="0"
+                title="Произведение двух дискретных случайных величин DRQ1 и DRQ2"
+                >multiplyQU
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\covariance(DRQ1, DRQ2);" data-back="0"
+                title="Коэффициент ковариации двух дискретных случайных величин DRQ1 и DRQ"
+                >covariance
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\correlation(DRQ1, DRQ2);" data-back="0"
+                title="Коэффициент корреляции двух дискретных случайных величин DRQ1 и DRQ2"
+                >correlation
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\plotPolygonDistribution(DRQ);" data-back="0"
+                title="Построение многоугольника распределения дискретной случайной величины DRQ"
+                >plotPolygonDistribution
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\plotDistributionFunction(DRQ);" data-back="0"
+                title="Построение функции распределения дискретной случайной величины DRQ, где массив [x1,x2,y1,y2] задает границы графика"
+                >plotDistributionFunction
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\simplifyQU(DRQ);" data-back="0"
+                title="Упрощение дискретной случайной величины"
+                >simplifyQU
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_stat">Функции математической статистики</p>
+
+    <div id="kbd_func_stat" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="SPACE=R64[x];S=[10,20,33,22];" data-back="0"
+                title="Задание выборки"
+                >sample
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sampleMean(S);" data-back="0"
+                title="Выборочное среднее выборки"
+                >sampleMean
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\sampleDispersion(S);" data-back="0"
+                title="Выборочная дисперсия выборки"
+                >sampleDispersion
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\covarianceCoefficient(S1, S2);" data-back="0"
+                title="Коэффициент ковариации для двух выборoк S1 и S2"
+                >covarianceCoefficient
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\correlationCoefficient(S1, S2);" data-back="0"
+                title="Коэффициент корреляции для двух выборoк S1 и S2"
+                >correlationCoefficient
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_graph">Графы</p>
+
+    <div id="kbd_func_graph" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="M=[[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],
+                [1,1,1,0,0,1],[0,0,1,0,1,0]];\newline   \plotGraph(M);" data-back="0"
+                title="Построение графа по матрице смежности M"
+                >plotGraphMatrix
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="M=[[0,1,1,0,1,0],[1,0,0,1,1,0],[1,0,0,0,1,1],[0,1,0,0,0,0],
+                [1,1,1,0,0,1],[0,0,1,0,1,0]];\newline P=[[3,2,4,1,3,5],[3,2,2,1,1,1]];\newline \plotGraph(M,P);" data-back="0"
+                title="Построение графа по матрице смежности M и матрице координат P"
+                >plotGraphAdMatrixCoord
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\plotGraph(5);" data-back="0"
+                title="Построение полного графа по количеству вершин N"
+                >plotCompleteGraph
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\searchLeastDistances()" data-back="1"
+                title="Вычисление таблицы кратчайших расстояний для всех вершин графа"
+                >searchLeastDistances
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\findTheShortestPath()" data-back="1"
+                title="Нахождение кратчайшего пути между двумя вершинами графа i и j: (M,i,j), M -- матрица смежности"
+                >findTheShortestPath
+        </button>
+
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_tropfield">Идемпотентные (тропические) алгебры</p>
+    <div id="kbd_func_tropfield" class="collapse">
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MinPlus[];" data-back="2"
+                title="Тропическое полуполе R64 (Min, Plus)"
+                >R64min+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMinPlus[];" data-back="2"
+                title=""
+                >Rmin+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MinMult[];" data-back="2"
+                title=""
+                >R64min$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMinMult[];" data-back="2"
+                title=""
+                >Rmin$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MaxPlus[];" data-back="2"
+                title=""
+                >R64max+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMaxPlus[];" data-back="2"
+                title=""
+                >Rmax+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MaxMult[];" data-back="2"
+                title=""
+                >R64max$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMaxMult[];" data-back="2"
+                title=""
+                >Rmax$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MinMax[];" data-back="2"
+                title=""
+                >R64min max 
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMinMax[];" data-back="2"
+                title=""
+                >Rmin max
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = R64MaxMin[];" data-back="2"
+                title=""
+                >R64max min 
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = RMaxMin[];" data-back="2"
+                title=""
+                >Rmax min
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMinPlus[];" data-back="2"
+                title=""
+                >Zmin+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMinMult[];" data-back="2"
+                title=""
+                >Zmin$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMaxPlus[];" data-back="2"
+                title=""
+                >Zmax+
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMaxMult[];" data-back="2"
+                title=""
+                >Zmax$\times$
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMinMax[];" data-back="2"
+                title=""
+                >Zmin max
+        </button>
+        <button
+                class="btn btn-xs" data-inserts="SPACE = ZMaxMin[];" data-back="2"
+                title=""
+                >Zmax min
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = ZMinPlus[x, y]; A = [[1, 1],[2, 0]];\newline b = [10, 7];\newline \solveLAETropic(A, b);"
+                data-back="0"
+                title="Решение системы линейных уравнений Ax = b"
+                >Ax=b
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = ZMinPlus[x, y];  A = [[1, 1],[2, 0]];\newline b = [10, 7];\newline \solveLAITropic(A, b);"
+                data-back="0"
+                title="Решение системы линейных алгебраических неравенств Ax ≤ b"
+                >Ax ≤ b
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64MaxPlus[x, y];  A = [[0 , -2 ], [-\infty, 0 ]];  b = [ 1 , -\infty ];\newline \BellmanEquation(A, b);"
+                data-back="0"
+                title="Решение уравнения Беллмана Ax + b = x"
+                >Ax+b=x
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64MaxPlus[x, y];  A = [[0 , -2 ], [-\infty, 0 ]];  b = [ 1 , -\infty ];\newline \BellmanInequality(A, b);"
+                data-back="0"
+                title="Решение неравенства Беллмана Ax + b ≤ x"
+                >Ax+b≤x
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_algebraic">Алгебраические преобразования</p>
+
+    <div id="kbd_func_algebraic" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\factor();" data-back="2"
+                title="разложить на множители алгебраическое выражение"
+                >factor
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\expand();" data-back="2"
+                title="раскрыть все скобки в алгебраическом выражении"
+                >expand
+        </button>
+    </div>
+</div>
+
+<div class="well well-small">
+    <p class="label label-default btn-block collapsed" data-toggle="collapse"
+       data-target="#kbd_func_transcend">трансцендентные преобразования</p>
+
+    <div id="kbd_func_transcend" class="collapse">
+        <button class="btn btn-xs"
+                data-inserts="\Factor();" data-back="2"
+                title="разложить на множители, используя тождества"
+                >Factor
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="\Expand();" data-back="2"
+                title="раскрыть все скобки, используя тождества"
+                >Expand
+        </button>
+    </div>
+  </div>
+</div>
+
+ 
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_plots">Графики, таблицы</button>
+<!-- Plots panel -->
+<div id="kbd_plots" class="kbd collapse">
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_plot_plot2d">2D графики и таблицы</p>
+
+        <div id="kbd_plot_plot2d" class="collapse in">
+            <button class="btn btn-xs" data-inserts="\set2D(-5,5,-4,6); f=3\arctg(x+1); \plot([f,-x+5, 3x+5]);"
+                    data-back="0"
+                    title="График функции одной переменной: (y(x), [x1, x2])"
+                    >plot
+            </button>
+            <button class="btn btn-xs" data-inserts="\set2D(-20, 20, -20, 20);\newline g = x\sin(x); k = x\cos(x);\newline f = \paramPlot([g, k], [0, 5\pi]);"
+                    data-back="0"
+                    title="График функции, которая заданна параметрически: ([x(t), y(t)], [t1, t2])"
+                    >paramPlot
+            </button>
+            <button class="btn btn-xs"
+                    data-inserts="\set2D( 0, 10,  -5, 30);\newline \tablePlot([[0, 1, 2, 3, 4, 5],[0, 1, 4, 9, 16, 25],[0, -1, -2, -3, -4, -5],[0, 4, 8, 12, 16, 20]]);"
+                    data-back="0"
+                    title="График табличной функции можно задавать значениями абсцисс и ординат точек ([[x1,.., xn],[y1,..,yn]])"
+                    >tablePlot
+            </button>
+            <button class="btn btn-xs"
+                    data-inserts="\set2D(-5, 5, -5, 5);\newline f1 = \plot(\tg(x));\newline f2 = \tablePlot([[0, 1, 4, 9, 16, 25], [0, 1, 2, 3, 4, 5]]);\newline f3 = \paramPlot([\sin(x), \cos(x)], [-10, 10]);\newline f4=\tablePlot([[0, 1, 4, 9, 16, 25], [0, -1, -2, -3, -4, -5]]);\newline \showPlots([f1, f2, f3, f4]);"
+                    data-back="0"
+                    title="Построение графиков нескольких функций на одном рисунке: ([G1,.., Gn])"
+                    >showPlots
+            </button>
+            <button class="btn btn-xs"
+                    data-inserts=" SPACE=R64[x];\set2D(0, 5, -5, 10);\newline A=[[0, 1, 2, 3,  4, 5],[3, 0, 4, 10, 5, 10]];\newline  t=\table(A);\newline p=\approximation(t,4);\newline P=\plot(p );\newline T=\tablePlot(t);\showPlots([P,T]);\print(p);"
+                    data-back="0"
+                    title="Аппроксимация табличной функции полиномом с заданной степенью "
+                    >approximation
+            </button>
+            <button class="btn btn-xs" data-inserts="=\tableFromFile('');" data-back="3"
+                    title="Создание таблицы из загруженного файла"
+                    >tableFromFile
+            </button>
+            <button class="btn btn-xs" data-inserts="=\table();" data-back="2"
+                    title="Создание таблицы по матрице или по другой таблице, обозначение столбцов: ['x', 'y',..] and borders: [x1, x2, y1, y2]"
+                    >table
+            </button>
+        </div>
+    </div>
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_plot_plot3d">3D графики</p>
+        <div id="kbd_plot_plot3d" class="collapse in">
+            <button class="btn btn-xs" data-inserts="\clean(); SPACE = R64[x, y, z];f = x^2 / 20 + y^2 / 20;\newline pl=\plot3d([f], [-20, 20, -20, 20]);"
+                    data-back="0"
+                    title="Построение 3D графиков явных функций"
+                    >plot3d
+            </button>
+            <button class="btn btn-xs" data-inserts="\clean(); SPACE = R64[x, y, z];f = -x^2+2y^2+3z^2-25; iPl=\implicitPlot3d( f, -10, 10, -10, 10, -10, 10);"
+                    data-back="0"
+                    title="График функции -x^2+2y^2+3z^2-25=0"
+                    >implicitPlot3d_1
+            </button>
+            <button class="btn btn-xs" data-inserts="\clean(); SPACE = R64[x, y, z];f = (x^2+y^2+z^2)^2-80xyz; iPl=\implicitPlot3d( f, -10, 10, -10, 10, -10, 10);"
+                    data-back="0"
+                    title="График функции of (x^2+y^2+z^2)^2-80xyz=0"
+                    >implicitPlot3d_2
+            </button>
+            <button class="btn btn-xs" data-inserts="\clean(); SPACE = R64[x, y, z];f = (x^2+y^2)/20; ePl=\explicitPlot3d( f, -10, 10, -10, 10, -10, 10, 40);"
+                    data-back="0"
+                    title="График явной функции  z=(x^2+y^2)/20"
+                    >explicitPlot3d
+            </button>
+        </div>
+    </div>
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_plot_parm3d">Параметрические поверхности  </p>
+        <div id="kbd_plot_parm3d" class="collapse in">
+          <button class="btn btn-xs" data-inserts="\clean(); SPACE = R64[u, v]; X=\cos(u)*(3+\cos(v)); Y=\sin(u)*(3+\cos(v)); Z=\sin(v);pPl=\parametricPlot3d(X, Y, Z, 0, 7, 0, 7, 64);"
+                    data-back="0"
+                    title="Параметрические поверхности: Тор"
+                    >Torus
+            </button>
+            <button class="btn btn-xs" data-inserts="\clean();  SPACE = R64[u, v]; X=\cos(u)*(\cos(v)+2); Y=\sin(u) * (\cos(v)+2); Z=\sin(v)+u/2+1; pPl=\parametricPlot3d(X,Y,Z, -6.3, 6.3, -3.15, 3.15, 64);"
+                    data-back="0"
+                    title="Параметрические поверхности: Спираль"
+                    >Spiral
+            </button>
+            <button class="btn btn-xs" data-inserts="\clean();  SPACE = R64[u, v]; X = \cos(u) * \sin(v) * 2.5; Y = \sin(u) * \sin(v) * 2.5; Z = \cos(v) + \ln(\tg(v / 2)) + u / 6; pPl=\parametricPlot3d(X, Y, Z, 0, 12.56, 0.001, 2, 64);"
+                    data-back="0"
+                    title="Параметрические поверхности: Поверхность Дини"
+                    >Dini's surface
+            </button>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_files">Файлы</button>
+<!-- My files panel -->
+<div id="kbd_files" class="kbd collapse">
+    <div class="well well-small">
+        <form id="import-form" action="../api/files"
+              method="POST"
+              enctype="multipart/form-data"
+              accept-charset="UTF-8">
+            <fieldset>
+          <span class="btn btn-default btn-block fileinput-button">
+            <i class="glyphicon glyphicon-upload"></i><span>Загрузить текст</span>
+            <input type="file" name="file" id="file-import">
+            <input type="hidden" name="import_txt">
+          </span>
+            </fieldset>
+        </form>
+        <button id="export_txt" class="btn btn-sm"
+                title="Сохранить страницу в виде текстового файла"
+                ><i class="glyphicon glyphicon-download-alt"></i> Сохранить текст</button>
+        <form id="export_settings" class="form-inline" role="form">
+            <input id="export_format" name="format" type="hidden" value="pdf">
+            <input name="filename" type="hidden" value="">
+            <input id="pdf_page_width" name="pdf_page_width" type="text" class="input-sm form-control" value="21">
+            x
+            <input id="pdf_page_height" name="pdf_page_height" type="text" class="input-sm form-control" value="29.7">
+            <button id="export_pdf" class="btn btn-sm"
+                    title="Сохранить страницу в виде PDF файла"
+                    ><i class="glyphicon glyphicon-download-alt"></i> Сохранить PDF</button>
+        </form>
+        <form id="upload-form" action="../api/files"
+              method="POST"
+              enctype="multipart/form-data"
+              accept-charset="UTF-8">
+            <fieldset>
+          <span class="btn btn-default btn-block fileinput-button">
+            <i class="glyphicon glyphicon-upload"></i><span>Загрузить файл</span>
+            <input type="file" name="file" id="file">
+          </span>
+            </fieldset>
+        </form>
+        <div id="filelist-container" class="filelist-container well well-small table-responsive">
+        </div>
+        <button class="btn btn-xs" data-inserts="\fromFile(fileName)" data-back="2"
+                title="Создать выражение из содержимого загруженного файла с заданным именем"
+                >fromFile
+        </button>
+        <button class="btn btn-xs" data-inserts="\toFile(a,fileName)" data-back="5"
+                title="Сохранить выражение из переменной в файл с заданным именем"
+                >toFile
+        </button>
+    </div>
+</div>
+<!-- /kbd_files -->
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_cluster">Кластер</button>
+<!-- Cluster panel -->
+<div id="kbd_cluster" class="kbd collapse">
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_cluster_func">Функции</p>
+
+        <div id="kbd_cluster_func" class="collapse in">
+            <button class="btn btn-xs" data-inserts="\getStatus();" data-back="2"
+                    title="Получить статус задачи с заданным номером задачи Id"
+                    >getStatus
+            </button>
+            <button class="btn btn-xs" data-inserts="\getCalcResult();" data-back="2"
+                       title="Получить результат выполненной задачи с заданным номером задачи Id"
+                    >getCalcResult
+            </button>
+            <button class="btn btn-xs" data-inserts="\matMultPar1x8(A, B);" data-back="5"
+                    title="Умножение матриц по рекурсивному алгоритму 1x8 "
+                    >matrixMult:1x8
+            </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = ZMinPlus[x, y]; A = [[1, 1],[2, 0]];\newline \BellmanEquationPar(A);"
+                data-back="0"
+                title="Решение уравнения Беллмана Ax + b = x"
+                >Tropical: Ax=x
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = ZMinPlus[x, y];  A = [[1, 1],[2, 0]]; \newline \BellmanInequalityPar(A);"
+                data-back="0"
+                title="Решение неравенства Беллмана Ax + b ≤ x"
+                >Tropical: Ax ≤ x
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64MaxPlus[x, y];  A = [[0, -2], [-\infty, 0]];  b = [1, -\infty];\newline \BellmanEquationPar(A, b);"
+                data-back="0"
+                title="Решение уравнения Беллмана Ax + b = x"
+                >Tropical: Ax+b=x
+        </button>
+        <button class="btn btn-xs"
+                data-inserts="SPACE = R64MaxPlus[x, y];  A = [[0, -2], [-\infty, 0]];  b = [1, -\infty];\newline \BellmanInequalityPar(A, b);"
+                data-back="0"
+                title="Решение неравенства Беллмана Ax + b ≤ x"
+                >Tropical: Ax+b≤x
+        </button>
+        </div>
+    </div>
+    <div class="well well-small">
+        <p class="label label-default btn-block collapsed" data-toggle="collapse"
+           data-target="#kbd_cluster_const">Константы</p>
+
+        <div id="kbd_cluster_const" class="collapse in">
+            <button class="btn btn-xs" data-inserts="\TOTALNODES = ;" data-back="1"
+                    title="Общее количество узлов, которые выделяются на кластере"
+                    >TOTALNODES
+            </button>
+            <button class="btn btn-xs" data-inserts="\PROCPERNODE = ;" data-back="1"
+                    title="Количество процессоров(ядер) на каждом вычислительном узле"
+                    >PROCPERNODE
+            </button>
+            <button class="btn btn-xs" data-inserts="\CLUSTERTIME = ;" data-back="1"
+                    title="Максимальное время выполнения программы в минутах"
+                    >CLUSTERTIME
+            </button>
+            <button class="btn btn-xs" data-inserts="\MAXCLUSTERMEMORY = ;" data-back="1"
+                    title="Объем памяти для Java (-Xmx опция)"
+                    >MAXCLUSTERMEMORY
+            </button>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-info btn-block collapsed" data-toggle="collapse"
+        data-target="#kbd_login">Вход</button>
+<!-- Login panel -->
+<div id="kbd_login" class="kbd collapse">
+    <div class="loading active"></div>
+    <p>&hellip;</p>
+</div>
+
+<div id="student-panel-placeholder"></div>
+</div>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="welcome.html">
+        <img src="../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="welcome.html">Дом</a></li>
+<li class="active"><a href="">Тетрадь</a></li>
+<li><a href="help/">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../en/">
+            <img width="20" height="20"
+                 src="../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar -->
+<!-- index.ftl -->
+<div class="container main">
+    <div id="edu-plan" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span
+                            class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Edu plan</h4>
+                </div>
+                <div id="edu-plan-content" class="modal-body">
+                    HeyHey
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sidebar and sections -->
+    <div id="global_log"></div>
+    <div class="row">
+        <!-- sections -->
+        <div id="sections" class="col-md-12 sections">
+            <div id="section_0" class="section">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button class="btn btn-sm run_section" tabindex="32767"
+                                title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+                                ><i class="glyphicon glyphicon-play"></i></button>
+                        <button class="btn btn-sm toggle_latex" tabindex="32767"
+                                title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+                                ><i class="glyphicon glyphicon-random"></i></button>
+                        <button class="btn btn-sm add_section" tabindex="32767"
+                                title="Добавить новое поле ниже"
+                                ><i class="glyphicon glyphicon-plus"></i></button>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn btn-sm clear_expr" tabindex="32767"
+                                title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+                                >C
+                        </button>
+                        <button class="btn btn-sm remove_section" tabindex="32767"
+                                title="Удалить поле ввода (также Ctrl-Del в поле ввода)"
+                                ><i class="glyphicon glyphicon-remove"></i></button>
+                    </div>
+                </div>
+                <!-- /button toolbar -->
+                <form>
+                    <input type="hidden" name="section_number" value="0"/>
+                    <textarea class="form-control" name="task" rows="1"></textarea>
+                </form>
+                <div class="res_panel"></div>
+                <div class="tex_panel">Пока нет результата</div>
+                <div class="tex_original"></div>
+            </div>
+            <!-- /section_0 -->
+        </div>
+        <!-- /sections -->
+    </div>
+    <!-- /row main -->
+</div> <!-- /container -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../js/libs/require.js" data-main="../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

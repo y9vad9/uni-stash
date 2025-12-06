@@ -1,0 +1,394 @@
+% \documentclass[10pt,landscape]{book} 
+\documentclass[12pt ]{book}
+%{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,euscript,dcolumn,mathbbol}
+\usepackage[russian]{babel}
+\usepackage{graphicx} 
+%\textwidth  220mm%109mm  % 170mm    ДЛЯ ПРЕЗЕНТАЦИИ
+%\textheight 130mm%108mm%240mm  %240/12     ДЛЯ ПРЕЗЕНТАЦИИ
+%\textwidth  109mm%109mm  % 170mm    %A5
+%\textheight 162mm%240mm  %240/12    %A5
+
+\textwidth    170mm    %A4
+\textheight   240mm    %A4
+%\hsize=  170truemm
+\topmargin -16mm
+%\oddsidemargin -1.8cm % this for the A5 printer
+%\evensidemargin -1.8cm
+% this for the A5 printer
+\oddsidemargin -0.4cm % this for the A5 printer
+\evensidemargin -0.4cm
+
+
+%\renewcommand{\contentsname}{Оглавление}\contentsname
+\makeatletter
+\newcommand{\l@abcd}[2]{\hbox to \textwidth{#1 {\huge\dotfill} #2}}
+\newcommand{\l@Myabcd}[2]{\hbox to \textwidth{ #1 \leaders\hbox{~ }\hfil  }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\l@chapter}[2] %Начало макроопределения (***глава в оглавлении***)
+{\pagebreak[3] \vspace{1em plus 1pt}%
+  \@tempdima=4.5em% место для номера главы (1.5em в стандарте)
+  %\@pnumwidth=2em
+    {% Дальше внутри группы...
+   \rightskip=\@pnumwidth
+   \leftskip=\@tempdima
+   \bf
+   \noindent
+   \hspace{-\leftskip}% с левого поля
+    #1 %\nolinebreak
+   %\leaders\hbox to 0.5em {\hss. \hss }
+\hfill
+%\nolinebreak
+    \rlap{\makebox[\@pnumwidth][r]{#2}}\par
+    \nopagebreak[3]
+   } %конец группы.
+}% конец макроопределения
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\@makechapterhead}[1]{ %Начало макроопределения (***для главы***)
+ \vspace*{40pt} %Пустое место вверху страницы
+ {\parindent=0pt
+  \raggedright\Large\bf
+  %\@chapapp{} %\@chapapp печатает слово"Глава"(см. ниже)
+ {\Huge \bf Глава \arabic{chapter} }   %  \par  % чтобы номер главы - в отдельной строке
+  \vspace{20pt} % между словом "Глава"и её заголовком
+ \par
+\Huge \bf #1
+%\begin{centerline} #1  \end{centerline}   \centerline
+%#1
+\par % заголовок главы
+  \nopagebreak %чтоб не оторвать заголовок от текста
+  \vspace{40pt} % между заголовком и текстом
+ } %конец группы.
+}% конец макроопределения
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\section}{\@startsection{section} %(***для раздела***)
+ {1} %уровень вложенности раздела
+ {0mm} %отступ от левого поля
+ {3.5ex plus 1ex minus 2.ex } %вертикальный отступ До
+ {2.3ex plus 0.2ex } %вертикальный отступ После
+ {  \Large \bfseries
+%\centerline
+}% стиль
+}% конец
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Nthechapter{\arabic{chapter}}
+\renewcommand{\@begintheorem}[2]{\begin{trivlist}\it
+             \item[\hspace{\labelsep}{\bf #1\ #2.}]}
+\renewcommand{\@biblabel}[1]{#1.\hfill}
+%\renewcommand{\thechapter}{{\bf {Глава} \arabic{chapter}.   }}
+\renewcommand{\thechapter}{{\arabic{chapter}}}
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.}
+\renewcommand{\thesubsubsection}
+             {\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{section}.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\subsection}{\@startsection{subsection} %(***для подраздела***)
+% {1} %уровень вложенности раздела
+% {0mm} %отступ от левого поля
+% {3.5ex plus 1ex minus 2.ex } %вертикальный отступ До
+% {2.3ex plus 0.2ex } %вертикальный отступ После
+% {  \large \bfseries   }% стиль
+%}% конец
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\renewcommand{\subsubsection}{\@startsection{subsubsection} %(***для подподраздела***)
+% {1} %уровень вложенности раздела
+% {0mm} %отступ от левого поля
+% {3.5ex plus 1ex minus 2.ex } %вертикальный отступ До
+% {2.3ex plus 0.2ex } %вертикальный отступ После
+% {  \bfseries   }% стиль
+%}% конец
+
+%\renewcommand{\@begintheorem}[2]{\begin{trivlist}\it
+%             \item[\hspace{\labelsep}{\bf #1\ #2.}]}
+%\newtheorem {lemma} {\bf Лемма}
+%\newtheorem {theorem} {\bf Теорема}
+%\newtheorem {corollary} {\bf Следствие}
+%\newtheorem {proposal} {\bf Предложение}
+%\newtheorem {definition} {\bf Определение}
+
+
+\makeatother
+
+\newcounter{ctheorem}[chapter]
+\newcounter{clemma}[chapter]
+\newcounter{cproposal}[chapter]
+\newcounter{cdefinition}[chapter]
+\newcounter{ccorollary}[chapter]
+
+\def\theorem{\par \smallskip %\noindent
+     \refstepcounter{ctheorem}
+    {\bf  Теорема \arabic{chapter}.\arabic{ctheorem}.\ } \begin{it} }
+\def\lemma{\par\smallskip %\noindent
+     \refstepcounter{clemma}
+    {\bf  Лемма \arabic{chapter}.\arabic{clemma}.\ } \begin{it} }
+\def\proposal{\par\smallskip %\noindent
+     \refstepcounter{cproposal}
+    {\bf  Предложение \arabic{chapter}.\arabic{cproposal}.\ } \begin{it} }
+\def\definition{\par\smallskip %\noindent
+    \refstepcounter{cdefinition}
+    {\bf  Определение \arabic{chapter}.\arabic{cdefinition}.\ } \begin{it} }
+\def\corollary{\par\smallskip %\noindent
+    \refstepcounter{ccorollary}
+    {\bf  Следствие \arabic{chapter}.\arabic{ccorollary}.\ } \begin{it} }
+
+\def\endtheorem{\end{it}\par\smallskip}
+\def\endlemma{\end{it}\par\smallskip}
+\def\endproposal{\end{it}\par\smallskip}
+\def\enddefinition{\end{it}\par\smallskip}
+\def\endcorollary{\end{it}\par\smallskip}
+
+\newcommand{\ex}[2]{Результат выполнения: \\ in: #1 \\ out: #2}
+\newcommand{\comm}[2]{$\backslash {\mathbf {#1}} #2$}
+\begin{document}
+
+\sloppy
+
+
+
+
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+%счетчик для примеров
+\newcounter{examplec}
+\setcounter{examplec}{0}
+\newcommand{\example}[1]{\addtocounter{examplec}{1}\null\underline{\textbf{Пример \arabic{examplec}}. #1} }
+
+
+\newcounter{tablec}
+\setcounter{tablec}{0}
+\newcommand{\mytable}[1]{\addtocounter{tablec}{1}{\begin{flushright}Таблица \arabic{tablec}\end{flushright}}\textbf{ #1}} 
+
+
+%\hsize=  170truemm
+\def\refname{{\centerline{\Large{ЛИТЕРАТУРА}}}}%
+%\def\bibname{{\centerline{\normalsize{ЛИТЕРАТУРА}}}}%
+\def\bibname{{\centerline{\Large{ЛИТЕРАТУРА}}}}%
+\def\abstractname{{{ \  }}}%Аннотация
+\def\chaptername{ \hspace{200pt} \Large  Глава}%
+\def\appendixname{Приложение}%
+\def\contentsname{\centerline{\Large{ОГЛАВЛЕНИЕ}}}%
+\def\listfigurename{Список рисунков}%
+\def\listtablename{Список таблиц}%
+\def\indexname{Индекс}%
+\def\figurename{Рисунок}%
+\def\tablename{Таблица}%
+\def\partname{Часть}%
+\def\enclname{прилагается}%
+\def\ccname{копии}%
+\def\headtoname{Кому}%
+\def\pagename{Стр.}
+\pagestyle{plain}
+
+
+
+\newcommand{\diag}{{\mathrm{diag}}}
+\newcommand{\sign}{{\mathrm{sign}}}
+\newcommand{\Nr}{\,{\mathrm{Nr}}\,}
+\newcommand{\rank}{{\mathrm{rank}}}
+\newcommand{\ce}{\centerline}
+\newcommand{\e}{{\mathbf e}}
+\newcommand{\tb}{ \tilde{b}}
+\newcommand{\tB}{ \tilde{B}}
+\newcommand{\tD}{ \tilde{D}}
+\newcommand{\tA}{ \tilde{A}}
+\newcommand{\tF}{ \tilde{F}}
+\newcommand{\tx}{ \tilde{x}}
+\newcommand{\hbx}{{\hat{\mathbf x}}}
+\newcommand{\bx}{{\mathbf x}}
+\newcommand{\bZ}{{\mathbb Z}}
+
+\def\head#1{\vskip6pt{\bf #1}}
+\newcommand{\intt}{{\bf int }}
+
+\newcommand{\ra}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\ul}{\Large \bf  \underline }
+\newcommand{\tchi}{{\tilde{\mathbf \chi}}}
+\newcommand{\mtr}[4]%
+{\left(\begin{array}{cc}#1 & #2\\#3 & #4\end{array}\right)}
+\newcommand{\Dmtr}[4]%
+{\left|\begin{array}{rr}#1 & #2\\#3 & #4\end{array}\right|}
+\newcommand{\mtrk}[4]%
+{\left[\begin{array}{cc}#1 & #2\\#3 & #4\end{array}\right]}
+
+\newcommand{\mtrc}[2]%
+{\left(\begin{array}{c}#1 \\#2 \end{array}\right)}
+\newcommand{\mtrs}[2]%
+{\left[\begin{array}{c}#1 \\#2 \end{array}\right]}
+\newcommand{\LCM}{{\mathrm{LCM}}}  \newcommand{\R}{{\bf R}}
+\date {}
+\newcommand{\tsec}[1]{\bigskip \centerline{\normalsize {#1}}\bigskip \par}
+\newcommand{\ttsec}[2]{\bigskip {\centerline{\normalsize {#1}}}\par\noindent
+{\centerline{\normalsize {#2}}} \bigskip}
+\newcommand{\tttsec}[3]{\bigskip {\centerline{\normalsize {#1}}}
+\par\noindent
+{\centerline{\normalsize {#2}}} \par\noindent
+{\centerline{\normalsize {#3}}} \bigskip}
+\newcommand{\tsub}[1]{{\medskip \bf {#1}}\par}
+
+
+%\pageno=1
+%\magnification \magstep2
+
+% Я \hoffset=30truemm
+% Я \voffset=20truemm
+\frenchspacing
+%\NoRunningHeads
+%\TagsOnRight
+%\LimitsOnInts
+%\LimitsOnSums
+%\widowpenalty=150 % было 10000
+%\clubpenalty=150  % было 10000
+%\binoppenalty=150
+%\relpenalty=150
+
+
+
+\def\endd{\vfill\eject}
+\def\Beta{\roman B}
+
+\let\eps\varepsilon
+\def\const{\operatorname{const}}
+\def\R{{\Bbb R}}
+\def\K{{\Bbb K}}
+\def\N{{\Bbb N}}
+\def\Z{{\Bbb Z}}
+\def\al{\alpha}
+\def\be{\beta}
+\def\beF{\widehat{\bf \beta}}
+\def\alF{\widehat{\bf \alpha}}
+\def\de{\delta}
+\def\deF{\widehat{\bf \delta}}
+\def\si{\sigma}
+\def\siF{\widehat{\bf \sigma}}
+\def\di{{\bf {\rm diag}}}
+\def\G{\Gamma}
+\def\L{\Lambda}
+
+\def\cA{{\bf \mathcal A}}
+\def\cC{{\bf \mathcal C}}
+\def\cD{{\bf \mathcal D}}
+\def\cG{{\bf \mathcal G}}
+\def\cH{{\bf \mathcal H}}
+\def\cL{{\bf \mathcal L}}
+\def\cK{{\bf \mathcal K}}
+\def\cM{{\bf \mathcal M}}
+\def\cT{{\bf \mathcal T}}
+\def\cS{{\bf \mathcal S}}
+\def\cU{{\bf \mathcal U}}
+\def\cY{{\bf \mathcal Y}}
+\def\cZ{{\bf \mathcal Z}}
+
+
+\def\cAF{{\widehat {\bf \cal A}}}
+\def\cGF{{\widehat {\bf \cal G}}}
+\def\cFF{{\widehat {\bf \cal F}}}
+\def\cHF{{\widehat {\bf \cal H}}}
+\def\cLF{{\widehat {\bf \cal L}}}
+\def\cMF{{\widehat {\bf \cal M}}}
+\def\cVF{{\widehat {\bf \cal V}}}
+\def\cUF{{\widehat {\bf \cal U}}}
+\newcommand{\bR}{{\mathbf R}}
+\newcommand{\bL}{{\mathbf L}}
+\newcommand{\bM}{{\mathbf M}}
+\newcommand{\bU}{{\mathbf U}}
+\newcommand{\bA}{{\mathbf A}}
+\newcommand{\bB}{{\mathbf B}}
+\newcommand{\bC}{{\mathbf C}}
+\newcommand{\bD}{{\mathbf D}}
+\newcommand{\bF}{{\mathbf F}}
+\newcommand{\bE}{{\mathbf E}}
+\newcommand{\bG}{{\mathbf G}}
+\newcommand{\bW}{{\mathbf W}}
+\def\ba{{\mathbf a}}
+\def\bp{{\mathbf p}}
+\def\bq{{\mathbf q}}
+\def\br{{\mathbf r}}
+\def\bK{{\mathbf K}}
+\def\leq{\leqslant }
+\def\geq{\geqslant }
+\def\tF{\widetilde{F}}
+\def\tG{\widetilde{G}}
+\def\tL{\widetilde{L}}
+\def\tl{\widetilde{\ell}}
+\def\tM{\widetilde{M}}
+\def\tU{\widetilde{U}}
+\def\tV{\widetilde{V}}
+\def\tW{\widetilde{W}}
+\def\tu{\widetilde{u}}
+\def\btL{\widetilde{\mathbf {\rm L}}}
+\def\btU{\widetilde{\mathbf {\rm U}}}
+%_________________
+\def\tcF{\widetilde{\cal F}}
+\def\tcL{\widetilde{\cal L}}
+\def\tcM{\widetilde{\cal M}}
+\def\tcU{\widetilde{\cal U}}
+\def\Ann{\rm {Ann \,}}
+\def\GI{\rm {GI \,}}
+\def\Frac{\rm {Frac \,}}
+\def\GCD{\rm {НОД \,}}
+
+\let\bs\textbackslash
+
+\thispagestyle{empty}
+\begin{LARGE}
+\
+\bf{
+\centerline{  }
+ 
+
+ 
+\centerline{Руководство по языку}
+\centerline{}
+ 
+
+\centerline{}
+\centerline{<<MATHPAR>>}
+}
+ 
+\end{LARGE}
+
+\bigskip
+\
+ \bigskip
+
+\bigskip
+\centerline{ВЕРСИЯ 6.00}
+
+\bigskip
+\
+ \bigskip
+
+\bigskip
+\
+\bigskip
+ 
+
+\vfill
+\ce{  10.02.2016  }
+\tableofcontents
+\vfill
+
+\eject 
+
+ 
+\input{ru/00introd.tex}
+\input{ru/01znak.tex}
+\input{ru/02plot.tex}  
+\input{ru/03paradigma}
+\input{ru/04funk1var.tex}
+\input{ru/05series.tex}
+\input{ru/06dequation.tex}
+\input{ru/07polynomial.tex}
+\input{ru/08matrix.tex}
+\input{ru/09mstv.tex}
+\input{ru/10procedure.tex}
+\input{ru/11TropicMath.tex}
+\input{ru/12superComp.tex}
+\input{ru/13operators.tex}
+\input{ru/physics.tex}
+\vfill
+\thispagestyle{empty}
+\end{document}

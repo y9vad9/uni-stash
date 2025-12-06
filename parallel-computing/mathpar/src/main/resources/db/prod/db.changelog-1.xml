@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="1" author="i.borisov">
+    <createTable tableName="user_roles">
+      <column name="id" type="int">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="role_name" type="varchar(255)">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+
+    <insert tableName="user_roles">
+      <column name="id" value="0" />
+      <column name="role_name" value="ANONYMOUS" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="1" />
+      <column name="role_name" value="REGISTERED" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="2" />
+      <column name="role_name" value="STUDENT" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="3" />
+      <column name="role_name" value="TEACHER" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="4" />
+      <column name="role_name" value="EDU_ADMIN" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="5" />
+      <column name="role_name" value="CLUSTER_USER" />
+    </insert>
+
+    <insert tableName="user_roles">
+      <column name="id" value="6" />
+      <column name="role_name" value="SUPERADMIN" />
+    </insert>
+
+
+
+    <createTable tableName="mathpar_users">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="email" type="varchar(255)">
+        <constraints nullable="false" unique="true" />
+      </column>
+      <column name="password" type="varchar(32)">
+        <constraints nullable="false" />
+      </column>
+      <column name="salt" type="varchar(32)">
+        <constraints nullable="false" />
+      </column>
+      <column name="registration_date" type="date">
+        <constraints nullable="false" />
+      </column>
+      <column name="user_role_id" type="int">
+        <constraints nullable="false" references="user_roles(id)" foreignKeyName="user_role_fk" />
+      </column>
+    </createTable>
+
+    <createIndex tableName="mathpar_users" indexName="mathpar_users_email_idx">
+      <column name="email" />
+    </createIndex>
+
+
+
+    <createTable tableName="edu_groups">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="group_name" type="varchar">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+
+
+    <createTable tableName="students">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="id_user" type="bigint">
+        <constraints nullable="false" references="mathpar_users(id)" foreignKeyName="user_fk" />
+      </column>
+      <column name="id_group" type="bigint">
+        <constraints nullable="false" references="edu_groups(id)" foreignKeyName="student_group_fk" />
+      </column>
+    </createTable>
+
+
+
+    <createTable tableName="tasks">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="task" type="text">
+        <constraints nullable="false" />
+      </column>
+    </createTable>
+
+
+
+    <createTable tableName="edu_plans">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="id_group" type="bigint">
+        <constraints nullable="false" references="edu_groups(id)" foreignKeyName="plan_group_fk" />
+      </column>
+      <column name="id_task" type="bigint">
+        <constraints nullable="false" references="tasks(id)" foreignKeyName="plan_task_fk" />
+      </column>
+    </createTable>
+  </changeSet>
+
+
+
+  <changeSet id="1.1" author="i.borisov">
+    <addColumn tableName="mathpar_users">
+      <column name="username" type="varchar" defaultValue="" >
+        <constraints nullable="false" />
+      </column>
+    </addColumn>
+  </changeSet>
+</databaseChangeLog>

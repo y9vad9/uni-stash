@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="3" author="i.borisov">
+    <comment>Add Gradebooks table.</comment>
+
+    <createTable tableName="gradebooks">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="id_student" type="bigint">
+        <constraints nullable="false" references="students(id)"
+                     foreignKeyName="gradebooks_student_fk"/>
+      </column>
+      <column name="id_task" type="bigint">
+        <constraints nullable="false" references="tasks(id)"
+                     foreignKeyName="gradebooks_task_fk"/>
+      </column>
+      <column name="subtask_number" type="int">
+        <constraints nullable="false"/>
+      </column>
+      <column name="check_result" type="varchar">
+        <constraints nullable="false"/>
+      </column>
+      <column name="check_time" type="timestamp">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+
+
+  <changeSet id="3.1" author="i.borisov">
+    <comment>Add ON DELETE CASCADE for gradebooks.id_task</comment>
+
+    <dropForeignKeyConstraint baseTableName="gradebooks"
+                              constraintName="gradebooks_task_fk"/>
+
+    <addForeignKeyConstraint baseTableName="gradebooks" baseColumnNames="id_task"
+                             constraintName="gradebooks_task_fk"
+                             referencedTableName="tasks" referencedColumnNames="id"
+                             onDelete="CASCADE"/>
+  </changeSet>
+</databaseChangeLog>

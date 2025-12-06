@@ -1,0 +1,137 @@
+
+\chapter{ דוגמאות לפתרונות של בעיות מתמטיות }
+
+\section{סידרה  חשבונית}
+ 
+\begin{verbatim}
+"TASK-Z:  תרגיל  סידרה  חשבונית.
+$( n > 2) $   איברים  n   נחונה  סידרה  חשבונית  שיש  בה
+ $a_1, a_2, a_3, … , a_{n-1}, a_n$
+$d$  :  הפרש  הסידרה  הוא
+מהסידרה  הנתונה  בנו  סידרה  חדשה
+$  a_{2}^2 – a_{1}^2,  a_{3}^2 – a_{2}^2, …,  a_{n}^2 – a_{n-1}^2$
+$2d^2$   הוכח כי  סידרה  חדשה  היא  סידרה  חשבונית  שהפרשה  הוא
+$a_{2}^2 – a_{1}^2 = 64$  :    נחון   
+$d$ , $n$   הבע  את  האיבר  האחרון  בסידרה  החדשה  באמצעות 
+$ a_{n}^2 – a_{n-1}^2 = 192  ,   d > 1 $  :    נחון גם
+$n$   מצא  את  תחום  הערכים  של "
+ END
+\end{verbatim}
+
+\vspace*{-3mm}  
+
+\begin{verbatim}
+"פתרון"
+a_{k+1} = a_k + d;
+a_{k+2} = a_k + 2*d;
+" $b_1, b_2, b_3, … , b_{n-1}$ :סידרה חדשה"
+b_k = (a_{k+1})^2 - (a_k)^2;
+b_{k+1} = (a_{k+2})^2- (a_{k+1})^2;
+"$D$  :  הפרש  הסידרה  הוא"
+D = b_{k+1} - b_k;
+\print(b_k, b_{k+1}, D);
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+
+\begin{verbatim}
+":נחון"
+b_1 = (a_2)^2 - (a_1)^2 = 64;
+b_{n-1} = b_1 + D * (n-2);
+\print(b_1, b_{n-1});
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+"$b_{n-1}=192;   g=d^2>1;$" 
+ g=\solve(64+2g n-4g = 192,[g]);
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+\solve(g>1,[n])
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\section{בעיה גיאומטרית} 
+
+\begin{verbatim}
+"TASK  בעיה גיאומטרית"  
+" $(AD = AC)$ משולש שווה  שוקיים  - $\Delta ADC$"
+" $\DC$  נקודה  בצד  $B$"
+"$DC = 3*BC,  AB = BC$ כך ש "
+"$\Delta ADC$ מצה  את  גודל הזוויות של משולשא"
+"$16\sqrt(3)   הוא$  $\Delta ADC$  נחון גם כי שטח המשולש"
+"$כך  ש  AC$  נקודה בצד $T$"
+"$AC  ניצב  BT$"
+"$DT$ חשב  את "
+ END
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+"ציור לתרגיל"
+x1=\sqrt(3); x3=x1/3;
+p1=\tablePlot([[0,-1,2,0,-1,1],
+            [0, x1,0,0,x1,0]]);
+p11=\pointsPlot([[0,-1,2, 1,1],
+            [0, x1,0, 0,x3]],['A','D','C','T','B'],[0,0,1,1,1]);
+p2=\tablePlot([[1, 1, 0 ],
+               [0,x3, 0]]);
+\showPlots([p1,p11,p2,p2],[' ',' ',' ','noAxes' ])
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+"פתרון"
+":סימון"
+AB = BC = x;
+AD = AC = y;
+DB = 2*x;
+DC = 3*x;
+" $: \Delta ABC$  המשולש"
+"$AB^2 = BC^2 + AC^2 - 2*BC*AC*\cos(C);$"
+"$x^2 = x^2 + y^2 - 2*x*y*\cos(C);$"
+"$y^2 - 2xy\cos(C) = 0;    y - 2x\cos(C) = 0;   y = 2x\cos(C);$"
+" $: \Delta ADC$  המשולש"
+"$AD^2 = DC^2 + AC^2 - 2*DC*AC*\cos(C);$"
+"$y^2 = 9x^2 + y^2 - 2*3x*y*\cos(C);$"
+"$9x^2 - 6xy\cos(C) = 0;  9x - 6y\cos(C) = 0;  9x - 6*2x\cos(C)* \cos(C) = 0;$"
+"$9x - 12x(\cos(C))^2 = 0;  (\cos(C))^2 = 9/12; \cos(C) = \sqrt(3)/2;$"
+SPACE=Z[C]; sol=\solveTrig(\cos(C) = \sqrt(3)/2); 
+SPACE=R64[x]; \print(sol);
+\end{verbatim}
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+C = 30 "$^\circ$ זווית"
+D = C = 30 "$^\circ$ זווית"
+A = 180 - (C + D) " זווית" 
+\print(A,C,D)
+\end{verbatim}
+
+
+\vspace*{-3mm} 
+
+\begin{verbatim}
+"המשולש שווה שוקיים   $\Delta ABC$"
+"$AC$  ניצב  $BT$"
+ TC = AT= y/2  "   וכאן הוא תיכון "
+ y = 2x\cos(C)  = 2x*\cos(\pi/6); 
+"$AC$ נקודת אמצע בצד  $T$"
+"$S(\Delta DCT) = S(\Delta ADC)/2 = 16*\sqrt(3)/2 = 8*\sqrt(3)$   תיכון לכן   $DT$"
+"$S(\Delta DCT) = 1/2 * DC * TC * \sin(C) = 1/2 * 3x * y/2 * 1/2 = 1/8 * 3x * x*\sqrt(3) = 3/8 * x^2*\sqrt(3);$"
+"$8*\sqrt(3) = 3/8*x^2*\sqrt(3);$"
+"$x^2 = 64/3;$"  
+ x = 8/\sqrt(3);
+" $: \Delta DTC$  המשולש"
+ DC = 3x; 
+ DT = \value(\sqrt( DC^2 + TC^2 - 2*DC*TC*\cos(\pi/6)));
+\end{verbatim}

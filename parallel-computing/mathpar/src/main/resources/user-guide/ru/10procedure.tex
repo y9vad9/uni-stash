@@ -1,0 +1,105 @@
+\chapter{Операторы управления.  Процедурное программирование}
+
+\section{Процедуры и функции}
+Система Mathpar позволяет создавать свои процедуры и функции.  Для этого используется команда \comm{procedure}{}.  После команды указывается имя процедуры и в фигурных скобках описывается сама процедура. 
+
+\smallskip
+
+\underline{Пример.}
+
+\vspace*{-3mm}
+ 
+\begin{verbatim}
+\procedure myProc2() {
+  d = 4;
+  \print(d);
+}
+\procedure myProc(c,  d) {
+  if (c < d) {
+    \return d;
+  } else {
+    \return d+5;
+  }
+}
+\myProc2();
+a = 10;
+c = \myProc(5 + a, a);
+\print(a, c);
+\end{verbatim}
+%begindelete
+
+ Результат выполнения: \\
+$d = 4;\  
+a = 10;\  
+c = 15.$ 
+%enddelete
+
+\section{Операторы ветвления и циклов}
+
+ Система Mathpar дает возможность использовать операторы ветвления и циклов. 
+
+\comm{if }{()} \{ \} \comm{else}{} \{ \}~--- оператор ветвления; 
+
+\comm{while }{()} \{ \}~--- оператор цикла с предусловием; 
+
+\comm{for }{(\ ;\ ;\ )} \{ \}~--- оператор цикла с счетчиком.  
+
+\smallskip
+
+\underline{Примеры. }
+
+\vspace*{-3mm}
+
+\begin{verbatim}
+a = 5; b = 1;
+if (b < a) {
+  b = b + a;
+} else {
+  \print(a, b);
+}
+if (b < a) {
+  b = b + a;
+} else {
+  \print(a, b);
+}
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$a=5;\ b=6;$
+
+%enddelete
+\begin{verbatim}
+a = 0;
+b = 10;
+while (a < b) {
+  a = a + 5;
+  \print(a);
+}
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$a = 5;$
+$a = 10;$
+
+%enddelete
+\begin{verbatim}
+for (i = 3; i \le 11; i = i + 5) { 
+  \print(i);
+}
+\end{verbatim}
+
+%begindelete
+Результат выполнения:\\
+$i = 3;$ 
+$i = 8.$
+
+\section{Контрольные задания}
+В  Mathpar напишите программу:
+
+\begin{itemize}
+  \item для поиска наибольшего коэффициента матрицы, 
+  \item для вывода всех чисел от 1 до 3000,  которые делятся на 252,  а при делении на 101 дают в остатке 3. 
+\end{itemize}
+%enddelete

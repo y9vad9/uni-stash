@@ -1,0 +1,185 @@
+\chapter{Operators and mathematical symbols} 
+
+{\bf Naming rules for Mathematical Objects}
+
+\bigskip
+ 
+Uppercase and lowercase letters are different everywhere. The user can give any names for mathematical objects. However, these names should not coincide with the operators and constants that are defined in the system. In addition, the names of objects, of which the multiplication is not commutative, for example, vectors and matrices, must begin with a capital Latin letters, and all other object names must start with lowercase letters. This makes it possible as soon as entering automatically get a simplified expression.
+\bigskip
+
+Here is a list of the main operators of the system Mathpar.   
+
+
+\comm{clean}{}~---  clean input data (if this operator doesn't have arguments) or the date of arguments of this operator,
+
+\bigskip
+
+{\bf Infix arithmetic operators}
+
+
+{\bf +}~---  addition; 
+
+{\bf -}~---  subtraction; 
+
+{\bf /}~---  division;
+
+{\bf *}~---  multiplication (still a blank or absence of the operator);
+
+\comm{times}{}~--- noncommutative multiplication(still a blank or absence of the operator);  
+
+\bigskip
+
+\bigskip
+
+{\bf Postfix arithmetic operators}
+
+{\bf !}~---  factorial;
+
+{ ${x} \widehat{\ }{\{ \}}$}~---  exponentiation;
+\bigskip
+
+{\bf Comparisons} 
+
+$\mathbf{\backslash le}$~---  less than or equal;
+
+${\mathbf >}$~---  it is more; 
+
+$\mathbf{\backslash ge}$~--- it is more or equally; 
+
+{\bf ==}~---  it is equal; 
+
+$\mathbf{\backslash ne}$~--- it is unequal;  
+\bigskip
+
+{\bf Infix Boolean operators}
+
+
+ $\mathbf{ \backslash lor}$ ~--- disjunction (logic OR); 
+
+ $\mathbf{  \backslash \&}$~--- conjunction (logic AND); 
+
+$\mathbf{ \backslash neg}$ ~--- negation.  
+
+
+{\bf Key prefix operators}
+
+ \comm{d}{}~--- the symbol of derivative, wich is usualy used in the differential equations,
+
+ \comm{D}{}~--- the operator of differentiation: \comm{D}{(f)} and \comm{D}{(f, x)} are the first derivative by $x$; \comm{D}{(f, y{\ }\widehat{\ }\ 3)} is the third derivative by $y$;
+
+ \comm{expand}{}~--- opening all brackets;
+
+ \comm{fullExpand}{}~--- to expand expression containing logarithmic, exponential and trigonometric  functions;
+
+ \comm{extendedGCD}{}~--- extended polynomial GCD, returns a vector containing GCD and additional multipliers of arguments;
+
+  \comm{GCD}{}~--- GCD of polynomials; 
+
+ \comm{factor}{}~--- to factor expression;  
+
+ \comm{fullFactor}{}~--- to factor expression containing logarithmic and exponent functions;
+
+ \comm{initCond}{}~--- boundary conditions for a system of linear differential equations;
+
+ \comm{LCM}{}~--- polynomial LCM; 
+
+ \comm{lim}{}~--- the sign for limit; 
+
+ \comm{print}{}~--- the print operator of the expressions, the names of which are listed in this operator (each expression printed in the new line);
+
+ \comm{printS}{}~--- the print operator, which is similar to the Pascal print operator(for printing in several lines you can use the symbol ``$\backslash$n'';
+ 
+ \comm{plot}{}~--- to plot explicit functions; 
+ 
+  \comm{plot3D}{}~--- to plot functions of two variables, which are given explicitly;
+
+ \comm{paramPlot}{}~--- to plot parametric functions;  
+
+\comm{tablePlot}{}~--- to plot of function, which are presented by the table of arguments and values; 
+
+ \comm{prod}{}~--- the symbol of product ($\prod$); 
+
+ \comm{randomPolynom}{}~--- to generate a random polynomial; 
+
+ \comm{randomMatrix}{}~--- to generate a random matrix; 
+
+ \comm{randomNumber}{}~--- to generate a random number; 
+
+ \comm{sequence}{}~--- the sequence; 
+
+ \comm{showPlots}{}~--- to display at one field of schedules of functions of different types;
+ 
+ \comm{solveLDE}{}~--- to solve system of the linear differential equations; 
+
+ \comm{systLAE}{}~--- to set the system of the linear algebraic equations; 
+
+ \comm{systLDE}{}~--- to set the system of the linear differential equations; 
+
+ \comm{sum}{}~---  a summation symbol ($\sum$); 
+
+ \comm{time}{}~--- this operator returns the processor time in milliseconds;  
+
+ \comm{value}{}~--- to calculate value of expression by means of substitution of the expressions (or numbers) instead of ring variables; 
+ 
+\bigskip
+ 
+ {\bf Operators of the procedure, branching and loop}
+
+ \comm{procedure}{}~--- ad procedures;
+ 
+\comm{if }{(\ ) \{\  \}} \comm{else }{\{ \ \}}~--- operator of the branch;
+
+\comm{while }{( \ ) \{ \ \}}~--- operator of the cycle with a precondition;
+
+\comm{for }{(\ ; \ ; \ ) \{ \ \}}~--- cycle operator with a counter. 
+
+\bigskip
+
+{\bf Matrix, matrix elements and  matrix operators}
+
+[\ , \  ] ~--- setting vector (row-vector);
+
+[[\ ,\  ], [\ ,\  ]]~--- the matrix may be defined as vector of vectors;  
+
+
+A\_\{i,j\}~--- (i,j)-element of the matrix A;
+
+A\_\{i,?\}~---  row i of the matrix A;
+
+A\_\{?,j\}~---  j column of the matrix A;
+
+$\backslash$IO\_\{n,m\}~--- zero matrix of size $ n \times m $;
+
+$\backslash$I\_\{n,m\}~---  $n \times m$  matrix with ones on the diagonal;
+
++, -, *~--- addition, subtraction, multiplication; 
+
+\comm{charPolynom}{}~---  calculation of a characteristic polynomial; 
+ 
+\comm{kernel}{}~--- calculation of a kernel (zero-space of matrix); 
+
+\comm{transpose}{} or  $\mathbf{A \widehat{\ } \{T\}}$~--- transposing;  
+ 
+\comm{conjugate}{} or  $\mathbf{A\widehat{\ }\{\backslash ast\}}$~--- conjugate;
+
+\comm{toEchelonForm}{}~---   calculation of the matrix echelon form;  
+
+\comm{det}{}~---   calculation the determinant; 
+ 
+\comm{inverse}{}  or  $\mathbf{A}\widehat{\ }\{-1\}$~---  calculation of the inverse matrix; 
+
+\comm{adjoint}{}  or  $\mathbf{A}\widehat{\ }\{\backslash star\}$~--- calculation of the adjoint matrix;  
+ 
+\comm{genInverse}{}  or $\mathbf{A}\widehat{\ }\{+\}$~--- generalized inverse matrix Murr-Penrose;
+ 
+\comm{closure}{}   or $\mathbf{A}\widehat{\ }\{\backslash times\}$~--- closure, i.e. the amount of 
+$ I + A + A^2 + A^3 + \ldots $. 
+For the classical algebras is equivalent to $ (I-A)^{-1} $.
+
+\comm{LDU}{}~--- LDU-decomposition of matrix. The result is a vector of three matrices [L,D,U]. Where L is a lower triangular matrix, U~--- upper triangular matrix, 
+D~--- permutation matrix, multiplied by the inverse of the diagonal matrix. 
+
+\comm{BruhatDecomposition}{}~--- Bruhat decomposition of matrix. The result is a vector of three matrices [V,D,U]. Where V and U~--- upper triangular matrices, 
+D~--- permutation matrix, multiplied by the inverse of the diagonal matrix.
+
+  

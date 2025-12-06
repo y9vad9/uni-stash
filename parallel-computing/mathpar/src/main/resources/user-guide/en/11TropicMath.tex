@@ -1,0 +1,306 @@
+\chapter{Calculations in idempotent algebras}
+
+
+\section {Tropical algebras}
+You can work in the following tropical algebras :
+
+SEMIFIELDS\\
+1) On the set of integers $ {\ mathbb Z} $ we define: \\
+$ZMaxPlus$,  
+$ZMinPlus$.\\
+2) On the set of numbers ${\mathbb R}$ we define:\\
+$RMaxPlus$, 
+$RMinPlus$,  
+$RMaxMult$,  
+$RMinMult$.\\
+3) On the set of numbers ${\mathbb R}64$ we define:\\
+$R64MaxPlus$, 
+$R64MinPlus$,  
+$R64MaxMult$,  
+$R64MinMult$.\\
+
+SEMIRINGS\\
+1) On the set of numbers ${\mathbb Z}$ we define:\\ 
+$ZMaxMin$,
+$ZMinMax$,
+$ZMaxMult$,
+$ZMinMult$.\\
+2) On the set of numbers ${\mathbb R}$ we define:\\
+$RMaxMin$, 
+$RMinMax$.\\
+3) On the set of numbers ${\mathbb R}64$ we define:\\
+$R64MaxMin$, 
+$R64MinMax$.
+
+ 
+
+Examples of tropical algebras: 
+
+SPACE = ZMaxPlus [x,  y,  z]; 
+
+SPACE = R64MinMult [u,  v];  
+
+SPACE = RMaxMin [u,  v]. 
+
+ An example of a simple problem in a semiring
+ $ZMaxMult$.
+%begindelete
+\smallskip
+
+\underline{Example 1. }
+
+%\vspace*{-2mm}
+%enddelete
+\begin{verbatim}
+SPACE = ZMaxMult[x, y];
+a = 2; b = 9; c = a + b; d = a*b; \print(c, d)
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$c = 9; $\\
+$d = 18.$
+%enddelete
+
+In the remaining sections of this chapter we have given some examples of problems that are solved in the tropical algebra, which are semi-fields.
+%begindelete
+\section{Solving systems of linear algebraic equations}
+The command $\backslash solveLAETropic(A, b)$ enables us to find a particular solution of the system 
+$Ax = b$.
+%begindelete
+\smallskip
+
+\underline{Example 2. }
+
+%\vspace*{-2mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [8.00, 7.00, 11.00];
+X = \solveLAETropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$X = \left(\begin{array}{c}
+5.00\\
+7.00\\
+4.00\\
+\end{array}\right)
+$ 
+%enddelete
+ 
+\section{Solving systems of linear algebraic inequalities}
+The command $\backslash solveLAITropic(A,b)$ enables us to find a particular solution of the system of inequalities 
+%begindelete
+\smallskip
+
+\underline{Example 3. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [10.00, 7.00, 11.00]; 
+X = \solveLAITropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$X=[(-\infty,5.00],(-\infty,7.00],(-\infty,4.00]]$ 
+%enddelete
+
+%begindelete
+\smallskip
+
+\underline{Example 4. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = ZMinPlus[x, y];
+A = [
+  [1, 1, 0],
+  [2, 0, 3],
+  [3, 4, 2]
+];
+b = [10, 7, 11];
+X = \solveLAITropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$X=[[9,\infty),[9,\infty),[10,\infty)]$ 
+%enddelete
+
+\section{The solution of the Bellman equation}
+\subsection {The homogeneous  Bellman equation}
+The command $\backslash BellmanEquation(A)$ enables us to find a solution of the homogeneous  Bellman equation
+  $Ax = x$.
+%begindelete
+\smallskip
+
+\underline{Example 5.}
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+]; 
+X = \BellmanEquation(A); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$$
+X=\left(\begin{array}{cccc}
+0.00 & -2.00 & 1.00 & -3.00\\
+2.00 & 0.00 & 3.00 & -1.00\\
+-1.00 & -3.00 & 0.00 & -4.00\\
+2.00 & 0.00 & 3.00 & 0.00
+\end{array}\right) \left(\begin{array}{c}
+v_{1}\\
+v_{2}\\
+v_{3}\\
+v_{4}
+\end{array}\right), \forall v_{1}, v_{2}, v_{3}, v_{4}.$$
+%enddelete
+\subsection {The inhomogeneous  Bellman equation}
+The command $\backslash BellmanEquation(A,b)$ enables us to find a solution of the inhomogeneous  Bellman equation $Ax\oplus b=x$.
+%begindelete
+\smallskip
+
+\underline{Example 6. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+];
+b = [[1], [-\infty], [-\infty], [-\infty]]; 
+X = \BellmanEquation(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$$X=
+ \left(\begin{array}{cccc}
+0.00 & -2.00 & 1.00 & -3.00\\
+2.00 & 0.00 & 3.00 & -1.00\\
+-1.00 & -3.00 & 0.00 & -4.00\\
+2.00 & 0.00 & 3.00 & 0.00
+\end{array}\right)
+\left(\begin{array}{c}
+v_{1}\\
+v_{2}\\
+v_{3}\\
+v_{4}
+\end{array}\right)
+\oplus\left(\begin{array}{c}
+1.00\\
+3.00\\
+0.00\\
+3.00
+\end{array}\right),$$\\ $$\forall v_{1}, v_{2}, v_{3}, v_{4}.$$
+%enddelete
+\section{The solution Bellman inequality}
+\subsection{The homogeneous Bellman inequality}
+ 
+The command $\backslash BellmanInequality(A)$ enables us to find a solution of the homogeneous Bellman inequality $Ax\leq x$.
+
+\subsection{The inhomogeneous Bellman inequality}
+The command $\backslash BellmanInequality(A, b)$ enables us to find a solution of the inhomogeneous Bellman inequality $Ax\oplus b\leq x$.
+
+\section{Finding the shortest path between the vertices of the graph}
+\subsection {Calculation of the table of shortest distances for all vertices of the graph}
+Let $A=(x_{ij})$ be matrix of distances between adjacent vertices. We put $x_{ii}$=0 $\forall i$ and we put $x_{ij}=\infty$, if there is no edge connecting vertices i and j.
+The command $\backslash searchLeastDistances(A)$ allows you to find the smallest distance between all the nodes of the graph.
+This results in a matrix of shortest paths between all vertices.
+ 
+%begindelete
+\smallskip
+
+\underline{Example 7. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+B = \searchLeastDistances(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$$B= \left(\begin{array}{cccccc}
+0.00 & 7.00 & 9.00 & 20.00 & 20.00 & 11.00\\
+7.00 & 0.00 & 10.00 & 15.00 & 21.00 & 12.00\\
+9.00 & 10.00 & 0.00 & 11.00 & 11.00 & 2.00\\
+20.00 & 15.00 & 11.00 & 0.00 & 6.00 & 13.00\\
+20.00 & 21.00 & 11.00 & 6.00 & 0.00 & 9.00\\
+11.00 & 12.00 & 2.00 & 13.00 & 9.00 & 0.00
+\end{array}\right) $$
+%enddelete
+\subsection {Calculation of the shortest distances between two vertices of the graph}
+Let $A=(x_{ij})$ be matrix of distances between adjacent vertices. We put $x_{ii}$=0 $\forall i$ and we put $x_{ij}=\infty$, if there is no edge connecting vertices $i$ and $j$.
+
+The command $\backslash findTheShortestPath(A, i, j)$ allows you to find the shortest path between nodes $i$ and $j$.
+ %begindelete
+\smallskip
+
+\underline{Example 8. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+X = \findTheShortestPath(A, 0, 4);
+\print(X);
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$X=[[0, 2, 5, 4]]$
+%enddelete
+ 

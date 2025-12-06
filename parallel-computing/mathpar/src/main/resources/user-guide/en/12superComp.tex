@@ -1,0 +1,177 @@
+\chapter{The calculations on a supercomputer}
+In order to solve computational problems that require large computation time or large amounts of memory, the system has special functions that provide the user with resources of
+supercomputer. These functions allow you to perform calculations on a dedicated set of cores. The number of kernels ordered by the user.
+
+You have the following functions ( {\it 3ar-functions}) that apply to supercomputer:
+
+1) \comm{matMultPar1x8}{}~--- calculation of the matrix product;
+
+2) \comm{adjointDetPar}{}~--- computation of the adjoint matrix and determinant;
+
+3) \comm{charPolPar}{}~--- computation of the characteristic polynomial of a matrix;
+
+4) \comm{polMultPar}{}~--- computation of the product of two polynomials;
+
+5) \comm{BellmanEquationPar}{A}~---  solution of a homogeneous Bellman equation  $Ax=x$;
+
+6) \comm{BellmanEquationPar}{A,b}~--- solution of an inhomogeneous Bellman equation   $Ax+b=x$;
+
+7) \comm{BellmanInequalityPar}{A}~--- solution of a homogeneous Bellman  inequality $Ax\leq x$;
+
+8) \comm{BellmanInequalityPar}{A,b}~--- solution of an inhomogeneous Bellman  inequality $Ax+b\leq x$; 
+
+ 
+%1) \comm{gbasisPar}{}~--- computation of Grobner basis;
+
+%2) \comm{adjointPar}{}~--- computation of the adjoint matrix;
+
+%3) \comm{adjointDetPar}{}~--- computation of the adjoint matrix and determinant of the matrix;
+
+%4) \comm{echelonFormPar}{}~--- computation of the matrix echelon form;
+
+%%5) \comm{inversePar}{}~--- computation of the inverse matrix;
+
+%6) \comm{detPar}{}~--- computation of the determinant of the matrix;
+
+%7) \comm{kernelPar}{}~--- computation of the kernel of a linear operator;
+
+ 
+ 
+Before applying any of these functions, the user must specify the parameters that define the parallel environment:
+
+$ TOTALNODES $~--- total number of processors (cores), which provides for the computation
+
+$ PROCPERNODE $~--- number of cores on a single node,
+
+$ CLUSTERTIME $~--- maximum time (in minutes) execution of the program, after which the program is forced to end. 
+
+$MAXCLUSTERMEMORY$~--- amount of memory allocated for the JVM for a one  process (for -Xmx parameter).
+
+To set the number of cores on a single node the user must know what a cluster is used and how many cores it is available on the node. By default, the $ TOTALPROCNUMBER $ and $ NODEPROCNUMBER $ installed so that all the cores were used per node, and $ CLUSTERTIME = 1 $.
+
+The user can change the number of cores on a single node. This is an important feature, since the memory on a single node is used by all $ NODEPROCNUMBER $ cores. Consequently, the user can regulate the size of of RAM that is available to one core.
+
+\section{Parallel polynomial computations}
+   For parallel computation  of the  polynomial product you can use the 
+   \comm{multiplyPar}{(p1, p2)}, where $ p1 $, $ p2 $~--- given polynomials.
+
+\underline{Example. }
+\begin{verbatim}
+TOTALNODES=2; 
+PROCPERNODE=1;
+CLUSTERTIME=1; 
+f=x^2+3y;
+g=x^2+3y+3z;
+\polMultPar(f,g);
+\end{verbatim}
+
+%%  For parallel computing Grobner basis you must use the 
+%  \comm{gbasisPar}{([p1, p2, p3,\ldots, pn])}, where $p1, p2, p3,\ldots, pn$~--- polynomials. 
+%\underline{Example. }
+%\begin{verbatim}      
+%\gbasisPar([x^2+2x+1, x^4+x-2]); 
+%\end{verbatim}
+      
+\section{Parallel matrix computations}
+  For parallel computing  products of matrices $ m1 $ and $ m2 $   you must use the 
+  \comm{multiplyPar}{(m1, m2)}. 
+ 
+  \underline{Example. }
+\begin{verbatim}
+TOTALNODES = 2;
+PROCPERNODE = 1;
+A=[[0,1],[2,3]];
+B=[[5,61],[7,8]];
+\matMultPar1x8(A, B);
+\end{verbatim}
+
+
+  For parallel computation of the adjoint matrix for the matrix $ m $ you can use the 
+  \comm{adjointPar}{(m)}.  
+ 
+  Similarly, for the matrix $ m $ you can perform the calculation of the echelon form \comm{echelonFormPar}{(m)}, the computation of the determinant \comm{detPar}{(m)},
+computation of the kernel \comm{kernelPar}{(m)}, the calculation of the characteristic polynomial \comm{charPolPar}{(m)}. The command \comm{adjointDetPar}{(m)}
+allows us to calculate the determinant and adjoint matrix simultaneously.
+
+   \underline{Example. }
+\begin{verbatim}
+TOTALNODES = 2;
+PROCPERNODE = 1;
+SPACE = Z[x];
+A=[[0,1],[2,3]];   
+\adjointDetPar(A);
+\end{verbatim}
+
+\ section {Running your parallel programs}
+Mathpar allows you to download and execute your parallel programs.
+Your package must be in the root directory of the project.
+To ensure that your program is able to interact with the system management tasks, 
+you need to add an initialization string 
+
+{\bf QueryResult queryRes = Tools.getDataFromClusterRootNode (args)}
+
+\noindent
+ (immediately after MPI.Init) and the completion string 
+
+{\bf Tools.sendFinishMessage (args)}
+
+\noindent
+ (before MPI.Finalize) in your main-method.
+You can also pass any arguments to your program from the web-interface Mathpartner. 
+Within the program you can get them by calling queryRes.getData (). Below is an example of a 
+parallel program that simply outputs on standard output the arguments passed to it.
+
+\begin{verbatim}
+        MPI.Init(args);
+        QueryResult queryRes=Tools.getDataFromClusterRootNode(args);
+        int myRank=MPI.COMM_WORLD.getRank();
+        if (myRank == 0) {
+            Object []ar=queryRes.getData();
+            System.out.println("test...");           
+            for (int i=0; i<ar.length; i++){
+                System.out.println(((Element)ar[i]).intValue());
+            }            
+        }
+        Tools.sendFinishMessage(args);
+        MPI.Finalize();
+\end{verbatim}
+
+After that you need to compile the program, and the program folder packed in zip-archive.Then you need to download this file to the server, using the tab "File" and clicking "download file".
+ 
+RAM is divided equally between all cores. For example, if the cluster node has 8GB of memory,
+then if you request 4 cores on a single processor, each will receive 2GB, 
+and if you have requested one core - then it will get 8GB.
+
+The command to download your zip-archive, which contains java-classes, as follows:
+
+\comm{uploadToCluster} {(FileName)}, where FileName - name of zip-archive.
+
+To view a list of all your downloaded files on a cluster, use the command
+
+\comm{showFileList} {()}.
+
+To run your program, use the command
+
+\comm {runUploadedClass} {(archieveName, classPath, param0, param1, ...)},
+where 
+{\bf archieveName} - the name of the downloaded zip-archive with the program, 
+{\bf classPath} - the path to the class containing main-method (full path with the packages)
+{\bf paramX} - arbitrary parameters specified separated by commas, to be passed to your program.
+
+To monitor the running programs, use the command
+
+\comm {getStatus} {(taskID)}
+
+It is also possible to get a list of all the tasks of the current user with a 
+description of their states:
+
+\comm {showTaskList} {()}
+
+To receive the content from the output stream and error stream, use the commands
+
+\comm {getOut} {(taskID)}
+
+\comm {getErr} {(taskID)}
+
+Files that contain output or error stored on a cluster of two days,
+zip-archives containing the compiled java-classes are stored for 30 days.

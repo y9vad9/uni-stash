@@ -1,0 +1,803 @@
+\chapter{Решение дифференциальных уравнений и их систем}
+
+\section{Решение дифференциальных уравнений}
+Для решения дифференциального уравнения с постоянными коэффициентами необходимо выполнить следующие шаги.
+
+
+1. Задать пространство переменных ($SPACE$). 
+
+2. Задать уравнение (\comm{systLDE}{}). 
+
+3. Задать начальные условия (\comm{initCond}{}). 
+
+4. Получить решение (\comm{solveLDE}{}). 
+
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y, t, 3)+3\d(y, t, 2)+3\d(y, t)+y=1);
+f=\initCond(\d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0, 
+                \d(y, t, 0, 2)=0);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{'''}_t+3y^{''}_t+3{y'}_t+y=1;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\y^{''}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = (1. 00+(-t^2)e^{-t}/2. 00)-(te^{-t}+e^{-t});$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y, t, 2)-2\d(y, t)+y=\exp(t));
+f=\initCond(\d(y, t, 0, 0)=1, \d(y, t, 0, 1)=2);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t-2{y'}_t+y=e^{t};$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&1,\\y^{'}_{t=0}&=&2,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = e^tt^2/2. 00+te^t+e^t;$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y, t, 2)+\d(y, t)-12y=3);
+f=\initCond(\d(y, t, 0, 0)=1, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t+{y'}_t-12y=3;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&1,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}
+{$h = 1. 11e^{-1. 62t}+2. 89e^{0. 62t}-3. 00;$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y, t)-2y=0);
+f=\initCond(\d(y, t, 0, 0)=1);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g={y'}_t-2y=0;$\\
+\hspace*{4mm} $f=y^{}_{t=0}=1;$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = e^{2t};$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y, t, 2)-4y=4t);
+f=\initCond(\d(y, t, 0, 0)=a, \d(y, t, 0, 1)=b);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t-4y=4t;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&a,\\y^{'}_{t=0}&=&b,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = (-8. 00+(-2. 00b)+2. 00a)/4. 00e^{-t}+(8. 00+2. 00b+2. 00a)/4. 00e^t-4. 00t. $}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y,t,2)-4\d(y,t)+5y=0);
+f=\initCond(\d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t-4y^{'}_t+5y=0;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = 0.53i(e^{(2.05-0.95i)t})-0.53i(e^{(2.05+0.95i)t}). $}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y,t,2)-\d(y,t)-6y=2);
+f=\initCond(\d(y, t, 0, 0)=1, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t-y^{'}_t-6y=2;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&1,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = 0.53e^{3.00t}+0.80e^{-2.00t}-0.33. $}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t]; 
+g=\systLDE(\d(y,t,2)-9y=2-t);
+f=\initCond(\d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h=\solveLDE(g, f);
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=y^{''}_t-9y=2-t;$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}y^{}_{t=0}&=&0,\\y^{'}_{t=1}&=&b,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}{
+$h = 0.26e^{3.00t}+0.04e^{-3.00t}+0.11t-0.22. $}
+%enddelete
+
+\section{Решение систем дифференциальных уравнений}
+
+Для решения системы дифференциальных уравнений с постоянными коэффициентами необходимо выполнить следующие шаги. 
+
+1. Задать пространство переменных ($SPACE$). 
+
+2. Задать систему уравнений (\comm{systLDE}{}). 
+
+3. Задать начальные условия (\comm{initCond}{}). 
+
+4. Получить решение (\comm{solveLDE}{}).
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f);  
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+В следующем примере опция STEPBYSTEP=1; дает вывод всех промежуточных
+выкладок, которые необходимы для решения этой системы дифференциальных
+уравнений. Отметим, что при этом не следует использовать команду $print()$.
+
+\begin{verbatim}
+SPACE=R64[t];
+STEPBYSTEP=1;
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f);  
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $STEPBYSTEP=1;$ \\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+Решение системы дифференциальных уравнений с точностью e.
+
+\begin{verbatim}
+SPACE=R[t];
+e=0.00000001;
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f, e);  
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R[t];$\\
+\hspace*{4mm} $e=0.00000001;$ \\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f,e); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+Вывод графика решения системы дифференциальных уравнений с точностью e.
+
+\begin{verbatim}
+SPACE=R[t];
+e=0.00000001;
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f, e); 
+p=\plot(h,[-10,10,-10,10]); 
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R[t];$\\
+\hspace*{4mm} $e=0.00000001;$ \\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f,e); $
+\hspace*{4mm} $p=plot(h,[-10,10,-10,10]); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+Вывод графика решения системы дифференциальных уравнений
+
+\begin{verbatim}
+SPACE=R[t];
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=a, \d(x, t, 0, 1)=b, 
+            \d(y, t, 0, 0)=c, \d(y, t, 0, 1)=d);
+h=\solveLDE(g, f, 1); 
+p=\plot(h,[-10,10,-10,10]); 
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&a,\\x^{'}_{t=0}&=&b,\\y^{}_{t=0}&=&c,\\y^{'}_{t=0}&=&d,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f,1); $
+\hspace*{4mm} $p=plot(h,[-10,10,-10,10]); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)+x-2y=0, \d(y, t)+x+4y=0);
+f=\initCond(\d(x, t, 0, 0)=1, \d(y, t, 0, 0)=1);
+h=\solveLDE(g, f);  
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t+x-2 y&=&0,\\{y'}_t+x+4 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&1,\\y^{}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f); $
+}
+{$h = [(4.0 e^{-2.0t}+(-3.0) e^{-3.0t}, (-2.0) e^{-2.0t}+3.0 e{-3.0t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)+2x+2y=10\exp(2t), \d(y, t)-2x+y=7\exp(2t));
+f=\initCond(\d(x, t, 0, 0)=1, \d(y, t, 0, 0)=3);
+h=\solveLDE(g, f);  
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t+2 x+2 y&=&10e^{2t},\\{y'}_t-2 x+y&=&7e^{2t},\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&1,\\y^{}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f); $
+}
+{$h = [e^{2.0t}, 3.0 e^{2.0t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)-y+z=0, -x-y+\d(y, t)=0, -x-z+\d(z, t)=0);
+f= \initCond(\d(x, t, 0, 0)=1, \d(y, t, 0, 0)=2, 
+             \d(z, t, 0, 0)=3);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t-y+z&=&0,\\ -x-y+{y'}_t&=&0,\\ -x-z+{z'}_t&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&1,\\ y^{}_{t=0}&=&2,\\ z^{}_{t=0}&=&3,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [(-2. 00)+5. 00 e^{t}+(-1. 00 e^{t}) t, 2. 00+(-1. 00 e^{t}), (-2. 00)+4. 00 e^{t}+(-1. 00 e^{t}) t];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t, 2)+\d(x, t)-\d(y, t)=1, 
+          \d(x, t)+x-\d(y, t, 2)=1+4\exp(t));
+f=\initCond(\d(x, t, 0, 0)=1, \d(x, t, 0, 1)=2, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}x^{''}_t+{x'}_t-{y'}_t&=&1,\\{x'}_t+x-y^{''}_t&=&1+4e^{t},\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&1,\\x^{'}_{t=0}&=&2,\\y^{}_{t=0}&=&0,\\ y^{'}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f); $\\
+\hspace*{4mm} $print(h);
+$}
+{$h = [1. 00+2. 00 e^{t}+(-1. 00 e^{t}) t+(-2. 00 e^{-t})+(-1. 00 e^{-t}) t, (-2. 00)+(-1. 00 t)+3. 00 e^{t}+(-2. 00 e^{t}) t+(-1. 00 e^{-t})];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R[t];
+g=\systLDE(3\d(x, t)+2x+\d(y, t)=1, \d(x, t)+4\d(y, t)+3y=0);
+f=\initCond(\d(x, t, 0, 0)=a, \d(x, t, 0, 1)=b, 
+            \d(y, t, 0, 0)=c, \d(y, t, 0, 1)=d);
+h=\solveLDE(g, f, 1); 
+p=\plot(h,[-10,10,-10,10]); 
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}3{x'}_t+2 x+{y'}_t&=&1,\\{x'}_t+4{y'}_t+3 y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&a,\\x^{'}_{t=0}&=&b,\\y^{}_{t=0}&=&c,\\y^{'}_{t=0}&=&d,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f,1); $
+\hspace*{4mm} $p=plot(h,[-10,10,-10,10]); $
+}
+{$h = [0. 50+(-0. 30 e^{-0. 55t})+(-0. 20 e^{-t}), (-0. 20 e^{-0. 55t})+0. 20 e^{-t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)+3x-4y=9\exp(2t), 
+           2x+\d(y, t)-3y=3\exp(2t));
+f=\initCond(\d(x, t, 0, 0)=2, \d(y, t, 0, 0)=0);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t+3 x-4 y&=&9e^{2t},\\2 x+{y'}_t-3 y&=&3e^{2t},\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&2,\\y^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}
+{$h = [e^{t}+e^{2. 00t}, e^{t}+(-1. 00 e^{2. 00t})];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)-x-2y=0, \d(y, t)-2x-y=1);
+f=\initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=5);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t-x-2 y&=&0,\\{y'}_t-2 x-y&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\y^{}_{t=0}&=&5,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $}
+{$h = [(-0. 67)+0. 17 e^{3. 00t}+0. 50 e^{-t}, 0. 33+(-0. 50 e^{-t})+0. 17 e^{3. 00t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t, 2)+\d(y, t)+y=\exp(t)-t, 
+           \d(x, t)-x+2\d(y, t, 2)-y=-\exp(-t));
+f=\initCond(\d(x, t, 0, 0)=1, \d(x, t, 0, 1)=2, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}x^{''}_t+{y'}_t+y&=&e^{t}-t,\\{x'}_t-x+2y^{''}_t-y&=&-e^{-t},\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&1,\\x^{'}_{t=0}&=&2,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [1. 00 t+e^{t}, 1. 00+(-1. 00 t)+(-1. 00 e^{-t})];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t, 2)+\d(y, t)=\sh(t)-\sin(t)-t, 
+           \d(y, t, 2)+\d(x, t)=\ch(t)-\cos(t));
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=2, 
+            \d(y, t, 0, 0)=1, \d(y, t, 0, 1)=0);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}x^{''}_t+{y'}_t&=&sh(t)-sin(t)-t,\\y^{''}_t+{x'}_t&=&\ch(t)-cos(t),\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&2,\\y^{}_{t=0}&=&1,\\y^{'}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [1. 00 t+0. 50 e^{t}+(-0. 50 e^{-t}), (-1. 00 t^{2})/2. 00+0. 50 e^{1. 00\mathbf{it}}+(0. 50 e^{-1. 00\mathbf{it}})];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t, 2)-\d(x, t)+\d(y, t)=\exp(-t)+\cos(t), 
+           \d(x, t)-\d(y, t, 2)-\d(y, t)=2\exp(t)+\sin(t));
+f=\initCond(\d(x, t, 0, 0)=2, \d(x, t, 0, 1)=1, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}x^{''}_t-{x'}_t+{y'}_t&=&e^{-t}+cos(t),\\{x'}_t-y^{''}_t-{y'}_t&=&2 e^{t}+sin(t),\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&2,\\x^{'}_{t=0}&=&1,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [0. 50 e^{1. 00\mathbf{it}}+0. 50 e^{-1. 00\mathbf{it}}+(-1. 00 e^{-t}), 0. 50\mathbf{i} (e^{1. 00\mathbf{it}})+(-0. 50\mathbf{i} (e^{-1. 00\mathbf{it}}))+(2. 00 e^{t})]. $}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)-y+z=0, -x-y+\d(y, t)=0, -x-z+\d(z, t)=0);
+f= \initCond(\d(x, t, 0, 0)=a, \d(y, t, 0, 0)=b, 
+             \d(z, t, 0, 0)=c);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t-y+z&=&0,\\ -x-y+{y'}_t&=&0,\\ -x-z+{z'}_t&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&a,\\ y^{}_{t=0}&=&b,\\ z^{}_{t=0}&=&c,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [b-a-c+(-b+a+2.00c)e^{t}+(b-c)e^{t}t,
+-b+c+a+(b-c)e^{t},
+-c-a+b)+(c+a)e^{t}+(-c+b)e^{t}t];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t)+y-3x=0, -x-y+\d(x, t)=\exp(t));
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{y'}_t-y-3x&=&0,\\ -x-y+{x'}_t&=&e^{t},\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&0,\\ y^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [-e^{t}+0.25e^{-2.00t}+0.75e^{2.00t},-0.08e^{-2.00t}+0.75e^{2.00t}-0.67e^{t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t)+\d(x, t)-x=\exp(t), 2\d(y, t)+\d(x, t)+2x=\cos(t));
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{y'}_t+{x'}_t-x&=&e^{t},\\ 2{y'}_t+{x'}_t+2x&=&cos(t),\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&0,\\ y^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [(0.12+0.03i)e^{it}+(0.12-0.03i)e^{-it}-0.67e^{t}+0.43e^{4.00t},
+-0.32e^{4.00t}-0.50+e^{t}+(-0.09-0.15i)e^{it}+(-0.09+0.15i)e^{-it}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t)-y+x=1.5t^2, \d(x, t)+2x+4y=4t+1);
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{y'}_t-y+x&=&1.5t^{2},\\ {x'}_t+2x+4y&=&4t+1,\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&0,\\ y^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [t+t^{2},-0.5t^{2}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t)+y-x-z=0, \d(x, t)-y+x-z=0, \d(z, t)-y-x-z=0);
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=1, 
+             \d(z, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{y'}_t+y-x-z&=&0,\\ {x'}_t-y+x-z&=&0,\\ {z'}_t-y-x-z&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&0,\\ y^{}_{t=0}&=&1,\\ z^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [0.33e^{-t}+0.17e^{2.00t}+0.5e^{-2.00t},
+0.33e^{2.00t}-0.33e^{-t},
+0.17e^{2.00t}+0.33e^{-t}-0.5e^{-2.00t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t)-x+z=0, \d(x, t)+2y-x=0, \d(z, t)-2y+x=0);
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=1, 
+             \d(z, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{y'}_t-x+z&=&0,\\ {x'}_t+2y-x&=&0,\\ {z'}_t-2y+x&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f= \left\{ \begin{array}{rcl} x^{}_{t=0}&=&0,\\ y^{}_{t=0}&=&1,\\ z^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h= solveLDE(g,f);$\\ 
+\hspace*{4mm} $print(h); $}
+{$h = [-0.52ie^{(0.5+1.94i)t}+0.52ie^{(0.5-1.94i)t},
+(0.5+0.13i)e^{(0.5+1.94i)t}+(0.5-0.13i)e^{(0.5-1.94i)t},
+0.52ie^{(0.5+1.94i)t}-0.52ie^{(0.5-1.94i)t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(y, t, 2)+2x=0, \d(x, t, 2)-2y=0);
+f=\initCond(\d(x, t, 0, 0)=0, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}y^{''}_t+2x&=&0,\\x^{''}_t-2y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [(0.13-0.13i)e^{(1+i)t}+(0.13+0.12i)e^{(1-i)t}+(-0.12-0.13i)e^{(-1+i)t}+(-0.13+0.13i)e^{(-1-i)t},
+(-0.13-0.13i)e^{(1+i)t}+(-0.13+0.13i)e^{(1-i)t}+(0.13-0.13i)e^{(-1+i)t}+(0.13+0.13i)e^{(-1-i)t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)-8y+x=0, \d(y, t)-x-y=0);
+f= \initCond(\d(x, t, 0, 0)=a, \d(y, t, 0, 0)=b);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t-8y+x&=&0,\\{y'}_t-x-y&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&a,\\y^{}_{t=0}&=&b,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [((4b+a)/3)e^{3.00t}+((-4*b+2a)/3)e^{-3.00t},
+((-a+2b)/6)e^{-3.00t}+((a+4b)/6)e^{3.00t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)+3x-4y=9(\exp(t))^2, \d(y, t)+2x-3y=3(\exp(t))^2);
+f= \initCond(\d(x, t, 0, 0)=2, \d(y, t, 0, 0)=0);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t+3x-4y&=&9(e^t)^2,\\{y'}_t+2x-3y&=&3(e^t)^2,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&2,\\y^{}_{t=0}&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [e^{t}+e^{2.00t},e^{t}-e^{2.00t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t, 2)+\d(y, t)=\sh(t)-\sin(t)-t, \d(y, t, 2)-\d(x, t)=\ch(t)-\cos(t));
+f=\initCond(\d(x, t, 0, 0)=2, \d(x, t, 0, 1)=0, 
+            \d(y, t, 0, 0)=0, \d(y, t, 0, 1)=1);
+h=\solveLDE(g, f); 
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}x^{''}_t+{y'}_t&=&sh(t)-sin(t)-t,\\y^{''}_t-{x'}_t&=&ch(t)-cos(t),\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&2,\\x^{'}_{t=0}&=&0,\\y^{}_{t=0}&=&0,\\y^{'}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [1-t+(0.5-0.5i)e^{it}+(0.5+0.5i)e^{-it},
+-1-0.5t^{2}-0.5ie^{it}+0.5ie^{-it}+0.5e^{t}+0.5e^{-t}];$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+g=\systLDE(\d(x, t)+5y-4x=0, \d(y, t)-x=0);
+f= \initCond(\d(x, t, 0, 0)=0, \d(y, t, 0, 0)=1);
+h= \solveLDE(g, f);  
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $g=\left\{ \begin{array}{rcl}{x'}_t+5y-4x&=&0,\\{y'}_t-x&=&0,\\ \end{array}\right.$\\
+\hspace*{4mm} $f=\left\{ \begin{array}{rcl}x^{}_{t=0}&=&0,\\y^{}_{t=0}&=&1,\\ \end{array}\right.$\\
+\hspace*{4mm} $h=solveLDE(g,f);$\\
+\hspace*{4mm} $print(h); $
+}
+{$h = [(0.5+i)e^{(2+i)t}+(0.5-i)e^{(2-i)t},
+2.5ie^{(2+i)t}-2.5ie^{(2-i)t}];$}
+%enddelete
+
+\section{Прямое и обратное преобразование Лапласа}
+
+\begin{verbatim}
+SPACE=R64[t];
+L=\laplaceTransform(\exp(3t));
+\print(L);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $L=laplaceTransform(exp(3t)).$\\
+\hspace*{4mm} $print(L); $
+}
+{$L = \frac {1.0}{t - 3.0}$}
+%enddelete
+
+\begin{verbatim}
+SPACE=R64[t];
+L=\inverseLaplaceTransform(1/(t-3));
+\print(L);
+\end{verbatim}
+
+%begindelete
+\ex{$ SPACE=R64[t];$\\
+\hspace*{4mm} $L=inverseLaplaceTransform(1/(t-3)).$\\
+\hspace*{4mm} $print(L); $
+}
+{$L = exp(3t)$}
+%enddelete
+
+\section{Расчет характеристик динамических объектов и систем}
+Для нахождения передаточной функции объекта необходимо выполнить следующие шаги:
+
+1. Задать пространство переменных ($SPACE$). 
+
+2. Задать уравнение входа - x. 
+
+3. Задать уравнение выхода - y. 
+
+4. Получить решение (\comm{solveWFDS}{}). 
+
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+
+\begin{verbatim}
+SPACE = R64[t]; 
+f = \d(y,t,2)+2\d(y,t); 
+g = 3x; 
+h = \solveTransferFunction(g,f); 
+\print(h);
+p=\plot(h,[-10,10,-10,10],'p','W(p)','Передаточная функция'); 
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $f=y^{''}_t+2y^{''}_t;$\\
+\hspace*{4mm} $g=3x;$\\
+\hspace*{4mm} $h=solveTransferFunction(g,f);$\\
+\hspace*{4mm} $print(h);$\\
+\hspace*{4mm} $p=plot(h,[-10,10,-10,10],'p','W(p)','Передаточная функция');$}{
+$h = [3.0/(p^2+2.0p)];$}
+%enddelete
+
+Для нахождения временных характеристик объекта необходимо выполнить следующие шаги:
+
+1. Задать пространство переменных ($SPACE$). 
+
+2. Задать уравнение входа - x. 
+
+3. Задать уравнение выхода - y. 
+
+4. Получить решение (\comm{solveTPDS}{}).
+
+\begin{verbatim}
+SPACE = R64[t]; 
+f = \d(y,t,2)+2\d(y,t); 
+g = 3x; 
+h = \solveTimeResponse(g,f); 
+\print(h);
+p=\plot(h,[-10,10,-10,10],'p', 'k(p),h(p)', 'Временные характеристики');
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $f=y^{''}_t+2y^{''}_t;$\\
+\hspace*{4mm} $g=3x;$\\
+\hspace*{4mm} $h=solveTimeResponse(g,f);$\\
+\hspace*{4mm} $print(h);$\\
+\hspace*{4mm} $p=plot(h,[-10,10,-10,10],'p', 'k(p),h(p)', 'Временные характеристики');$}{
+$h = [(1.5 exp(2.0p)*3.0+(-1.5)*3.0), ((-0.75)+(-1.5p)+0.75 exp(2p))];$}
+%enddelete
+
+Для нахождения частотных характеристик объекта необходимо выполнить следующие шаги:
+
+1. Задать пространство переменных ($SPACE$). 
+
+2. Задать уравнение входа - x. 
+
+3. Задать уравнение выхода - y. 
+
+4. Получить решение (\comm{solveCHDS}{}).
+
+\begin{verbatim}
+SPACE = R64[t]; 
+f = \d(y,t,2)+2\d(y,t); 
+g = 3x; 
+h = \solveFrequenceResponse(g,f); 
+SPACE = R64[j,p];
+\print(h);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=R64[t];$\\
+\hspace*{4mm} $f=y^{''}_t+2y^{''}_t;$\\
+\hspace*{4mm} $g=3x;$\\
+\hspace*{4mm} $h=solveFrequenceResponse(g,f);$\\
+\hspace*{4mm} $SPACE = R64[j,p];$\\
+\hspace*{4mm} $print(h);$}{
+$h = [3.0/(p^2j^2+2.0pj), sqrt{9.0/(p^4+4.0p^2)}, arctg(sqrt{2/p}), 20.0lg(sqrt{9.0/(p^4+4.0p^2)})];$}
+%enddelete
+
+%begindelete
+\section{Контрольные задания}
+
+В  Mathpar решите
+\begin{itemize}
+ \item дифференциальное уравнение $y''+3y'-y=e^t$ с начальными условиями $y(0)=1, \ y'(0)=1$, 
+ \item систему дифференциальных уравнений 
+$$x''+y'=\cos t+t^2, $$
+$$y''+x'=\sin t, $$
+с начальными условиями $x(0)=y(0)=0, \ x(1)=2, \ y(1)=1. $
+  \end{itemize}
+%enddelete

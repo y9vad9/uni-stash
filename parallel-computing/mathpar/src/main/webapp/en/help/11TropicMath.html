@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/11TropicMath.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Calculations in idempotent algebras</h1><p></p><p>
+\section {Tropical algebras}
+You can work in the following tropical algebras :</p><p>SEMIFIELDS 
+1) On the set of integers $ { mathbb Z} $ we define:  
+$ZMaxPlus$,  
+$ZMinPlus$. 
+2) On the set of numbers ${\mathbb R}$ we define: 
+$RMaxPlus$, 
+$RMinPlus$,  
+$RMaxMult$,  
+$RMinMult$. 
+3) On the set of numbers ${\mathbb R}64$ we define: 
+$R64MaxPlus$, 
+$R64MinPlus$,  
+$R64MaxMult$,  
+$R64MinMult$. </p><p>SEMIRINGS 
+1) On the set of numbers ${\mathbb Z}$ we define:\ 
+$ZMaxMin$,
+$ZMinMax$,
+$ZMaxMult$,
+$ZMinMult$. 
+2) On the set of numbers ${\mathbb R}$ we define: 
+$RMaxMin$, 
+$RMinMax$. 
+3) On the set of numbers ${\mathbb R}64$ we define: 
+$R64MaxMin$, 
+$R64MinMax$.</p><p> </p><p>Examples of tropical algebras: </p><p>SPACE = ZMaxPlus [x,  y,  z]; </p><p>SPACE = R64MinMult [u,  v];  </p><p>SPACE = RMaxMin [u,  v]. </p><p> An example of a simple problem in a semiring
+ $ZMaxMult$.</p><p><div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = ZMaxMult[x, y];
+a = 2; b = 9; c = a + b; d = a*b; \print(c, d)
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+In the remaining sections of this chapter we have given some examples of problems that are solved in the tropical algebra, which are semi-fields.</p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [8.00, 7.00, 11.00];
+X = \solveLAETropic(A, b); 
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+</p><h2 id="0">12.1 Solving systems of linear algebraic inequalities</h2><p>
+The command $\backslash solveLAITropic(A,b)$ enables us to find a particular solution of the system of inequalities </p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [10.00, 7.00, 11.00]; 
+X = \solveLAITropic(A, b); 
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = ZMinPlus[x, y];
+A = [
+  [1, 1, 0],
+  [2, 0, 3],
+  [3, 4, 2]
+];
+b = [10, 7, 11];
+X = \solveLAITropic(A, b); 
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">12.2 The solution of the Bellman equation</h2><p>
+\subsection {The homogeneous  Bellman equation}
+The command $\backslash BellmanEquation(A)$ enables us to find a solution of the homogeneous  Bellman equation
+  $Ax = x$.</p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+]; 
+X = \BellmanEquation(A); 
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>\subsection {The inhomogeneous  Bellman equation}
+The command $\backslash BellmanEquation(A,b)$ enables us to find a solution of the inhomogeneous  Bellman equation $Ax\oplus b=x$.</p><p><div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="11">
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+];
+b = [[1], [-\infty], [-\infty], [-\infty]]; 
+X = \BellmanEquation(A, b); 
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><h2 id="2">12.3 The solution Bellman inequality</h2><p>
+</p><h3>The homogeneous Bellman inequality</h3><p>
+ 
+The command $\backslash BellmanInequality(A)$ enables us to find a solution of the homogeneous Bellman inequality $Ax\leq x$.</p><p></p><h3>The inhomogeneous Bellman inequality</h3><p>
+The command $\backslash BellmanInequality(A, b)$ enables us to find a solution of the inhomogeneous Bellman inequality $Ax\oplus b\leq x$.</p><p></p><h2 id="3">12.4 Finding the shortest path between the vertices of the graph</h2><p>
+\subsection {Calculation of the table of shortest distances for all vertices of the graph}
+Let $A=(x_{ij})$ be matrix of distances between adjacent vertices. We put $x_{ii}$=0 $\forall i$ and we put $x_{ij}=\infty$, if there is no edge connecting vertices i and j.
+The command $\backslash searchLeastDistances(A)$ allows you to find the smallest distance between all the nodes of the graph.
+This results in a matrix of shortest paths between all vertices.
+ </p><p><div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="12">
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+B = \searchLeastDistances(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>\subsection {Calculation of the shortest distances between two vertices of the graph}
+Let $A=(x_{ij})$ be matrix of distances between adjacent vertices. We put $x_{ii}$=0 $\forall i$ and we put $x_{ij}=\infty$, if there is no edge connecting vertices $i$ and $j$.</p><p>The command $\backslash findTheShortestPath(A, i, j)$ allows you to find the shortest path between nodes $i$ and $j$.
+ 
+<div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="12">
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+X = \findTheShortestPath(A, 0, 4);
+\print(X);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

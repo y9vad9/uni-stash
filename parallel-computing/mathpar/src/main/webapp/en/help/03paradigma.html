@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/03paradigma.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Environment for mathematical objects</h1><p>
+</p><h2 id="0">4.1 Setting of environment</h2><p></p><p>The definition of any mathematical object, a number or function, a matrix or symbol, involves the definition of some environment, that is, the space which contains this object. 
+To select the environment you have to set the <i> algebraic structure</i>.  
+This algebraic structure is defined by numeric sets, algebraic operations in these sets and variable names.</p><p>First of all any user have to set an environment in Mathpar.</p><p>By default, a space of the four real variables $\mathbb{R}64[x,y,z,t]$ is defined. This is ring of polynomials with   coefficients in the ring of real numbers, the youngest is the variable  $ x $, the eldest is the variable $ t $.</p><p>User can change the environment, setting a new algebraic structure. 
+ </p><p>For example the spaces $\mathbb{R}64[x]$ or $\mathbb{Q}[x]$ may be suitable to solve many problems of computational mathematics. 
+The installation  command should be the follow: &lt;&lt;SPACE=R64[x];&gt;&gt; or &lt;&lt;SPACE=Q[x];&gt;&gt;. </p><p> 
+Moving a mathematical object from the previous environment to the current environment, as a rule, should be performed explicitly, using the $ toNewRing()$ function.  In some cases, such a transformation to the current environment is automatic. 
+ 
+All other names which are not listed as a variables can be chosen arbitrarily by the user for any mathematical object.   </p><p>For example
+$$a=x+1,    f= \backslash \backslash sin(x+y) - a.$$
+We follow the rule.
+  If the object name begins with the symbol $\backslash$ and a <i>   capital letter</i> such object is an element of a <i> noncommutative</i> algebra, else object is an element of a  <i>   commutative</i> algebra.</p><p></p><h2 id="1">4.2 Numerical sets with standard operations</h2><p> 
+Current version of the system supports the following numerical sets with standard operations.</p><p>Z  &mdash;  the set of integers ${\mathbb Z}$, </p><p>Zp  &mdash;  a finite field ${\mathbb Z}/p{\mathbb Z}$ where p is a prime number,  </p><p>Zp32  &mdash;  a finite field ${\mathbb Z}/p{\mathbb Z}$ where p is less $2^{31}$,  </p><p>Z64  &mdash;  the ring of integer numbers $z$  such that $-2^{63} \leqslant z &lt; 2^{63}$,  </p><p>Q  &mdash;   the set of rational numbers, 
+ 
+R  &mdash;  the set of floating point numbers to store the approximate real numbers with arbitrary mantissa,  </p><p>R64  &mdash;   standard floating-point 64-bit numbers (52 digits for mantissa, 11 bits for the order and 1 bit for the sign),   
+ 
+R128  &mdash;  standard floating-point 64-bit numbers, equipped with optional 64-bit for the order, </p><p>C  &mdash;  complexification of R,  </p><p>C64  &mdash;  complexification of R64, </p><p>C128  &mdash;  complexification of R128,   </p><p>CZ  &mdash;  complexification of of Z, 
+ 
+CZp  &mdash;  complexification of Zp, </p><p>CZp32  &mdash;  complexification of Zp32,  </p><p>CZ64  &mdash;  complexification of Z64,   </p><p>CQ  &mdash;  complexification of Q.  </p><p>Examples of simple commutative polynomial rings:
+ 
+SPACE = Z [x,  y,  z]; </p><p>SPACE = R64 [u,  v];  </p><p>SPACE = C [x]. 
+ 
+</p><h2 id="2">4.3 Several numerical sets</h2><p>
+The ring $Z[x,y,z]Z[u,v,w]$, which has two subsets of
+ variables, is the polynomial ring with variables $u, v, w$ with coefficients in the polynomial ring $Z[x,y,z]$.</p><p>For example, the characteristic polynomial
+ of a matrix over the ring $\mathbb{Z}[x,y,z]$ may be obtained as a polynomial with the variable $u$, whose coefficients are
+polynomials in the ring $\mathbb{Z}[x,y,z]$.</p><p>You can set
+algebraic space which defines several numerical sets. For example, the space $C [z] R [x, ~ y] Z [n, ~ m]$ allows to have
+ the five names of variables, which defined in the sets $\mathbb {C}$, $ \mathbb {R} $ and $\mathbb {Z} $, respectively.
+The first set is the main.  </p><p> 
+$C[z]R[x, y]Z[n, m]$  
+  can be viewed as a polynomial ring of five variables over $\mathbb{C} $, which has the additional properties. 
+If the polynomial does not contain the variables $ z $, $ x $, $ y $, then it is a polynomial with coefficients in the set $\mathbb {Z}$.
+If the polynomial does not contain the variable $ z$, then it is a polynomial with coefficients in  the set $ \mathbb {R} $.</p><p><b>  Examples:</b> </p><p>SPACE=Z[x, y]Z[u]; </p><p>SPACE=R64[u, v]Z[a, b]; </p><p>SPACE=C[x]R[y, z]; </p><p> %%</p><h2 id="3">4.4 Group algebras</h2><p> </p><p>%The definition of the group algebra has the form $KG$, where $K$
+ %is a commutative ring of scalars and $G$ &mdash;  is a group of
+ %noncommutative operators with finite number of generators.
+%Names of these generators should begin with capital letters.</p><p>%For example, the following group algebras may be defined: </p><p>%$SPACE=Z[x, y]G[U, V]$; (generators U, V),  </p><p>%$SPACE=R64[u, v]G[A, B]$; (generators A, B), </p><p>%$SPACE=C[]G[X, Y, Z, T]$; (generators X, Y, Z, T). </p><p>%Each element of such algebra may be considered as a
+% sum of terms with functional coefficients.</p><p>%$R64[t, y]G[X,~Y,~Z]$ &mdash;   is the free group algebra over a function field of two variables $t, y$ over the field  $\mathbb{R}64$
+ % with three noncommutative  generators X, Y, Z.
+%For example, $A=(t^2+1)X + \sin(t)Y + 3X^2y^3 +(t^2+1)XY^3X^2Y^{-2}X^2$ &mdash; is an element of such algebra.</p><p> 
+</p><h2 id="4">4.5 Idempotent algebra and tropical mathematics</h2><p>
+User can uses the idempotent algebras.
+In this case the signs of "addition" and "multiplication" for the infix operations can be used for operations in tropical algebra: min, max, addition, multiplication. </p><p>Each numerical sets $\mathbb {R}$, $\mathbb {R}64$, $\mathbb {Z}$ has two additional elements $\infty$ and $-\infty$, and they have different 
+elements, which is play the role of zero and unit. We  denote these sets $\hat {\mathbb {R}}$, $\hat {\mathbb {R}}64$, $\hat{\mathbb {Z}}$, correspondingly.
+The name of tropical algebra is obtained from three words: (1) a numerical set, (2) an operation, which corresponding to the sign $plus$ 
+and (3) an operation, which corresponding to the sign $times$.</p><p>The algebras $R64MaxPlus$, $R64MinPlus$, $R64MaxMin$, $R64MinMax$, $ R64MaxMult$, $ R64MinMult$ are defined for the numerical set $\hat {\mathbb {R}}$64. </p><p><i> RMaxPlus, RMinPlus, RMaxMin, R64MinMax, RMaxMult, RMinMult</i>  are defined for the numerical set $\hat {\mathbb {R}}$. </p><p><i>   ZMaxPlus,  ZMinPlus, ZMaxMin, ZMinMax, ZMaxMult,  ZMinMult</i>  are defined for the numerical set $\hat {\mathbb {Z}}$. 
+ 
+ 
+For example, for the algebra $ ZMaxPlus $ you can do the following operations.
+</p><p></p><p></p><p><div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE=ZMaxPlus[x, y];
+a=2; b=9+x; c=a+b; d=a b+y; \print(c, d)
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>For each algebra we defined elements <b> 0</b> and <b> 1</b>, $-\infty$ and $\infty$.
+For each element $a$ we defined the operation of closure: $ a^{\times}$, i.e. the amount of $1+a+a^2+a^3+...$.
+For the classical algebras this operation is equivalent to $(1-a)^{-1}$. 
+ 
+</p><h2 id="5">4.6 Constants</h2><p> 
+It is possible to set or replace the following constants.</p><p>FLOATPOS  &mdash;  an amount of decimal positions of the  real number of type R or R64, 
+which you can see in the printed form of this number (the default value is 2).</p><p>MachineEpsilonR  &mdash;  machine epsilon for the number of type R and C ( $10^{-29}$ is the  default value).
+The number whose absolute value is less than $10^{-29}$, is considered to be a machine zero.
+To set the new value of $ 10^{- 30} $, enter the command &lt;&lt; MachineEpsilonR64 = 30 &gt;&gt;.</p><p>MachineEpsilonR64  &mdash;  machine epsilon for the number of type R64 and C64 ( $2^{-36}$ is the  default value).
+The number whose absolute value is less than $2^{-36}$, is considered to be a machine zero.
+To set the new value of $2^{-48}$, enter the command &lt;&lt; MachineEpsilonR64 = 48 &gt;&gt;.</p><p>Constant MachineEpsilonR (and MachineEpsilonR64) used in factoring polynomials 
+with coefficient of type R (or R64). Each coefficient of the polynomial is divided by the number $ MachineEpsilonR $ 
+(or $ MachineEpsilonR64 $) and rounded to integer value.</p><p>MOD32  &mdash;   &mdash;  the module for a finite field of the type Zp32, its value is not greater than $2^{31}$. 
+(the default value is 268435399).</p><p>MOD  &mdash;  the module for a finite field of the type Z (the default value is 268 435 399).</p><p>RADIAN  &mdash;  (1/0) is a flag, which indicates that angles are measured in radians (default is 1:  active).</p><p>STEPBYSTEP  &mdash;  (1/0) is a flag, which indicates that you want to display intermediate results (default is 0:  turned off).</p><p>EXPAND  &mdash;  (1/0) is a flag, which indicates that in the input expression all brackets must be disclosed (the default is 1:   active).</p><p>SUBSTITUTION  &mdash;  (1/0) is a flag, which indicates that the names in the input expression must be substituted of their meaning, if they have been defined before (the default is 1:  active).</p><p>The constant ACCURACY is an amount of exact decimal positions in the fractional part of a real numbers of type $R$ and $C$ in the result of multiplication or division operation (the default value is 34).If ACCURACY = 100, then the result of arithmetic operation will be rounded to the one hundredth decimal place.  Obviously, the inequality ACCURACY $&gt;$ MachineEpsilonR must hold.</p><p>To install the MachineEpsilonR $ 1/10^9 $ (i.e. $1E-9$) enter the command   MachineEpsilonR = 9  .
+After that, any number $ a \in R $, will be considered as zero if $ | a | &lt;10^{-9}.$
+The value ACCURACY will be set  MachineEpsilonR+5; If you like another value of ACCURACY you can
+set the fraction &lt;&lt;MachineEpsilonR=35/49&gt;&gt;. In this case you obtain result: MachineEpsilonR=35 and ACCURACY=49.</p><p>For the numbers $ a \in R$64, $ a \in R$128, $ a \in C$64, $ a \in C$128,  there is no constant defining binary places. Arithmetic instructions are used with accuracy that equals 2.22044604925031308e-16.
+  However, you can set the number of binary places for MachineEpsilonR64: for example, you can set MachineEpsilonR64=10.</p><p>Prime number MOD32 is a characteristic of a finite field.
+The constant MOD32 is used when calculations are made in a finite field
+Zp32 and it should be less $2^{31}$.</p><p>The prime number MOD is also characteristic of the finite field, but it has no restrictions on the absolute value. The constant MOD is used when calculations are made in a finite field Zp.</p><p>The constant FLOATPOS determines the number of decimal places,
+are printed. In addition, it is used in the factorization of polynomials whose coefficients are 
+an approximate numbers of type R or R64. 
+Each coefficient of this polynomial is pre-multiplied by the number of $10^{MachineEpsilonR}$ or 
+and rounded to an integer value.
+But after factoring polynomial extra factor is removed.</p><p></p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE=Zp32[x, y]; 
+MOD32=7; 
+f1=37x+42y+55; 
+f2=2f1;  
+\print(f1, f2 );
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

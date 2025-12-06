@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/12superComp.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>The calculations on a supercomputer</h1><p>
+In order to solve computational problems that require large computation time or large amounts of memory, the system has special functions that provide the user with resources of
+supercomputer. These functions allow you to perform calculations on a dedicated set of cores. The number of kernels ordered by the user.</p><p>You have the following functions ( <i> 3ar-functions</i>) that apply to supercomputer:</p><p>1) matMultPar1x8 &mdash;  calculation of the matrix product;</p><p>2) adjointDetPar &mdash;  computation of the adjoint matrix and determinant;</p><p>3) charPolPar &mdash;  computation of the characteristic polynomial of a matrix;</p><p>4) polMultPar &mdash;  computation of the product of two polynomials;</p><p>5) BellmanEquationParA &mdash;   solution of a homogeneous Bellman equation  $Ax=x$;</p><p>6) BellmanEquationParA,b &mdash;  solution of an inhomogeneous Bellman equation   $Ax+b=x$;</p><p>7) BellmanInequalityParA &mdash;  solution of a homogeneous Bellman  inequality $Ax\leq x$;</p><p>8) BellmanInequalityParA,b &mdash;  solution of an inhomogeneous Bellman  inequality $Ax+b\leq x$; </p><p> 
+%1) gbasisPar &mdash;  computation of Grobner basis;</p><p>%2) adjointPar &mdash;  computation of the adjoint matrix;</p><p>%3) adjointDetPar &mdash;  computation of the adjoint matrix and determinant of the matrix;</p><p>%4) echelonFormPar &mdash;  computation of the matrix echelon form;</p><p>%%5) inversePar &mdash;  computation of the inverse matrix;</p><p>%6) detPar &mdash;  computation of the determinant of the matrix;</p><p>%7) kernelPar &mdash;  computation of the kernel of a linear operator;</p><p> 
+ 
+Before applying any of these functions, the user must specify the parameters that define the parallel environment:</p><p>$ TOTALNODES $ &mdash;  total number of processors (cores), which provides for the computation</p><p>$ PROCPERNODE $ &mdash;  number of cores on a single node,</p><p>$ CLUSTERTIME $ &mdash;  maximum time (in minutes) execution of the program, after which the program is forced to end. </p><p>$MAXCLUSTERMEMORY$ &mdash;  amount of memory allocated for the JVM for a one  process (for -Xmx parameter).</p><p>To set the number of cores on a single node the user must know what a cluster is used and how many cores it is available on the node. By default, the $ TOTALPROCNUMBER $ and $ NODEPROCNUMBER $ installed so that all the cores were used per node, and $ CLUSTERTIME = 1 $.</p><p>The user can change the number of cores on a single node. This is an important feature, since the memory on a single node is used by all $ NODEPROCNUMBER $ cores. Consequently, the user can regulate the size of of RAM that is available to one core.</p><p></p><h2 id="0">13.1 Parallel polynomial computations</h2><p>
+   For parallel computation  of the  polynomial product you can use the 
+   multiplyPar(p1, p2), where $ p1 $, $ p2 $ &mdash;  given polynomials.</p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="7">
+TOTALNODES=2; 
+PROCPERNODE=1;
+CLUSTERTIME=1; 
+f=x^2+3y;
+g=x^2+3y+3z;
+\polMultPar(f,g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>%%  For parallel computing Grobner basis you must use the 
+%  gbasisPar([p1, p2, p3,&hellip;, pn]), where $p1, p2, p3,&hellip;, pn$ &mdash;  polynomials. 
+%
+%<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="3">      
+%\gbasisPar([x^2+2x+1, x^4+x-2]); 
+%</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+      
+</p><h2 id="1">13.2 Parallel matrix computations</h2><p>
+  For parallel computing  products of matrices $ m1 $ and $ m2 $   you must use the 
+  multiplyPar(m1, m2). 
+ 
+  
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="6">
+TOTALNODES = 2;
+PROCPERNODE = 1;
+A=[[0,1],[2,3]];
+B=[[5,61],[7,8]];
+\matMultPar1x8(A, B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+  For parallel computation of the adjoint matrix for the matrix $ m $ you can use the 
+  adjointPar(m).  
+ 
+  Similarly, for the matrix $ m $ you can perform the calculation of the echelon form echelonFormPar(m), the computation of the determinant detPar(m),
+computation of the kernel kernelPar(m), the calculation of the characteristic polynomial charPolPar(m). The command adjointDetPar(m)
+allows us to calculate the determinant and adjoint matrix simultaneously.</p><p>   
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="6">
+TOTALNODES = 2;
+PROCPERNODE = 1;
+SPACE = Z[x];
+A=[[0,1],[2,3]];   
+\adjointDetPar(A);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> section {Running your parallel programs}
+Mathpar allows you to download and execute your parallel programs.
+Your package must be in the root directory of the project.
+To ensure that your program is able to interact with the system management tasks, 
+you need to add an initialization string </p><p><b> QueryResult queryRes = Tools.getDataFromClusterRootNode (args)</b></p><p>\noindent
+ (immediately after MPI.Init) and the completion string </p><p><b> Tools.sendFinishMessage (args)</b></p><p>\noindent
+ (before MPI.Finalize) in your main-method.
+You can also pass any arguments to your program from the web-interface Mathpartner. 
+Within the program you can get them by calling queryRes.getData (). Below is an example of a 
+parallel program that simply outputs on standard output the arguments passed to it.</p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="13">
+        MPI.Init(args);
+        QueryResult queryRes=Tools.getDataFromClusterRootNode(args);
+        int myRank=MPI.COMM_WORLD.getRank();
+        if (myRank == 0) {
+            Object []ar=queryRes.getData();
+            System.out.println("test...");           
+            for (int i=0; i&lt;ar.length; i++){
+                System.out.println(((Element)ar[i]).intValue());
+            }            
+        }
+        Tools.sendFinishMessage(args);
+        MPI.Finalize();
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>After that you need to compile the program, and the program folder packed in zip-archive.Then you need to download this file to the server, using the tab "File" and clicking "download file".
+ 
+RAM is divided equally between all cores. For example, if the cluster node has 8GB of memory,
+then if you request 4 cores on a single processor, each will receive 2GB, 
+and if you have requested one core - then it will get 8GB.</p><p>The command to download your zip-archive, which contains java-classes, as follows:</p><p>uploadToCluster} {(FileName), where FileName - name of zip-archive.</p><p>To view a list of all your downloaded files on a cluster, use the command</p><p>showFileList} {().</p><p>To run your program, use the command</p><p>{runUploadedClass(archieveName, classPath, param0, param1, ...),
+where 
+<b> archieveName</b> - the name of the downloaded zip-archive with the program, 
+<b> classPath</b> - the path to the class containing main-method (full path with the packages)
+<b> paramX</b> - arbitrary parameters specified separated by commas, to be passed to your program.</p><p>To monitor the running programs, use the command</p><p>{getStatus(taskID)</p><p>It is also possible to get a list of all the tasks of the current user with a 
+description of their states:</p><p>{showTaskList()</p><p>To receive the content from the output stream and error stream, use the commands</p><p>{getOut(taskID)</p><p>{getErr(taskID)</p><p>Files that contain output or error stored on a cluster of two days,
+zip-archives containing the compiled java-classes are stored for 30 days.
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>
