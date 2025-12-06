@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/09mstv.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1> Функции теории вероятностей и математической статистики</h1><p></p><p></p><h2 id="0">10.1 Функции непрерывных случайных величин</h2><p>
+Непрерывная случайная величина задается с помощью интервала $(a,b)$ и плотности распределения вероятностей $f(x)$.
+Например,  $a=0; b=2; f=1/4*x^2.$ </p><p>Для непрерывных случайных величин  определены следующие функции:</p><p>mathExpectation(a, b, f(x)) вычисляет математическое ожидание непрерывной случайной величины.</p><p>dispersion(a, b, f(x)) вычисляет дисперсию непрерывной случайной величины. </p><p>meanSquareDeviation(a, b, f(x)) вычисляет среднее квадратичное отклонение непрерывной случайной величины.</p><p>plotDistributionFunction(a, b, F(x)) строит функцию распределения непрерывной случайной величины, 
+где  F(x)  &mdash;  функция распределения на (a,b).</p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="9">
+SPACE=R64[x]; 
+a=0;
+b=4;
+f=1/4;
+g=\mathExpectation(a,b,f); 
+g1=\dispersion(a,b,f); 
+g2=\meanSquareDeviation(a,b,f);  
+\print(g, g1, g2);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE=R64[x];
+a=0;
+b=4;
+F=1/16*x^2;
+\plotDistributionFunction(a, b, F);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">10.2 Функции дискретных случайных величин</h2><p>
+Дискретная случайная величина задается как  матрица,  имеющая две строки.  В первой строке записаны значения случайной величины,  во второй &mdash;  соответствующие им вероятности.  То есть каждый элемент второй строки является числом на отрезке [$0$,  $1$], при  этом и сумма всех элементов второй  строки должна быть равна $1$.  
+Например,  $DRQ=([1, 2, 3, 4, 5], [0.4, 0.1, 0.1, 0.2, 0.2]).$ </p><p>
+Для дискретных случайных величин  определены следующие функции. </p><p>mathExpectation(DRQ) вычисляет математическое ожидание дискретной случайной величины $DRQ$. </p><p>dispersion(DRQ) вычисляет дисперсию дискретной случайной величины $DRQ$. </p><p>meanSquareDeviation(DRQ) вычисляет среднее квадратичное отклонение дискретной случайной величины $DRQ$. </p><p>addQU(DRQ1, DRQ2) складывает две дискретные случайные величины $DRQ1$ и $DRQ2$. </p><p>multiplyQU(DRQ1, DRQ2) умножает две дискретные случайные величины $DRQ1$ и $DRQ2$. </p><p>covariance(DRQ1, DRQ2) вычисляет коэффициент ковариации двух дискретных случайных величин $DRQ1$ и $DRQ2$. </p><p>correlation(DRQ1, DRQ2) вычисляет коэффициент корреляции двух дискретных случайных величин $DRQ1$ и $DRQ2$. </p><p>plotPolygonDistribution(DRQ) строит многоугольник распределения дискретной случайной величины $DRQ$. </p><p>plotDistributionFunction(DRQ) строит функцию распределения дискретной случайной величины $DRQ$. </p><p>simplifyQU(DRQ) упрощает дискретную случайную величину $DRQ$. </p><p></p><p>
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="7">
+SPACE=R64[x]; 
+DRQ=[[1, 2], [0.2, 0.8]];
+g=\mathExpectation(DRQ); 
+g1=\dispersion(DRQ); 
+g2=\meanSquareDeviation(DRQ);  
+\print(g, g1, g2);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R64[x]; 
+DRQ=[[7, 5, 3, 5, 1], [0.2, 0.1, 0.3, 0.1, 0.3]];
+g=\simplifyQU(DRQ); 
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="7">
+SPACE=R64[x]; 
+DRQ1=[[0, 1], [0.33333, 0.66666]]; 
+DRQ2=[[1, 2], [0.25, 0.75]];
+g=\addQU(DRQ1, DRQ2); 
+g1= \multiplyQU(DRQ1, DRQ2);  
+\print(g, g1);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R64[x];
+DRQ=[[-7, -2, 0, 3, 5, 7, 9], 
+  [0.3, 0.05, 0.2, 0.1, 0.1, 0.2, 0.05]];
+\plotPolygonDistribution(DRQ);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="2">10.3 Функции для выборок</h2><p></p><p>Выборка задается как матрица из одной строки.  Например,  $[1, 7, 10, 15]$. </p><p>sampleMean(S) вычисляет выборочное среднее выборки $S$. </p><p>sampleDispersion(S) вычисляет выборочную дисперсию выборки $S$. </p><p>covarianceCoefficient(S1, S2) вычисляет коэффициент ковариации для 2 выборoк $S1$ и $S2$. </p><p>correlationCoefficient(S1, S2) вычисляет коэффициент корреляции для 2 выборoк $S1$ и $S2$. </p><p></p><p>
+<div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="9">
+SPACE=R64[x];
+S1=[0, 1]; 
+S2=[1, 2];
+g=\sampleMean(S1); 
+g1=\sampleDispersion(S1); 
+g2=\covarianceCoefficient(S1, S2); 
+g3=\correlationCoefficient(S1, S2); 
+\print(g, g1, g2, g3);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div> 
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

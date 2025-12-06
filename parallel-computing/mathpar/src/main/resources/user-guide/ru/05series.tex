@@ -1,0 +1,117 @@
+\chapter{ Ряды}
+
+Ряд задается в виде f=$\backslash {\mathbf sum}$ \_\{i=k\} $\widehat{\ }{}$\{ $\backslash$infty\} $F(i, x, y,\ldots, z)$,  где $i$~--- индекс суммирования,  $k$~--- начальное значение $i$,  $F(i, x, y,\ldots, z)$~--- функция многих переменных, т.е.  $F$ может зависеть и от $i$. 
+
+Над рядами определены такие арифметические операции как сложение, вычитание и умножение.
+
+Пусть $f$ и $g$~--- ряды.  
+
+Для сложения двух рядов необходимо выполнить команду 
+ \comm{seriesAdd}{(f, g)}. 
+
+Для разности двух рядов необходимо выполнить команду
+\comm{seriesSubtract}{(f, g)}. 
+
+Для умножения двух рядов необходимо выполнить команду
+ \comm{seriesMultiply}{(f, g)}. 
+
+Для разложения функции в ряд Тейлора с определенным
+количеством членов ряда необходимо выполнить команду \comm{teilor}{(f, point, num)},  где
+$f$~--- функция,  $point$~--- точка,  $num$~--- общее количество членов ряда. 
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=R[x, y];
+f=\sum_{i=2}^{\infty} (2x^i y b i);
+g=\sum_{i=4}^{\infty} (x^i a\sin(a i x));
+h=\seriesAdd(f, g); 
+\print(f, g, h);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$f = \sum_{i=2}^{\infty} 2(x)^iybi;$$
+$$g = \sum_{i=4}^{\infty} (x)^ia\sin(aix);$$
+$$h = \sum_{i=4}^{\infty} (2(x)^iybi+(x)^ia\sin(aix))+\sum_{i=2}^{3}(2x^iybi);$$
+
+%enddelete
+\begin{verbatim}
+SPACE=R[x, y];
+f=\sum_{i=1}^{\infty} (x^i y i\cos(b));
+g=\sum_{i=2}^{\infty} (5x^i a\cos(axi));
+h=\seriesSubtract(f, g); 
+\print(f, g, h);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$f = \sum_{i=1}^{\infty} (x)^iyi\cos(b);$$
+$$g = \sum_{i=2}^{\infty} 5(x)^ia\cos(axi);$$
+$$h = \sum_{i=2}^{\infty} ((x)^iyi\cos(b)-5(x)^ia\cos(axi))+xy\cos(b);$$
+%enddelete
+\begin{verbatim}
+SPACE=R[x, y];
+f=\sum_{i=0}^{\infty} (2x^i y b i);
+g=\sum_{i=2}^{\infty} (5y^i x^2 b i\cos(a_1 x));
+h=\seriesSubtract(f, g); 
+\print(f, g, h);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$f = \sum_{i=0}^{\infty} 2(x)^iybi;$$
+$$g = \sum_{i=2}^{\infty} 5y^ix^2bi\cos(a_1x);$$
+$$h = \sum_{i=2}^{\infty} (2x^iybi-5y^ix^2bi\cos(a_1*x))+\sum_{i=0}^{1}(2x^iybi);$$
+
+%enddelete
+\begin{verbatim}
+SPACE = R[x, y];
+f = \sum_{a = 6}^{\infty} (x a a_0);
+g = \sum_{a = 9}^{\infty} (56x^4 a \cos(a_1 x));
+h = \seriesMultiply(f, g); 
+\print(f, g, h);
+\end{verbatim} 
+%begindelete
+
+Результат выполнения:\\
+$$f = \sum_{a=6}^{\infty} xaa_0;$$
+$$g = \sum_{a=9}^{\infty} 56. 00x^4a\cos(a_1x);$$
+$$h = \sum_{a_2=6}^{\infty} \sum_{a=9}^{\infty} xa_2a_0\cdot 56. 00x^4a\cos(a_1x);$$
+%enddelete
+
+\begin{verbatim}
+SPACE=R[x, y];
+f = \sum_{a = 6}^{\infty} (\sin(xa)\cos(g y) a_0);
+g = \sum_{a = 9}^{\infty} (6x^2 a \sin(a x y^2));
+h = \seriesMultiply(f, g); 
+\print(f, g, h);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$f = \sum_{a=6}^{\infty} \sin(xa)\cos(\sum_{a=9}^{\infty} 56. 00x^4a\cos(a_1x)y)a_0;$$
+$$g = \sum_{a=9}^{\infty} 6. 00x^2a\sin(axy^2);$$
+$$h = \sum_{a_2=6}^{\infty} \sum_{a=9}^{\infty} \sin(xa_2)\cos(\sum_{a_2=9}^{\infty} 56. 00x^4a_2\cos(a_1x)y)a_06. 00x^2a\sin(axy^2);$$
+%enddelete
+
+\begin{verbatim}
+SPACE = R[x]; 
+FLOATPOS = 15;
+a = \teilor(\sin(x), 0, 7);
+c = \value(a); 
+\print(a, c);
+\end{verbatim} 
+%begindelete
+Результат выполнения:\\
+$a = ((-x^{7})/(7\mathbf{}!)+x^{5}/(5\mathbf{}!)+(-x^{3})/(3\mathbf{}!)+x/(1\mathbf{}!)); $\\
+$c = (-0. 000198412698412x^{7}+0. 008333333333333x^{5}-0. 166666666666666x^{3}+x)$.  
+
+\section{Контрольные задания}
+В  Mathpar 
+\begin{itemize}
+ \item разложите функцию $f(x) = \sin^2(5x - 1)$ в ряд Тейлора, 
+ \item создайте два случайных ряда с полиномиальными членами,  используя генерацию полиномов.  Найдите сумму,  разность и произведение полученных рядов. 
+  \end{itemize}
+%enddelete

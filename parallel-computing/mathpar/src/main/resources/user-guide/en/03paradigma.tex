@@ -1,0 +1,222 @@
+\chapter{Environment for mathematical objects}
+\section{Setting of environment}
+
+The definition of any mathematical object, a number or function, a matrix or symbol, involves the definition of some environment, that is, the space which contains this object. 
+To select the environment you have to set the {\it algebraic structure}.  
+This algebraic structure is defined by numeric sets, algebraic operations in these sets and variable names.
+
+First of all any user have to set an environment in Mathpar.
+
+By default, a space of the four real variables $\mathbb{R}64[x,y,z,t]$ is defined. This is ring of polynomials with   coefficients in the ring of real numbers, the youngest is the variable  $ x $, the eldest is the variable $ t $.
+
+User can change the environment, setting a new algebraic structure. 
+ 
+
+For example the spaces $\mathbb{R}64[x]$ or $\mathbb{Q}[x]$ may be suitable to solve many problems of computational mathematics. 
+The installation  command should be the follow: <<SPACE=R64[x];>> or <<SPACE=Q[x];>>. 
+
+ 
+Moving a mathematical object from the previous environment to the current environment, as a rule, should be performed explicitly, using the $ toNewRing()$ function.  In some cases, such a transformation to the current environment is automatic. 
+ 
+All other names which are not listed as a variables can be chosen arbitrarily by the user for any mathematical object.   
+
+For example
+$$a=x+1, \ \  f= \backslash \backslash sin(x+y) - a.$$
+We follow the rule.
+  If the object name begins with the symbol $\backslash$ and a {\it   capital letter} such object is an element of a {\it noncommutative} algebra, else object is an element of a  {\it   commutative} algebra.
+
+\section{Numerical sets with standard operations} 
+Current version of the system supports the following numerical sets with standard operations.
+
+Z --- the set of integers ${\mathbb Z}$, 
+
+Zp --- a finite field ${\mathbb Z}/p{\mathbb Z}$ where p is a prime number,  
+
+Zp32 --- a finite field ${\mathbb Z}/p{\mathbb Z}$ where p is less $2^{31}$,  
+
+Z64 --- the ring of integer numbers $z$  such that $-2^{63} \leqslant z < 2^{63}$,  
+
+Q ---  the set of rational numbers, 
+ 
+R --- the set of floating point numbers to store the approximate real numbers with arbitrary mantissa,  
+
+R64 ---  standard floating-point 64-bit numbers (52 digits for mantissa, 11 bits for the order and 1 bit for the sign),   
+ 
+R128 --- standard floating-point 64-bit numbers, equipped with optional 64-bit for the order, 
+
+C --- complexification of R,  
+
+C64 --- complexification of R64, 
+
+C128 --- complexification of R128,   
+
+CZ --- complexification of of Z, 
+ 
+CZp --- complexification of Zp, 
+
+CZp32 --- complexification of Zp32,  
+
+CZ64 --- complexification of Z64,   
+
+CQ --- complexification of Q.  
+
+Examples of simple commutative polynomial rings:
+ 
+SPACE = Z [x,  y,  z]; 
+
+SPACE = R64 [u,  v];  
+
+SPACE = C [x]. 
+ 
+\section{Several numerical sets}
+The ring $Z[x,y,z]Z[u,v,w]$, which has two subsets of
+ variables, is the polynomial ring with variables $u, v, w$ with coefficients in the polynomial ring $Z[x,y,z]$.
+
+For example, the characteristic polynomial
+ of a matrix over the ring $\mathbb{Z}[x,y,z]$ may be obtained as a polynomial with the variable $u$, whose coefficients are
+polynomials in the ring $\mathbb{Z}[x,y,z]$.
+
+You can set
+algebraic space which defines several numerical sets. For example, the space $C [z] R [x, ~ y] Z [n, ~ m]$ allows to have
+ the five names of variables, which defined in the sets $\mathbb {C}$, $ \mathbb {R} $ and $\mathbb {Z} $, respectively.
+The first set is the main.  
+
+ 
+$C[z]R[x, y]Z[n, m]$  
+  can be viewed as a polynomial ring of five variables over $\mathbb{C} $, which has the additional properties. 
+If the polynomial does not contain the variables $ z $, $ x $, $ y $, then it is a polynomial with coefficients in the set $\mathbb {Z}$.
+If the polynomial does not contain the variable $ z$, then it is a polynomial with coefficients in  the set $ \mathbb {R} $.
+
+{\bf  Examples:} 
+
+SPACE=Z[x, y]Z[u]; 
+
+SPACE=R64[u, v]Z[a, b]; 
+
+SPACE=C[x]R[y, z]; 
+
+ %%\section{Group algebras} 
+
+%The definition of the group algebra has the form $KG$, where $K$
+ %is a commutative ring of scalars and $G$~--- is a group of
+ %noncommutative operators with finite number of generators.
+%Names of these generators should begin with capital letters.
+
+%For example, the following group algebras may be defined: 
+
+%$SPACE=Z[x, y]G[U, V]$; (generators U, V),  
+
+%$SPACE=R64[u, v]G[A, B]$; (generators A, B), 
+
+%$SPACE=C[]G[X, Y, Z, T]$; (generators X, Y, Z, T). 
+
+%Each element of such algebra may be considered as a
+% sum of terms with functional coefficients.
+
+%$R64[t, y]G[X,~Y,~Z]$~---  is the free group algebra over a function field of two variables $t, y$ over the field  $\mathbb{R}64$
+ % with three noncommutative  generators X, Y, Z.
+%For example, $A=(t^2+1)X + \sin(t)Y + 3X^2y^3 +(t^2+1)XY^3X^2Y^{-2}X^2$~---is an element of such algebra.
+
+ 
+\section{Idempotent algebra and tropical mathematics}
+User can uses the idempotent algebras.
+In this case the signs of "addition"\ and "multiplication"\ for the infix operations can be used for operations in tropical algebra: min, max, addition, multiplication. 
+
+Each numerical sets $\mathbb {R}$, $\mathbb {R}64$, $\mathbb {Z}$ has two additional elements $\infty$ and $-\infty$, and they have different 
+elements, which is play the role of zero and unit. We  denote these sets $\hat {\mathbb {R}}$, $\hat {\mathbb {R}}64$, $\hat{\mathbb {Z}}$, correspondingly.
+The name of tropical algebra is obtained from three words: (1) a numerical set, (2) an operation, which corresponding to the sign $plus$ 
+and (3) an operation, which corresponding to the sign $times$.
+
+The algebras $R64MaxPlus$, $R64MinPlus$, $R64MaxMin$, $R64MinMax$, $ R64MaxMult$, $ R64MinMult$ are defined for the numerical set $\hat {\mathbb {R}}$64. 
+
+{\it RMaxPlus, RMinPlus, RMaxMin, R64MinMax, RMaxMult, RMinMult}  are defined for the numerical set $\hat {\mathbb {R}}$. 
+
+{\it   ZMaxPlus,  ZMinPlus, ZMaxMin, ZMinMax, ZMaxMult,  ZMinMult}  are defined for the numerical set $\hat {\mathbb {Z}}$. 
+ 
+ 
+For example, for the algebra $ ZMaxPlus $ you can do the following operations.
+\smallskip
+
+%begindelete
+ {\it \bf Example. }
+%enddelete
+
+\vspace*{-3mm}
+
+\begin{verbatim}
+SPACE=ZMaxPlus[x, y];
+a=2; b=9+x; c=a+b; d=a b+y; \print(c, d)
+\end{verbatim}
+%begindelete
+
+{\it  \bf The results:} $c = x+9$;  $d = y+2 x+11$.
+
+%enddelete
+For each algebra we defined elements {\bf 0} and {\bf 1}, $-\infty$ and $\infty$.
+For each element $a$ we defined the operation of closure: $ a^{\times}$, i.e. the amount of $1+a+a^2+a^3+...$.
+For the classical algebras this operation is equivalent to $(1-a)^{-1}$. 
+ 
+\section{Constants} 
+It is possible to set or replace the following constants.
+
+FLOATPOS --- an amount of decimal positions of the  real number of type R or R64, 
+which you can see in the printed form of this number (the default value is 2).
+
+MachineEpsilonR --- machine epsilon for the number of type R and C ( $10^{-29}$ is the  default value).
+The number whose absolute value is less than $10^{-29}$, is considered to be a machine zero.
+To set the new value of $ 10^{- 30} $, enter the command << MachineEpsilonR64 = 30 >>.
+
+MachineEpsilonR64 --- machine epsilon for the number of type R64 and C64 ( $2^{-36}$ is the  default value).
+The number whose absolute value is less than $2^{-36}$, is considered to be a machine zero.
+To set the new value of $2^{-48}$, enter the command << MachineEpsilonR64 = 48 >>.
+
+Constant MachineEpsilonR (and MachineEpsilonR64) used in factoring polynomials 
+with coefficient of type R (or R64). Each coefficient of the polynomial is divided by the number $ MachineEpsilonR $ 
+(or $ MachineEpsilonR64 $) and rounded to integer value.
+
+MOD32 --- --- the module for a finite field of the type Zp32, its value is not greater than $2^{31}$. 
+(the default value is 268435399).
+
+MOD --- the module for a finite field of the type Z (the default value is 268 435 399).
+
+RADIAN --- (1/0) is a flag, which indicates that angles are measured in radians (default is 1:  active).
+
+STEPBYSTEP --- (1/0) is a flag, which indicates that you want to display intermediate results (default is 0:  turned off).
+
+EXPAND --- (1/0) is a flag, which indicates that in the input expression all brackets must be disclosed (the default is 1:   active).
+
+SUBSTITUTION --- (1/0) is a flag, which indicates that the names in the input expression must be substituted of their meaning, if they have been defined before (the default is 1:  active).
+
+The constant ACCURACY is an amount of exact decimal positions in the fractional part of a real numbers of type $R$ and $C$ in the result of multiplication or division operation (the default value is 34).If ACCURACY = 100, then the result of arithmetic operation will be rounded to the one hundredth decimal place.  Obviously, the inequality ACCURACY $>$ MachineEpsilonR must hold.
+
+To install the MachineEpsilonR $ 1/10^9 $ (i.e. $1E-9$) enter the command   MachineEpsilonR = 9  .
+After that, any number $ a \in R $, will be considered as zero if $ | a | <10^{-9}.$
+The value ACCURACY will be set  MachineEpsilonR+5; If you like another value of ACCURACY you can
+set the fraction <<MachineEpsilonR=35/49>>. In this case you obtain result: MachineEpsilonR=35 and ACCURACY=49.
+
+For the numbers $ a \in R$64, $ a \in R$128, $ a \in C$64, $ a \in C$128,  there is no constant defining binary places. Arithmetic instructions are used with accuracy that equals 2.22044604925031308e-16.
+  However, you can set the number of binary places for MachineEpsilonR64: for example, you can set MachineEpsilonR64=10.
+
+Prime number MOD32 is a characteristic of a finite field.
+The constant MOD32 is used when calculations are made in a finite field
+Zp32 and it should be less $2^{31}$.
+
+The prime number MOD is also characteristic of the finite field, but it has no restrictions on the absolute value. The constant MOD is used when calculations are made in a finite field Zp.
+
+The constant FLOATPOS determines the number of decimal places,
+are printed. In addition, it is used in the factorization of polynomials whose coefficients are 
+an approximate numbers of type R or R64. 
+Each coefficient of this polynomial is pre-multiplied by the number of $10^{MachineEpsilonR}$ or 
+and rounded to an integer value.
+But after factoring polynomial extra factor is removed.
+
+
+
+\begin{verbatim}
+SPACE=Zp32[x, y]; 
+MOD32=7; 
+f1=37x+42y+55; 
+f2=2f1;  
+\print(f1, f2 );
+\end{verbatim}
+

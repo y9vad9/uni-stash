@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/12superComp.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Вычисления на суперкомпьютере</h1><p></p><p>Для решения вычислительных задач, требующих большого времени вычислений или больших объемов памяти,  разработаны специальные функции,  которые предоставляют пользователю ресурсы 
+суперкомпьютера.  При использовании этих функций вычисления производятся не на одном процессоре,  а на выделенном множестве ядер суперкомпьютера,  количество которых заказывает пользователь. 
+Имеются следующие функции,  которые используют суперкомпьютер (парфункции). </p><p>1) matMultPar1x8 &mdash;  вычисление произведения двух матриц;</p><p>2) adjointDetPar &mdash;  вычисление присоединенной матрицы;</p><p>3) charPolPar &mdash;  вычисление характеристического полинома матрицы;</p><p>4) polMultPar &mdash;  вычисление произведения двух полиномов;</p><p>5) BellmanEquationParA &mdash;  решение однородного уравнения Беллмана $Ax=x$;</p><p>6) BellmanEquationParA,b &mdash;  решение однородного уравнения Беллмана $Ax+b=x$;</p><p>7) BellmanInequalityParA &mdash;  решение однородного неравенства Беллмана $Ax\leq x$;</p><p>8) BellmanInequalityParA,b &mdash;  решение однородного неравенства Беллмана $Ax+b\leq x$; </p><p> 
+До применения любой из этих функций пользователь должен указать параметры,  определяющие параллельное окружение: </p><p>$TOTALNODES$ &mdash;  общее количество узлов кластера, которые выделяются для вычислений,  </p><p>$PROCPERNODE$ &mdash;  количество MPI-процессов, запускаемых на одном узле,   </p><p>$CLUSTERTIME$ &mdash;  максимальное время (в минутах) выполнения программы,  после истечения которого программа принудительно завершится,</p><p>$MAXCLUSTERMEMORY$ &mdash;  объем памяти, выделяемый для JVM для одного MPI-процесса (опция -Xmx).</p><p>Для задания количества ядер на одном узле пользователь должен знать, какой кластер используется и сколько доступно ему ядер на узле.  По умолчанию параметры $TOTALNODES$ и  $PROCPERNODE$ устанавливаются так,  чтобы использовалась половина всех узлов кластера и на каждом узле было запущено по одному процессу,  а $CLUSTERTIME$ двум минутам. Если на одном узле запускается $K$ процессов, то каждому из них будет выделено $MAXCLUSTERMEMORY/K$ мегабайт памяти. </p><p>
+</p><h2 id="0">13.1 Параллельные полиномиальные вычисления</h2><p>
+  Для параллельного вычисления произведения полиномов надо использовать команду 
+  polMultPar(p1, p2),  где $p1$,  $p2$ &mdash;  входные полиномы.  </p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="6">
+TOTALNODES = 2;
+PROCPERNODE = 1;
+A=x^2+3y;
+B=x^2+3y+3z;
+\polMultPar(A, B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>      
+</p><h2 id="1">13.2 Параллельные матричные вычисления</h2><p>
+  Для параллельного вычисления произведения матриц $m1$ и $m2$ необходимо использовать команду 
+  
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="6">
+TOTALNODES = 2;
+PROCPERNODE = 1;
+A=[[0,1],[2,3]];
+B=[[0,1],[2,3]];
+\matMultPar1x8(A, B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+ 
+  Для параллельного вычисления присоединенной матрицы для матрицы $m$ можно использовать команду 
+   
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="6">
+TOTALNODES = 2;
+PROCPERNODE = 1;
+SPACE = Z[x];
+A=[[0,1],[2,3]];   
+\adjointDetPar(A);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+ 
+ 
+</p><h2 id="2">13.3 Запуск собственных параллельных программ</h2><p>
+  Mathpar позволяет загружать и исполнять собственные параллельные программы.
+  Пакет с программой должен распологаться в корневой директории проекта mathpar.
+  Для того, чтобы ваша программа смогла взаимодействовать с системой управления заданиями,
+  необходимо в ваш main-метод добавить строку инициализации QueryResult queryRes=Tools.getDataFromClusterRootNode(args)
+ (сразу после MPI.Init) и  строку завершения Tools.sendFinishMessage(args) (перед MPI.Finalize),
+  этот код будет одинаков для всех ваших программ).   Также вы можете передать вашей программе 
+  любые аргументы из web-интерфейса Mathpartner.  Внутри программы их можно получить, вызвав 
+метод queryRes.getData(). Ниже приведен пример параллельной программы, 
+которая просто выводит в стандартный поток вывода  переданные ей аргументы .</p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="13">
+        MPI.Init(args);
+        QueryResult queryRes=Tools.getDataFromClusterRootNode(args);
+        int myRank=MPI.COMM_WORLD.getRank();
+        if (myRank == 0) {
+            Object []ar=queryRes.getData();
+            System.out.println("test...");           
+            for (int i=0; i&lt;ar.length; i++){
+                System.out.println(((Element)ar[i]).intValue());
+            }            
+        }
+        Tools.sendFinishMessage(args);
+        MPI.Finalize();
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+  Далее программу нужно скомпилировать, и папку с программой запаковать в zip-архив.
+  Затем нужно загрузить полученный архив на сервер, воспользовавшись вкладкой "файлы" и нажав кнопку "загрузить файл".
+  Далее вся работа будет выполняться с помощью функций mathpar. </p><p>Оперативная память делится между всеми ядрами процессора поровну. Для примера, если на узле кластера имеется 8GB памяти,
+то если вы запросили 4 ядра на одном процессоре, каждому будет выделено 2GB, а если одно ядро - то оно получит все 8GB.</p><p>Команда для загрузки вашего zip-архива, в котором скомпилированные java-классы,
+выглядит следующим образом:</p><p> uploadToCluster(FileName), где FileName - имя zip-архива.</p><p>Чтобы просмотреть список всех ваших загруженных на кластер файлов, используется команда</p><p> showFileList().</p><p>
+Для запуска вашей программы используется команда</p><p>runUploadedClass(archieveName, classPath, param0, param1,...),
+где archieveName - имя загруженного zip-архива с программой, classPath - путь до класса, содержащего main-метод (с указанием пакетов),
+paramX - произвольные параметры, указанные через запятую, которые будут переданы в вашу программу.</p><p>Чтобы следить за работой запущенной программы, используется команда </p><p>getStatus(taskID)</p><p>Также имеется возможность получить список всех задач текущего пользователя с описанием их состояний:</p><p>showTaskList()</p><p>Для того, чтобы получить содержимое файлов с потоком стандартного вывода/ошибок, используются команды</p><p>getOut(taskID)</p><p>getErr(taskID)</p><p>Файлы задачи (файлы, содержащие поток вывода/ошибок) хранятся на кластере двое суток,
+zip-архивы, содержащие скомпилированные java-классы, хранятся 30 дней.
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

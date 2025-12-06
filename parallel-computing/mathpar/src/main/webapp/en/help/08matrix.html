@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/08matrix.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Matrix functions</h1><p>
+</p><h2 id="0">9.1 Calculation of the transposed matrix</h2><p></p><p>To compute the transpose of the matrix $ A $ must run 
+  transpose(A) or $ \mathbf {A \widehat { } {T } } $.</p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 2], [4, 5]];
+B=A^{T}; 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">9.2 The calculation of adjoint and inverse matrices</h2><p> 
+</p><h3>The calculation of inverse matrix</h3><p> </p><p>To calculate the inverse matrix for the matrix A, to execute  
+ inverse(A) or $\mathbf{A\widehat{ } {(-1)}}$. </p><p></p><p>
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\inverse(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x+y, x], [y, \cos(x)]];
+B=\inverse(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h3>Calculation of adjoint matrix</h3><p> 
+To calculate the adjoint matrix for a given matrix $A$  execute 
+adjoint(A) or
+  $\mathbf{A\widehat{ }{\backslash star}}$. </p><p></p><p>
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\adjoint(A);  
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\adjoint(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="2">9.3 Calculation of the matrix determinant</h2><p>
+To calculate the determinant of $A$, you must run det(A).</p><p></p><p>
+<div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R[x]; 
+A=[[3, 4], [3, 1]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x^2, y], [4, x+y]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x+y, \sin(x)], [y, \cos(x)]];
+B=\det(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="3">9.4 Calculation of the conjugate matrix</h2><p>
+To calculate the conjugate  matrix, you must run 
+ conjugate(A) or $\mathbf {A\widehat{ } { \backslash ast}}$. </p><p></p><p>
+<div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=C[x];
+A=[[1+\i, 2-\i], [-3, -2\i]];
+B=A^{\ast};
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="4">9.5 Calculation of the generalized inverse matrix</h2><p>
+To compute the generalized inverse  Murr-Penrose matrix must run  
+genInverse(A) or $\mathbf{A\widehat{ } {+}}$. </p><p></p><p>
+<div id="section_10" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="10" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x];
+A=[[1, 4, 5], [2, 4, 5]];
+B=A^{+};
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+</p><h2 id="5">9.6 Computation of the kernel and echelon form</h2><p>  </p><p></p><h3>Computation of the echelon form</h3><p>  
+To compute the echelon form of the matrix $A$, you should run 
+toEchelonForm(A). </p><p></p><p>
+<div id="section_11" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="11" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\toEchelonForm(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_12" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="12" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\toEchelonForm(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+ </p><h3>Computation of the kernel</h3><p> </p><p>To calculate the kernel of matrix $A$, you should run kernel(A). </p><p></p><p>
+<div id="section_13" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="13" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 16]];
+B=\kernel(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_14" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="14" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]; 
+A=[[x+y, x], [(x+y)x, x^2]];
+B=\kernel(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="6">9.7 Calculating the characteristic polynomial of matrix</h2><p>  
+ 
+To calculate the characteristic polynomial of the matrix A with entries in $R[x_1,&hellip;,x_m]$, you should give the ring $R[x_1,&hellip;,x_m]R[t]$ or $R[t,x_1,&hellip;,x_m]$ with some new variable  $t$
+and run  charPolynom(A). </p><p></p><p>
+<div id="section_15" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="15" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4], [4, 5]];
+B=\charPolynom(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_16" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="16" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x, y]Z[t]; 
+A=[[\cos(y), \sin(x)], [\sin(y), \cos(x)]];
+B=\charPolynom(A); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p></p><h2 id="7">9.8 Calculating LDU-decomposition of the matrix</h2><p> 
+To calculate the LDU-decomposition of the matrix A, you must run 
+ LDU(A). </p><p> The result is a vector of three matrices $[L,D,U]$. Where $L$ is a lower triangular matrix, $U$ &mdash;  upper triangular matrix, 
+$D$ &mdash;  permutation matrix, multiplied by the inverse of the diagonal matrix. If the elements of the matrix A are elements of commutative domain R, then 
+elements of  matrices $L$, $D^{-1}$, $U$ are elements of the same domain R.</p><p></p><p>
+<div id="section_17" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="17" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[0, 1, 0], [4, 5, 1],[1, 1, 1]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_18" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="18" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_19" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="19" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\LDU(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="8">9.9 Calculating Bruhat decomposition of the matrix</h2><p> 
+To calculate the Bruhat decomposition of the matrix A, you must run 
+ BruhatDecomposition(A). </p><p> The result is a vector of three matrices $[V,D,U]$. Where $V$ and $U$ &mdash;  upper triangular matrices, 
+$D$ &mdash;  permutation matrix, multiplied by the inverse of the diagonal matrix. If the elements of the matrix $A$ are elements of commutative domain $R$, then 
+elements of  matrices $V$, $D^{-1}$, $U$ are elements of the same domain $R$.</p><p></p><p><div id="section_20" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="20" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x]; 
+A=[[1, 4,0,1], [4, 5,5,3],[1,2,2,2],[3,0,0,1]];
+B=\BruhatDecomposition(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_21" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="21" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Z[x,y];
+A=[[\cos(y),\sin(x)],[\sin(y),\cos(x)]];
+B=\BruhatDecomposition(A);
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><h2 id="9">9.10 Linear programming</h2><p>
+Let there be given the objective function $\sum_{j = 1}^n c_j x_j$
+and conditions
+$$\sum_{j = 1}^n a_{ij}x_j\leqslant b_i,\text{ here }i = 1,2,&hellip;,m,$$
+$$x_j\geqslant 0,\text{ here }j = 1,2,&hellip;,n.$$</p><p>We define $m\times n$-matrix $A = (a_{ij})$,
+$ m $-dimensional vector $b = (b_i)$, $n$-dimensional vector $c = (c_j)$ and 
+$n$-dimensional vector $x = (x_j)$.</p><p>Then the objective function can be written as
+$c^Tx,$ and and conditions can be written as 
+$$Ax \leqslant b,$$
+$$ x \geqslant 0.$$</p><p>For solving linear programming problems, you 
+can use one of the following two commands
+ SimplexMax or  SimplexMin. The result is a vector.</p><p>Depending on the type of problem you have the following options.</p><p>1. To solve the problem
+$$c^Tx \rightarrow max$$
+under conditions
+$$Ax \leqslant b,$$
+$$ x \geqslant 0,$$
+we use the SimplexMax(A, b, c).</p><p>If the objective function needs to be minimized, , i.e. $$c^Tx \rightarrow min,$$ then we use the  SimplexMin(A, b, c).</p><p>
+Example.</p><p>We need to maximize the $$3x_1 + x_2 + 2x_3$$
+under the conditions
+$$
+   x_1 +  x_2 + 3x_3 \leqslant 30,  
+  2x_1 + 2x_2 + 5x_3 \leqslant 24,  
+  4x_1 +  x_2 + 2x_3 \leqslant 36,  
+   x_1,   x_2,   x_3 \geqslant 0.
+$$</p><p><div id="section_22" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="22" />
+    <textarea class="form-control" name="task" rows="6">
+  SPACE = R64[];
+  A = [[1, 1, 3],[2, 2, 5],[4, 1, 2]];
+  b = [30, 24, 36];
+  c = [ 3,  1,  2];
+  x = \SimplexMax(A, b, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>2. To solve the problem
+$$c^Tx \rightarrow max$$
+under the conditions
+$$A_1 x\leqslant b_1,$$
+$$A_2 x=         b_2,$$
+$$ x \geqslant 0,$$
+we use the SimplexMax(A_1,A_2, b_1, b_2, c).</p><p>If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   SimplexMin(A_1,A_2, b_1, b_2, c).</p><p>
+Example.</p><p>We need to maximize the $$7x_1 + x_3 - 4x_4$$</p><p>under the conditions
+$$
+   x_1 - x_2 + 2x_3 - x_4 \leqslant  6,  
+  2x_1 + x_2 - x_3 = -1,  
+   x_1,  x_2,   x_3,  x_4 \geqslant  0. 
+$$</p><p><div id="section_23" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="23" />
+    <textarea class="form-control" name="task" rows="8">
+  SPACE = R64[];
+  A1 = [[1, -1,  2, -1]];
+  A2 = [[2,  1, -1,  0]];
+  b1 = [ 6];
+  b2 = [-1];
+  c  = [7, 0, 1, -4];
+  x = \SimplexMax(A1, A2, b1, b2, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+3. To solve the problem
+$$c^Tx \rightarrow max$$
+under the conditions
+$$A_1 x\leqslant b_1,$$
+$$A_2 x=         b_2,$$
+$$A_3 x\geqslant b_3,$$
+we use the SimplexMax(A_1,A_2, A_3,b_1, b_2, b_3,c).</p><p>If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   SimplexMin(A_1,A_2, A_3,b_1, b_2, b_3, c).</p><p>
+Example.</p><p>$$7x_1 + x_3 - 4x_4$$
+We need to maximize the 
+  $$x_1 + x_2$$
+under the conditions
+$$
+   4x_1 -  x_2 \leqslant  8,  
+   2x_1 +  x_2 \leqslant 10,  
+  -5x_1 + 2x_2 \geqslant -2,  
+   x_1,    x_2 \geqslant  0.
+$$</p><p><div id="section_24" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="24" />
+    <textarea class="form-control" name="task" rows="8">
+  SPACE = R64[];
+  A1 = [[ 4, -1], [2,  1]];
+  A3 = [[-5,  2]];
+  b1 = [ 8, 10];
+  b3 = [-2];
+  c  = [1, 1];
+  x = \SimplexMax(A1, [[]], A3, b1, [], b3, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+4. To solve the problem
+$$c^Tx \rightarrow max$$
+in mixed conditions desired by the matrix  $A$ and vector $b$,
+you can use the command SimplexMax(A,signs,b,c),  
+where an array of integers $ signs $ determines the signs of comparison:</p><p>-1 means "less than or equal to",</p><p>0 means "equal to", </p><p>1  means "greater than or equal to".</p><p>The array $signs$ must contain the same number of elements as the vector $ b $.
+If the objective function needs to be minimized, i.e. $$c^Tx \rightarrow min,$$  then we use the   SimplexMin(A,signs,b,c).</p><p>
+Example.</p><p>We need to minimize the 
+ $$-2x_1-4x_2-2x_3$$
+under the conditions</p><p>$$
+  -2x_1 +  x_2 +  x_3 \leqslant 4,  
+  - x_1 +  x_2 + 3x_3 \leqslant 6,  
+    x_1 - 3x_2 +  x_3 \leqslant 2,  
+    x_1,   x_2,   x_3 \geqslant 0.
+$$
+In:
+<div id="section_25" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="25" />
+    <textarea class="form-control" name="task" rows="7">
+  SPACE = R64[];
+  A = [[-2,  1, 1],[-1,  1, 3],[ 1, -3, 1]];   
+  b = [ 4,  6,  2];
+  c = [-2, -4, -2]; 
+  signs = [-1, -1, -1];
+  x = \SimplexMin(A, signs, b, c);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

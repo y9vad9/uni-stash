@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/09mstv.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>The functions of the probability theory and statistics</h1><p></p><p></p><h2 id="0">10.1  Functions of the discrete random quantity</h2><p>
+To define a discrete random quantity, 
+enter the matrix, in which the first line &mdash;  values, and the second &mdash;  the corresponding probabilities
+(numbers that are in the range from 0 to 1). For example: DRQ = ([1,2,3,4,5],[0.4,0.1,0.1,0.2,0.2]).</p><p>There are the following functions for working with discrete random variable:</p><p>mathExpectation(DRQ) calculates the expectation of a discrete random variable $DRQ$. </p><p>dispersion(DRQ) calculates the variance of a discrete random variable $DRQ$. </p><p>meanSquareDeviation(DRQ) calculates the standard deviation of a discrete random variable $DRQ$. </p><p>addQU(DRQ1, DRQ2) adds the two discrete random variables $DRQ1$ and $DRQ2$. </p><p>multiplyQU(DRQ1, DRQ2) multiplies two discrete random variables $DRQ1$ and $DRQ2$. </p><p>covariance(DRQ1, DRQ2) calculates the covariance coefficient of two discrete random variables $DRQ1$ and $DRQ2$. </p><p>correlation(DRQ1, DRQ2) calculates the correlation coefficient of two discrete random variables $DRQ1$ and $DRQ2$. </p><p>plotPolygonDistribution(DRQ, V) building polygon distributions of discrete random variable $DRQ$. </p><p>plotDistributionFunction(DRQ, V) constructing the distribution function of a discrete random variable $DRQ$,  
+ where $V$ &mdash;  is the matrix of one row, 4 elements that define the boundaries Graphics: $[x1, x2, y1, y2]$. </p><p>simplifyQU(DRQ)  simplify a discrete random variable $DRQ$. </p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="7">
+SPACE=R64[x];
+M=[[1, 2], [0. 2, 0. 8]];
+g=\mathExpectation(M); 
+g1=\dispersion(M); 
+g2=\meanSquareDeviation(M);  
+\print(g, g1, g2);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R64[x]; 
+M=[[7, 5, 3, 5, 1], [0. 2, 0. 1, 0. 3, 0. 1, 0. 3]];
+g=\simplifyQU(M); 
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="7">
+SPACE=R64[x]; 
+M1=[[0, 1], [0. 33333, 0. 66666]]; 
+M2=[[1, 2], [0. 25, 0. 75]];
+g=\addQU(M1, M2); 
+g1= \multiplyQU(M1, M2);  
+\print(g, g1);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE=R64[x];
+M=[[-7, -2, 0, 3, 5, 7, 9], 
+  [0.3, 0.05, 0.2, 0.1, 0.1, 0.2, 0.05]];
+V=[-10, 10, 0, 1];
+\plotPolygonDistribution(M, V);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="1">10.2 Function for sampling</h2><p></p><p>Function for sampling:</p><p>W-matrix of a single line. For example,  $[1, 7, 10, 15]$. </p><p>sampleMean(S) calculates the sample mean of the sample $S$. </p><p>sampleDispersion(S) calculates the sample variance of the sample $S$. </p><p>covarianceCoefficient(S1, S2) calculates the coefficient of covariance for 2 sampling $S1$ and $S2$. </p><p>correlationCoefficient(S1, S2) calculates the correlation coefficient for 2 sampling $S1$ and $S2$. </p><p></p><p>
+<div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="9">
+SPACE=R[x, y];
+S1=[0, 1]; 
+S2=[1, 2];
+g=\sampleMean(S1); 
+g1=\sampleDispersion(S1); 
+g2=\covarianceCoefficient(S1, S2); 
+g3=\correlationCoefficient(S1, S2); 
+\print(g, g1, g2, g3);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div> </p><p> 
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

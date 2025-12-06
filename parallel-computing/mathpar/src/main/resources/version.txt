@@ -1,0 +1,1 @@
+Mathpar was built with changeset: ${changeSet} from ${changeSetDate}.

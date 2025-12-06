@@ -1,0 +1,235 @@
+\chapter{Полиномиальные вычисления}
+
+\section{Вычисление значения полинома в точке}
+Для вычисления значения функции в точке необходимо выполнить команду  
+\comm{value}{(f, [var1, var2,\ldots, varn])}, 
+где $f$~--- это полином,  в который на позиции переменных кольца подставляем соответствующие значения $var1, var2, \ldots, varn$. 
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=R[x, y]; 
+f=x^2+5x(y^3+x);
+g=\value(f, [1, 2]); 
+\print(g);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=R[x, y];$\\ 
+\hspace*{4mm} $f=x^2+5x(y^3+x);$\\ 
+\hspace*{4mm} $g=value(f, [1, 2]); $\\ 
+\hspace*{4mm} $print(g);$}
+{$g = 46. 00.$}
+%enddelete
+
+\section{Приведение полиномов к стандартному виду и разложение полиномов на множители}
+
+Для приведения полинома к стандартному виду  необходимо выполнить команду  
+\comm{expand}{(f)}, где $f$~--- это полином.
+
+Для разложения полинома на множители необходимо выполнить команду  
+\comm{factor}{(f)}, где $f$~--- это полином.
+
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=Q[x, y]; 
+f= (y^3+x)^2(x+1)^3;
+ g=\expand(f);
+h=\factor(g);
+\print(g,h);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Q[x, y]; $\\
+\hspace*{4mm} $f= (y^3+x)^2(x+1)^3;$\\
+\hspace*{4mm} $g= expand(f);$\\
+\hspace*{4mm} $h= factor(g);$\\
+\hspace*{4mm} $ print(g,h);$}{}
+{$g = y^6x^3+3y^6x^2+3y^6x+y^6+2y^3x^4+6y^3x^3+6y^3x^2+2y^3x+x^5+3x^4+3x^3+x^2;$\\
+\hspace*{4mm} $h=(x+1)^3(y^3+x)^2;$}
+
+%enddelete
+
+\section{Суммирование полинома по переменным.  Геометрические прогрессии }
+
+
+Для суммирования полинома по переменным необходимо выполнить команду  
+\comm{SumOfPol}{(f,  [x, y], [x1, x2, y1, y2])},  где
+$f$~--- полином,  $x,  y$~--- переменные по которым ведется суммирование,  
+$x1,  x2$~--- интервал суммирования по $x$,  
+$y1,  y2$~--- интервал суммирования по $y$. 
+
+
+Если интервалы суммирования для всех переменных совпадают, то можно записать  
+\comm{SumOfPol}{(f,  [x, y], [x1, x2])},  где 
+$x1,  x2$~--- интервал суммирования по $x$ и $y$. 
+
+\underline{Пример.}
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=R[x, y, z];
+f=x^2z+xy+y^3xz;
+res=\SumOfPol(f, [x, y], [2, 4, -2, 3]);
+\print(res);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=R[x, y, z];$\\
+\hspace*{4mm} $f=x^2z+xy+y^3xz;$\\
+\hspace*{4mm} $res=SumOfPol(f, [x, y], [2, 4, -2, 3]);$\\
+\hspace*{4mm} $print(res);$}
+{$res = 417. 00z+27. 00.$}
+%enddelete
+ 
+Для преобразования полинома с помощью формулы суммы геометрической прогрессии необходимо выполнить команду  
+\comm{SearchOfProgression}{(f)}. 
+Данная команда ищет геометрическую прогрессию с наибольшим числом членов среди мономов полинома, затем делает это еще раз для оставшихся членов и так далее. Найденные прогрессии записываются в виде $S_n=b_1(q^n-1)/(q-1)$,  где 
+$S_n$~--- сумма первых $n$ членов,  $b_1$~--- первый член геометрической прогрессии,  $q$~--- знаменатель прогрессии. 
+
+\underline{Пример. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE=R[x, y, z];
+f = x^3 + x^4 + x^5 + x^6 + x^7 + x^8 + x^9 + x^{10} + x^{11} + x^{12} +x^{13};
+g = x + x^5 + x^9 + x^13 + xyz + 7x^2y^2z^2 + 7x^3y^3z^3 + 100xy + x + x^2 +x^3 + x^4;
+f1 = \SearchOfProgression(f);
+g1 = \SearchOfProgression(g);
+\print(f1, g1);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=R[x, y, z];$\\
+\hspace*{4mm} $f=x^3+x^4+x^5+x^6+x^7+x^8+x^9+x^10+x^11+x^12+x^13;$\\
+\hspace*{4mm} $g=x+x^5+x^9+x^13+xyz+7x^2y^2z^2+7x^3y^3z^3+100xy+x+x^2+x^3+x^4;$\\
+\hspace*{4mm} $f1=SearchOfProgression(f);$\\
+\hspace*{4mm} $g1=SearchOfProgression(g);$\\
+\hspace*{4mm} $print(f1, g1);$}
+{$f1 = (x^{14}-x^{3})/(x-1); $\\
+\hspace*{4mm} $g1 = ((100. 00yx+x^{13}+x^{9}+x)+(z^{4}y^{4}x^{4}-zyx)/(zyx-1)+(x^{6}-x)/(x-1)+6. 00z^{3}y^{3}x^{3}+6. 00z^{2}y^{2}x^{2}). $}
+ %enddelete
+
+\section{Вычисление базисов Гребнера}
+
+
+Для вычисления базиса Гребнера полиномиального идеала $[p_{1}, p_{2}, \ldots, p_{N}]$ над рациональными числами можно воспользоваться командой \comm{groebnerB}{(p_{1}, p_{2}, \ldots, p_{N})} или командой \comm{groebner}{(p_{1}, p_{2}, \ldots, p_{N})}. 
+Команда \comm{groebnerB}{()} вычисляет базиса Гребнера, используя алгоритм Бухбергера, а команда \comm{groebner}{()} использует матричный вариант алгоритма, предложенный Фужером.  
+Используется обратное лексикографическое упорядочение переменных. Порядок на переменных определяется в команде SPACE.
+
+\underline{Примеры. }
+
+\vspace*{-2mm}
+\begin{verbatim}
+SPACE = Q[x, y, z]; 
+b = \groebnerB(x^4y^3 + 2xy^2 + 3x + 1, x^3y^2 + x^2, x^4y + z^2 + xy^4 + 3);  
+\print(b);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z];$\\ 
+\hspace*{4mm} $b=groebnerB(x^4y^3+2x y^2+3x+1,  x^3y^2+x^2,  x^4y+z^2+x y^4+3); $\\ 
+\hspace*{4mm} $print(b);$}
+{$b = [z^2-x^4+3x^2+(-10)x+9, y+(-9)x^4+(-3)x^3-x^2+(-81)x+27, x^5+9x^2+(-6)x+1];$}
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x, y, z];
+b = \groebner(x^4y^3 + 2xy^2 + 3x + 1, x^3y^2 + x^2, x^4y + z^2 + xy^4 + 3);  
+\print(b);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z];$\\ 
+\hspace*{4mm} $b=groebner(x^4y^3+2xy^2+3x+1,  x^3y^2+x^2,  x^4y+z^2+x y^4+3);$\\ 
+\hspace*{4mm} $print(b);$
+}
+{$b = [z^2-x^4+3x^2+(-10)x+9, x^5+9x^2+(-6)x+1, y+(-9)x^4+(-3)x^3-x^2+(-81)x+27]. $}
+%enddelete
+
+\section{Вычисления в факторкольце по идеалу}
+
+Функция \comm{reduceByGB}{(f, [g_1, \ldots, g_N])} редуцирует полином
+$p$ с помощью данного множества полиномов $g_1, \ldots, g_N$.
+
+\begin{verbatim}
+SPACE = Q[x, y, z];
+p = \reduceByGB(5y^2 + 3x^2 + z^2, [y + x, 5z^2 + 5z]);
+\end{verbatim}
+
+%begindelete
+\ex{$SPACE = Q[x, y, z];$\\
+\hspace*{4mm} $p = \backslash reduceByGB(5y^2 + 3x^2 + z^2, [y + x, 5z^2 + 5z]);$}
+{$-z+8x^2;$}
+%enddelete
+
+В случае, когда второй аргумент не является редуцированным базисом
+Гребнера, результат зависит от расположения полиномов в массиве: 
+при наличии нескольких потенциальных редукторов выбирается первый из них.
+
+\begin{verbatim}
+SPACE = Q[x, y];
+NotGB1 = [x + y, x^2 + y^2];
+imForNotGBset1 = \reduceByGB(x^2 + y^2, NotGB1);
+NotGB2 = [x^2 + y^2, x + y];
+imForNotGBset2 = \reduceByGB(x^2 + y^2, NotGB2);
+GB = \groebner(x+y, x^2+y^2);  
+imForGB  = \reduceByGB(x^2 + y^2, GB);
+\print(GB, imForNotGBset1, imForNotGBset2, imForGB);
+\end{verbatim}
+
+%begindelete
+\ex{
+$SPACE=Q[x,y];$\\
+$NotGB1=[x+y,x2+y2];$\\
+$imForNotGBset1=reduceByGB(x2+y2,NotGB1);$\\
+$NotGB2=[x2+y2,x+y];$\\
+$imForNotGBset2=reduceByGB(x2+y2,NotGB2);$\\
+$GB=groebner(x+y,x2+y2);$\\
+$imForGB =reduceByGB(x2+y2,GB);$\\
+$print(GB,imForNotGBset1,imForNotGBset2,imForGB);$
+} {
+$GB = [y+x, x^2];$\\
+$imForNotGBset1 = 2x^2;$\\
+$imForNotGBset2 = 0;$\\
+$imForGB = 0;$
+}
+%enddelete
+
+\section{Решение систем нелинейных алгебраических уравнений}
+
+Для решения системы нелинейных алгребраических уравнений вида:
+
+$\left\{\begin{array}{rcl} p_{1} & = & 0,\\ p_{2} & = & 0,\\ & \ldots\\ p_{N} & = & 0,\\ \end{array} \right. $
+
+используется команда \comm{solveNAE}{(p_{1}, p_{2}, \ldots, p_{N})}.
+
+Перед нахождением корней вычисляется базис Гребнера системы.
+Если базис содержит уравнения от одной переменной, они решаются, и корни подставляются в оставшиеся уравнения. Корни вычисляются численно.
+Ответом является вектор решений, в котором каждый элемент в свою очередь является вектором с элементами, соответствующими одному решению. Переменные
+в решении перечисляются в том же порядке, в котором они указаны при объявлении SPACE.
+
+\begin{verbatim}
+SPACE = R[x, y];
+\solveNAE(x^2 + y^2 - 4, y - x^2);
+\end{verbatim}
+
+\begin{verbatim}
+SPACE = R[a, b, c];
+S = \solveNAE(a + b + c, a b + a c + b c, a b c - 1);
+\end{verbatim}
+
+%begindelete
+\section{Контрольные задания}
+В  Mathpar вычислите 
+\begin{itemize}
+ \item $f(1)+f(2)+f(3)+f(4)+f(5)$ для $f=-3x^3-x^2+x+2$,
+ \item базис Гребнера полиномиального идеала для полиномов 
+$x^2+xy$,  $4xy^3-2xy-4$,  
+$y^2-x$,  $x^2y^2+x+y-6$. 
+ \end{itemize}
+%enddelete

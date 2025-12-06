@@ -1,0 +1,333 @@
+\chapter{Вычисления в идемпотентных алгебрах}
+
+
+\section{Тропические алгебры}
+Определены следующие тропические алгебры :\\
+
+ПОЛУПОЛЯ\\
+1) На множестве целых чисел ${\mathbb Z}$ определены:\\ 
+$ZMaxPlus$,  
+$ZMinPlus$.\\
+2) На множестве чисел ${\mathbb R}$ определены:\\
+$RMaxPlus$, 
+$RMinPlus$,  
+$RMaxMult$,  
+$RMinMult$.\\
+3) На множестве чисел ${\mathbb R}64$ определены:\\
+$R64MaxPlus$, 
+$R64MinPlus$,  
+$R64MaxMult$,  
+$R64MinMult$.\\
+
+ПОЛУКОЛЬЦА\\
+1) На множестве целых чисел ${\mathbb Z}$ определены:\\ 
+$ZMaxMin$,
+$ZMinMax$,
+$ZMaxMult$,
+$ZMinMult$.\\
+2) На множестве чисел ${\mathbb R}$ определены:\\
+$RMaxMin$, 
+$RMinMax$.\\
+3) На множестве чисел ${\mathbb R}64$ определены:\\
+$R64MaxMin$, 
+$R64MinMax$.
+
+ 
+
+Примеры тропических алгебр: 
+
+SPACE = ZMaxPlus [x,  y,  z]; 
+
+SPACE = R64MinMult [u,  v];  
+
+SPACE = RMaxMin [u,  v]. 
+
+ Пример простой задачи в полукольце $ZMaxMult$.
+%begindelete
+\smallskip
+
+\underline{Пример 1. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = ZMaxMult[x, y];
+a = 2; b = 9; c = a + b; d = a*b; \print(c, d)
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$c = 9; $\\
+$d = 18.$
+%enddelete
+
+Помимо сложения и умножения доступна операция замыкания, вызываемая командой $\backslash closure(a)$, где $a$ --- элемент или матрица.
+Замыкание $closure(a)=\mathbb{1}\oplus a\oplus a^{2}\oplus\dots$
+%begindelete
+\smallskip
+
+\underline{Пример 2. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.0, -0.6, -0.62, -3.76],
+[-6.29, 0.0, -0.99, -7.61],
+[-2.74, -0.86, 0.0, -3.47],
+[-6.31, -5.11, -2.69, 0.0]
+];
+B = \closure(A);
+\print(B); 
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$B=
+ \left(\begin{array}{cccc}
+0.0 & -0.6 & -0.62 & -3.76\\
+-3.74 & 0.0 & -0.99 & -4.46\\
+-2.74 & -0.86 & 0.0 & -3.47\\
+-5.43 & -3.55 & -2.69 & 0.0
+\end{array}\right)$$
+%enddelete 
+
+В остальных параграфах этой главы приведены примеры задач, которые решаются в тропических алгебрах, являющихся полуполями.
+%begindelete
+\section{Решение систем линейных алгебраических уравнений}
+Команда $\backslash solveLAETropic(A, b)$ позволяет найти частное решение уравнения вида $Ax = b$.
+%begindelete
+\smallskip
+
+\underline{Пример 3. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [8.00, 7.00, 11.00];
+X = \solveLAETropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$X = \left(\begin{array}{c}
+5.00\\
+7.00\\
+4.00\\
+\end{array}\right)
+$ 
+%enddelete
+\section{Решение систем линейных алгебраических неравенств}
+Команда $\backslash solveLAITropic(A,b)$ позволяет найти решение неравенства Ax $\leq$ b.
+
+%begindelete
+\smallskip
+
+\underline{Пример 4. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [1.00, 1.00, 0.00],
+  [2.00, 0.00, 3.00],
+  [3.00, 4.00, 2.00]
+];
+b = [10.00, 7.00, 11.00]; 
+X = \solveLAITropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$X=[(-\infty,5.00],(-\infty,7.00],(-\infty,4.00]]$ 
+%enddelete
+
+%begindelete
+\smallskip
+
+\underline{Пример 5. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = ZMinPlus[x, y];
+A = [
+  [1, 1, 0],
+  [2, 0, 3],
+  [3, 4, 2]
+];
+b = [10, 7, 11];
+X = \solveLAITropic(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$X=[[9,\infty),[9,\infty),[10,\infty)]$ 
+%enddelete
+
+\section{Решение  уравнения Беллмана}
+\subsection{Однородное уравнение Беллмана}
+Команда $\backslash BellmanEquation(A)$ позволяет найти решение однородного уравнения Беллмана $Ax = x$.
+%begindelete
+\smallskip
+
+\underline{Пример 6.}
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+]; 
+X = \BellmanEquation(A); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$
+X=\left(\begin{array}{cccc}
+0.00 & -2.00 & 1.00 & -3.00\\
+2.00 & 0.00 & 3.00 & -1.00\\
+-1.00 & -3.00 & 0.00 & -4.00\\
+2.00 & 0.00 & 3.00 & 0.00
+\end{array}\right) \left(\begin{array}{c}
+v_{1}\\
+v_{2}\\
+v_{3}\\
+v_{4}
+\end{array}\right), \forall v_{1}, v_{2}, v_{3}, v_{4}.$$
+%enddelete
+\subsection{Неднородное уравнение Беллмана}
+Команда $\backslash BellmanEquation(A,b)$ позволяет найти решение неоднородного уравнения Беллмана $Ax\oplus b=x$.
+%begindelete
+\smallskip
+
+\underline{Пример 7. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MaxPlus[x, y];
+A = [
+  [0.00, -2.00, -\infty, -\infty],
+  [-\infty, 0.00, 3.00, -1.00],
+  [-1.00, -\infty, 0.00, -4.00],
+  [2.00, -\infty, -\infty, 0.00]
+];
+b = [[1], [-\infty], [-\infty], [-\infty]]; 
+X = \BellmanEquation(A, b); 
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$X=
+ \left(\begin{array}{cccc}
+0.00 & -2.00 & 1.00 & -3.00\\
+2.00 & 0.00 & 3.00 & -1.00\\
+-1.00 & -3.00 & 0.00 & -4.00\\
+2.00 & 0.00 & 3.00 & 0.00
+\end{array}\right)
+\left(\begin{array}{c}
+v_{1}\\
+v_{2}\\
+v_{3}\\
+v_{4}
+\end{array}\right)
+\oplus\left(\begin{array}{c}
+1.00\\
+3.00\\
+0.00\\
+3.00
+\end{array}\right), \forall v_{1}, v_{2}, v_{3}, v_{4}.$$
+%enddelete
+\section{Решение неравенства Беллмана}
+\subsection{Однородное неравенство Беллмана}
+Команда $\backslash BellmanInequality(A)$ позволяет найти решение однородного неравенства Беллмана $Ax\leq x$.
+
+\subsection{Неднородное неравенство Беллмана}
+Команда $\backslash BellmanInequality(A, b)$ позволяет найти решение неоднородного неравенства Беллмана $Ax\oplus b\leq x$.
+
+\section{Нахождение кратчайшего пути между вершинами графа}
+\subsection{Вычисление таблицы кратчайших расстояний для всех вершин графа}
+Пусть A - матрица расстояний между смежными вершинами ($x_{ii}$=0 $\forall i$; $x_{ij}=\infty$, если нет ребра, соединяющего вершины i и j).
+Команда $\backslash searchLeastDistances(A)$ позволяет найти наименьшие расстояния между всеми вершинами графа.
+В результате будет получена матрица  кратчайших расстояний между вершинами. 
+
+%begindelete
+\smallskip
+
+\underline{Пример 8. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+B = \searchLeastDistances(A);
+\print(B);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$$B= \left(\begin{array}{cccccc}
+0.00 & 7.00 & 9.00 & 20.00 & 20.00 & 11.00\\
+7.00 & 0.00 & 10.00 & 15.00 & 21.00 & 12.00\\
+9.00 & 10.00 & 0.00 & 11.00 & 11.00 & 2.00\\
+20.00 & 15.00 & 11.00 & 0.00 & 6.00 & 13.00\\
+20.00 & 21.00 & 11.00 & 6.00 & 0.00 & 9.00\\
+11.00 & 12.00 & 2.00 & 13.00 & 9.00 & 0.00
+\end{array}\right) $$
+%enddelete
+\subsection{Нахождение кратчайшего пути между двумя вершинами графа}
+Пусть A - матрица расстояний между смежными вершинами ($x_{ii}$=0 $\forall i$; $x_{ij}=\infty$, если нет ребра, соединяющего вершины i и j).
+Команда $\backslash findTheShortestPath(A, i, j)$ позволяет найти кратчайший путь между вершинами i и j.
+ %begindelete
+\smallskip
+
+\underline{Пример 9. }
+
+\vspace*{-3mm}
+%enddelete
+\begin{verbatim}
+SPACE = R64MinPlus[x, y];
+A = [
+  [0.00, 7.00, 9.00, \infty, \infty, 14.00],
+  [7.00, 0.00, 10.00, 15.00, \infty, \infty],
+  [9.00, 10.00, 0.00, 11.00, \infty, 2.00],
+  [\infty, 15.00, 11.00, 0.00, 6.00, \infty],
+  [\infty, \infty, \infty, 6.00, 0.00, 9.00],
+  [14.00, \infty, 2.00, \infty, 9.00, 0.00]
+];
+X = \findTheShortestPath(A, 0, 4);
+\print(X);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$X=[[0, 2, 5, 4]]$
+%enddelete
+ 

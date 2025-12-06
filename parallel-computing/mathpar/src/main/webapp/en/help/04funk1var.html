@@ -1,0 +1,1022 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/04funk1var.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1> Functions of one and several variables</h1><p>
+</p><h2 id="0">5.1 Mathematical functions</h2><p>
+The following notations for elementary functions and constants are accepted.</p><p></p><h3>Constants</h3><p>
+
+$\backslash$i  &mdash;  imaginary unit, </p><p>$\backslash$e  &mdash;  the basis of natural logarithm,</p><p>$\backslash$pi  &mdash;  the ratio of length of a circle to its diameter,</p><p>$\backslash$infty  &mdash;  infinity symbol.</p><p>
+</p><h3>Functions of one argument</h3><p></p><p>
+$\backslash$ln  &mdash;  natural logarithm,</p><p>$\backslash$lg  &mdash;  decimal logarithm,</p><p>$\backslash$sin  &mdash;  sine,</p><p>$\backslash$cos  &mdash;  cosine,</p><p>$\backslash$tg  &mdash;  tangent,</p><p>$\backslash$ctg  &mdash;  cotangent,</p><p>$\backslash$arcsin  &mdash;  arcsine,</p><p>$\backslash$arccos  &mdash;  arccosine,</p><p>$\backslash$arctg  &mdash;  arctangent,</p><p>$\backslash$arcctg  &mdash;  arccotangent,</p><p>$\backslash$sh  &mdash;  sine hyperbolic,</p><p>$\backslash$ch  &mdash;  cosine hyperbolic,</p><p>$\backslash$th  &mdash;  tangent hyperbolic,</p><p>$\backslash$cth  &mdash;  cotangent hyperbolic,</p><p>$\backslash$arcsh  &mdash;  arcsine hyperbolic,</p><p>$\backslash$arcch  &mdash;  arccosine hyperbolic,</p><p>$\backslash$arcth  &mdash;  arctangent hyperbolic,</p><p>$\backslash$arccth  &mdash;  arccotangent hyperbolic,</p><p>$\backslash$exp  &mdash;  exponent,</p><p>$\backslash$sqrt  &mdash;  root square,</p><p>$\backslash$abs  &mdash;  absolute value of real numbers (module for complex numbers),
+ 
+$\backslash$sign  &mdash;  number sign (returns $1$, $0$, $-1$ when number sign is $+$, $0$, $-$, correspondingly),</p><p>$\backslash$unitStep$(x)$  &mdash;  is a function that for $ x&gt; 0 $ takes the value $ 1 $, and
+for $ x &lt;0 $ takes the value $ 0 $;</p><p>$\backslash$fact  &mdash;  factorial. It is defined for positive integers and equivalent to $ n! $.</p><p></p><h3>Functions of two arguments</h3><p>
+
+\^  &mdash;  degree,</p><p>$\backslash$log  &mdash;  logarithm of function with given base,</p><p>$\backslash$rootOf(x, n)  &mdash;  root of degree n of x,</p><p>$\backslash$Gamma  &mdash;  the function Gamma,</p><p>$\backslash$Gamma2  &mdash;  the function Gamma 2,</p><p>$\backslash$binomial  &mdash;  binomial coefficient.</p><p></p><p></p><p><div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y];
+f1 = \sin(x);
+f2 = \sin(\cos(x + \tg(y)));
+f3 = \sin(x^2) + y;
+\print(f1, f2, f3);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+</p><h2 id="1">5.2 Calculation of the value of a function in a point</h2><p> 
+To calculate the value of a function in a point execute the command  
+value(f, [var1, var2,&hellip;, varn]), 
+where $f$ is a function, and $var1,  var2,&hellip;, varn$ are values of variables, which are substituted instead of corresponding variables.</p><p>You can use radians or degrees for an angular measure.
+For an indication of angular measure, you can set the constant RADIAN.
+If you do not specify the angular measure, the radians is chosen. To change the angular measure from radians to degrees, run $ RADIAN = 0 $. If you need to change the angular measure in radians, then run $ RADIAN = 1 $.</p><p>If the arguments of trigonometric functions is integer, which is equal to $ 15k $ or $ 18k $ degrees (i.e.
+$\pi k/12 $ and $\pi k/10 $ radians, $k \in \mathbb{Z} $), then values of the trigonometric functions are algebraic numbers.
+</p><p></p><p>
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+g = \value(f, [1, 2]);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x);
+g = \value(f, 15);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x);
+g = \value(f, 225);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \cos(x);
+g = \value(f, 54);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \tg(x);
+g = \value(f, 126);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x);
+g = \value(f, 216);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+RADIAN = 0;
+f = \cos(x);
+g = \value(f, 108);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><h2 id="2">5.3 Substitution of functions instead of ring variables</h2><p> 
+To calculate the composition of functions some functions must be substituted in place of the arguments. For this
+you must run 
+ value(f, [func1, func2, $&hellip;$, funcn])  , 
+where $ f $ ~  &mdash;  this function,
+$ func1, func2, &hellip;, funcn $ ~  &mdash;  functions that are substituted into the corresponding places.</p><p></p><p></p><p>
+<div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x, y];
+f = x + y;
+g = f^2;
+r = \value(g, [x^2, y^2]);
+\print(r);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+</p><h2 id="3">5.4 Calculation of the limit of a function</h2><p></p><p>To calculate the limit of a function at a point you must run 
+lim(f, var),
+where $ f $ ~  &mdash;  this function, and $ var $ ~  &mdash;  point, possibly infinite, in which you want to find the limit. The limit may not exist, may be finite or infinite.</p><p></p><p></p><p>
+<div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+f = \sin(x) / x;
+g = \lim(f, 0);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_10" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="10" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+f = (x^2 - 2x + 2) / (x^2 + x - 2);
+g = \lim(f, 1);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_11" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="11" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+f = \sin(x + 3) / (x^2 + 6x + 9);
+g = \lim(f, -3);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_12" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="12" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+f = (1 + 1 / x)^x;
+g = \lim(f, \infty);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+</p><h2 id="4">5.5 Differentiation of functions</h2><p>
+To differentiate a function $f(x,y,z)$ with lowest variable $x$,
+ you have to execute one of commands D(f), D(f,x) or  D(f,x{ \widehat{ } 1)}.
+To fine the second derivative of $f(x,y,z)$ by variable $y$, you have to execute the command D(f,y{ \widehat{ }  2)}. And so on.</p><p>To find a mixed first-order derivative of the function $ f $ there is a command D(f, [x, y]),
+  to find the derivative of higher order to use the command D(f,[x { \widehat{ }  k, z { }\widehat{ } m, y { }\widehat{ }  n])},
+  where $ k, m, n $ indicate the order of the derivative.
+</p><p></p><p>
+<div id="section_13" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="13" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+h = \D(f, y);
+\print(h);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_14" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="14" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+h = \D(f);
+\print(h);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p><div id="section_15" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="15" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y, z];
+f = x^8y^4z^9;
+g = \D(f, [x^2, y^2, z^2]);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p>
+</p><h2 id="5">5.6 Integration of the compositions of elementary functions</h2><p>
+Symbolic integration of compositions of elementary functions is performed by using the  
+int(f(x))d x.
+</p><p></p><p><div id="section_16" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="16" />
+    <textarea class="form-control" name="task" rows="9">
+SPACE = Z[x, y, z];
+l1 = \int(x^6yz + 3x^2y - 2z) d x;
+dl1 = \D(l1,x);
+l2 = \int(x^6yz + 3x^2y - 2z) d y;
+dl2 = \D(l2,y);
+l3 = \int(x^6yz + 3x^2y - 2z) d z;
+dl3 = \D(l3,z);
+\print(l1, dl1,l2, dl2,l3, dl3);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p>
+<div id="section_17" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="17" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R[x];
+l = \int(1/(x^2-5x+6)) d x;
+dl = \D(l,x);
+\print(l, dl);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p><div id="section_18" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="18" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Q[x];
+l = \int(\exp(x)+\exp(-x)) d x;
+dl = \D(l,x);
+\print(l, dl);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p><div id="section_19" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="19" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Q[x];
+l = \int(x*\exp(x^2)) d x;
+dl = \D(l,x);
+\print(l, dl);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p><div id="section_20" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="20" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Q[x];
+l = \int((x*\ln(x)*\exp(x)+\exp(x))/x) d x;
+dl = \D(l,x);
+\print(l, dl);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p>
+<div id="section_21" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="21" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+l = \int((\ln(x+3)+\ln(x+2)+\ln(x+1))) d x;
+dl = \D(l,x);
+\print(l, dl);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p><div id="section_22" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="22" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Q[x];
+l = \int((2x^2+1)^3) d x;
+dl = \D(l,x);
+m=\factor(dl);
+\print(l, m);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+</p><p></p><p>
+</p><h2 id="6">5.7 Simplification of compositions</h2><p></p><p>For transformation of a trigonometric and logarithmic function by means of identities: 
+$sin(x)cos(y) \pm cos(x)sin(y) = sin(x \pm y)$  
+$cos(x)cos(y) \pm sin(x)sin(y) = cos(x \mp y)$  
+$sin^2(x) + cos^2(x) = 1$  
+$cos^2(x) - sin^2(x) = cos(2x)$  
+$ln(a) + ln(b) = ln(ab)$  
+$ln(a) - ln(b) = ln(\dfrac{a}{b})$  
+the command Expand(f(x)) is used. </p><p>
+</p><p><div id="section_23" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="23" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y, z]; 
+g=\ln(x^2*4x); 
+f=\Expand(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_24" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="24" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y, z]; 
+g=\sin(x^2+4x+2\pi); 
+f=\Expand(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_25" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="25" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y, z]; 
+g=\cos(\sin(x)+\cos(y)); 
+f=\Expand(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+For simplification of a trigonometric and logarithmic function by means of all formulas mentioned above and formulas:
+$ln(a)^k = k\cdot ln(a)$ 
+$e^{iz} + e^{-iz} = 2Cos(z)$ 
+$e^{iz} - e^{-iz} = 2iSin(z)$ 
+$Ln(1+iz) - Ln(1-iz) = 2i*arctg(z)$ 
+$Ln(1-iz) - Ln(1+iz) = 2i*arcctg(z)$ 
+$e^{z} + e^{-z} = 2Ch(z)$ 
+$e^{z} - e^{-z} = 2iSh(z)$ 
+the command  Factor(f(x)) is used.</p><p>
+</p><p><div id="section_26" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="26" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y, z]; 
+g=\log_{2}(x)+\log_{2}(y)-\log_{2}(xz)+\lg(y)+\lg(y)-\lg(z); 
+f=\Factor(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_27" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="27" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=Q[x, y, z]; 
+g=16\sin(x/48)\cos(x/48)\cos(x/24)\cos(x/12)\cos(x/6); 
+f=\Factor(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+<div id="section_28" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="28" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=C64[x, y, z]; 
+g=\ln(1-\ix) - \ln(1+\ix) + \exp(\ix) - 2\exp(-\ix) + \sin(x)^2 - \cos(x)^2; 
+f=\Factor(g); 
+\print(f);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+Unit of commands Factor(f(x)) and Expand(f(x)) allows to solve more difficult examples:</p><p><div id="section_29" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="29" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE=R64[x, y, z]; 
+g=(\sin(x+y) + \sin(x-y))\cos(x) + (\sin(x+y) + \sin(x-y))\sin(y); 
+f=\Expand(g);
+u=\Factor(f); 
+\print(f,u);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="1.1-insert_test_users" author="i.borisov">
+    <sql splitStatements="false">
+      /* passwords are equal to emails (1-1, 2-2, 3-3) */
+      INSERT INTO mathpar_users
+      (id, email, username, password, salt, user_role_id, registration_date)
+      VALUES
+      (1, '1', 'test1', 'yeb0k8aWKT/fE8aRbnTs8bBE2TQ=', '12345678', 1, '2014-01-01'),
+      (2, '2', 'test2', 't8xKw5vdEvE0Z7CklL880vI8XRE=', '12345678', 2, '2014-02-02'),
+      (3, '3', 'test3', '2jGNlW0QD6NhTrv0+WNGO8fwZkg=', '12345678', 3, '2014-02-02')
+      ;
+
+      INSERT INTO edu_groups
+      (id, group_name)
+      VALUES
+      (1, 'TEST_GROUP');
+
+      INSERT INTO students
+      (id, id_user, id_group)
+      VALUES
+      (1, 2, 1);
+    </sql>
+  </changeSet>
+</databaseChangeLog>

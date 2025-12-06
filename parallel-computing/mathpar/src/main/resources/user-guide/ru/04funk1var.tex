@@ -1,0 +1,704 @@
+\chapter{Функции одной и нескольких переменных}
+
+\section{Математические функции}
+Приняты следующие обозначения для элементарных функций и констант. 
+
+\subsection{Константы}
+\hspace*{4mm}  $\backslash$i --- мнимая единица, 
+
+ $\backslash$e --- основание натурального логарифма, 
+
+ $\backslash$pi --- число $\pi$,  т. е.  отношение длины окружности к диаметру, 
+
+ $\backslash$infty --- знак бесконечности. 
+
+
+\subsection{Функции одного аргумента}
+
+\hspace*{4mm} $\backslash$ln --- натуральный логарифм, 
+
+ $\backslash$lg --- десятичный логарифм, 
+
+ $\backslash$sin --- синус, 
+
+ $\backslash$cos --- косинус, 
+
+ $\backslash$tg --- тангенс, 
+
+ $\backslash$ctg ---котангенс, 
+
+ $\backslash$arcsin --- арксинус, 
+
+ $\backslash$arccos --- арккосинус, 
+
+ $\backslash$arctg --- арктангенс, 
+
+ $\backslash$arcctg --- арккотангенс, 
+
+ $\backslash$sh --- синус гиперболический, 
+
+ $\backslash$ch --- косинус гиперболический, 
+
+ $\backslash$th --- тангенс гиперболический, 
+
+ $\backslash$cth --- котангенс гиперболический, 
+
+ $\backslash$arcsh --- арксинус гиперболический, 
+
+ $\backslash$arcch --- арккосинус гиперболический, 
+
+ $\backslash$arcth --- арктангенс гиперболический, 
+
+ $\backslash$arccth --- арккотангенс гиперболический, 
+
+ $\backslash$exp --- экспонента, 
+
+ $\backslash$sqrt --- корень квадратный, 
+
+ $\backslash$abs --- абсолютное значение для действительных чисел,  модуль для комплексного числа;
+
+ $\backslash$sign --- знак числа. Возвращает 1, 0,  -1,  когда число положительное, ноль или отрицательное  соответственно;
+
+$\backslash$unitStep$(x,a)$ --- это функция, которая при $x \geqslant 0$ принимает значение $1$, а
+при $x<0$ принимает значение $0$;
+
+ $\backslash$fact   --- факториал.  Определен для целых положительных чисел.  Можно писать в привычном виде,  например, <<5!>>. 
+
+\subsection{Функции двух аргументов}
+
+
+
+\hspace*{4mm} $\widehat{\ }{}$  --- степень;
+
+ $\backslash$log --- логарифм от функции по указанному основанию;
+
+ $\backslash$rootOf(x, n) --- корень степени n из x; 
+
+ $\backslash$Gamma --- функция Гамма;
+
+ $\backslash$Gamma2 --- функция Гамма 2;
+
+ $\backslash$binomial --- число сочетаний. 
+
+%begindelete
+\smallskip
+
+\underline{Примеры. }
+%enddelete
+
+\begin{verbatim}
+SPACE = R64[x, y];
+f1 = \sin(x);
+f2 = \sin(\cos(x + \tg(y)));
+f3 = \sin(x^2) + y;
+\print(f1, f2, f3);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+Результат выполнения:\\
+\hspace*{4mm} $f1 = sin(x); $\\
+\hspace*{4mm} $f2 = sin(cos(x+tg(y))); $\\
+\hspace*{4mm} $f3 = sin(x^{2})+y. $
+%enddelete
+
+\section{Вычисление значений функции в точке}
+
+Для вычисления значения функции в точке необходимо выполнить команду 
+\comm{value}{(f, [var1, var2,\ldots, varn])}, 
+где $f$~--- функция,  а $var1,\  var2,\ldots,\ varn$~--- значения соответствующих переменных. 
+
+Для тригонометрических функций мерой угла считается радиан или градус.  Указание меры угла определяется константой RADIAN.  
+Если не указывать угловую меру,  то угловой мерой выбирается радиан.  Чтобы поменять угловую меру с радиан на градусы, 
+нужно выполнить команду <<RADIAN=0;>>.  Если же нужно поменять угловую меру с градусов на радианы,  то
+нужно выполнить команду <<RADIAN=1;>>. 
+
+Если аргументами являются целые числа $15k$ и $18k$  градусов или
+  $\pi k/12$ и $\pi k/10$ радиан $(k\in \mathbb Z)$,  то
+значениями тригонометрических функций являются алгебраические числа.  
+%begindelete
+\smallskip
+
+\underline{Примеры. }
+
+\vspace*{-2mm}%enddelete
+\begin{verbatim}
+SPACE = R[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+g = \value(f, [1, 2]);
+\print(g);
+\end{verbatim}
+\vspace*{-2mm}
+%begindelete
+
+\ex{ $SPACE=R[x, y];$\\ 
+\hspace*{4mm} $f=sin(x^2+tg(y^3+x));$\\ 
+\hspace*{4mm} $g=value(f,\ [1,\ 2]); $
+\hspace*{4mm} $print(g);$}{$g = 0. 52;$}
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x); 
+g = \value(f, 15); 
+\print(g);
+\end{verbatim}
+\vspace*{-2mm}
+%begindelete
+
+\ex{$SPACE=Z[x];$\\ 
+\hspace*{4mm} $RADIAN=0; $\\
+\hspace*{4mm} $f=sin(x); $\\
+\hspace*{4mm} $g=value(f, 15); $\\
+\hspace*{4mm} $print(g);$}{$g = (\sqrt{6}-(\sqrt{2}))/(4);$}
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x);
+g = \value(f, 225);
+\print(g);
+\end{verbatim}
+%begindelete
+\vspace*{-2mm}
+
+
+Результат выполнения:\\
+$g = (-1\cdot \sqrt{2})/(2);$
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \cos(x);
+g = \value(f, 54);
+\print(g);
+\end{verbatim}
+%begindelete
+
+Результат выполнения:\\
+$g = \sqrt{(5-\sqrt{5})/(8)};$
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \tg(x);
+g = \value(f, 126);
+\print(g);
+\end{verbatim}
+%begindelete
+\vspace*{-2mm}
+
+
+Результат выполнения: \\
+$g = (-1\cdot \sqrt{(1+2\cdot \sqrt{5}/(5))});$
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \sin(x);
+g = \value(f, 216);
+\print(g);
+\end{verbatim}
+%begindelete
+
+Результат выполнения: \\
+$g = (-1\cdot \sqrt{(5-\sqrt{5})/(8)});$
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x];
+RADIAN = 0;
+f = \cos(x);
+g = \value(f, 108);
+\print(g);
+\end{verbatim}
+%begindelete
+\vspace*{-2mm}
+
+
+Результат выполнения:\\
+$g = (1-\sqrt{5})/(4). $
+%enddelete
+
+\section{Подстановка выражений в функции}
+
+Для вычисления композиции функций нужно <<подставлять>> в функцию вместо ее аргументов другие функции.  Для этого
+необходимо выполнить команду   \comm{value}{(f, [func1, func2,\ldots, funcn])},  где $f$~--- данная функция,  
+$func1, func2,\ldots, funcn$~--- функции,  которые подставляются вместо соответствующих переменных. 
+%begindelete
+\smallskip
+
+\underline{Пример. }
+
+\vspace*{-2mm}%enddelete
+\begin{verbatim}
+SPACE = Z[x, y];
+f = x + y;
+g = f^2;
+r = \value(g, [x^2, y^2]);
+\print(r);
+\end{verbatim}
+%begindelete
+
+\ex{$g = y^{2}+2yx+x^{2}; $ \\
+\hspace*{4mm} $f = y+x;$}
+{$r=y^{4}+2y^{2}x^{2}+x^{4}$.}
+%enddelete
+
+\section{Вычисление предела функции в точке }
+
+Для вычисления предела функции в точке необходимо выполнить команду 
+\comm{lim}{(f, var)},  
+где $f$~--- это  функция,  а $var$~--- точка,  возможно бесконечная,  в которой требуется найти предел,  конечный или бесконечный. 
+
+%begindelete
+\smallskip
+\underline{Примеры. }
+%enddelete
+\begin{verbatim}
+SPACE = R64[x];
+f = \sin(x) / x;
+g = \lim(f, 0);
+\print(g);
+\end{verbatim}
+%begindelete
+
+\vspace*{-3mm}
+
+
+\ex{$SPACE=R64[x];$ \\ 
+\hspace*{4mm} $f=sin(x)/x; $ \\
+\hspace*{4mm} $g=lim(f, 0);$ \\ 
+\hspace*{4mm} $print(g);$}{
+$g = 1. 00;$}
+%enddelete
+
+\begin{verbatim}
+SPACE = R64[x];
+f = (x^2 - 2x + 2) / (x^2 + x - 2);
+g = \lim(f, 1);
+\print(g);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+ \ex{$SPACE=R64[x];$ \\  
+\hspace*{4mm} $f=(x^2-2x+2)/(x^2+x-2);$ \\   
+\hspace*{4mm} $g=lim(f, 1);$ \\  
+\hspace*{4mm} $print(g);$
+}
+{$g = \infty;$}
+%enddelete
+
+\begin{verbatim}
+SPACE = R64[x];
+f = \sin(x + 3) / (x^2 + 6x + 9);
+g = \lim(f, -3);
+\print(g);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+ \ex{$SPACE=R64[x]; $ \\
+\hspace*{4mm} $f=\sin(x+3)/(x^2+6x+9); $ \\
+\hspace*{4mm} $g=lim(f, -3); $ \\
+\hspace*{4mm} $print(g);$
+}{$g = \infty;$ }
+%enddelete
+
+\begin{verbatim}
+SPACE = R64[x];
+f = (1 + 1 / x)^x;
+g=\lim(f, \infty);
+\print(g);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=R64[x]; $ \\
+\hspace*{4mm} $f=(1+1/x)^x; $ \\
+\hspace*{4mm} $g=lim(f, \infty); $ \\
+\hspace*{4mm} $print(g);$}
+{$g = 2. 72. $}
+%enddelete
+
+\section{Дифференцирование функций}
+Для вычисления производной функции f по переменной y из кольца $\mathbb{Z}[x, y, z]$
+ необходимо выполнить команду \comm{D}{(f, y)}.  Вычисление третьей производной по $y$ можно выполнить
+ $\backslash {\mathbf {D}} (f, [y\widehat{\ }{}3]) $. 
+Если необходимо найти производную функции $f$ один раз
+ по первой переменной из текущего кольца (в данном случае $x$) можно записать  \comm{D}{(f)} или \comm{D}{(f,x)} . 
+
+ Для нахождения смешанной производной первого порядка от функции $f$ существует команда \comm{D}{(f, [x, y])},  для нахождения производной высших порядков нужно использовать команду  $\backslash {\mathbf {D}} (f, [x \widehat{\ }{} k, z \widehat{\ }{} m, y \widehat{\ }{} n])$,  где $k,  m,  n$ указывают,  какого порядка по соответствующей переменной вычисляется производная. 
+
+%begindelete
+\smallskip
+
+\underline{Примеры. }
+
+\vspace*{-3mm}%enddelete
+\begin{verbatim}
+SPACE=Z[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+h= \D(f, y);
+\print(h);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+ Результат выполнения:\\
+\ex{$SPACE=Z[x, y]; $ \\
+\hspace*{4mm} $f=sin(x^2+ tg(y^3+x)); $ \\
+\hspace*{4mm} $h= D(f, y);$ \\ 
+\hspace*{4mm} $print(h);$}
+{$h = 3y^2 cos(x^2+tg(y^3+x))/(cos(y^3+x))^2;$}
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+h = \D(f);
+\print(h);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Z[x, y]; $ \\
+\hspace*{4mm} $f=sin(x^2+ tg(y^3+x)); $ \\
+\hspace*{4mm} $h= D(f); $ \\
+\hspace*{4mm} $print(h);$}
+{$ h = (2x\cos(x^2+\tg(y^3+x))(\cos(y^3+x))^2+\cos(x^2+\tg(y^3+x)))/(\cos(y^3+x))^2;$}
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x, y, z];
+f = x^8y^4z^9;
+g = \D(f, [x^2, y^2, z^2]);
+\print(g);
+\end{verbatim}
+\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Z[x, y, z]; $ \\
+\hspace*{4mm} $f=x^8y^4z^9; $ \\
+\hspace*{4mm} $g=D(f, [x^2, y^2, z^2]);$ \\ 
+\hspace*{4mm} $print(g);$}
+{$g = 48384z^{7}y^{2}x^{6}. $ }
+%enddelete
+
+\section{Интегрирование композиций элементарных функций}
+
+Символьное интегрирование композиций элементарных функций выполняется командой  
+\comm{int}{(f(x))d x}.
+
+%begindelete
+\smallskip
+\underline{Примеры. }
+%enddelete
+
+\begin{verbatim}
+SPACE = Z[x, y, z];
+l1 = \int(x^6yz + 3x^2y - 2z) d x;
+dl1 = \D(l1,x);
+l2 = \int(x^6yz + 3x^2y - 2z) d y;
+dl2 = \D(l2,y);
+l3 = \int(x^6yz + 3x^2y - 2z) d z;
+dl3 = \D(l3,z);
+\print(l1, dl1,l2, dl2,l3, dl3);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Z[x, y, z]; $ \\
+\hspace*{4mm} $l1=\int(x^6yz + 3x^2y - 2z)d x;$ \\
+\hspace*{4mm} $dl1=D(l1,x); $ \\
+\hspace*{4mm} $l2=\int(x^6yz + 3x^2y - 2z)d y;$ \\
+\hspace*{4mm} $dl2=D(l2,y); $ \\
+\hspace*{4mm} $l3=\int(x^6yz + 3x^2y - 2z)d z;$ \\
+\hspace*{4mm} $dl3=D(l3,z); $ \\
+\hspace*{4mm} $print(l1, dl1, l2, dl2, l3, dl3);$}
+{
+$l1 = (1/7)zyx^7-2zx+yx^3; $\\
+\hspace*{4mm} $dl1 = x^6yz + 3x^2y - 2z. $
+$l2 = (1/2)zy^2x^6-2zy+(3/2)y^2x^2; $\\
+\hspace*{4mm} $dl2 = x^6yz + 3x^2y - 2z.$
+$l3 = (1/2)z^2yx^6-z^2+3zyx^2; $\\
+\hspace*{4mm} $dl3 = x^6yz + 3x^2y - 2z.$
+}
+%enddelete
+
+
+\begin{verbatim}
+SPACE = R[x];
+l = \int(1/(x^2-5x+6)) d x;
+dl = \D(l,x);
+\print(l, dl);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $l=\int(1/(x^2-5x+6))d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $print(l, dl);$}
+{
+$l = (\ln(x-3)-\ln(x-2)); $\\
+\hspace*{4mm} $dl = (1/(x-3)-1/(x-2)). $
+}
+%enddelete
+
+\begin{verbatim}
+SPACE = Q[x];
+l = \int(\exp(x)+\exp(-x)) d x;
+dl = \D(l,x);
+\print(l, dl);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $l=\int(\exp(x)+\exp(-x))d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $print(l, dl);$}
+{
+$l = (\exp(x)-((\exp(x))^{-1})); $\\
+\hspace*{4mm} $dl = (\exp(x)+\exp(-x)). $
+}
+%enddelete
+
+\begin{verbatim}
+SPACE = Q[x];
+l = \int(x*\exp(x^2)) d x;
+dl = \D(l,x);
+\print(l, dl);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $l=\int(x*\exp(x^2))d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $print(l, dl);$}
+{
+$l = (\exp(x^2)/2); $\\
+\hspace*{4mm} $dl = (x*\exp(x^2)). $
+}
+%enddelete
+
+\begin{verbatim}
+SPACE = Q[x];
+l = \int((x*\ln(x)*\exp(x)+\exp(x))/x) d x;
+dl = \D(l,x);
+\print(l, dl);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $l=\int((x*\ln(x)*\exp(x)+\exp(x))/x)d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $print(l, dl);$}
+{
+$l = (\ln(x)*\exp(x)); $\\
+\hspace*{4mm} $dl = ((x*\ln(x)*\exp(x)+\exp(x))/x). $
+}
+%enddelete
+
+
+\begin{verbatim}
+SPACE = R64[x];
+l = \int((\ln(x+3)+\ln(x+2)+\ln(x+1))) d x;
+dl = \D(l,x);
+\print(l, dl);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=R64[x, y, z]; $ \\
+\hspace*{4mm} $l=\int((\ln(x+3)+\ln(x+2)+\ln(x+1)))d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $print(l, dl);$}
+{
+$l = (((x*\ln(x+3)+3.00*\ln(x+3)+x*\ln(x+2)+2.00*\ln(x+2)+x*\ln(x+1)+\ln(x+1))-3x)); $\\
+\hspace*{4mm} $dl = ((\ln(x+3)+\ln(x+2)+\ln(x+1))). $
+}
+%enddelete
+
+\begin{verbatim}
+SPACE = Q[x];
+l = \int((2x^2+1)^3) d x;
+dl = \D(l,x);
+m=\factor(dl);
+\print(l, m);
+\end{verbatim}
+\vspace*{-3mm}
+
+%begindelete
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $l=\int((2x^2+1)^3)d x;$ \\
+\hspace*{4mm} $dl=D(l,x); $ \\
+\hspace*{4mm} $m=factor(dl); $ \\
+\hspace*{4mm} $print(l, m);$}
+{$l = (8/7)x^7+(12/5)x^5+2x^3+x; $\\
+\hspace*{4mm} $m = (2x^2+1)^3. $}
+%enddelete
+
+
+
+\section{Упрощение композиции функций}
+Для разложения любой тригонометрической или логарифмической функции с помощью тождеств:\\
+$sin(x)cos(y) \pm cos(x)sin(y) = sin(x \pm y),$ \\
+$cos(x)cos(y) \pm sin(x)sin(y) = cos(x \mp y),$ \\
+$sin^2(x) + cos^2(x) = 1,$ \\
+$cos^2(x) - sin^2(x) = cos(2x),$ \\
+$ln(a) + ln(b) = ln(ab),$ \\
+$ln(a) - ln(b) = ln(\dfrac{a}{b}),$ \\
+используется команда \comm{Expand}{(f(x))} 
+
+%begindelete
+\smallskip
+\underline{Примеры. }
+%enddelete
+\begin{verbatim}
+SPACE=Q[x, y, z]; 
+g=\ln(x^2*4x); 
+f=\Expand(g); 
+\print(f);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $g=\ln(x^2*4x); $ \\
+\hspace*{4mm} $f=Expand(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=\ln(x^2) + \ln(4x);$} 
+%enddelete
+
+\begin{verbatim}
+SPACE=Q[x, y, z]; 
+g=\sin(x^2+4x+2\pi); 
+f=\Expand(g); 
+\print(f);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $g=\sin(x^2+4x+2\pi); $ \\
+\hspace*{4mm} $f=Expand(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=(\sin(x^2)(\cos(4x)\cos(2)-\sin(4x)\sin(2))+\cos(x^2)(\sin(4x)\cos(2)+\cos(4x)\sin(2)));$} 
+%enddelete
+
+\begin{verbatim}
+SPACE=Q[x, y, z]; 
+g=\cos(\sin(x)+\cos(y)); 
+f=\Expand(g); 
+\print(f);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $g=\cos(\sin(x)+\cos(y)); $ \\
+\hspace*{4mm} $f=Expand(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=(\cos(\cos(y))\cos(\sin(x))-\sin(\cos(y))\sin(\sin(x)));$}
+%enddelete
+
+Для разложения на множители выражений при помощи описанных выше тригонометрических и логарифмических тождеств, а также следующих тождеств:\\
+$ln(a)^k = k\cdot ln(a),$\\
+$e^{iz} + e^{-iz} = 2\cos(z),$\\
+$e^{iz} - e^{-iz} = 2i\sin(z),$\\
+$\ln(1+iz) - \ln(1-iz) = 2i\cdot arctg(z),$\\
+$\ln(1-iz) - \ln(1+iz) = 2i\cdot arcctg(z),$\\
+$e^{z} + e^{-z} = 2ch(z)$\\
+$e^{z} - e^{-z} = 2i\cdot sh(z),$\\
+используется команда \comm{Factor}{(f(x))}.
+
+%begindelete
+\smallskip
+\underline{Примеры. }
+
+%enddelete
+\begin{verbatim}
+SPACE=Q[x, y, z]; 
+g=\log_{2}(x)+\log_{2}(y)-\log_{2}(xz)+\lg(y)+\lg(y)-\lg(z); 
+f=\Factor(g); 
+\print(f);
+\end{verbatim}
+%begindelete
+
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $g=\log_{2}(x)+\log_{2}(y)-\log_{2}(xz)+\lg(y)+\lg(y)-\lg(z);$ \\
+\hspace*{4mm} $f=Factor(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=\lg(y^2/z)+\log_{2}(y/z);$} 
+%enddelete
+
+\begin{verbatim}
+SPACE=Q[x, y, z]; 
+g=16\sin(x/48)\cos(x/48)\cos(x/24)\cos(x/12)\cos(x/6); 
+f=\Factor(g); 
+\print(f);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=Q[x, y, z]; $ \\
+\hspace*{4mm} $g=16\sin(\frac{x}{48})\cos(\frac{x}{48})\cos(\frac{x}{24})\cos(\frac{x}{12})\cos(\frac{x}{6});$ \\
+\hspace*{4mm} $f=Factor(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=\sin(0.33x);$} 
+%enddelete
+ 
+\begin{verbatim}
+SPACE=C64[x, y, z]; 
+g=\ln(1-\ix) - \ln(1+\ix) + \e^(\ix) - 2\e^(-\ix) + \sin(x)^2 - \cos(x)^2; 
+f=\Factor(g); 
+\print(f);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=C64[x, y, z]; $ \\
+\hspace*{4mm} $g=\ln(1-i x) - \ln(1+i x) + \exp(i x) - 2\exp(-i x) + \sin(x)^2 - \cos(x)^2;$ \\
+\hspace*{4mm} $f=Factor(g); $ \\
+\hspace*{4mm} $print(f);$}
+{\hspace*{4mm} $f=(-1.00\cos(2x))+2.00i(\sin(x))+(-1.00\exp(-i x))+(2.00i(\arcctg(x)));$} 
+%enddelete
+
+Комбинируя команды \comm{Factor}{(f(x))} и \comm{Expand}{(f(x))}, можно упрощать более сложные выражения.
+
+\begin{verbatim}
+SPACE=R64[x, y, z]; 
+g=(\sin(x+y) + \sin(x-y))\cos(x) + (\sin(x+y) + \sin(x-y))\sin(y); 
+f=\Expand(g);
+u=\Factor(f);
+\print(f,u);
+\end{verbatim}\vspace*{-3mm}
+%begindelete
+
+\ex{$SPACE=R64[x, y, z]; $ \\
+\hspace*{4mm} $g=(\sin(x+y) + \sin(x-y))\cos(x) + (\sin(x+y) + \sin(x-y))\sin(y);$ \\
+\hspace*{4mm} $f=Expand(g); $ \\
+\hspace*{4mm} $u=Factor(g); $ \\
+\hspace*{4mm} $print(f,u);$}
+{\hspace*{4mm} $f=2.00\cos(y)\sin(x)\cos(x)+2.00\sin(y)\cos(y)\sin(x);$\\
+\hspace*{4mm} $u=\sin(x)\sin(2.00y)+\cos(y)\sin(2.00x);$} 
+%enddelete
+%begindelete
+
+
+
+
+
+\section{Контрольные задания}
+В  Mathpar 
+\begin{itemize}
+ \item подставьте в функцию $f(x)=\sqrt{\sin ^2(5x-1)+e^x}$ вместо $x$ выражение $x+y$,  а вместо $y$ --- $5$, 
+ \item найдите  $\lim (x^3+10x)/x^2$  при $x\rightarrow 0$, 
+ \item найдите производную функции $f(x)=\sqrt{\sin ^2(5x-1)+e^x}$, 
+ \item найдите $\int_0^2(x^3+10x)dx$. 
+ \end{itemize}
+%enddelete

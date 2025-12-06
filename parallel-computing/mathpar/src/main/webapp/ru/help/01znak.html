@@ -1,0 +1,989 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/01znak.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Знакомство и первые шаги</h1><p>
+Эта глава посвящена первому знакомству с возможностями, которые Вам открывает Mathpar.
+Язык Mathpar, который описывается ниже, может рассматриваться, как некоторое развитие языка TeX.
+Язык TeX предназначен для записи математических текстов и подготовке их к публикации.
+Его можно считать пассивным по сравнению с языком Mathpar, который позволяет делать вычисления,
+то есть является активным языком математики. Как формулировка задачи,
+так и результаты вычислений, записываются на языке Mathpar.</p><p>Сразу после вычислений Вы видите весь математический текст в виде pdf-изображения,
+в том виде, как принято представлять математическую запись в научных и технических публикациях.</p><p>Этот результат может быть использован дальше несколькими способами.
+ 
+(1) Можно кликнуть по тексту мышкой, и он вернется к исходному виду языка Mathpar.
+Есть и другой способ переключения изображения текста: при помощи кнопки
+, расположенной между кнопками &lt;&lt;$\blacktriangleright$&gt;&gt; и &lt;&lt;$+$&gt;&gt;.</p><p>(2) Можно кликнуть по <b> изображению математической записи</b> правой кнопкой мышки.
+В этом случае появится выпадающее меню. Верхнее поле &lt;&lt;Show Math As&gt;&gt; позволяет
+перейти к выбору  языка вывода. Предлагается выбрать TeX или MathML.
+И затем открыть поле с желаемым текстом.</p><p>Например, матрица A, размера $2\times 2$, в Mathpar будет записана так:</p><p>A=[[a, b], [c, d]];</p><p>в TeX она выглядит так:</p><p>A= $\backslash$left(begin{array}{${cc}$}$ a \&amp; b$ $\backslash\backslash c \&amp; d \backslash\backslash$ end{array}$\backslash$right).</p><p>В MathML это еще более громоздкое выражение.
+ 
+Полученный текст на языке TeX или MathML можно скопировать и поместить  в TeX- 
+или html-файл и использовать для публикации. Кроме того, можно получить обычное 
+изображение и разместить его в любом документе. Это необходимо, например, 
+когда требуется сохранить график функции или решение задачи.</p><p>
+</p><h2 id="0">2.1 Ввод данных,  решение задачи</h2><p></p><p>В  центральной части экрана находится поле ввода. Здесь Вы размещаете математические выражения.  
+Для решения задачи надо нажать на кнопку &lt;&lt;${\blacktriangleright}$&gt;&gt;, которая 
+расположена над полем ввода. Кроме того, можно использовать сочетание клавиш <i> Ctrl+Enter</i>. 
+Например, можно набрать 2+2 и нажать &lt;&lt;$\blacktriangleright$&gt;&gt;.</p><p>В верхней части экрана находятся активные поля $\fbox{Помощь}$ и $\fbox{Руководство}$. 
+Указывая мышкой на эти поля, Вы можете перейти к страницам Помощи или открыть Руководство по языку Mathpar.</p><p></p><p>На страницах Помощи все поля с примерами являются активными полями, 
+содержащиеся там задачи можно тут же решить и увидеть ответ.  
+Для этого  нужно кликнуть по кнопке &lt;&lt;$\blacktriangleright$&gt;&gt; или же можно 
+поставить курсор на поле примера и нажать <i> Ctrl+Enter</i>. 
+Можно копировать текст из любого примера и перенести его в Ваше основное поле ввода. 
+Для этого можно использовать выделение текста мышкой, копирование и вставку этого текста 
+с помощью сочетания клавиш <i> Ctrl+С</i> и <i> Ctrl+V</i>, соответственно, для копирования и вставки.</p><p>Текст, который Вы можете вводить в поле ввода, состоит из комментариев и математических операторов.</p><p>При вводе комментариев, то есть любого поясняющего текста, необходимо брать его в кавычки. 
+Например: ($"$ это комментарий $"$). Кавычки разрешается использовать только для комментариев. 
+В тексте комментариев можно использовать, например, такие кавычки  &lt;&lt;  &gt;&gt;. 
+Когда в комментариях нужно иметь математическое выражение, как часть комментария, 
+то его необходимо окаймить знаками доллара ($\$$). Например, можно написать такой комментарий:  
+$"$Два обозначения $\$ \backslash exp(x)\$$  и  $\$\backslash e  \widehat{ }{} x\$$ 
+применяются для экспоненциальной функции.$"$</p><p>При вводе математических выражений их необходимо разделять точкой с запятой (;) 
+или текстом комментариев, которые заключены в кавычки. Можно не ставить 
+точку с запятой после последнего оператора. В математических операторах, 
+когда необходимо вставить текст, нужно использовать апострофы: ('текст в математическом операторе' ).</p><p>Для вывода результатов можно использовать команду print(), 
+где в качестве аргументов,  разделенных запятыми,  необходимо указать имена 
+тех выражений, которые требуется вывести.  Если среди команд не встретился 
+оператор печати print() или какой-нибудь другой оператор вывода (plot(), 
+prints() и т. д.), то будет выводится результат, полученный в последнем 
+операторе или последней новой переменной.</p><p>Команды и операторы начинаются с символа &lt;&lt;back slash&gt;&gt; ($\backslash$). </p><p>Кнопка $\fbox{+}$ предназначена для добавления полей ввода. Для удаления поля ввода 
+можно воспользоваться сочетанием клавиш <i> Ctrl+Del</i> или крестиком  $\fbox{х}$, 
+расположенным над полем ввода справа.  </p><p>Кнопка $\fbox{C}$, расположенная над полем ввода справа, предназначена 
+для отмены всех введенных раннее обозначений.     
+Отмена обозначений позволяет получать формулы, в которых стоят символы, а не числа.</p><p>В левой верхней части экрана находятся поля, в которых указано текущее окружение 
+и объем оперативной памяти в мегабайтах. Окружение фиксируется числовым множеством 
+и именами основных переменных. Под этим полем расположены различные меню, 
+которые облегчают ввод функций и операторов.</p><p>
+</p><h3>Работа с файлами</h3><p>
+Функции для работы с файлами доступны из раскрывающейся панели «Файлы», расположенной в меню слева.</p><p>Существуют следующие возможности для обработки файлов:</p><p>1) Сохранение последней выполненной секции в виде файла PDF с помощью
+кнопки «Сохранить PDF». Можно указать собственный размер страницы (в сантиметрах),
+по умолчанию указан размер А4 (21х29.7 см).</p><p>2) Загрузка текстовых файлов на сервер Mathpar с помощью кнопки «Загрузить файл».
+Под этой кнопкой расположен список загруженных файлов. Файлы должны содержать выражения 
+на языке Mathpar или таблицы в специальном формате.</p><p>Таблица состоит из строки с заголовком (произвольные строки) и строк с числами.
+Столбцы отделяются знаком табуляции. Функции для работы с таблицами доступны 
+в разделе «Графики и таблицы» (см. также раздел 3.1 Построение графиков функций 
+системы помощи).</p><p>3) Ввод выражений на языке Mathpar из загруженного файла с помощью функции fromFile().
+Например, создать выражение из загруженного файла myfile.txt и присвоить 
+это выражение переменной $a$ можно командой a = fromFile('myfile.txt').</p><p>
+</p><h2 id="1">2.2 Математические функции</h2><p>
+Приняты следующие обозначения для элементарных функций и констант.</p><p></p><h3>Константы</h3><p>
+  $\backslash$i  &mdash;  мнимая единица,</p><p>$\backslash$e  &mdash;  основание натурального логарифма,</p><p>$\backslash$pi  &mdash;  число $\pi$,  то есть отношение длины окружности к диаметру,</p><p>$\backslash$infty  &mdash;  знак бесконечности.</p><p>
+</p><h3>Функции одного аргумента</h3><p></p><p> $\backslash$ln  &mdash;  натуральный логарифм, </p><p> $\backslash$lg  &mdash;  десятичный логарифм, </p><p> $\backslash$sin  &mdash;  синус, </p><p> $\backslash$cos  &mdash;  косинус, </p><p> $\backslash$tg  &mdash;  тангенс, </p><p> $\backslash$ctg  &mdash;  котангенс, </p><p> $\backslash$arcsin  &mdash;  арксинус, </p><p> $\backslash$arccos  &mdash;  арккосинус, </p><p> $\backslash$arctg  &mdash;  арктангенс, </p><p> $\backslash$arcctg  &mdash;  арккотангенс, </p><p> $\backslash$sh  &mdash;  синус гиперболический, </p><p> $\backslash$ch  &mdash;  косинус гиперболический, </p><p> $\backslash$th  &mdash;  тангенс гиперболический, </p><p> $\backslash$cth  &mdash;  котангенс гиперболический, </p><p> $\backslash$arcsh  &mdash;  арксинус гиперболический, </p><p> $\backslash$arcch  &mdash;  арккосинус гиперболический, </p><p> $\backslash$arcth  &mdash;  арктангенс гиперболический, </p><p> $\backslash$arccth  &mdash;  арккотангенс гиперболический, </p><p> $\backslash$exp  &mdash;  экспонента, </p><p> $\backslash$sqrt  &mdash;  корень квадратный, </p><p> $\backslash$abs  &mdash;  абсолютное значение для действительных чисел,  модуль для комплексного числа,</p><p> $\backslash$sign  &mdash;  знак числа. Возвращает 1, 0,  -1,  когда число положительное, ноль или отрицательное,  соответственно,</p><p> $\backslash$unitStep$(x)$  &mdash;  это функция, которая при $x\geqslant 0$ принимает значение $1$, а
+при $x&lt;0$ принимает значение $0$;</p><p> $\backslash$fact  &mdash;  факториал.  Определен для целых положительных чисел. Равносильная запись &mdash;  &lt;&lt;n!&gt;&gt;.</p><p>
+</p><h3>Функции двух аргументов</h3><p></p><p>  $\widehat{ }{}$  &mdash;  степень,</p><p> $\backslash$log  &mdash;  логарифм от функции по указанному основанию,</p><p> $\backslash$rootOf(x, n)  &mdash;  корень степени n из x,   </p><p> $\backslash$Gamma  &mdash;  функция Гамма,</p><p> $\backslash$Gamma2  &mdash;  функция Гамма 2,</p><p> $\backslash$binomial  &mdash;  число сочетаний. </p><p>
+</p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x, y];
+f1 = \sin(x);
+f2 = \sin(\cos(x + \tg(y)));
+f3 = \sin(x^2) + y;
+\print(f1, f2, f3);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+</p><h2 id="2">2.3 Действия с функциями</h2><p></p><p>Для перечисленных выше функций и их композиций можно вычислить значение функции в точке,  подставить выражения в функцию вместо аргументов,  вычислить предел функции,  ее производную.  Для этого определены следующие команды. </p><p> 
+Для вычисления значения функции в точке необходимо выполнить команду  
+value(f, [var1, var2,&hellip;, varn]), 
+где $f$ &mdash;   функция,  а $var1, var2, &hellip;, varn$ &mdash;  значения соответствующих переменных кольца. 
+ Для подстановки выражений в функцию необходимо выполнить команду  
+value(f, [func1, func2, &hellip;,  funcn]),  где $f$ &mdash;  это функция,  
+$func1, func2, &hellip;,  funcn$ &mdash;  функции,  которые подставляются вместо соответствующих переменных. </p><p> Для вычисления предела функции в точке необходимо выполнить команду  
+lim(f, var),  
+где $f$ &mdash;  это  функция,  а $var$ &mdash;  точка,  в которой требуется найти предел. </p><p> Для вычисления производной функции $f$ по переменной $y$ из кольца $\mathbb{Z}[x, y, z]$
+ необходимо выполнить команду  D(f, y).  Для нахождения смешанной производной первого порядка от функции $f$ существует команда 
+D(f, [x, y]),  для нахождения производной высших порядков нужно использовать команду $\backslash {\mathbf {D}} (f, [x \widehat{ }{} k, z \widehat{ }{} m, y \widehat{ }{} n])$,  где $k,  m,  n$ указывают,  какого порядка по соответствующей переменной вычисляется производная. </p><p>
+</p><p></p><p>
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+g = \value(f, [1, 2]);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x, y];
+f = x + y;
+g = f^2;
+r = \value(f, [x^2, y^2]);
+\print(g, f, r);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = R64[x];
+f = \sin(x) / x;
+g = \lim(f, 0);
+\print(g);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y];
+f = \sin(x^2 + \tg(y^3 + x));
+h = \D(f, y);
+\print(h);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="3">2.4 Решение алгебраических уравнений</h2><p></p><p>Для решения алгебраических уравнений нужно выполнить команду solve.  Ниже используется команда настройки окружения
+&lt;&lt;FLOATPOS=N&gt;&gt;.  Она устанавливает число десятичных знаков после запятой $(N)$,  которые должны появиться при выводе числового результата приближенных вычислений.  Она не связана с процессом вычислений,  а только с выводом.  По умолчанию $FLOATPOS=2$. </p><p></p><p>
+<div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x];
+b = \solve(x^2 - 5x + 6 = 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p> 
+<div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x];
+FLOATPOS = 6;
+b = \solve(x^4 + 2x + 1 = 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE = R64[x];
+FLOATPOS = 0;
+b = \solve(x^3 + 3x^2 + 3x + 1 = 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p></p><h2 id="4">2.5 Решение алгебраических неравенств</h2><p></p><p>Для решения алгебраических неравенств нужно выполнить команду solve, в которой записано неравенство.
+Можно решать строгие и не строгие алгебраические неравенства. Открытый интервал обозначается круглыми скобками ( ), а закрытый интервал  &mdash;  квадратными скобками [ ], множество обозначается фигурными скобками { }.</p><p>
+<div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve(x^2-5x+6 &lt; 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve((x+1)^2(x-3)(x+5) \ge 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_10" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="10" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve((x^2+11x+28)/(x+5) \le 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_11" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="11" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = Q[x];
+b = \solve(x^2 + 4x - 7 = 0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="5">2.6 Решение систем алгебраических неравенств</h2><p></p><p>Для решения систем алгебраических неравенств нужно выполнить команду solve[In1, In2, ..., Ink], где $[In1, In2, ..., Ink]$ &mdash;  вектор неравенств.
+Система может содержать строгие и не строгие алгебраические неравенства. Открытый интервал обозначается круглыми скобками ( ), а закрытый интервал &mdash;  квадратными скобками [ ], множество обозначается фигурными скобками { }.</p><p><div id="section_12" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="12" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve([x^2+4x-5 &gt; 0, x^2-2x-8 &lt; 0]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_13" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="13" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve([x^2-x-6 \ge 0, x^2-4x-12 &lt; 0]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+<div id="section_14" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="14" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R[x];
+b = \solve([x^2-4 &lt; 0, x+1 &gt; 0, 0.5-x &gt; 0]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="6">2.7 Операции на подмножествах действительных чисел</h2><p></p><p>Подмножество, содержащее несколько интервалов можно задать так 
+set((a,b),(c,d]) , где $a,b,c,d$ &mdash;  числа.
+Здесь интервал обозначается круглыми скобками ( ), полуоткрытый интервал  &mdash;  одной круглой и одной квадратной скобкой [ ) или ( ],
+а отрезок  &mdash;    квадратными скобками [ ]. Точка обозначается фигурными скобками { } или как закрытый интервал.</p><p>Простые подмножества обозначаются такими же скобками, но перед каждой скобкой необходимо добавлять backslash ($\backslash$). 
+Например $\backslash (3,4.5)\backslash ]$ или   $\backslash[7,7\backslash]$.
+Оператор $\backslash {\mathbf {set}}$ не требуется.
+<div id="section_15" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="15" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x];
+a = \set((-2,1),[2,5),(5.75,6],{8});
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+ 
+<div id="section_16" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="16" />
+    <textarea class="form-control" name="task" rows="3">
+SPACE = R64[x];
+a = \set((-2,1),(0,5));
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+С подмножествами можно совершать операции объединения, пересечения, вычитания, вычисления симметрической разности и дополнения
+ при помощи команд $\backslash cup$ и $\backslash cap$, $\backslash setminus$, $\backslash triangle$ и знака апостроф (') соответственно.</p><p><div id="section_17" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="17" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = R64[x];
+A=\(1,3\)\cup\[5,16\);
+B=\(2,4\)\cup\[10,20\);
+C=A\cup B;
+D=A\cap B;
+E=A\triangle B;
+F=A \setminus B;
+G=A';
+\print(C,D,E,F,G);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+\newpage
+</p><h2 id="7">2.8 Векторы и матрицы</h2><p>
+Для задания вектора нужно перечислить его элементы  в квадратных скобках.  Так задаются вектор-строки.  
+Для задания матрицы нужно заключить в квадратные скобки ее вектор-строки, разделенные запятыми,  например,  $A = [[1, 2], [3, 4]]$. </p><p>Подматрицу размера $Nr\times Nc$ матрицы A определяет команда $\backslash <b> submatrix</b>( A,r1,Nr,c1,Nc)$. 
+Здесь $r1,c1$  &mdash;  это позиция верхнего левого элемента.</p><p>Элемент матрицы можно получить,  указав номер строки и столбца в нижних индексах у элемента матрицы, 
+а элемент вектора можно получить указав один индекс. Например,
+можно определить элементы матрицы так: $a=\backslash elementOf(A)$, и потом обращаться к отдельным элементам: $a$_{$i, j$}. 
+Или же определить элементы вектора $B$ так: 
+$b=\backslash elementOf(B)$, затем обращаться к ним $b$_{$i$}.  </p><p>Можно получить строку $i$ матрицы в виде вектор-строки: $a$_{$i, ?$} или столбец матрицы $j$ в виде вектор-столбца:  
+   $a$_{$?, j$}.  
+ 
+Имена некоммутативных объектов,  например матриц и векторов, положено писать 
+с первым символом backslash ($\backslash$) и заглавной латинской буквы, если предполагается их использовать в таких выражениях, 
+в которых нельзя допускать перестановок. Например $\backslash A *\backslash B  - \backslash B *\backslash A$ не приведет автоматически к нулю, 
+в отличие от $A *B - B *A$, что сразу упростится в 0.</p><p>Для обозначения нулевой и единичной матрицы используются заглавные буквы $\backslash O$ и $\backslash I$,  
+у которых указаны два индекса,  обозначающих число строк и столбцов.  
+С помощью символа $\backslash I$ можно создавать прямоугольные матрицы любого размера,  
+у которых элементы на главной диагонали равны $1$,  а остальные элементы нулевые. 
+Например,  $\backslash I$_{$2, 3$} и $\backslash O$_{$2, 2$} обозначают матрицы $\left(\begin{array}{ccc}
+1&amp;0&amp;0 
+0&amp;1&amp;0\                                                                                                                                                                                                                                                                                                                                                                          \end{array}\right)$ и $\left(\begin{array}{cc}
+0&amp;0 
+0&amp;0\                                                                                                                                                                                                                                                                                                                                                                          \end{array}\right)$. Можно задавать нулевые векторы,  указывая в индексе число элементов: $\backslash O$_{$3$} обозначает вектор $[0, 0, 0]$,  а $I$_{$3$} обозначает вектор $[1, 0, 0]$.  </p><p>Отметим, что в качестве одномерных и двумерных массивов в языке Mathpar используются векторы и матрицы, например,  O$_{n}$, O$_{n,m}$.</p><p>Вектор-столбец может быть образован транспонированием вектор-строки,  например,  $D=[7, 2, 3]^T$ &mdash;  это вектор-столбец из трех элементов. 
+ Кроме обычных арифметических операций (+,-,*) можно вычислять функции от векторов поэлементно.</p><p></p><p> 
+<div id="section_18" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="18" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x];
+A = [[x, 4], [y, 5]];
+V = [x, y, 1, 2, x^6];
+\print(A, V);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_19" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="19" />
+    <textarea class="form-control" name="task" rows="8">
+SPACE = Z[x, y];
+A = [[3, 4], [3, 1]];
+B = [[2, 5], [4, 7]];
+C = A + B;
+G = A - B;
+T = A * B;
+\print(C, G, T);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_20" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="20" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x];
+A = [[1, 4], [-4, 5]];
+a = \elementOf(A);
+det = a_{1, 1} * a_{2, 2} - a_{1, 2} * a_{2, 1};
+\print(det);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_21" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="21" />
+    <textarea class="form-control" name="task" rows="10">
+SPACE = Z[x, y];
+A = [[x^2, y], [4, x+y]];
+a = \elementOf(A);
+B = a_{1, ?};
+C = a_{?, 2};
+b = \elementOf(B);
+c = \elementOf(C);
+h = b_{2} * c_{1, 1};
+\print(B, C, h);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p><div id="section_22" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="22" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y];
+A = 3x * \I_{2, 2};
+B = \O_{3, 3};
+\print(A, B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_23" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="23" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = R64[x];
+A = [\pi / 2, \pi];
+B = \sin(A);
+C = \value(B);
+\print(A, B, C);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h2 id="8">2.9 Создание случайных элементов </h2><p>
+Mathpar может создавать случайные числа,  полиномы и матрицы.
+Это удобно, когда Вам нужно создать некоторый произвольный сложный объект или требуется получить много случайных объектов.
+</p><h3>Создание случайных чисел</h3><p></p><p>Для того чтобы получить случайное число,  необходимо выполнить команду 
+randomNumber(k), где в аргументе $k$ указывается количество 
+двоичных разрядов в записи случайного числа. 
+Это соответствует примерно $0.3 k$ десятичным цифрам.  </p><p></p><p></p><p></p><p><div id="section_24" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="24" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y, z];
+a = \randomNumber(10);
+b = \randomNumber(100);
+\print(a, b);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h3>Создание случайных полиномов</h3><p>
+Для того чтобы создать случайный полином от s переменных,  необходимо выполнить команду 
+randomPolynom(d1, d2,&hellip;, ds, dens, bits), 
+где $dens$ &mdash;  плотность полинома,  а $bits$ &mdash;  количество двоичных разрядов в записи случайного числа, 
+$d1, d2, &hellip;, ds$ означают старшие степени переменных. Если $dens=100$, то будет получен полином, у которого все коэффициенты 
+отличны от нуля, всего $(d1+1)(d2+1)..(ds+1)$ членов. Если $dens&lt;100$, то 
+$dens\%$ будут ненулевые, а $(100-dens)\%$ нулевых.</p><p>
+</p><p></p><p></p><p><div id="section_25" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="25" />
+    <textarea class="form-control" name="task" rows="6">
+SPACE = Z[x, y, z];
+f = \randomPolynom(4, 4, 10, 5);
+g = \randomPolynom(4, 4, 10, 5);
+h = f + g;
+\print(f, g, h);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+</p><h3>Создание случайных матриц</h3><p></p><p>
+Для того чтобы получить случайную числовую матрицу,  необходимо выполнить команду 
+randomMatrix(m, n, dens, bits), 
+где $m$ &mdash;  количество строк в матрице,  $n$ &mdash;  количество столбцов матрицы,  $dens$ &mdash;  это плотность матрицы в процентах,  $bits$ &mdash;  число двоичных разрядов в записи  числовых коэффициентов. </p><p>Для того чтобы получить случайную полиномиальную матрицу,  необходимо выполнить команду 
+randomMatrix(m, n, dens, d1, d2, &hellip;, ds, polDens, polBits)), 
+где $m$ &mdash;  количество строк в матрице,  $n$ &mdash;  количество столбцов матрицы,  $dens$ &mdash;  это плотность матрицы,  $d1, d2,&hellip;, ds$ &mdash;  наибольшие степени переменных полиномов,  $polDens$ &mdash;  плотность полиномов,  $polBits$ &mdash;  количество двоичных разрядов в записи коэффициентов полиномов. </p><p></p><p></p><p>
+<div id="section_26" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="26" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE = Z[x, y, z];
+matr_n = \randomMatrix(4, 4, 100, 5);
+matr_p = \randomMatrix(2, 2, 100, 2, 2, 25, 2);
+\print(matr_n, matr_p);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

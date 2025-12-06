@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/T03-mathHebr.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  </p><p><h1> דוגמאות לפתרונות של בעיות מתמטיות </h1><p></p><p></p><h2 id="0">17.1 סידרה  חשבונית</h2><p>
+ 
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="13">
+"TASK-Z:  תרגיל  סידרה  חשבונית.
+$( n &gt; 2) $   איברים  n   נחונה  סידרה  חשבונית  שיש  בה
+ $a_1, a_2, a_3, … , a_{n-1}, a_n$
+$d$  :  הפרש  הסידרה  הוא
+מהסידרה  הנתונה  בנו  סידרה  חדשה
+$  a_{2}^2 – a_{1}^2,  a_{3}^2 – a_{2}^2, …,  a_{n}^2 – a_{n-1}^2$
+$2d^2$   הוכח כי  סידרה  חדשה  היא  סידרה  חשבונית  שהפרשה  הוא
+$a_{2}^2 – a_{1}^2 = 64$  :    נחון   
+$d$ , $n$   הבע  את  האיבר  האחרון  בסידרה  החדשה  באמצעות 
+$ a_{n}^2 – a_{n-1}^2 = 192  ,   d &gt; 1 $  :    נחון גם
+$n$   מצא  את  תחום  הערכים  של "
+ END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>  </p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="10">
+"פתרון"
+a_{k+1} = a_k + d;
+a_{k+2} = a_k + 2*d;
+" $b_1, b_2, b_3, … , b_{n-1}$ :סידרה חדשה"
+b_k = (a_{k+1})^2 - (a_k)^2;
+b_{k+1} = (a_{k+2})^2- (a_{k+1})^2;
+"$D$  :  הפרש  הסידרה  הוא"
+D = b_{k+1} - b_k;
+\print(b_k, b_{k+1}, D);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p>
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="5">
+":נחון"
+b_1 = (a_2)^2 - (a_1)^2 = 64;
+b_{n-1} = b_1 + D * (n-2);
+\print(b_1, b_{n-1});
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p><div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="3">
+"$b_{n-1}=192;   g=d^2&gt;1;$" 
+ g=\solve(64+2g n-4g = 192,[g]);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="2">
+\solve(g&gt;1,[n])
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p></p><h2 id="1">17.2 בעיה גיאומטרית</h2><p> </p><p><div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="11">
+"TASK  בעיה גיאומטרית"  
+" $(AD = AC)$ משולש שווה  שוקיים  - $\Delta ADC$"
+" $\DC$  נקודה  בצד  $B$"
+"$DC = 3*BC,  AB = BC$ כך ש "
+"$\Delta ADC$ מצה  את  גודל הזוויות של משולשא"
+"$16\sqrt(3)   הוא$  $\Delta ADC$  נחון גם כי שטח המשולש"
+"$כך  ש  AC$  נקודה בצד $T$"
+"$AC  ניצב  BT$"
+"$DT$ חשב  את "
+ END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p><div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="10">
+"ציור לתרגיל"
+x1=\sqrt(3); x3=x1/3;
+p1=\tablePlot([[0,-1,2,0,-1,1],
+            [0, x1,0,0,x1,0]]);
+p11=\pointsPlot([[0,-1,2, 1,1],
+            [0, x1,0, 0,x3]],['A','D','C','T','B'],[0,0,1,1,1]);
+p2=\tablePlot([[1, 1, 0 ],
+               [0,x3, 0]]);
+\showPlots([p1,p11,p2,p2],[' ',' ',' ','noAxes' ])
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p><div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="18">
+"פתרון"
+":סימון"
+AB = BC = x;
+AD = AC = y;
+DB = 2*x;
+DC = 3*x;
+" $: \Delta ABC$  המשולש"
+"$AB^2 = BC^2 + AC^2 - 2*BC*AC*\cos(C);$"
+"$x^2 = x^2 + y^2 - 2*x*y*\cos(C);$"
+"$y^2 - 2xy\cos(C) = 0;    y - 2x\cos(C) = 0;   y = 2x\cos(C);$"
+" $: \Delta ADC$  המשולש"
+"$AD^2 = DC^2 + AC^2 - 2*DC*AC*\cos(C);$"
+"$y^2 = 9x^2 + y^2 - 2*3x*y*\cos(C);$"
+"$9x^2 - 6xy\cos(C) = 0;  9x - 6y\cos(C) = 0;  9x - 6*2x\cos(C)* \cos(C) = 0;$"
+"$9x - 12x(\cos(C))^2 = 0;  (\cos(C))^2 = 9/12; \cos(C) = \sqrt(3)/2;$"
+SPACE=Z[C]; sol=\solveTrig(\cos(C) = \sqrt(3)/2); 
+SPACE=R64[x]; \print(sol);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p> </p><p><div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="5">
+C = 30 "$^\circ$ זווית"
+D = C = 30 "$^\circ$ זווית"
+A = 180 - (C + D) " זווית" 
+\print(A,C,D)
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div></p><p>
+ </p><p><div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Run this section (also Ctrl-Enter at source code)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Toggle output mode Mathpar\LaTeX (also Ctrl-Alt-R at source code)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Clear expressions (also Ctrl-Alt-C at source code)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="14">
+"המשולש שווה שוקיים   $\Delta ABC$"
+"$AC$  ניצב  $BT$"
+ TC = AT= y/2  "   וכאן הוא תיכון "
+ y = 2x\cos(C)  = 2x*\cos(\pi/6); 
+"$AC$ נקודת אמצע בצד  $T$"
+"$S(\Delta DCT) = S(\Delta ADC)/2 = 16*\sqrt(3)/2 = 8*\sqrt(3)$   תיכון לכן   $DT$"
+"$S(\Delta DCT) = 1/2 * DC * TC * \sin(C) = 1/2 * 3x * y/2 * 1/2 = 1/8 * 3x * x*\sqrt(3) = 3/8 * x^2*\sqrt(3);$"
+"$8*\sqrt(3) = 3/8*x^2*\sqrt(3);$"
+"$x^2 = 64/3;$"  
+ x = 8/\sqrt(3);
+" $: \Delta DTC$  המשולש"
+ DC = 3x; 
+ DT = \value(\sqrt( DC^2 + TC^2 - 2*DC*TC*\cos(\pi/6)));
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">No result yet</div>
+  <div class="tex_original"></div>
+</div>
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

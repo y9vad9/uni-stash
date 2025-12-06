@@ -1,0 +1,526 @@
+/*!
+ * Slider for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+.slider {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.slider.slider-horizontal {
+  width: 210px;
+  height: 20px;
+}
+
+.slider.slider-horizontal .slider-track {
+  height: 10px;
+  width: 100%;
+  margin-top: -5px;
+  top: 50%;
+  left: 0;
+}
+
+.slider.slider-horizontal .slider-selection {
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.slider.slider-horizontal .slider-handle {
+  margin-left: -10px;
+  margin-top: -5px;
+}
+
+.slider.slider-horizontal .slider-handle.triangle {
+  border-width: 0 10px 10px 10px;
+  width: 0;
+  height: 0;
+  border-bottom-color: #0480be;
+  margin-top: 0;
+}
+
+.slider.slider-vertical {
+  height: 210px;
+  width: 20px;
+}
+
+.slider.slider-vertical .slider-track {
+  width: 10px;
+  height: 100%;
+  margin-left: -5px;
+  left: 50%;
+  top: 0;
+}
+
+.slider.slider-vertical .slider-selection {
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.slider.slider-vertical .slider-handle {
+  margin-left: -5px;
+  margin-top: -10px;
+}
+
+.slider.slider-vertical .slider-handle.triangle {
+  border-width: 10px 0 10px 10px;
+  width: 1px;
+  height: 1px;
+  border-left-color: #0480be;
+  margin-left: 0;
+}
+
+.slider input {
+  display: none;
+}
+
+.slider .tooltip-inner {
+  white-space: nowrap;
+}
+
+.slider-track {
+  position: absolute;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: -o-linear-gradient(top, #f5f5f5, #f9f9f9);
+  background-image: linear-gradient(to bottom, #f5f5f5, #f9f9f9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.slider-selection {
+  position: absolute;
+  background-color: #f7f7f7;
+  background-image: -moz-linear-gradient(top, #f9f9f9, #f5f5f5);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f9f9f9), to(#f5f5f5));
+  background-image: -webkit-linear-gradient(top, #f9f9f9, #f5f5f5);
+  background-image: -o-linear-gradient(top, #f9f9f9, #f5f5f5);
+  background-image: linear-gradient(to bottom, #f9f9f9, #f5f5f5);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff9f9f9', endColorstr='#fff5f5f5', GradientType=0);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.slider-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #0e90d2;
+  background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+  background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+  background-image: -o-linear-gradient(top, #149bdf, #0480be);
+  background-image: linear-gradient(to bottom, #149bdf, #0480be);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+  opacity: 0.8;
+  border: 0 solid transparent;
+}
+
+.slider-handle.round {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.slider-handle.triangle {
+  background: transparent none;
+}
+
+/* ========================================================================== */
+
+/* ==== Override Bootstrap styles ==== */
+/* Disable animated transitions. */
+*,
+*:after,
+*:before {
+  transition: none !important;
+}
+
+form {
+  margin: 0;
+}
+
+hr {
+  margin: 8px;
+}
+
+/* Allow wrapping buttons text. */
+.btn {
+  white-space: normal;
+}
+
+.btn-mini {
+  padding: 0 2px;
+}
+
+.btn-sm, .btn-xs {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.alert {
+  margin-bottom: 4px;
+}
+
+.alert-dismissable .close {
+  opacity: 0.5;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container.main {
+    width: 100%;
+  }
+}
+
+/* jumbotron for welcome page */
+.jumbotron > h1 {
+  text-align: center;
+}
+
+.jumbotron > p {
+  font-size: 100%;
+}
+
+.jumbotron > p.footer {
+  font-style: normal;
+  font-size: 0.8em;
+  text-align: left;
+}
+
+/* /jumbotron */
+
+/* top navbar */
+.navbar {
+  margin-bottom: 0;
+  min-height: 40px;
+}
+
+.navbar .navbar-brand {
+  padding: 0;
+}
+
+.navbar-nav > li > a {
+  padding: 10px 15px;
+}
+
+/* /top navbar */
+/* ========================================================================== */
+
+/* ===== General styles. */
+body {
+  background: fixed #e6edf3 url("../img/big_back.jpg") center top no-repeat;
+  color: #000;
+}
+
+.container.main {
+  margin-left: 16%;
+  width: 84%;
+  max-width: 84%;
+}
+
+#global_log {
+  display: none;
+}
+
+/* ========================================================================== */
+
+/* ==== sidebar keyboards ==== */
+.loading {
+  width: 100%;
+  height: 3px;
+}
+
+.loading.active {
+  background: url("../img/ajax-loader.gif") center center repeat-x;
+}
+
+.loading.help {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+#memory {
+  font-size: 12px;
+}
+
+.keyboards {
+  overflow-x: auto;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+.keyboards, .keyboards.affix-bottom, .keyboards.affix, .keyboards.affix-top {
+  width: 16%; /* XXX: Magic number. */
+  max-height: 100%;
+}
+
+.keyboards, .keyboards.affix-top {
+  position: fixed;
+  top: 52px;
+  bottom: -18px;
+  padding: 4px;
+}
+
+.keyboards.affix {
+  top: 2px;
+  bottom: -18px;
+  padding: 4px;
+}
+
+.keyboards .input-mini {
+  width: 2em;
+}
+
+.keyboards .label.btn-block {
+  margin: 0 0 2px;
+  cursor: pointer;
+  white-space: normal;
+}
+
+.keyboards .label.btn-block.collapsed:after,
+.keyboards .btn.btn-block[data-toggle="collapse"].collapsed:after {
+  content: "\00a0\25BE";
+}
+
+.keyboards .label.btn-block:after,
+.keyboards .btn.btn-block[data-toggle="collapse"]:after {
+  content: "\00a0\25B4";
+}
+
+.keyboards .btn[data-toggle="collapse"] {
+  /* Reduce vertical padding between button rows. */
+  padding: 1px 12px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.keyboards .kbd .well {
+  margin-bottom: 4px;
+}
+
+.keyboards .kbd .well.well-small {
+  padding: 4px;
+}
+
+/* Decrease tab title padding */
+.keyboards .nav-tabs.nav > li > a {
+  padding: 2px 4px;
+}
+
+.kbd > .well > p:first-child {
+  display: block;
+}
+
+#pdf_page_width, #pdf_page_height {
+  width: 3.2em;
+  padding: 2px 4px;
+}
+
+#kbd_cluster_login .nav-tabs > li > a {
+  padding: 4px;
+}
+
+@media (max-width: 720px) {
+  .keyboards, .keyboards.affix, .keyboards.affix-top, .keyboards.affix-bottom {
+    position: static;
+    width: 100%;
+  }
+
+  .keyboards.affix-top {
+    top: 0;
+  }
+
+  .container.main {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.labeled {
+  white-space: nowrap;
+}
+
+/* ========================================================================== */
+
+/* ==== Files panel ==== */
+/* File upload stylization from http://blueimp.github.com/jQuery-File-Upload/ */
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+}
+
+.filelist-container {
+  font-size: 85%;
+}
+
+/* ========================================================================== */
+
+/* ==== sections ==== */
+.sections {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sections > div {
+  min-height: 60px;
+}
+
+.section textarea[name="task"] {
+  font-family: monospace;
+  min-height: 48px;
+}
+
+.section {
+  padding: 3px 0 0 3px;
+}
+
+.section.active {
+  border: 2px solid #F99;
+  border-radius: 4px;
+}
+
+.tex_panel {
+  display: none;
+  background: #FFF;
+  border: 0 solid transparent;
+  border-radius: 4px;
+  padding: 9px;
+  margin-top: 2px;
+}
+
+.tex_original {
+  display: none;
+}
+
+.plot {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.plot-frame {
+  width: 100%;
+  display: none;
+}
+
+.plot-frame.active {
+  display: inline;
+}
+
+.plot3d, .canvasPlot, .plot3d-implicit {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid blue;
+}
+
+.graph-additional {
+  margin: 0;
+  padding: 2px;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px dotted #CCC;
+  border-top: 1px dotted #CCC;
+}
+
+.graph-additional .buttons, .graph-additional .axes-thickness {
+  margin-right: 1.2em;
+}
+
+.graph-additional .btn {
+  padding: 2px 6px;
+}
+
+.graph-additional .input-group-addon {
+  padding: 2px 6px;
+}
+
+.graph-additional .form-control {
+  padding: 2px 4px;
+  height: auto;
+}
+
+.font-size {
+  width: 4.2em;
+}
+
+.line-thickness {
+  width: 3.6em;
+}
+
+.axes-thickness {
+  width: 3.1em;
+}
+
+.frames-number {
+  width: 7.6em;
+}
+
+.parameter-slider {
+  width: 7em;
+}
+
+.slider {
+  margin: 0 0.6em;
+}
+
+.parameter-value {
+  width: 3em;
+}
+
+.graph-additional .parameters .btn {
+  font-weight: bold;
+}
+
+/* ========================================================================== */

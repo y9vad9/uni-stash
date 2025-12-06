@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/physics.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Примеры решения задач по физике</h1><p>
+</p><h2 id="0">16.1 Передача тепла</h2><p></p><p><div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="18">
+"ЗАДАЧА 1"
+"Кусок льда массой"
+M = 10 кг;
+"помещен в сосуд. Температура льда"
+T = -10  \degreeC ;
+"Найдите массу воды в сосуде после того, как сосуду 
+сообщили количество тепла равное"
+q = 20000 кДж;
+"Удельная теплоемкость воды"
+c_v = 4.2 кДж/(кг \degreeC);
+"Удельная теплоемкость льда"
+c_i = 2.1 кДж/(кг \degreeC);
+"Удельная теплота плавления льда"
+r = 330 кДж/кг;
+"Удельная теплота испарения воды"
+\lambda = 2300 кДж/кг;
+END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p><div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="18">
+"РЕШЕНИЕ ЗАДАЧИ 1"
+"Искомую массу воды обозначим через x."
+SPACE = R64[x];
+"Обозначим количество теплоты требуемое для нагревания льда до 0 градусов:"
+q_1 = M c_i (0 - T);
+"для плавления всего льда:"
+q_2 = M r;
+"для нагревания воды до ста градусов:"
+q_3 = M c_v (100 \degreeC);
+"для испарения части воды"
+q_4 = (M - x)\lambda;
+"Здесь мы обозначили через x массу оствшейся в сосуде воды."
+"По условию задачи должно выполняться равенство,
+решая которое найдем неизвестное x:"
+mass  = \solve (q = q_1 + q_2 + q_3 + q_4);
+mass=\value(mass);
+\print(mass);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+
+ </p><p>
+</p><h2 id="1">16.2 Кинематика</h2><p> </p><p><div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="7">
+"ЗАДАЧА 2"
+"Кинематическое уравнение движения точки по прямой (по оси x) 
+имеет вид $x = c_1 + c_2 t + c_3 t^3$."
+"Найдите: (1) координату точки, (2) мгновенную скорость,
+(3) мгновенное ускорение" 
+END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+ 
+ \
+ 
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="11">
+"РЕШЕНИЕ ЗАДАЧИ 2."
+"Выбираем пространство с переменными $t, c_1, c_2, c_3$:"
+SPACE = R64[t, c_1, c_2, c_3];
+"Уравнение движения точки"
+x = c_1 + c_2  t + c_3 t^3;
+"Вычислим мгновенную срость"
+v = \D_t(x);
+"Вычислим мгновенное ускорение"
+a = \D_t(v);
+\print(x, v, a);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p><div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="8">
+"ЗАДАЧА 2А"
+"Решите предыдущую задачу, при условии, что  "
+"коэффициенты c1, c2, c3 в уравнении имеют следующие значения"
+Coeff = [4, 2, -0.5];
+"и момент времени равен "
+t_0 = 2 "секунды." 
+END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p><div id="section_5" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="5" />
+    <textarea class="form-control" name="task" rows="14">
+"РЕШЕНИЕ ЗАДАЧИ 2А"
+"Введем обозначение для элементов вектора  Coeff:"
+cf=\elementOf(Coeff);
+"Найдем числовое значение каждой функции (x, v, a)
+в точке"
+arg = [t_0, cf_{1}, cf_{2}, cf_{3}];
+"(1) координата точки в момент времени $t_0$:"
+x_0 = \value (x, arg);
+"(2) мгновенная скорость точки в момент времени $t_0$:"
+v_0 = \value (v, arg);
+"(3) мгновенное ускорение точки в момент времени $t_0$:"
+a_0 = \value (a, arg);
+\print(x_0, v_0, a_0);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p></p><h2 id="2">16.3 Молекулярная физика</h2><p> 
+ 
+ \
+ 
+<div id="section_6" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="6" />
+    <textarea class="form-control" name="task" rows="9">
+"ЗАДАЧА 3"
+"В центре горизонтальной трубки расположен столбик ртути длиной h" 
+"Часть воздуха была выкачана и концы трубки запаяны.   
+Трубка имеет длину l" 
+"Когда трубка была поставлена вертикально, столбик ртути переместился вниз на расстояние $l_d$." 
+"Ускорение свободного падения обозначим $g$, плотность ртути — $\rho$"
+"Какое начальное давление было в трубке?"
+END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p><div id="section_7" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="7" />
+    <textarea class="form-control" name="task" rows="16">
+"РЕШЕНИЕ ЗАДАЧИ 3"
+"Пусть в трубке было начальное давление $p_0$. Введем пространство с переменной $p_0$:"
+SPACE=R64[p_0];
+"После поворота трубки давление в нижней части трубки повысилось, 
+так как добавилось давление столбика ртути. Следовательно, новое давление стало равно:" 
+p_1 = p_0+\rho g h; 
+"Пусть s это площадь поперечного сечения трубки. 
+Тогда начальный обьем нижней части трубки равен:"
+v_0=  (l/2-h/2) s; 
+" После поворота трубки обьем воздуха в нижней части трубки будет  равен:"
+v_1=  (l/2-h/2-l_d) s;
+"В соответствии с законом Бойля-Мариотта запишем и решим 
+уравнение относительно неизвестной $p_0$:"
+initialPressure = \solve(p_0 v_0=p_1 v_1 );
+\print(initialPressure );
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p><div id="section_8" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="8" />
+    <textarea class="form-control" name="task" rows="10">
+"ЗАДАЧА 3А."
+"Решите предыдущую задачу предполагая, что переменные 
+имеют следующие числовые значения: "
+h = 0.20 m;
+l = 1 m;
+l_d = 0.10 m;
+g = 9.8 m/s^2;
+\rho = 13600 kg/m^3;
+END
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>\</p><p><div id="section_9" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="9" />
+    <textarea class="form-control" name="task" rows="6">
+"РЕШЕНИЕ ЗАДАЧИ 3А"
+p_1 = p_0 + \rho g h;
+v_0 = (l/2 - h/2) S; 
+v_1 = (l/2 - h/2 - l_d) S;
+\solve(p_0 v_0 = p_1 v_1);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

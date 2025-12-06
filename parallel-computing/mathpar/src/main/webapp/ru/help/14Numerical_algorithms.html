@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Дом</a></li>
+<li><a href=".././">Тетрадь</a></li>
+<li class="active"><a href="">Помощь</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">О нас</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_ru.pdf">
+                 Руководство</a></li>
+        <li>
+          <a href="../../en/help/14Numerical_algorithms.html">
+            <img width="20" height="20"
+                 src="../../img/en.png"
+                   alt="English"> English</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Назад к оглавлению</a>
+
+  
+<h1>Численные алгоритмы</h1><p></p><p>
+</p><h2 id="0">15.1 Вычисление определенных и несобственных интегралов</h2><p></p><p></p><h3>1. Вычисление определенных интегралов.</h3><p></p><p>Вычисление определенных интегралов выполняется при помощи метода Гаусса.
+Для вычисления определенного интеграла необходимо выполнить команду:
+\Nint(f, a, b, epsilon, N);
+Где: 
+(a,b) - промежуток интегрирования,
+f - подинтегральная функция,
+epsilon - количество точных десятичных знаков после запятой ( необязательный параметр ),
+N - количество точек в формуле Гаусса ( необязательный параметр ).
+Последние три параметра можно не указывать.
+Точность можно указывать явно (при помощи параметра epsilon), или при помощи константы MachineEpsilon в текущем кольце.</p><p></p><p></p><p>
+<div id="section_0" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="0" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R[x];
+f = \sin(x);
+B = \Nint(f, 0, \pi); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p>
+
+<div id="section_1" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="1" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R[x];
+f = \exp(x)*x;
+B = \Nint(f, 0, 1, 4); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p></p><h3>2. Вычисление несобственных интегралов первого рода.</h3><p>
+Для вычисления несобственного интеграла на бесконечном интервале необходимо выполнить команду:
+\Nint(f, a, b, [...], epsilon, N);
+Где: 
+(a,b) - промежуток интегрирования, где любая из границ интегрирования может быть либо конечным числом, либо \pm\infty;
+f - подинтегральная функция,
+[...] - точки экстремума подинтегральной функции в промежутке (a,b) ( необязательный параметр ),
+epsilon - количество точных десятичных знаков после запятой ( необязательный параметр ),
+N - количество точек в формуле Гаусса ( необязательный параметр ).
+Последние три параметра можно не указывать.</p><p>
+В случае, если точки экстремума не указываются, то корректность результата обеспечивается в том случае,
+когда подинтегральная функция монотонная на промежутке интегрирования.</p><p>
+Несобственные интегралы первого рода вычисляются при помощи следующего алгоритма:
+Пусть для определенности промежуток интегрирования имеет вид: [a, \infty). 
+Считаем интеграл от функции f(x) с шагом 3N. Получаем отрезки: [a, a+3N], [a+3N, a+6N], ...
+Когда значение интеграла на очередном отрезке станет меньше значения интеграла на предыдущем отрезке,
+шаг увеличивается  в 10 раз.
+Вычисление интеграла останавливается, когда значение интеграла на текущем отрезке становится 
+меньше значения интеграла на предыдущем отрезке и меньше машинного нуля.</p><p>underline{Примеры.  }
+
+<div id="section_2" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="2" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R64[x];
+f = \exp(-(x-5)^2);
+B = \Nint(f, -\infty, \infty); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+<div id="section_3" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="3" />
+    <textarea class="form-control" name="task" rows="5">
+SPACE=R[x];
+f = \exp(-x);
+B = \Nint(f, 0, \infty); 
+\print(B);
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div></p><p></p><p>
+</p><h3>3. Вычисление несобственных интегралов второго рода.</h3><p>
+Для вычисления интеграла необходимо выполнить команду:
+\NInt(f, a, b, [p1, p2, ..., pn], [q1, q2, ..., qm], epsilon, N);
+Где:
+(a, b) - промежуток интегрирования,
+f - подинтегральная функция,
+[ p1, p2, ..., pn ] - список точек разрыва функции f принадлежащих промежутку (a, b),
+[ q1, q2, ..., qm ] - список точек экстремума функции f принадлежащих промежутку (a, b)
+ ( необязательный параметр ),
+epsilon - количество точных десятичных знаков после запятой ( необязательный параметр ),
+N - количество точек в формуле Гаусса ( необязательный параметр ),
+Последние три параметра можно не указывать.</p><p>В случае, если точки экстремума не указываются, то корректность результата обеспечивается в том случае,
+когда подинтегральное выражение является отношением непрерывной функции и полинома.</p><p>
+</p><p>
+<div id="section_4" class="section">
+  <div class="btn-toolbar">
+    <div class="btn-group">
+      <button class="btn btn-sm run_section" tabindex="32767"
+              title="Выполнить задание (также Ctrl-Enter в поле ввода)"
+              ><i class="glyphicon glyphicon-play"></i></button>
+      <button class="btn btn-sm toggle_latex" tabindex="32767"
+              title="Переключить состояние поля ввода: текст\изображение (также Ctrl-Alt-R в поле ввода)"
+              ><i class="glyphicon glyphicon-random"></i></button>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm clear_expr" tabindex="32767"
+              title="Отменить все введенные выражения (также Ctrl-Alt-C в поле ввода)"
+              >C</button>
+    </div>
+  </div>
+  <form>
+    <input type="hidden" name="section_number" value="4" />
+    <textarea class="form-control" name="task" rows="4">
+SPACE=R64[x];
+f = 1/(\abs(x)^(0.5));
+\Nint(f, -1, 1, [0]); 
+</textarea>
+  </form>
+  <div class="res_panel"></div>
+  <div class="tex_panel">Пока нет результата</div>
+  <div class="tex_original"></div>
+</div>
+
+
+  <a href="./">Назад к оглавлению</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math partner Help</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <link href="../../css/style.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../js/libs/html5shiv.js"></script>
+      <script src="../../js/libs/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<!-- top_navbar.ftl -->
+
+
+<div class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../welcome.html">
+        <img src="../../img/logo.png" width="270" height="38" alt="Mathpar logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+<li><a href="../welcome.html">Home</a></li>
+<li><a href=".././">Workbook</a></li>
+<li class="active"><a href="">Help</a></li>
+      </ul> <!-- nav -->
+
+      <ul class="nav navbar-nav navbar-right">
+<li><a href="../contact.html">About</a></li>
+        <li><a href="http://mathpar.com/downloads/MathparHandbook_en.pdf">
+                 Handbook</a></li>
+        <li>
+          <a href="../../ru/help/13operators.html">
+            <img width="20" height="20"
+                 src="../../img/ru.png"
+                   alt="Русский"> Русский</a>
+        </li>
+      </ul> <!-- navbar -->
+    </div> <!-- navbar-collapse -->
+  </div> <!-- container -->
+</div> <!-- navbar --><div class="container well">
+  <div class="loading help"></div>
+  <a href="./">Back to the table of contents</a>
+
+  
+<h1>Operators and mathematical symbols</h1><p> </p><p><b> Naming rules for Mathematical Objects</b></p><p>
+ 
+Uppercase and lowercase letters are different everywhere. The user can give any names for mathematical objects. However, these names should not coincide with the operators and constants that are defined in the system. In addition, the names of objects, of which the multiplication is not commutative, for example, vectors and matrices, must begin with a capital Latin letters, and all other object names must start with lowercase letters. This makes it possible as soon as entering automatically get a simplified expression.
+</p><p>Here is a list of the main operators of the system Mathpar.   </p><p>
+clean &mdash;   clean input data (if this operator doesn't have arguments) or the date of arguments of this operator,</p><p></p><p><b> Infix arithmetic operators</b></p><p>
+<b> +</b> &mdash;   addition; </p><p><b> -</b> &mdash;   subtraction; </p><p><b> /</b> &mdash;   division;</p><p><b> *</b> &mdash;   multiplication (still a blank or absence of the operator);</p><p>times &mdash;  noncommutative multiplication(still a blank or absence of the operator);  </p><p></p><p></p><p><b> Postfix arithmetic operators</b></p><p><b> !</b> &mdash;   factorial;</p><p>{ ${x} \widehat{ }{{ }}$} &mdash;   exponentiation;
+</p><p><b> Comparisons</b> </p><p>$\mathbf{\backslash le}$ &mdash;   less than or equal;</p><p>${\mathbf &gt;}$ &mdash;   it is more; </p><p>$\mathbf{\backslash ge}$ &mdash;  it is more or equally; </p><p><b> ==</b> &mdash;   it is equal; </p><p>$\mathbf{\backslash ne}$ &mdash;  it is unequal;  
+</p><p><b> Infix Boolean operators</b></p><p>
+ $\mathbf{ \backslash lor}$  &mdash;  disjunction (logic OR); </p><p> $\mathbf{  \backslash \&amp;}$ &mdash;  conjunction (logic AND); </p><p>$\mathbf{ \backslash neg}$  &mdash;  negation.  </p><p>
+<b> Key prefix operators</b></p><p> d &mdash;  the symbol of derivative, wich is usualy used in the differential equations,</p><p> D &mdash;  the operator of differentiation: D(f) and D(f, x) are the first derivative by $x$; D(f, y{ \widehat{ } 3)} is the third derivative by $y$;</p><p> expand &mdash;  opening all brackets;</p><p> fullExpand &mdash;  to expand expression containing logarithmic, exponential and trigonometric  functions;</p><p> extendedGCD &mdash;  extended polynomial GCD, returns a vector containing GCD and additional multipliers of arguments;</p><p>  GCD &mdash;  GCD of polynomials; </p><p> factor &mdash;  to factor expression;  </p><p> fullFactor &mdash;  to factor expression containing logarithmic and exponent functions;</p><p> initCond &mdash;  boundary conditions for a system of linear differential equations;</p><p> LCM &mdash;  polynomial LCM; </p><p> lim &mdash;  the sign for limit; </p><p> print &mdash;  the print operator of the expressions, the names of which are listed in this operator (each expression printed in the new line);</p><p> printS &mdash;  the print operator, which is similar to the Pascal print operator(for printing in several lines you can use the symbol ``$\backslash$n'';
+ 
+ plot &mdash;  to plot explicit functions; 
+ 
+  plot3D &mdash;  to plot functions of two variables, which are given explicitly;</p><p> paramPlot &mdash;  to plot parametric functions;  </p><p>tablePlot &mdash;  to plot of function, which are presented by the table of arguments and values; </p><p> prod &mdash;  the symbol of product ($\prod$); </p><p> randomPolynom &mdash;  to generate a random polynomial; </p><p> randomMatrix &mdash;  to generate a random matrix; </p><p> randomNumber &mdash;  to generate a random number; </p><p> sequence &mdash;  the sequence; </p><p> showPlots &mdash;  to display at one field of schedules of functions of different types;
+ 
+ solveLDE &mdash;  to solve system of the linear differential equations; </p><p> systLAE &mdash;  to set the system of the linear algebraic equations; </p><p> systLDE &mdash;  to set the system of the linear differential equations; </p><p> sum &mdash;   a summation symbol ($\sum$); </p><p> time &mdash;  this operator returns the processor time in milliseconds;  </p><p> value &mdash;  to calculate value of expression by means of substitution of the expressions (or numbers) instead of ring variables; 
+ 
+
+ 
+ <b> Operators of the procedure, branching and loop</b></p><p> procedure &mdash;  ad procedures;
+ 
+if ( ) {  } else {  } &mdash;  operator of the branch;</p><p>while (  ) {  } &mdash;  operator of the cycle with a precondition;</p><p>for ( ;  ;  ) {  } &mdash;  cycle operator with a counter. </p><p></p><p><b> Matrix, matrix elements and  matrix operators</b></p><p>[ ,   ]  &mdash;  setting vector (row-vector);</p><p>[[ ,  ], [ ,  ]] &mdash;  the matrix may be defined as vector of vectors;  </p><p>
+A_{i,j} &mdash;  (i,j)-element of the matrix A;</p><p>A_{i,?} &mdash;   row i of the matrix A;</p><p>A_{?,j} &mdash;   j column of the matrix A;</p><p>$\backslash$IO_{n,m} &mdash;  zero matrix of size $ n \times m $;</p><p>$\backslash$I_{n,m} &mdash;   $n \times m$  matrix with ones on the diagonal;</p><p>+, -, * &mdash;  addition, subtraction, multiplication; </p><p>charPolynom &mdash;   calculation of a characteristic polynomial; 
+ 
+kernel &mdash;  calculation of a kernel (zero-space of matrix); </p><p>transpose or  $\mathbf{A \widehat{ } {T}}$ &mdash;  transposing;  
+ 
+conjugate or  $\mathbf{A\widehat{ }{\backslash ast}}$ &mdash;  conjugate;</p><p>toEchelonForm &mdash;    calculation of the matrix echelon form;  </p><p>det &mdash;    calculation the determinant; 
+ 
+inverse  or  $\mathbf{A}\widehat{ }{-1}$ &mdash;   calculation of the inverse matrix; </p><p>adjoint  or  $\mathbf{A}\widehat{ }{\backslash star}$ &mdash;  calculation of the adjoint matrix;  
+ 
+genInverse  or $\mathbf{A}\widehat{ }{+}$ &mdash;  generalized inverse matrix Murr-Penrose;
+ 
+closure   or $\mathbf{A}\widehat{ }{\backslash times}$ &mdash;  closure, i.e. the amount of 
+$ I + A + A^2 + A^3 + &hellip; $. 
+For the classical algebras is equivalent to $ (I-A)^{-1} $.</p><p>LDU &mdash;  LDU-decomposition of matrix. The result is a vector of three matrices [L,D,U]. Where L is a lower triangular matrix, U &mdash;  upper triangular matrix, 
+D &mdash;  permutation matrix, multiplied by the inverse of the diagonal matrix. </p><p>BruhatDecomposition &mdash;  Bruhat decomposition of matrix. The result is a vector of three matrices [V,D,U]. Where V and U &mdash;  upper triangular matrices, 
+D &mdash;  permutation matrix, multiplied by the inverse of the diagonal matrix.</p><p>  
+
+  <a href="./">Back to the table of contents</a>
+</div>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  "HTML-CSS": { linebreaks: { automatic: true, width: '72% container' } },
+  extensions: ["tex2jax.js"],
+  tex2jax: {
+  inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+  displayMath: [ ['$$', '$$'], ["\\[", "\\]"] ],
+  processEscapes: true
+  },
+  TeX: { extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  });
+</script>
+<script src="../../js/libs/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script><script src="../../js/libs/require.js" data-main="../../js/main"></script><!-- footer.ftl -->
+</body>
+</html>

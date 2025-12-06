@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+  <changeSet id="2" author="i.borisov">
+    <comment>Add task_title field.</comment>
+
+    <addColumn tableName="tasks">
+      <column name="task_title" type="VARCHAR" />
+    </addColumn>
+
+    <createIndex tableName="tasks" indexName="task_title_idx">
+      <column name="task_title" />
+    </createIndex>
+  </changeSet>
+
+  <changeSet id="2.3" author="i.borisov">
+    <comment>Add ON DELETE CASCADE for edu_plans.id_task</comment>
+
+    <dropForeignKeyConstraint baseTableName="edu_plans" constraintName="plan_task_fk" />
+
+    <addForeignKeyConstraint baseTableName="edu_plans" baseColumnNames="id_task"
+                             constraintName="plan_task_fk"
+                             referencedTableName="tasks" referencedColumnNames="id" onDelete="CASCADE" />
+  </changeSet>
+</databaseChangeLog>

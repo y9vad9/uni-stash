@@ -1,0 +1,101 @@
+\chapter{Operators of control. Procedural programming}
+
+\section{Procedures and functions} 
+
+Mathpar system lets you create your procedures and functions. 
+To do this, use the command \comm{procedure}{}. After the command \comm{procedure}{}, you must specify the name of the procedure, 
+and then in the curly brackets describes the procedure itself.
+\smallskip
+
+\underline{Example.}
+
+\vspace*{-3mm}
+ 
+\begin{verbatim}
+\procedure myProc2() {
+  d = 4;
+  \print(d);
+}
+\procedure myProc(c, d) {
+  if (c < d) {
+    \return d;
+  } else {
+    \return d + 5;
+  }
+}
+\myProc2();
+a = 10;
+c = \myProc(5 + a, a);
+\print(a, c);
+\end{verbatim}
+%begindelete
+
+Returns: \\
+$d = 4;\  
+a = 10;\  
+c = 15.$ 
+%enddelete
+
+\section{Operators of branching and looping}
+
+You can use the operators of branching and looping:
+
+\comm{if }{()} \{ \} \comm{else}{} \{ \}~--- the operator of branching; 
+
+\comm{while }{()} \{ \}~--- cycle operator with precondition; 
+
+\comm{for }{(\ ;\ ;\ )} \{ \}~--- cycle operator with the counter.  
+
+\smallskip
+
+%begindelete
+\underline{Examples:}
+%enddelete
+
+\vspace*{-3mm}
+
+\begin{verbatim}
+a = 5;
+b = 1;
+if(b < a) {
+  b = b + a;
+} else {
+  \print(a, b);
+}
+if(b < a) {
+  b = b + a;
+} else {
+  \print(a, b);
+}
+\end{verbatim}
+%begindelete
+
+Returns:\\
+$ a=5;\ b=6; $
+%enddelete
+
+\begin{verbatim}
+a = 0;
+b = 10;
+while(a < b) {
+  a = a + 5;
+  \print(a);
+}
+\end{verbatim}
+%begindelete
+
+Returns: \\
+$a = 5;$
+$a = 10;$
+
+%enddelete
+\begin{verbatim}
+for (i = 3; i \le 11; i = i + 5) { 
+  \print(i);
+}
+\end{verbatim}
+%begindelete
+
+Returns:\\ $i = 3;$ 
+$i = 8. $
+%enddelete
