@@ -5,7 +5,8 @@
 Мета роботи – ознайомитися з використанням **MPI для Java**. Клас `HelloWorldParallel` запускається на кількох
 процесорах, і кожен процес виводить свій номер та повідомлення "Hello World".
 
-https://github.com/user-attachments/assets/ad88122a-4b22-4d70-b4ec-3ae6d536c20e
+https://github.com/user-attachments/assets/f3f11f9a-6a02-439e-b808-49bd3cf3989f
+
 
 ## Завдання
 
