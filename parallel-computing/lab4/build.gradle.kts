@@ -13,7 +13,7 @@ mpi.runnables {
     }
     create("TestGatherv") {
         processes = 4
-        mainClass = "com.y9vad9.uni.openmpi.lab4.TestGatherv"
+        mainClass = "com.y9vad9.uni.openmpi.lab4.TestGather"
     }
     create("TestScatter") {
         processes = 4
@@ -22,5 +22,9 @@ mpi.runnables {
     create("TestScatterv") {
         processes = 4
         mainClass = "com.y9vad9.uni.openmpi.lab4.TestScatterv"
+    }
+    create("TestBcast") {
+        processes = 4
+        mainClass = "com.y9vad9.uni.openmpi.lab4.TestBcast"
     }
 }

@@ -46,9 +46,6 @@ abstract class MpiExtension @Inject constructor(project: Project) {
 val mpiExtension = project.extensions.create("mpi", MpiExtension::class.java, project)
 
 afterEvaluate {
-    val mpiJavaCompiler = providers.environmentVariable("MPI_BIN")
-        .orElse(provider { localProps.getProperty("mpi.bin") + "/mpijavac" })
-
     val mpiRun = providers.environmentVariable("MPI_BIN")
         .orElse(provider { localProps.getProperty("mpi.bin") + "/mpirun" })
 

@@ -5,7 +5,8 @@
 Мета роботи – ознайомитися з використанням **MPI для Java**. Клас `HelloWorldParallel` запускається на кількох
 процесорах, і кожен процес виводить свій номер та повідомлення "Hello World".
 
-https://github.com/user-attachments/assets/ad88122a-4b22-4d70-b4ec-3ae6d536c20e
+https://github.com/user-attachments/assets/f3f11f9a-6a02-439e-b808-49bd3cf3989f
+
 
 ## Завдання
 
@@ -17,8 +18,10 @@ https://github.com/user-attachments/assets/ad88122a-4b22-4d70-b4ec-3ae6d536c20e
 За завданням визначено **4 процеси**:
 
 ```kotlin
-mpi {
-    processes = 4
+mpi.runnables {
+    create(/*...*/) {
+        processes = 4
+    }
 }
 ```
 
@@ -29,30 +32,7 @@ mpi {
 Виконати команду у модулі `lab1`:
 
 ```bash
-gradle lab1:runMpi
+gradle lab1:runMpiHelloWorldParallel
 ```
 
 Це запустить програму на **4 процесах**, кожен з яких виведе свій номер.
-
-## Код прикладу
-
-```java
-package com.y9vad9.uni.openmpi.lab1;
-
-import mpi.MPI;
-import mpi.MPIException;
-
-public class HelloWorldParallel {
-    static void main(String[] args) throws MPIException {
-        // Ініціалізація паралельної частини
-        MPI.Init(args);
-
-        // Визначення номера процесора
-        int myRank = MPI.COMM_WORLD.getRank();
-        System.out.println("Proc num " + myRank + " Hello World");
-
-        // Завершення паралельної частини
-        MPI.Finalize();
-    }
-}
-```

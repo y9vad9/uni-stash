@@ -1,4 +1,4 @@
-package com.y9vad9.uni.openmpi.lab4;
+package com.y9vad9.uni.openmpi.lab3;
 
 import mpi.Group;
 import mpi.Intracomm;
