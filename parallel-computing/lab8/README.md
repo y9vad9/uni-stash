@@ -46,8 +46,7 @@ gradle lab8:runMpiVectorToScalar
 
 Напишiть паралельну програму обчислення норми матрицi, використовуючи колективнi команди. Протестуйте програму на 4, 8, 12 процесорах.
 
-Реалізація в коді: MatrixMul4, MatrixMul8
-Запуск:
+#### Запуск
 
 ```bash
 gradle lab8:runMpiMatrixNormNp4 # 4 процесора
@@ -55,13 +54,19 @@ gradle lab8:runMpiMatrixNormNp8 # 8 процесорів
 gradle lab8:runMpiMatrixNormNp12 # 12 процесорів
 ```
 
+https://github.com/user-attachments/assets/0bcfac2b-94bf-4add-96c3-f47487d17376
+
 ### Завдання 2
 
 Напишiть паралельну програму алгоритму множення за Штрассеном на 7 процесорах.
 
-Реалізація в коді: StrassenMul7
-Запуск:
+#### Запуск
 
 ```bash
 gradle lab8:runMpiStrassenMul7
 ```
+
+
+https://github.com/user-attachments/assets/347a270f-d2a4-454c-b0c7-43493f53239f
+
+
