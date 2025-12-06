@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package  com.mathpar.matrix.file.ops;
+package com.mathpar.matrix.file.ops;
 import  com.mathpar.matrix.*;
 import  com.mathpar.matrix.MatrixD;
 import  com.mathpar.matrix.file.spec.EMArr;

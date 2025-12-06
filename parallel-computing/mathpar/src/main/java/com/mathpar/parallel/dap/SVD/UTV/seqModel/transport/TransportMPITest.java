@@ -34,7 +34,7 @@ public class TransportMPITest {
         int pool = comm.getSize();
         MatrixS[] matrices = null;
 
-        System.out.println(String.format("rank[%d]/%d",rank, pool));
+        System.out.printf("rank[%d]/%d%n", rank, pool);
 
         if(rank == root){
             matrices = IntStream.range(0, pool).mapToObj(i -> matrix(size)).toArray(MatrixS[]::new);

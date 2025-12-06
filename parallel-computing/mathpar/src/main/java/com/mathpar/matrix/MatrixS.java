@@ -8,6 +8,7 @@ import com.mathpar.polynom.Polynom;
 import mpi.MPIException;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -60,7 +61,7 @@ import java.util.concurrent.Future;
  * @author gennadi
  * @version 2.0
  */
-public class MatrixS extends Element {// implements Serializable {
+public class MatrixS extends Element implements Serializable {
     static final long serialVersionUID = 10000000000101L;
     /**
      * число строк в матрице, обычно это степень 2-х

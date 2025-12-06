@@ -50,7 +50,9 @@ gradle lab8:runMpiVectorToScalar
 Запуск:
 
 ```bash
-gradle lab8:runMpiMatrixNorm
+gradle lab8:runMpiMatrixNormNp4 # 4 процесора
+gradle lab8:runMpiMatrixNormNp8 # 8 процесорів
+gradle lab8:runMpiMatrixNormNp12 # 12 процесорів
 ```
 
 ### Завдання 2

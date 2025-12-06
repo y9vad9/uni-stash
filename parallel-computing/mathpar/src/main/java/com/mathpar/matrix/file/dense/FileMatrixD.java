@@ -1,5 +1,5 @@
 
-package  com.mathpar.matrix.file.dense;
+package com.mathpar.matrix.file.dense;
 
 import com.mathpar.matrix.MatrixD;
 import com.mathpar.matrix.file.dm.MatrixL;

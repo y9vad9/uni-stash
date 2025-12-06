@@ -1,4 +1,4 @@
-package  com.mathpar.parallel.stat.FMD;
+package com.mathpar.parallel.stat.FMD;
 
 import java.io.File;
 import java.io.IOException;

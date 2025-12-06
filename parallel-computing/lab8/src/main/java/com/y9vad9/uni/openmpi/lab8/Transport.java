@@ -1,4 +1,4 @@
-package com.y9vad9.uni.openmpi.lab7;
+package com.y9vad9.uni.openmpi.lab8;
 
 import mpi.MPI;
 import mpi.MPIException;
@@ -11,8 +11,7 @@ import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 
 public class Transport {
-    public static void sendObject(Object a, int proc, int tag)
-        throws MPIException, IOException {
+    public static void sendObject(Object a, int proc, int tag) throws MPIException, IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
         oos.writeObject(a);

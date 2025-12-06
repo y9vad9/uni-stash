@@ -55,37 +55,20 @@ afterEvaluate {
     val mpiLibPath = providers.environmentVariable("MPI_LIB")
         .orElse(provider { localProps.getProperty("mpi.lib") })
 
-    val buildDirectory = layout.buildDirectory.get()
-    val buildDirMpi = "${buildDirectory.asFile.absolutePath}/classes-mpi"
-    val mpiJar = rootProject.file("libs/mpi.jar")
-
     mpiExtension.runnables.forEach { config ->
-        val compileTask = tasks.register("compileMpi${config.name}", Exec::class) {
-            group = "mpi"
-            val srcFiles = sourceSets.main.get().allJava.files.map { it.absolutePath }
-
-            inputs.files(sourceSets.main.get().allJava)
-            outputs.dir(buildDirMpi)
-
-            commandLine(
-                mpiJavaCompiler.get(),
-                "-d", buildDirMpi,
-                "-classpath", sourceSets.main.get().compileClasspath.asPath + ":" + mpiJar.absolutePath,
-                *srcFiles.toTypedArray()
-            )
-        }
-
         tasks.register<Exec>("runMpi${config.name}") {
             group = "mpi"
 
-            dependsOn(compileTask)
+            dependsOn(tasks.withType<JavaCompile>().first())
             environment("DYLD_LIBRARY_PATH", mpiLibPath.get())
+
+            val runtimeCp = sourceSets.main.get().runtimeClasspath.asPath
 
             commandLine(
                 mpiRun.get(),
                 "-np", "${config.processes.get()}",
                 "${javaToolchains.launcherFor(java.toolchain).get().executablePath}",
-                "-cp", "$buildDirMpi:${mpiJar.absolutePath}",
+                "-cp", runtimeCp,
                 "-Djava.library.path=${mpiLibPath.get()}",
                 "--enable-native-access=ALL-UNNAMED",
                 config.mainClass.get()
