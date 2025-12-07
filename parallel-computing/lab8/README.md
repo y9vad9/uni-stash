@@ -2,6 +2,8 @@
 
 https://github.com/user-attachments/assets/afb9a15e-e068-45f1-897b-3d0f65973a4b
 
+> Окремі відео для контрольних завдань знаходяться нижче.
+
 ## Приклади з підручника
 
 ### MatrixMul4
@@ -66,7 +68,7 @@ https://github.com/user-attachments/assets/0bcfac2b-94bf-4add-96c3-f47487d17376
 gradle lab8:runMpiStrassenMul7
 ```
 
+https://github.com/user-attachments/assets/33b81749-2e82-4918-a6a9-329f694fdc53
 
-https://github.com/user-attachments/assets/347a270f-d2a4-454c-b0c7-43493f53239f
 
 
