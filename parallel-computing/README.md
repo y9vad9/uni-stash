@@ -46,4 +46,18 @@ mpi.bin=/path/to/openmpi/bin
 mpi.lib=/path/to/openmpi/lib
 ```
 
-Це дозволить Gradle Convention Plugin знайти потрібні шляхи для запуску та компіляції MPI Java.
+Це дозволить Gradle Convention Plugin знайти потрібні шляхи для запуску MPI Java.
+
+## Налаштування для запуску бінарних файлів
+
+Щоб запустити, наприклад, [lab1/executables/HelloWorldParallel](lab1/executables/HelloWorldParallel) локально, потрібно (але не обов'язково) задати такі змінні оточення:
+
+* **HOSTFILE** – необов’язково, використовується для емуляції суперкомп’ютера.
+* **DYLD_LIBRARY_PATH** – на випадок, якщо потрібно вказати шлях до бібліотек OpenMPI:
+
+  ```bash
+  export DYLD_LIBRARY_PATH=/path/to/openmpi/lib:$DYLD_LIBRARY_PATH
+  ```
+
+> На macOS можуть виникати проблеми з динамічним лінкуванням через System Integrity Protection (SIP), коли перевизначення `$DYLD_LIBRARY_PATH` 
+> може не спрацювати. Для обходу, найкраще всього скористатись програмою install_name_tool.

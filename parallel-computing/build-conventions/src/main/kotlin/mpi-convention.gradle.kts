@@ -1,8 +1,5 @@
 import java.io.FileInputStream
-import java.util.Properties
-import org.gradle.api.Named
-import org.gradle.api.NamedDomainObjectContainer
-import org.gradle.api.provider.Property
+import java.util.*
 
 plugins {
     java
@@ -45,6 +42,20 @@ abstract class MpiExtension @Inject constructor(project: Project) {
 
 val mpiExtension = project.extensions.create("mpi", MpiExtension::class.java, project)
 
+val fatJar = tasks.register<Jar>("fatJar") {
+    group = "build"
+    archiveClassifier.set("all") // або "" щоб замінити jar
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
+}
+
 afterEvaluate {
     val mpiRun = providers.environmentVariable("MPI_BIN")
         .orElse(provider { localProps.getProperty("mpi.bin") + "/mpirun" })
@@ -73,5 +84,45 @@ afterEvaluate {
                 config.mainClass.get()
             )
         }
+
+        tasks.register("buildMpiExecutable${config.name}") {
+            group = "mpi"
+
+            dependsOn(fatJar)
+
+            val jarFile = fatJar.flatMap { it.archiveFile }
+            val outputFile = project.file("executables/${config.name}")
+            val processes = config.processes
+            val mainClass = config.mainClass
+
+            doLast {
+                val output = outputFile
+                output.parentFile.mkdirs()
+                val jar = jarFile.get().asFile
+
+                val script = buildString {
+                    appendLine("#!/bin/bash")
+                    appendLine("TMPDIR=$(mktemp -d)")
+                    appendLine("tail -n +11 \"\$0\" > \"\$TMPDIR/app.jar\"")
+                    appendLine("HOSTFILE=\"\$HOSTFILE\"")
+                    appendLine("env DYLD_LIBRARY_PATH=\"\$DYLD_LIBRARY_PATH\" mpirun -np ${processes.get()} \\")
+                    appendLine("    \${HOSTFILE:+--hostfile \$HOSTFILE} \\")
+                    appendLine("    --bind-to none java -cp \$TMPDIR/app.jar -Djava.library.path=\$DYLD_LIBRARY_PATH \\")
+                    appendLine("    --enable-native-access=ALL-UNNAMED ${mainClass.get()}")
+                    appendLine("exit 0")
+                    appendLine("__PAYLOAD__")
+                }
+
+                output.outputStream().use { out ->
+                    out.write(script.toByteArray(Charsets.UTF_8))
+                    jar.inputStream().use { input ->
+                        input.copyTo(out)
+                    }
+                }
+
+                output.setExecutable(true)
+            }
+        }
     }
 }
+
