@@ -5,6 +5,6 @@ plugins {
 group = "com.y9vad9.uni.openmpi.lab1"
 
 mpi.runnables.create("HelloWorldParallel") {
-    processes = 4
+    processes = 16
     mainClass = "com.y9vad9.uni.openmpi.lab1.HelloWorldParallel"
 }

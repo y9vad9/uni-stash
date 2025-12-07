@@ -64,6 +64,8 @@ afterEvaluate {
             commandLine(
                 mpiRun.get(),
                 "-np", "${config.processes.get()}",
+                "--hostfile", "${rootProject.file("hostfile").absolutePath}",
+                "--bind-to", "none",
                 "${javaToolchains.launcherFor(java.toolchain).get().executablePath}",
                 "-cp", runtimeCp,
                 "-Djava.library.path=${mpiLibPath.get()}",
