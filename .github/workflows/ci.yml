@@ -47,19 +47,7 @@ jobs:
           fi
           echo "OMPI_DIR=$OMPI_DIR" >> $GITHUB_ENV
 
-      - name: Install essential utils
-        run: sudo apt-get update && sudo apt-get install -y coreutils findutils
-
-      - name: Build and run MPI executables
-        run: ./gradlew build runMpiAll
-        shell: bash
-        env:
-          PATH: ${{ env.OMPI_DIR }}/bin:$PATH
-          LD_LIBRARY_PATH: ${{ env.OMPI_DIR }}/lib:$LD_LIBRARY_PATH
-          MPI_LIB: ${{ env.OMPI_DIR }}/lib
-          MPI_BIN: ${{ env.OMPI_DIR }}/bin
-
-      - name: Run all MPI executables
+      - name: Run all precompiled MPI executables
         working-directory: parallel-computing
         shell: bash
         env:
@@ -74,6 +62,17 @@ jobs:
               "$exe"
             fi
           done
+
+      - name: Build and run MPI executables
+        run: |
+          sudo apt-get update && sudo apt-get install -y coreutils findutils curl tar build-essential
+          ./gradlew build runMpiAll
+        shell: bash
+        env:
+          PATH: ${{ env.OMPI_DIR }}/bin:$PATH
+          LD_LIBRARY_PATH: ${{ env.OMPI_DIR }}/lib:$LD_LIBRARY_PATH
+          MPI_LIB: ${{ env.OMPI_DIR }}/lib
+          MPI_BIN: ${{ env.OMPI_DIR }}/bin
 
       - name: Build system-programming labs
         working-directory: system-programming
