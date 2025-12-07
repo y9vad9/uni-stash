@@ -6,10 +6,10 @@ import mpi.MPIException;
 /**
  * <h2>Команда для запуску</h2>
  * <pre>
- * mpijavac -d build/classes HelloWorldParallel
+ * mpijavac -d build/classes HelloWorldParallel.java
  * mpirun -np 16 --hostfile <HOSTFILE_PATH> --bind-to none java -cp build/classes \
  *     -Djava.library.path=<MPI_LIB_PATH>
- *     --enable-native-access=ALL-UNNAMED <MAIN_CLASS>
+ *     --enable-native-access=ALL-UNNAMED com.y9vad9.uni.openmpi.lab1.HelloWorldParallel
  * </pre>
  *
  * <h2>Протокол</h2>
