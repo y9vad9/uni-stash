@@ -30,7 +30,6 @@ mpi.runnables {
     }
 
     listOf(4, 8, 12)
-        .filter { Runtime.getRuntime().availableProcessors() >= it }
         .forEach { np ->
             create("MatrixNormNp$np") {
                 processes = np

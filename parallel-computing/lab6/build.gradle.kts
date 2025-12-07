@@ -26,7 +26,7 @@ mpi.runnables {
     // Контрольні завдання
     // Якщо, наприклад, на комп'ютері лише 4 ядра, таски типу runMpiXNp8 та
     // runMpiXNp12 не будуть створені
-    listOf(4, 8, 12).filter { it <= Runtime.getRuntime().availableProcessors() }.forEach { np ->
+    listOf(4, 8, 12).forEach { np ->
         (1..5).forEach { taskNumber ->
             create("Task${taskNumber}Np$np") {
                 processes = np
