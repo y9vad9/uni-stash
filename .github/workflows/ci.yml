@@ -47,6 +47,9 @@ jobs:
           fi
           echo "OMPI_DIR=$OMPI_DIR" >> $GITHUB_ENV
 
+      - name: Install essential utils
+        run: sudo apt-get update && sudo apt-get install -y coreutils findutils
+
       - name: Build and run MPI executables
         run: ./gradlew build runMpiAll
         shell: bash
