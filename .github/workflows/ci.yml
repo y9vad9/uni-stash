@@ -49,7 +49,7 @@ jobs:
 
       - name: Run all precompiled MPI executables
         working-directory: parallel-computing
-        shell: bash
+        shell: bash -l {0}
         env:
           DYLD_LIBRARY_PATH: ${{ env.MPI_LIB }}:${{ env.DYLD_LIBRARY_PATH }}
           PATH: ${{ env.MPI_BIN }}:${{ env.PATH }}
@@ -68,7 +68,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y coreutils findutils curl tar build-essential
           ./gradlew build runMpiAll
-        shell: bash
+        shell: bash -l {0}
         env:
           PATH: ${{ env.OMPI_DIR }}/bin:$PATH
           LD_LIBRARY_PATH: ${{ env.OMPI_DIR }}/lib:$LD_LIBRARY_PATH
