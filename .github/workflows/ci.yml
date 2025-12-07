@@ -55,7 +55,7 @@ jobs:
           PATH: ${{ env.MPI_BIN }}:${{ env.PATH }}
           HOSTFILE: ${{ github.workspace }}/parallel-computing/hostfile
         run: |
-          sudo apt-get update && sudo apt-get install -y coreutils findutils curl tar build-essential
+          apt-get update && apt-get install -y coreutils findutils curl tar build-essential
           shopt -s nullglob
           for exe in lab*/executables/*; do
             if [[ "$(basename "$exe")" != "DeadlockProblem" ]]; then
@@ -66,7 +66,7 @@ jobs:
 
       - name: Build and run MPI executables
         run: |
-          sudo apt-get update && sudo apt-get install -y coreutils findutils curl tar build-essential
+          apt-get update && apt-get install -y coreutils findutils curl tar build-essential
           ./gradlew build runMpiAll
         shell: bash -l {0}
         env:
