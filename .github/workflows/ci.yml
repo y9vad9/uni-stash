@@ -12,6 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: parallel-computing
+        shell: bash
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
