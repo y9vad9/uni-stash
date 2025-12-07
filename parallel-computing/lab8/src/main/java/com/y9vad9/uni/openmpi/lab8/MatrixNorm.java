@@ -4,6 +4,13 @@ import mpi.MPI;
 import mpi.MPIException;
 import java.util.Random;
 
+/**
+ * <h2>Завдання</h2>
+ *
+ * Напишiть паралельну програму обчислення норми матрицi,
+ * використовуючи колективнi команди. Протестуйте програму
+ * на 4, 8, 12 процесорах.
+ */
 public class MatrixNorm {
 
     public static void main(String[] args) throws MPIException {

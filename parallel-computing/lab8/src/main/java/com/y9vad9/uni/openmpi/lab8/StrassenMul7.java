@@ -9,6 +9,12 @@ import com.mathpar.parallel.utils.MPITransport;
 import mpi.MPI;
 import mpi.MPIException;
 
+/**
+ * <h2>Завдання</h2>
+ *
+ * Напишiть паралельну програму алгоритму множення за
+ * Штрассеном на 7 процесорах.
+ */
 public class StrassenMul7 {
     private static final int TAG_SEND_MATRIX_A = 10;
     private static final int TAG_SEND_MATRIX_B = 11;
