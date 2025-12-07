@@ -48,11 +48,28 @@ jobs:
 
       - name: Build and run MPI executables
         run: ./gradlew build runMpiAll
+        shell: bash
         env:
           PATH: ${{ env.OMPI_DIR }}/bin:$PATH
           LD_LIBRARY_PATH: ${{ env.OMPI_DIR }}/lib:$LD_LIBRARY_PATH
           MPI_LIB: ${{ env.OMPI_DIR }}/lib
           MPI_BIN: ${{ env.OMPI_DIR }}/bin
+
+      - name: Run all MPI executables
+        working-directory: parallel-computing
+        shell: bash
+        env:
+          DYLD_LIBRARY_PATH: ${{ env.MPI_LIB }}:${{ env.DYLD_LIBRARY_PATH }}
+          PATH: ${{ env.MPI_BIN }}:${{ env.PATH }}
+          HOSTFILE: ${{ github.workspace }}/parallel-computing/hostfile
+        run: |
+          shopt -s nullglob
+          for exe in lab*/executables/*; do
+            if [[ "$(basename "$exe")" != "DeadlockProblem" ]]; then
+              echo "Running $exe"
+              "$exe"
+            fi
+          done
 
       - name: Build system-programming labs
         working-directory: system-programming
