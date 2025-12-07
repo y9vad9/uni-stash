@@ -15,12 +15,12 @@ https://github.com/user-attachments/assets/f3f11f9a-6a02-439e-b808-49bd3cf3989f
 
 ## Налаштування процесів
 
-За завданням визначено **4 процеси**:
+За завданням визначено **16 процесів**:
 
 ```kotlin
 mpi.runnables {
     create(/*...*/) {
-        processes = 4
+        processes = 16
     }
 }
 ```
