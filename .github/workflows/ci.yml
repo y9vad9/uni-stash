@@ -2,11 +2,9 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-test:
@@ -34,9 +32,29 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Build and run tests
-        run: ./gradlew build test
-      
+      - name: Install OpenMPI 5.0.9
+        id: openmpi
+        run: |
+          OMPI_DIR=$HOME/openmpi-5.0.9
+          if [ ! -d "$OMPI_DIR" ]; then
+            curl -L https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.9.tar.gz -o openmpi.tar.gz
+            tar xf openmpi.tar.gz
+            cd openmpi-5.0.9
+            ./configure --prefix=$OMPI_DIR
+            make -j$(nproc)
+            make install
+          fi
+          echo "OMPI_DIR=$OMPI_DIR" >> $GITHUB_ENV
+
+      - name: Build and run MPI executables
+        run: ./gradlew build runMpiAll
+        env:
+          PATH: ${{ env.OMPI_DIR }}/bin:$PATH
+          LD_LIBRARY_PATH: ${{ env.OMPI_DIR }}/lib:$LD_LIBRARY_PATH
+          MPI_LIB: ${{ env.OMPI_DIR }}/lib
+          MPI_BIN: ${{ env.OMPI_DIR }}/bin
+
       - name: Build system-programming labs
         working-directory: system-programming
-        run: make
+        run: make all
+
