@@ -58,10 +58,11 @@ val fatJar = tasks.register<Jar>("fatJar") {
 
 afterEvaluate {
     val mpiRun = providers.environmentVariable("MPI_BIN")
+        .map { File(it).resolve("mpirun").absolutePath }
         .orElse(
             provider {
                 val mpiBin = localProps.getProperty("mpi.bin")
-                if (mpiBin.isNullOrEmpty()) "mpirun" else "$mpiBin/mpirun"
+                if (mpiBin.isNullOrEmpty()) "mpirun" else File(mpiBin).resolve("mpirun").absolutePath
             }
         )
 

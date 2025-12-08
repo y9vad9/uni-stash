@@ -60,6 +60,7 @@ jobs:
           echo "MPI_LIB=$OMPI_DIR/lib" >> $GITHUB_ENV
 
       - name: Run all precompiled MPI executables
+        shell: bash
         working-directory: parallel-computing
         env:
           PATH: ${{ env.MPI_BIN }}:$PATH
