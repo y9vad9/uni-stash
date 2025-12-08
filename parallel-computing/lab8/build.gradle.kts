@@ -41,4 +41,9 @@ mpi.runnables {
         processes = 7
         mainClass = "com.y9vad9.uni.openmpi.lab8.StrassenMul7"
     }
+
+    create("MyMatrixDTest") {
+        processes = 4
+        mainClass = "com.y9vad9.uni.openmpi.lab8.MyMatrixDTest"
+    }
 }
