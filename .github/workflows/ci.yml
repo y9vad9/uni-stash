@@ -62,17 +62,18 @@ jobs:
       - name: Run all precompiled MPI executables
         working-directory: parallel-computing
         env:
-          PATH: ${{ env.MPI_BIN }}:/usr/bin:/bin:$PATH
-          LD_LIBRARY_PATH: ${{ env.MPI_LIB }}:$LD_LIBRARY_PATH
+          PATH: ${{ env.MPI_BIN }}:$PATH
+          DYLD_LIBRARY_PATH: ${{ env.MPI_LIB }}
+          LD_LIBRARY_PATH: ${{ env.MPI_LIB }}
           HOSTFILE: ${{ github.workspace }}/parallel-computing/hostfile
         run: |
           shopt -s nullglob
           for exe in lab*/executables/*; do
-            if [[ "$(basename "$exe")" != "DeadlockProblem" ]]; then
-              echo "Running $exe"
-              chmod +x "$exe"
-              "$exe" || { echo "$exe failed"; exit 1; }
-            fi
+          if [[ "$(basename "$exe")" != "DeadlockProblem" ]]; then
+            echo "Running $exe"
+            chmod +x "$exe"
+            DYLD_LIBRARY_PATH="${DYLD_LIBRARY_PATH}" "$exe" || { echo "$exe failed"; exit 1; }
+          fi
           done
 
       - name: Build and run MPI executables via Gradle
