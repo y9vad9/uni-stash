@@ -39,7 +39,6 @@ jobs:
             findutils \
             curl \
             tar \
-            xargs \
             unzip \
             bzip2 \
             gzip
