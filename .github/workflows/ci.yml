@@ -51,7 +51,7 @@ jobs:
             curl -L https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.9.tar.gz -o openmpi.tar.gz
             tar xf openmpi.tar.gz
             cd openmpi-5.0.9
-            ./configure --prefix=$OMPI_DIR
+            ./configure --prefix=$OMPI_DIR --enable-mpi-java
             make -j$(nproc)
             make install
           fi
