@@ -9,10 +9,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: parallel-computing
-        shell: bash
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -35,18 +32,17 @@ jobs:
 
       - name: Install essential utilities
         run: |
-          apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y \
-          build-essential \
-          coreutils \
-          findutils \
-          curl \
-          tar \
-          xargs \
-          unzip \
-          bzip2 \
-          gzip
-
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+            build-essential \
+            coreutils \
+            findutils \
+            curl \
+            tar \
+            xargs \
+            unzip \
+            bzip2 \
+            gzip
 
       - name: Install OpenMPI 5.0.9
         id: openmpi
@@ -65,9 +61,10 @@ jobs:
           echo "MPI_LIB=$OMPI_DIR/lib" >> $GITHUB_ENV
 
       - name: Run all precompiled MPI executables
+        working-directory: parallel-computing
         env:
           PATH: ${{ env.MPI_BIN }}:/usr/bin:/bin:$PATH
-          DYLD_LIBRARY_PATH: ${{ env.MPI_LIB }}:$DYLD_LIBRARY_PATH
+          LD_LIBRARY_PATH: ${{ env.MPI_LIB }}:$LD_LIBRARY_PATH
           HOSTFILE: ${{ github.workspace }}/parallel-computing/hostfile
         run: |
           shopt -s nullglob
@@ -80,6 +77,7 @@ jobs:
           done
 
       - name: Build and run MPI executables via Gradle
+        working-directory: parallel-computing
         run: ./gradlew build runMpiAll
         env:
           PATH: ${{ env.MPI_BIN }}:/usr/bin:/bin:$PATH
