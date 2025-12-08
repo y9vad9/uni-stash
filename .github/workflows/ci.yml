@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: parallel-computing
-        shell: bash
+        shell: bash -l -c  # login shell to have full PATH and standard utils
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -33,21 +33,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Install system dependencies
-        run: |
-          apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            build-essential \
-            coreutils \
-            findutils \
-            curl \
-            tar \
-            xargs \
-            unzip \
-            bzip2 \
-            gzip
-        shell: bash
-
       - name: Install OpenMPI 5.0.9
         id: openmpi
         run: |
@@ -65,7 +50,6 @@ jobs:
           echo "MPI_LIB=$OMPI_DIR/lib" >> $GITHUB_ENV
 
       - name: Run all precompiled MPI executables
-        working-directory: parallel-computing
         env:
           PATH: ${{ env.MPI_BIN }}:/usr/bin:/bin:$PATH
           DYLD_LIBRARY_PATH: ${{ env.MPI_LIB }}:$DYLD_LIBRARY_PATH
@@ -76,13 +60,12 @@ jobs:
             if [[ "$(basename "$exe")" != "DeadlockProblem" ]]; then
               echo "Running $exe"
               chmod +x "$exe"
-              "$exe" || exit 1
+              "$exe" || { echo "$exe failed"; exit 1; }
             fi
           done
 
       - name: Build and run MPI executables via Gradle
-        run: |
-          ./gradlew build runMpiAll
+        run: ./gradlew build runMpiAll
         env:
           PATH: ${{ env.MPI_BIN }}:/usr/bin:/bin:$PATH
           LD_LIBRARY_PATH: ${{ env.MPI_LIB }}:$LD_LIBRARY_PATH
