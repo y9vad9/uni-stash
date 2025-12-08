@@ -45,6 +45,7 @@
 mpi.bin=/path/to/openmpi/bin
 mpi.lib=/path/to/openmpi/lib
 ```
+Актуально лише якщо встановлення відбулось в кастомну директорію.
 
 Це дозволить Gradle Convention Plugin знайти потрібні шляхи для запуску MPI Java.
 
