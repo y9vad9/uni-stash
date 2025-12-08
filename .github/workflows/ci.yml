@@ -12,7 +12,7 @@ jobs:
     defaults:
       run:
         working-directory: parallel-computing
-        shell: bash -l -c  # login shell to have full PATH and standard utils
+        shell: bash
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -32,6 +32,21 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('parallel-computing/**/*.gradle*', 'parallel-computing/gradle.lockfile') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Install essential utilities
+        run: |
+          apt-get update
+          DEBIAN_FRONTEND=noninteractive apt-get install -y \
+          build-essential \
+          coreutils \
+          findutils \
+          curl \
+          tar \
+          xargs \
+          unzip \
+          bzip2 \
+          gzip
+
 
       - name: Install OpenMPI 5.0.9
         id: openmpi
