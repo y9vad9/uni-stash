@@ -43,7 +43,7 @@ mpi.runnables {
     }
 
     create("MyMatrixDTest") {
-        processes = 4
+        processes = 16
         mainClass = "com.y9vad9.uni.openmpi.lab8.MyMatrixDTest"
     }
 }

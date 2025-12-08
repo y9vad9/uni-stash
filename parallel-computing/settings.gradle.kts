@@ -15,6 +15,7 @@ include(
     ":lab6",
     ":lab7",
     ":lab8",
+    ":final",
 )
 
 include(":mathpar")
